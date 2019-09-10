@@ -1,0 +1,44 @@
+{
+  "lang": "zh-CN",
+  "name": "凉风有信",
+  "short_name": "凉风有信",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "theme_color": "#1890ff",
+  "background_color": "#1890ff",
+  "description": "凉风有信的一个技术博客 APP",
+  "icons": [
+    {
+      "src": "images/touch/homeScreen48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "images/touch/homeScreen72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "images/touch/homeScreen96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "images/touch/homeScreen128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "images/touch/homeScreen144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "web",
+      "url": "https://gleehub.com",
+      "id": "com.gleehub.cnguu"
+    }
+  ]
+}
