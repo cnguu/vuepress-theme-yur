@@ -8,4 +8,4 @@
 
 :revolving_hearts: [Live Demo](https://gleehub.com)
 
-:book: [Live Docs](https://gleehub.com)
+:book: [Live Docs](https://gleehub.com/other/vuepress-theme-yur%20%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.html)
