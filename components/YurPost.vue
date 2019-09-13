@@ -25,9 +25,6 @@
                         <Content/>
                         <div class="end">
                             <YurTagCloud :tag-list="$page.frontmatter.tags"/>
-                            <ClientOnly v-if="$themeConfig.vssue">
-                                <Vssue :title="$page.title"/>
-                            </ClientOnly>
                         </div>
                     </div>
                 </a-col>

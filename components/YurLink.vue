@@ -25,9 +25,6 @@
                 </a-col>
             </a-row>
         </div>
-        <ClientOnly v-if="$themeConfig.vssue">
-            <Vssue :title="$page.title"/>
-        </ClientOnly>
     </div>
 </template>
 

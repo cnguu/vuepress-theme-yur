@@ -16,9 +16,6 @@
             </div>
         </div>
         <Content/>
-        <ClientOnly v-if="$themeConfig.vssue">
-            <Vssue :title="$page.title"/>
-        </ClientOnly>
     </div>
 </template>
 
