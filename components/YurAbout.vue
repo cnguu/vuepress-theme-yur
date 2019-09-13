@@ -1,15 +1,21 @@
 <template>
     <div id="yur-about">
-        <div class="banner">
-            <a-skeleton active :loading="loading">
-                <img :src="$withBase($themeConfig.about.banner) || require('../images/first-day-of-spring-2016-northern-hemisphere.gif')"
-                     :alt="$site.title || '凉风有信'"
-                >
-            </a-skeleton>
+        <div class="widget"
+             :style="{backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(' + ($withBase($themeConfig.about.banner) || require('../images/first-day-of-spring-2016-northern-hemisphere.gif')) + ')'}"
+        >
+            <img class="avatar"
+                 :src="$themeConfig.about.avatar"
+                 :alt="$site.title || '凉风有信'"
+            >
+            <p class="name">{{ $themeConfig.about.name || '凉风有信' }}</p>
+            <p class="introduction">{{ $themeConfig.about.introduction || '责难无以成事' }}</p>
+            <div class="total">
+                <a-badge status="processing" :text="'博文：' + $posts.length || 0"/>
+                <a-badge status="processing" :text="'分类：' + $categories.length || 0"/>
+                <a-badge status="processing" :text="'标签：' + Object.keys($tags).length || 0"/>
+            </div>
         </div>
-        <div class="content">
-            <h1>这个人真懒，什么都没写！</h1>
-        </div>
+        <Content/>
     </div>
 </template>
 
@@ -29,7 +35,6 @@
         beforeMount() {
         },
         mounted() {
-            this.loading = false;
         },
         beforeUpdate() {
         },
@@ -54,20 +59,55 @@
         margin: auto;
         padding: 40px 24px;
 
-        .banner {
+        .widget {
+            margin-bottom: 40px;
+            padding: 40px 0;
+            width: 100%;
+            height: 100%;
             text-align: center;
+            border-radius: @border-radius-base;
+            box-shadow: @box-shadow-base;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            color: #ffffff;
 
-            img {
-                width: 100%;
-                border-radius: @border-radius-base;
+            .avatar {
+                width: 128px;
+                height: auto;
+                border-radius: 50%;
+                box-shadow: @box-shadow-base;
             }
-        }
 
-        .content {
-            margin-top: 40px;
+            .name {
+                margin-bottom: 0;
+                font-size: 32px;
+            }
 
-            h1 {
-                text-align: center;
+            .introduction {
+                font-size: 16px;
+                color: darken(#ffffff, 20%);
+            }
+
+            .total {
+                margin: 0 auto;
+                width: fit-content;
+
+                & > span {
+                    margin-right: 10px;
+
+                    .ant-badge-status-processing {
+                        background-color: @primary-color;
+
+                        &::after {
+                            border: 1px solid @primary-color;
+                        }
+                    }
+
+                    .ant-badge-status-text {
+                        color: darken(#ffffff, 10%);
+                    }
+                }
             }
         }
     }
