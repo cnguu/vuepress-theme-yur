@@ -1,6 +1,6 @@
 module.exports = [
     ['@vuepress/medium-zoom', {
-        selector: '.post-content img',
+        selector: '.content__default img',
     }],
     ['@vuepress/pwa', {
         serviceWorker: true,
