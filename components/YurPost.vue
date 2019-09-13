@@ -25,6 +25,9 @@
                         <Content/>
                         <div class="end">
                             <YurTagCloud :tag-list="$page.frontmatter.tags"/>
+                            <ClientOnly v-if="$themeConfig.vssue">
+                                <Vssue :title="$page.title"/>
+                            </ClientOnly>
                         </div>
                     </div>
                 </a-col>
@@ -227,6 +230,7 @@
                 .end {
                     #yur-tag-cloud {
                         text-align: center;
+                        margin-bottom: 20px;
                     }
                 }
             }

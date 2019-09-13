@@ -25,6 +25,9 @@
                 </a-col>
             </a-row>
         </div>
+        <ClientOnly v-if="$themeConfig.vssue">
+            <Vssue :title="$page.title"/>
+        </ClientOnly>
     </div>
 </template>
 
@@ -79,7 +82,7 @@
         }
 
         .content {
-            margin-top: 40px;
+            margin: 40px 0;
 
             .ant-row {
                 & > div {
