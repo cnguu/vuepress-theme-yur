@@ -1,2 +1,59 @@
 .vssue {
+  .vssue-icon {
+    fill: @primary-color !important;
+  }
+
+  .vssue-status {
+    color: @primary-color !important;
+  }
+
+  .vssue-notice {
+    .vssue-progress {
+      background-color: @primary-color !important;
+    }
+
+    .vssue-alert {
+      color: @primary-color !important;
+      border-color: @primary-color !important;
+      background-color: lighten(@primary-color, 20%) !important;
+    }
+  }
+
+  .vssue-button {
+    padding: 0 15px !important;
+    height: 32px !important;
+    line-height: 30px !important;
+    border: 1px solid @border-color-base !important;
+    border-radius: @border-radius-base !important;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015) !important;
+    color: @text-color !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+
+    &:hover,
+    &:focus {
+      color: @primary-color !important;
+      border-color: @primary-color !important;
+    }
+
+    &:disabled {
+      color: @border-color-base !important;
+    }
+  }
+
+  .vssue-new-comment {
+    .vssue-comment-avatar {
+      img {
+        border-radius: 50% !important;
+        box-shadow: @box-shadow-base !important;
+      }
+    }
+  }
+
+  &:not(.vssue-comment-content) {
+    a {
+      color: @primary-color !important;
+    }
+  }
 }
