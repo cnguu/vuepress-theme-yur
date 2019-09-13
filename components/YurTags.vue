@@ -100,6 +100,16 @@
                 .ant-tabs-bar {
                     height: 578px;
                 }
+
+                .ant-tabs-content {
+                    .ant-tabs-tabpane {
+                        .ant-row {
+                            & > div {
+                                margin-bottom: 40px;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -111,10 +121,8 @@
                     .ant-tabs-tabpane {
                         .ant-row {
                             & > div {
-                                margin-top: 40px;
-
-                                &:first-child {
-                                    margin-top: 0;
+                                &:last-child {
+                                    margin-bottom: 0;
                                 }
                             }
                         }
