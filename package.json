@@ -24,6 +24,8 @@
     "vuepress": "^1.0.4"
   },
   "dependencies": {
+    "@vssue/api-github-v3": "^1.0.3",
+    "@vssue/vuepress-plugin-vssue": "^1.0.3",
     "@vuepress/markdown": "1.0.4",
     "@vuepress/markdown-loader": "1.0.4",
     "@vuepress/plugin-medium-zoom": "^1.0.4",
