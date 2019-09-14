@@ -35,7 +35,7 @@ export function crisp(siteData) {
         (function () {
             let newChild = document.createElement('script');
             newChild.src = 'https://client.crisp.chat/l.js';
-            newChild.async = true;
+            newChild.async = 1;
             document.getElementsByTagName('head')[0].appendChild(newChild);
         })();
     }
@@ -47,11 +47,7 @@ export function baiDuAuthPush(siteData) {
         (function () {
             let newChild = document.createElement('script'),
                 refChild = document.getElementsByTagName('script')[0];
-            if (window.location.protocol.split(':')[0] === 'https') {
-                newChild.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-            } else {
-                newChild.src = 'http://push.zhanzhang.baidu.com/push.js';
-            }
+            newChild.src = 'https://zz.bdstatic.com/linksubmit/push.js';
             refChild.parentNode.insertBefore(newChild, refChild);
         })();
     }
