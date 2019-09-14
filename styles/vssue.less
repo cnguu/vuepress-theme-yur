@@ -15,6 +15,19 @@
           }
         }
       }
+
+      .vssue-comment-footer {
+        .vssue-comment-operations {
+          color: @primary-color !important;
+        }
+      }
+
+      &.vssue-comment-edit-mode {
+        .vssue-comment-main {
+          border-color: @primary-color !important;
+          box-shadow: 0 0 1px 1px lighten(@primary-color, 20%) !important;
+        }
+      }
     }
   }
 
@@ -26,10 +39,10 @@
       font-size: 14px !important;
       color: @text-color !important;
       transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
-      background-image: none;
+      background-image: none !important;
 
       &:focus {
-        box-shadow: 0 0 0 2px darken(@primary-color, 80%) !important;
+        box-shadow: 0 0 0 2px lighten(@primary-color, 20%) !important;
         border-color: @primary-color !important;
       }
     }
