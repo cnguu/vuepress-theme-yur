@@ -1,0 +1,29 @@
+.crisp-client {
+  #crisp-chatbox {
+    & > div {
+      & > a {
+        right: 20px !important;
+        bottom: 80px !important;
+
+        & > span {
+          &:last-child {
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 50% !important;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, .15) !important;
+            background-color: @primary-color !important;
+
+            & > span {
+              & > span {
+                width: 20px !important;
+                height: 20px !important;
+                top: 10px !important;
+                left: 10px !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
