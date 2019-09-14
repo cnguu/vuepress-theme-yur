@@ -23,21 +23,36 @@ export default ({ Vue, options, router, siteData }) => {
         return path;
     };
     baiDuAuthPush(siteData);
+    crisp(siteData);
     console.log(`\n%c(づ￣ ³￣)づヾ 作者：cnguu%c VuePress 博客主题 - Yur \n`, 'color: #fadfa3; background: #030307; padding:5px;', 'background: #fadfa3; padding:5px 0;');
 };
+
+export function crisp(siteData) {
+    const { crisp } = siteData.themeConfig;
+    if (crisp && allowLoad()) {
+        window.$crisp = [];
+        window.CRISP_WEBSITE_ID = crisp;
+        (function () {
+            let newChild = document.createElement('script');
+            newChild.src = 'https://client.crisp.chat/l.js';
+            newChild.async = true;
+            document.getElementsByTagName('head')[0].appendChild(newChild);
+        })();
+    }
+}
 
 export function baiDuAuthPush(siteData) {
     const { baiDuAuthPush } = siteData.themeConfig;
     if (baiDuAuthPush && allowLoad()) {
         (function () {
-            let bp = document.createElement('script'),
-                s = document.getElementsByTagName('script')[0];
+            let newChild = document.createElement('script'),
+                refChild = document.getElementsByTagName('script')[0];
             if (window.location.protocol.split(':')[0] === 'https') {
-                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                newChild.src = 'https://zz.bdstatic.com/linksubmit/push.js';
             } else {
-                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                newChild.src = 'http://push.zhanzhang.baidu.com/push.js';
             }
-            s.parentNode.insertBefore(bp, s);
+            refChild.parentNode.insertBefore(newChild, refChild);
         })();
     }
 }
