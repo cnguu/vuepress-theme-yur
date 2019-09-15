@@ -13,7 +13,6 @@ module.exports = [
     ['@vuepress/search', {
         searchMaxSuggestions: 10,
     }],
-    'vuepress-plugin-baidu-autopush',
     ['container', {
         type: 'tip',
         defaultTitle: '',
