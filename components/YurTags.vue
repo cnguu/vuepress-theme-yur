@@ -108,9 +108,10 @@
                                 margin-bottom: 40px;
 
                                 .ant-card-cover {
-                                    img {
-                                        height: 314.31px;
-                                    }
+                                    width: 100%;
+                                    height: 0;
+                                    padding-bottom: 100%;
+                                    overflow: hidden;
                                 }
                             }
                         }
