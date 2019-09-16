@@ -10,7 +10,9 @@
             <p class="name">{{ $themeConfig.about.name || '凉风有信' }}</p>
             <p class="introduction">{{ $themeConfig.about.introduction || '责难无以成事' }}</p>
             <div class="total">
-                <a-badge status="processing" :text="'博文：' + $posts.length || 0"/>
+                <router-link to="/posts/?page=1&pageSize=12">
+                    <a-badge status="processing" :text="'博文：' + $posts.length || 0"/>
+                </router-link>
                 <a-badge status="processing" :text="'分类：' + $categories.length || 0"/>
                 <a-badge status="processing" :text="'标签：' + Object.keys($tags).length || 0"/>
             </div>
@@ -96,6 +98,7 @@
                 margin: 0 auto;
                 width: fit-content;
 
+                a > span,
                 & > span {
                     margin-right: 10px;
 
