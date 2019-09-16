@@ -24,6 +24,27 @@
                         </div>
                         <Content/>
                         <div class="end">
+                            <div class="copyright">
+                                <a-tooltip placement="topRight" style="float: left">
+                                    <template slot="title">
+                                        <span>{{ $page.copyright || '允许转载，需保留原文链接，著作权归博主所有' }}</span>
+                                    </template>
+                                    <a-button type="link">
+                                        <a-icon type="copyright"/>
+                                        转载说明
+                                    </a-button>
+                                </a-tooltip>
+                                <a-tooltip v-if="$page.frontmatter.update_date" placement="topLeft"
+                                           style="float: right">
+                                    <template slot="title">
+                                        <span>发布于：<br>{{ format($page.frontmatter.date) }}<br>最后更新：<br>{{ format($page.frontmatter.update_date) }}</span>
+                                    </template>
+                                    <a-button type="link">
+                                        <a-icon type="calendar"/>
+                                        {{ format($page.frontmatter.update_date) }}
+                                    </a-button>
+                                </a-tooltip>
+                            </div>
                             <YurTagCloud :tag-list="$page.frontmatter.tags"/>
                             <ClientOnly v-if="$themeConfig.vssue">
                                 <Vssue :title="$page.title"/>
@@ -156,7 +177,11 @@
                 return `/${ this.$page.relativePath.split('/').shift() }/?page=1&pageSize=12`;
             },
         },
-        methods: {},
+        methods: {
+            format(date) {
+                return this.$moment(date).format('YYYY-MM-DD');
+            },
+        },
     };
 </script>
 
@@ -228,6 +253,20 @@
                 }
 
                 .end {
+                    margin-top: 60px;
+
+                    .copyright {
+                        position: relative;
+                        height: 40px;
+                        line-height: 40px;
+                        border-top: 1px solid #eff2f7;
+
+                        .ant-btn {
+                            padding: 0;
+                            color: #a3aab1;
+                        }
+                    }
+
                     #yur-tag-cloud {
                         text-align: center;
                         margin-bottom: 20px;
