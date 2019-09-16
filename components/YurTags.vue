@@ -106,6 +106,12 @@
                         .ant-row {
                             & > div {
                                 margin-bottom: 40px;
+
+                                .ant-card-cover {
+                                    img {
+                                        height: 314.31px;
+                                    }
+                                }
                             }
                         }
                     }
