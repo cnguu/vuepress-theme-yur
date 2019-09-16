@@ -239,7 +239,7 @@
                 width: 100%;
                 max-width: 1200px;
                 margin: auto;
-                padding: 60px;
+                padding: 36px 60px 60px 60px;
                 text-align: center;
             }
         }
@@ -305,7 +305,7 @@
 
             .page-2 {
                 .page {
-                    padding: 60px 20px;
+                    padding: 36px 20px 60px 20px;
                 }
             }
         }
