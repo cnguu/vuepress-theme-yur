@@ -217,6 +217,7 @@
 
                             img {
                                 width: 100%;
+                                max-height: 200px;
                                 box-shadow: @box-shadow-base;
                                 border-radius: @border-radius-base;
                             }
