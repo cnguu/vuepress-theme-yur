@@ -1,3 +1,5 @@
+import Axios from 'axios';
+import VueAxios from 'vue-axios';
 import Ant from 'ant-design-vue';
 import zh_CN from 'ant-design-vue/lib/locale-provider/zh_CN';
 import moment from 'moment';
@@ -7,6 +9,7 @@ import './styles/index.less';
 export default ({ Vue, options, router, siteData }) => {
     Vue.config.devtools = false;
     Vue.config.productionTip = false;
+    Vue.use(VueAxios, Axios);
     Vue.use(Ant);
     moment.locale('zh-cn');
     Vue.prototype.$zh_CN = zh_CN;
@@ -22,7 +25,7 @@ export default ({ Vue, options, router, siteData }) => {
         }
         return path;
     };
-    baiDuAuthPush(siteData);
+    baiDuPush(Vue, siteData);
     crisp(siteData);
     console.log(`\n%c(づ￣ ³￣)づヾ 作者：cnguu%c VuePress 博客主题 - Yur \n`, 'color: #fadfa3; background: #030307; padding:5px;', 'background: #fadfa3; padding:5px 0;');
 };
@@ -41,15 +44,30 @@ export function crisp(siteData) {
     }
 }
 
-export function baiDuAuthPush(siteData) {
-    const { baiDuAuthPush } = siteData.themeConfig;
-    if (baiDuAuthPush && allowLoad()) {
+export function baiDuPush(Vue, siteData) {
+    const { site, baiDuActivePush, baiDuAuthPush } = siteData.themeConfig;
+    if (allowLoad() && baiDuAuthPush) {
         (function () {
             let newChild = document.createElement('script'),
                 refChild = document.getElementsByTagName('script')[0];
             newChild.src = 'https://zz.bdstatic.com/linksubmit/push.js';
             refChild.parentNode.insertBefore(newChild, refChild);
         })();
+    }
+    if (site && baiDuActivePush && Vue.prototype.$posts.length) {
+        let urls = [];
+        Vue.prototype.$posts.forEach(post => {
+            const { regularPath } = post;
+            urls.push(regularPath);
+        });
+        Vue.axios.post(`http://data.zz.baidu.com/urls?site=${ site }&token=${ baiDuActivePush }`, urls, {
+            headers: {
+                'Host': 'http://data.zz.baidu.com',
+                'Content-Type': 'text/plain',
+            },
+        }).then(response => {
+            console.log(response)
+        });
     }
 }
 
