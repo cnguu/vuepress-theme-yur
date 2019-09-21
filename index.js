@@ -2,6 +2,7 @@ const path = require('path');
 const plugins = require('./config/plugins');
 const additionalPages = require('./config/page');
 module.exports = (options, ctx) => ({
+    name: 'vuepress-theme-yur',
     alias() {
         const { themeConfig, siteConfig } = ctx;
         // resolve algolia

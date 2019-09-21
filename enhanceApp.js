@@ -54,19 +54,22 @@ export function baiDuPush(Vue, siteData) {
             refChild.parentNode.insertBefore(newChild, refChild);
         })();
     }
-    if (site && baiDuActivePush && Vue.prototype.$posts.length) {
+    if (!allowLoad() && site && baiDuActivePush && Vue.prototype.$posts.length) {
         let urls = [];
         Vue.prototype.$posts.forEach(post => {
             const { regularPath } = post;
-            urls.push(regularPath);
+            urls.push(site + regularPath);
         });
-        Vue.axios.post(`http://data.zz.baidu.com/urls?site=${ site }&token=${ baiDuActivePush }`, urls, {
+        Vue.axios.post(`http://data.zz.baidu.com/urls?site=${ site }&token=${ baiDuActivePush }`, urls.join('\n'), {
             headers: {
-                'Host': 'http://data.zz.baidu.com',
                 'Content-Type': 'text/plain',
             },
         }).then(response => {
-            console.log(response)
+            if (response.data) {
+                console.log('百度主动推送成功数量：' + response.data.success);
+            } else {
+                console.log('百度主动推送失败');
+            }
         });
     }
 }
