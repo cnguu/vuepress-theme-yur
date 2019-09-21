@@ -41,7 +41,6 @@
     "markdown-it": "^9.1.0",
     "markdown-it-container": "^2.0.0",
     "moment": "^2.24.0",
-    "vue-axios": "^2.1.4",
     "vuepress-plugin-container": "^2.0.2"
   }
 }

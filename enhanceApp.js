@@ -1,15 +1,14 @@
-import Axios from 'axios';
-import VueAxios from 'vue-axios';
 import Ant from 'ant-design-vue';
 import zh_CN from 'ant-design-vue/lib/locale-provider/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 import './styles/index.less';
 
+const axios = require('axios');
+
 export default ({ Vue, options, router, siteData }) => {
     Vue.config.devtools = false;
     Vue.config.productionTip = false;
-    Vue.use(VueAxios, Axios);
     Vue.use(Ant);
     moment.locale('zh-cn');
     Vue.prototype.$zh_CN = zh_CN;
@@ -54,13 +53,13 @@ export function baiDuPush(Vue, siteData) {
             refChild.parentNode.insertBefore(newChild, refChild);
         })();
     }
-    if (!allowLoad() && site && baiDuActivePush && Vue.prototype.$posts.length) {
+    if (site && baiDuActivePush && Vue.prototype.$posts.length) {
         let urls = [];
         Vue.prototype.$posts.forEach(post => {
             const { regularPath } = post;
             urls.push(site + regularPath);
         });
-        Vue.axios.post(`http://data.zz.baidu.com/urls?site=${ site }&token=${ baiDuActivePush }`, urls.join('\n'), {
+        axios.post(`http://data.zz.baidu.com/urls?site=${ site }&token=${ baiDuActivePush }`, urls.join('\n'), {
             headers: {
                 'Content-Type': 'text/plain',
             },
