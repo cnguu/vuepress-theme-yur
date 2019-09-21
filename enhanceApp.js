@@ -31,7 +31,7 @@ export default ({ Vue, options, router, siteData }) => {
 
 export function crisp(siteData) {
     const { crisp } = siteData.themeConfig;
-    if (crisp && allowLoad()) {
+    if (crisp && isPro()) {
         window.$crisp = [];
         window.CRISP_WEBSITE_ID = crisp;
         (function () {
@@ -45,7 +45,7 @@ export function crisp(siteData) {
 
 export function baiDuPush(Vue, siteData) {
     const { site, baiDuActivePush, baiDuAuthPush } = siteData.themeConfig;
-    if (allowLoad() && baiDuAuthPush) {
+    if (isPro() && baiDuAuthPush) {
         (function () {
             let newChild = document.createElement('script'),
                 refChild = document.getElementsByTagName('script')[0];
@@ -53,13 +53,13 @@ export function baiDuPush(Vue, siteData) {
             refChild.parentNode.insertBefore(newChild, refChild);
         })();
     }
-    if (site && baiDuActivePush && Vue.prototype.$posts.length) {
+    if (isDev() && site && baiDuActivePush && Vue.prototype.$posts.length) {
         let urls = [];
         Vue.prototype.$posts.forEach(post => {
             const { regularPath } = post;
             urls.push(site + regularPath);
         });
-        axios.post(`http://data.zz.baidu.com/urls?site=${ site }&token=${ baiDuActivePush }`, urls.join('\n'), {
+        axios.post(`https://data.zz.baidu.com/urls?site=${ site }&token=${ baiDuActivePush }`, urls.join('\n'), {
             headers: {
                 'Content-Type': 'text/plain',
             },
@@ -73,8 +73,12 @@ export function baiDuPush(Vue, siteData) {
     }
 }
 
-export function allowLoad() {
+export function isPro() {
     return process.env.NODE_ENV === 'production' && typeof window !== 'undefined';
+}
+
+export function isDev() {
+    return process.env.NODE_ENV === 'development';
 }
 
 export function getCategories(siteData) {

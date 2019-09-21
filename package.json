@@ -36,7 +36,6 @@
     "ityped": "^1.0.3",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
-    "less-plugin-npm-import": "^2.1.0",
     "markdown-it": "^9.1.0",
     "markdown-it-container": "^2.0.0",
     "moment": "^2.24.0",
