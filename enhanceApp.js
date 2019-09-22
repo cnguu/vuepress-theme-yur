@@ -1,16 +1,17 @@
+import axios from 'axios';
 import Ant from 'ant-design-vue';
 import zh_CN from 'ant-design-vue/lib/locale-provider/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
+import 'ant-design-vue/dist/antd.less';
 import './styles/index.less';
 
-const axios = require('axios');
+moment.locale('zh-cn');
 
 export default ({ Vue, options, router, siteData }) => {
     Vue.config.devtools = false;
     Vue.config.productionTip = false;
     Vue.use(Ant);
-    moment.locale('zh-cn');
     Vue.prototype.$zh_CN = zh_CN;
     Vue.prototype.$moment = moment;
     Vue.prototype.$posts = getPosts(siteData);
@@ -26,7 +27,6 @@ export default ({ Vue, options, router, siteData }) => {
     };
     baiDuPush(Vue, siteData);
     crisp(siteData);
-    console.log(`\n%c(づ￣ ³￣)づヾ 作者：cnguu%c VuePress 博客主题 - Yur \n`, 'color: #fadfa3; background: #030307; padding:5px;', 'background: #fadfa3; padding:5px 0;');
 };
 
 export function crisp(siteData) {
@@ -78,7 +78,7 @@ export function isPro() {
 }
 
 export function isDev() {
-    return process.env.NODE_ENV === 'development';
+    return process.env.NODE_ENV === 'development' && typeof window === 'undefined';
 }
 
 export function getCategories(siteData) {
@@ -129,3 +129,5 @@ export function getPosts(siteData) {
 export function str2time(date) {
     return new Date(date).getTime();
 }
+
+console.log(`\n%c(づ￣ ³￣)づヾ 作者：cnguu%c VuePress 博客主题 - Yur \n`, 'color: #fadfa3; background: #030307; padding:5px;', 'background: #fadfa3; padding:5px 0;');

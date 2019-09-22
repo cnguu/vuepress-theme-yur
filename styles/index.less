@@ -1,6 +1,4 @@
-//@import "~ant-design-vue/dist/antd.less";
 @import "~prismjs/themes/prism-tomorrow.css";
-@import "~ant-design-vue/dist/antd.css";
 @import "./variable";
 @import "./code";
 @import "./keyframe";
@@ -10,7 +8,7 @@
 
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-track-piece {
-  background-color: #ffffff;
+  background-color: @body-background;
 }
 
 ::-webkit-scrollbar {
@@ -24,8 +22,12 @@
   box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, .45),inset -2px -2px 2px lighten(@primary-color, 15%);
 }
 
+::selection {
+  background: @primary-color;
+}
+
 body {
-  font-size: 16px;
+  font-size: @font-size-base;
 }
 
 ol, p, ul {

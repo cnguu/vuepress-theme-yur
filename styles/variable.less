@@ -1,10 +1,14 @@
+@import '~ant-design-vue/lib/style/color/colorPalette';
+
 @ant-prefix: yur;
-@primary-color: #1890ff; // 全局主色
-@link-color: #1890ff; // 链接色
+@body-background: #ffffff;
+@component-background: #ffffff;
+@primary-color: #39c5bb; // 全局主色 #1890ff
+@link-color: #39c5bb; // 链接色
 @success-color: #52c41a; // 成功色
 @warning-color: #faad14; // 警告色
 @error-color: #f5222d; // 错误色
-@font-size-base: 14px; // 主字号
+@font-size-base: 16px; // 主字号
 @heading-color: rgba(0, 0, 0, .85); // 标题色
 @text-color: rgba(0, 0, 0, .65); // 主文本色
 @text-color-secondary: #314659; // 次文本色
@@ -12,3 +16,263 @@
 @border-radius-base: 4px; // 组件/浮层圆角
 @border-color-base: #d9d9d9; // 边框色
 @box-shadow-base: 0 8px 15px rgba(0, 0, 0, .4); // 浮层阴影
+@codeLang: js, ts, html, md, vue, css, sass, scss, less, stylus, go, java, c, sh, yaml, py, docker, dockerfile, makefile, text, bash, php; // 代码块语言
+
+@primary-color-1: color(~`colorPalette('@{primary-color}', 1)`); // #e6f7ff
+@primary-color-2: color(~`colorPalette('@{primary-color}', 2)`); // #bae7ff
+@primary-color-3: color(~`colorPalette('@{primary-color}', 3)`); // #91d5ff
+@primary-color-4: color(~`colorPalette('@{primary-color}', 4)`); // #69c0ff
+@primary-color-5: color(~`colorPalette('@{primary-color}', 5)`); // #40a9ff
+@primary-color-7: color(~`colorPalette('@{primary-color}', 7)`); // #096dd9
+@primary-color-8: color(~`colorPalette('@{primary-color}', 8)`); // #0050b3
+@primary-color-9: color(~`colorPalette('@{primary-color}', 9)`); // #003a8c
+@primary-color-10: color(~`colorPalette('@{primary-color}', 10)`); // #002766
+
+a {
+  color: @primary-color;
+
+  &:hover {
+    color: @primary-color;
+  }
+}
+
+.ant-btn {
+  &:hover,
+  &:focus {
+    color: @primary-color-5;
+    border-color: @primary-color-5;
+  }
+
+  &-primary {
+    background-color: @primary-color;
+    border-color: @primary-color;
+
+    &:hover,
+    &:focus {
+      color: #ffffff;
+      background-color: @primary-color-5;
+      border-color: @primary-color-5;
+    }
+  }
+}
+
+.ant-menu-horizontal {
+  & > .ant-menu-item {
+    a {
+      &:hover {
+        color: @primary-color;
+      }
+    }
+
+    &:hover {
+      border-bottom: 2px solid @primary-color;
+      color: @primary-color;
+    }
+  }
+
+  & > .ant-menu-submenu {
+    &:hover {
+      border-bottom: 2px solid @primary-color;
+      color: @primary-color;
+    }
+  }
+
+  & > .ant-menu-item-active,
+  & > .ant-menu-submenu-active,
+  & > .ant-menu-item-open,
+  & > .ant-menu-submenu-open,
+  & > .ant-menu-item-selected,
+  & > .ant-menu-submenu-selected {
+    border-bottom: 2px solid @primary-color;
+    color: @primary-color;
+  }
+
+  .ant-menu-item-selected {
+    a {
+      color: @primary-color;
+    }
+  }
+}
+
+.ant-menu-item-selected {
+  & > a {
+    color: @primary-color;
+
+    &:hover {
+      color: @primary-color;
+    }
+  }
+}
+
+.ant-menu-item {
+  & > a {
+    &:hover {
+      color: @primary-color;
+    }
+  }
+
+  &:hover {
+    color: @primary-color;
+  }
+}
+
+.ant-menu {
+  &:not(.ant-menu-inline) {
+    .ant-menu-submenu-open {
+      color: @primary-color;
+    }
+  }
+
+  &:not(.ant-menu-horizontal) {
+    .ant-menu-item-selected {
+      background-color: @primary-color-1;
+    }
+  }
+}
+
+.ant-menu-item-active,
+.ant-menu-submenu-active {
+  color: @primary-color;
+}
+
+.ant-menu-submenu-title {
+  &:hover {
+    color: @primary-color;
+  }
+}
+
+.ant-timeline-item-head-blue {
+  border-color: @primary-color;
+  color: @primary-color;
+}
+
+.ant-tag-blue {
+  color: @primary-color;
+  background: @primary-color-1;
+  border-color: @primary-color-3;
+}
+
+.ant-btn-link:hover,
+.ant-btn-link:focus,
+.ant-btn-link:active {
+  border-color: transparent;
+}
+
+.ant-anchor-link-active {
+  & > .ant-anchor-link-title {
+    color: @primary-color;
+  }
+}
+
+.ant-anchor-ink-ball {
+  border-color: @primary-color;
+}
+
+.ant-list-item-meta-title {
+  a {
+    &:hover {
+      color: @primary-color;
+    }
+  }
+}
+
+.ant-pagination-item {
+  &:hover,
+  &:focus {
+    a {
+      color: @primary-color;
+    }
+  }
+}
+
+.ant-pagination-item-active {
+  border-color: @primary-color;
+
+  a {
+    color: @primary-color;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: @primary-color-5;
+
+    a {
+      color: @primary-color-5;
+    }
+  }
+}
+
+.ant-pagination-prev,
+.ant-pagination-next {
+  &:hover,
+  &:focus {
+    .ant-pagination-item-link {
+      color: @primary-color;
+    }
+  }
+}
+
+.ant-select-open {
+  .ant-select-selection {
+    border-color: @primary-color-5;
+    box-shadow: 0 0 0 2px fade(@primary-color, 20%);
+  }
+}
+
+.ant-select-selection {
+  &:hover {
+    border-color: @primary-color-5;
+  }
+
+  &:focus,
+  &:active {
+    border-color: @primary-color-5;
+    box-shadow: 0 0 0 2px fade(@primary-color, 20%);
+  }
+}
+
+.ant-select-focused {
+  .ant-select-selection {
+    border-color: @primary-color-5;
+    box-shadow: 0 0 0 2px fade(@primary-color, 20%);
+  }
+}
+
+.ant-select-dropdown-menu-item {
+  &:hover {
+    background-color: @primary-color-1;
+  }
+}
+
+.ant-pagination-options-quick-jumper {
+  input {
+    &:hover {
+      border-color: @primary-color-5;
+    }
+
+    &:focus {
+      border-color: @primary-color-5;
+      box-shadow: 0 0 0 2px fade(@primary-color, 20%);
+    }
+  }
+}
+
+.ant-tabs-nav {
+  .ant-tabs-tab {
+    &-active {
+      color: @primary-color;
+
+      &:hover {
+        color: @primary-color-5;
+      }
+    }
+
+    &:hover {
+      color: @primary-color-5;
+    }
+  }
+}
+
+.ant-tabs-ink-bar {
+  background-color: @primary-color;
+}

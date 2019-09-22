@@ -3,6 +3,18 @@ const plugins = require('./config/plugins');
 const additionalPages = require('./config/page');
 module.exports = (options, ctx) => ({
     name: 'vuepress-theme-yur',
+    chainWebpack(config, isServer) {
+        config.module
+            .rule('less')
+            .oneOf('normal')
+            .use('less-loader')
+            .options({ javascriptEnabled: true })
+            .end()
+            .end()
+            .oneOf('modules')
+            .use('less-loader')
+            .options({ javascriptEnabled: true });
+    },
     alias() {
         const { themeConfig, siteConfig } = ctx;
         // resolve algolia
