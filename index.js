@@ -16,13 +16,16 @@ module.exports = (options, ctx) => ({
             .options({ javascriptEnabled: true });
     },
     alias() {
-        const { themeConfig, siteConfig } = ctx;
+        const { themeConfig, siteConfig, sourceDir } = ctx;
+        const { sep } = path;
         // resolve algolia
         const isAlgoliaSearch = (themeConfig.algolia || Object.keys(siteConfig.locales && themeConfig.locales || {}).some(base => themeConfig.locales[base].algolia));
+        console.log(`${ sourceDir }${ sep }.vuepress${ sep }styles`);
         return {
             '@AlgoliaSearchBox': isAlgoliaSearch
                 ? path.resolve(__dirname, 'components/AlgoliaSearchBox.vue')
-                : path.resolve(__dirname, 'noopModule.js')
+                : path.resolve(__dirname, 'noopModule.js'),
+            '@us': `${ sourceDir }${ sep }.vuepress${ sep }styles`,
         };
     },
     plugins,
