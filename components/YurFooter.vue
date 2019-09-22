@@ -191,7 +191,7 @@
                     top: 0;
                     width: 10px;
                     height: 18px;
-                    background: @error-color;
+                    background: @primary-color;
                     border-radius: 50px 50px 0 0;
                     transform: rotate(-45deg);
                     transform-origin: 0 100%;
