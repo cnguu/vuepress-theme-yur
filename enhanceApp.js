@@ -78,7 +78,7 @@ export function isPro() {
 }
 
 export function isDev() {
-    return process.env.NODE_ENV === 'development' && typeof window === 'undefined';
+    return process.env.NODE_ENV === 'development' && typeof navigator === 'undefined';
 }
 
 export function getCategories(siteData) {
