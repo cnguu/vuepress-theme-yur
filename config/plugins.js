@@ -25,4 +25,8 @@ module.exports = [
         type: 'danger',
         defaultTitle: '',
     }],
+    ['permalink-pinyin', {
+        lowercase: true,
+        separator: '-',
+    }],
 ];

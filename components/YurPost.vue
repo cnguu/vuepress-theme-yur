@@ -46,9 +46,7 @@
                                 </a-tooltip>
                             </div>
                             <YurTagCloud :tag-list="$page.frontmatter.tags"/>
-                            <ClientOnly v-if="$themeConfig.vssue">
-                                <Vssue :title="$page.title"/>
-                            </ClientOnly>
+                            <Vssue v-if="$themeConfig.vssue" :title="$page.path"/>
                         </div>
                     </div>
                 </a-col>
