@@ -128,8 +128,8 @@
                 max-width: 482px;
 
                 img {
-                    max-width: 482px;
-                    max-height: 500px;
+                    width: 100%;
+                    height: 500px;
                 }
             }
 
