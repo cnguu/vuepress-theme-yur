@@ -53,13 +53,13 @@ export function baiDuPush(Vue, siteData) {
             refChild.parentNode.insertBefore(newChild, refChild);
         })();
     }
-    if (isDev() && site && baiDuActivePush && Vue.prototype.$posts.length) {
+    if (isBuild() && site && baiDuActivePush && Vue.prototype.$posts.length) {
         let urls = [];
         Vue.prototype.$posts.forEach(post => {
             const { regularPath } = post;
             urls.push(site + regularPath);
         });
-        axios.post(`https://data.zz.baidu.com/urls?site=${ site }&token=${ baiDuActivePush }`, urls.join('\n'), {
+        axios.post(`http://data.zz.baidu.com/urls?site=${ site }&token=${ baiDuActivePush }`, urls.join('\n'), {
             headers: {
                 'Content-Type': 'text/plain',
             },
@@ -77,8 +77,8 @@ export function isPro() {
     return process.env.NODE_ENV === 'production' && typeof window !== 'undefined';
 }
 
-export function isDev() {
-    return process.env.NODE_ENV === 'development' && typeof navigator === 'undefined';
+export function isBuild() {
+    return process.env.NODE_ENV === 'production' && typeof navigator === 'undefined';
 }
 
 export function getCategories(siteData) {
