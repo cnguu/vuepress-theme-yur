@@ -1,11 +1,14 @@
 <template>
     <div id="yur-menu">
         <a-menu v-model="current" mode="horizontal" class="menu">
-            <a-sub-menu key="category" v-if="userLinks.length">
-                <span slot="title" class="submenu-title-wrapper">分类<a-icon type="caret-down" class="category"/></span>
+            <a-sub-menu v-if="userLinks.length" key="category">
+                <span slot="title" class="submenu-title-wrapper">
+                    分类
+                    <a-icon type="caret-down" class="category"/>
+                </span>
                 <a-menu-item-group>
-                    <a-menu-item v-for="userLink in userLinks" :key="userLink.link">
-                        <router-link :to="userLink.link + '?page=1&pageSize=12'">{{ userLink.text }}</router-link>
+                    <a-menu-item v-for="userLink in userLinks" :key="userLink.key">
+                        <router-link :to="userLink.link">{{ userLink.text }}</router-link>
                     </a-menu-item>
                 </a-menu-item-group>
             </a-sub-menu>

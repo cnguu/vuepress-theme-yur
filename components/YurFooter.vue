@@ -5,29 +5,20 @@
                 <a-col :xs="24" :sm="24" :md="8">
                     <div class="footer-center">
                         <h2>
-                            <img :src="require('../images/footer-title-icon-1.png')" :alt="$site.title || '凉风有信'">
+                            <img :src="require('../images/footer-title-icon-1.png')"
+                                 :alt="title"
+                            >
                             <span>推荐资源</span>
                         </h2>
-                        <div>
-                            <a href="https://github.com/cnguu/vuepress-theme-yur/"
-                               target="_blank"
-                               rel="noopener noreferrer">
-                                <span>Yur</span>
-                            </a>
-                            <span>&nbsp;-&nbsp;</span>
-                            <span>VuePress&nbsp;主题</span>
-                        </div>
-                        <div v-if="$themeConfig.footer.one && $themeConfig.footer.one.length"
-                             v-for="one in $themeConfig.footer.one"
-                        >
-                            <a :href="one.link"
+                        <div v-for="item in footer[0]">
+                            <a :href="item.link"
                                target="_blank"
                                rel="noopener noreferrer"
                             >
-                                <span>{{ one.title }}</span>
+                                <span>{{ item.title }}</span>
                             </a>
                             <span>&nbsp;-&nbsp;</span>
-                            <span>{{ one.subtitle }}</span>
+                            <span>{{ item.subtitle }}</span>
                         </div>
                     </div>
                 </a-col>
@@ -36,32 +27,35 @@
                         <h2>
                             <span>相关信息</span>
                         </h2>
-                        <div v-if="$themeConfig.footer.two && $themeConfig.footer.two.length"
-                             v-for="two in $themeConfig.footer.two"
-                        >
-                            <a :href="two.link"
-                               target="_blank"
-                               rel="noopener noreferrer"
-                            >
-                                <a-icon :type="two.type" :theme="two.theme"/>
-                                <span>{{ two.title }}</span>
-                            </a>
-                        </div>
+                        <template v-if="footer[1].length">
+                            <div v-for="item in footer[1]">
+                                <a :href="item.link"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                >
+                                    <a-icon :type="item.type" :theme="item.theme"/>
+                                    <span>{{ item.title }}</span>
+                                </a>
+                            </div>
+                        </template>
                     </div>
                 </a-col>
                 <a-col :xs="24" :sm="24" :md="8">
                     <div class="footer-center">
                         <h2>
-                            <span>联系博主</span>
+                            <span>其它</span>
                         </h2>
-                        <div v-if="$themeConfig.footer.three && $themeConfig.footer.three.length"
-                             v-for="three in $themeConfig.footer.three"
-                        >
-                            <a :href="three.link">
-                                <a-icon :type="three.type" :theme="three.theme"/>
-                                <span>{{ three.title }}</span>
-                            </a>
-                        </div>
+                        <template v-if="footer[2].length">
+                            <div v-for="item in footer[2]">
+                                <a :href="item.link"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                >
+                                    <a-icon :type="item.type" :theme="item.theme"/>
+                                    <span>{{ item.title }}</span>
+                                </a>
+                            </div>
+                        </template>
                     </div>
                 </a-col>
             </a-row>
@@ -70,8 +64,10 @@
             Made&nbsp;with
             <span class="heart"></span>
             by&nbsp;
-            <a :href="$themeConfig.authorLink || 'https://github.com/cnguu/'" target="_blank" rel="noopener noreferrer">
-                <span>{{ $themeConfig.author || 'cnguu' }}</span>
+            <a :href="authorLink"
+               target="_blank"
+               rel="noopener noreferrer">
+                <span>{{ author }}</span>
             </a>
         </div>
     </div>
@@ -82,11 +78,27 @@
         components: {},
         props: {},
         data() {
-            return {};
+            return {
+                title: '凉风有信',
+                author: 'cnguu',
+                authorLink: 'https://github.com/cnguu/',
+                footer: [
+                    [
+                        {
+                            title: 'Yur',
+                            subtitle: 'VuePress 主题',
+                            link: 'https://github.com/cnguu/vuepress-theme-yur',
+                        },
+                    ],
+                    [],
+                    [],
+                ],
+            };
         },
         beforeCreate() {
         },
         created() {
+            this.initConfig();
         },
         beforeMount() {
         },
@@ -102,7 +114,39 @@
         },
         watch: {},
         computed: {},
-        methods: {},
+        methods: {
+            initConfig() {
+                const { title, author, authorLink } = this.$site;
+                const { footer } = this.$themeConfig;
+                if (title) {
+                    this.title = title;
+                }
+                if (author) {
+                    this.author = author;
+                }
+                if (authorLink) {
+                    this.authorLink = authorLink;
+                }
+                if (footer) {
+                    let [one, two, three] = footer;
+                    if (one) {
+                        one.forEach(item => {
+                            this.footer[0].push(item);
+                        });
+                    }
+                    if (two) {
+                        two.forEach(item => {
+                            this.footer[1].push(item);
+                        });
+                    }
+                    if (three) {
+                        three.forEach(item => {
+                            this.footer[2].push(item);
+                        });
+                    }
+                }
+            },
+        },
     };
 </script>
 

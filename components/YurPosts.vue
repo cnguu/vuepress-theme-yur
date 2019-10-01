@@ -21,7 +21,9 @@
                     <router-link slot="title" :to="item.path">{{ item.title }}</router-link>
                 </a-list-item-meta>
                 <div class="tag" v-if="item.frontmatter.tags">
-                    <router-link :to="`/tags/?type=${ tag }`" v-for="tag in item.frontmatter.tags.slice(0, 1)">
+                    <router-link v-for="tag in item.frontmatter.tags.slice(0, 1)"
+                                 :to="`/tags/?type=${ tag }`"
+                    >
                         <a-tag>{{ tag }}</a-tag>
                     </router-link>
                 </div>
@@ -124,7 +126,7 @@
                 if (Number(this.$route.query.page) !== page || Number(this.$route.query.pageSize) !== pageSize) {
                     this.pagination.current = page;
                     this.pagination.pageSize = pageSize;
-                    this.$router.push(`/posts/?page=${ page }&pageSize=${ pageSize }`);
+                    this.$router.push(`/${ this.category || 'posts' }/?page=${ page }&pageSize=${ pageSize }`);
                 }
                 document.documentElement.scrollTop = document.body.scrollTop = 0;
             },

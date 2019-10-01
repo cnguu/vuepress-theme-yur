@@ -11,7 +11,9 @@
                          @keyup.up="onUp"
                          @keyup.down="onDown"
                 />
-                <a-menu slot="overlay" v-if="showSuggestions" @mouseleave="unfocus">
+                <a-menu v-if="showSuggestions"
+                        slot="overlay"
+                        @mouseleave="unfocus">
                     <a-menu-item v-for="(s, i) in suggestions"
                                  @mousedown="go(i)"
                                  @mouseenter="focus(i)"

@@ -1,26 +1,33 @@
 <template>
     <a-locale-provider :locale="zh_CN">
         <div id="VuePress-theme-yur">
-            <YurHeader :current-page="currentPage"/>
-            <YurContent :current-page="currentPage" :current-post="currentPost"/>
-            <YurFooter/>
+            <template v-if="curtain">
+                <YurCurtain/>
+            </template>
+            <template v-else>
+                <YurHeader :current-page="currentPage"/>
+                <YurContent :current-page="currentPage" :current-post="currentPost"/>
+                <YurFooter/>
+            </template>
         </div>
     </a-locale-provider>
 </template>
 
 <script>
+    import YurCurtain from '@theme/components/YurCurtain';
     import YurHeader from '@theme/components/YurHeader';
     import YurContent from '@theme/components/YurContent';
     import YurFooter from '@theme/components/YurFooter';
 
     export default {
-        components: { YurHeader, YurContent, YurFooter },
+        components: { YurCurtain, YurHeader, YurContent, YurFooter },
         props: {},
         data() {
             return {
                 zh_CN: this.$zh_CN,
                 currentPage: '/',
                 currentPost: '',
+                curtain: true,
             };
         },
         beforeCreate() {
@@ -43,6 +50,9 @@
         beforeMount() {
         },
         mounted() {
+            setTimeout(() => {
+                this.curtain = false;
+            }, 3300);
         },
         beforeUpdate() {
         },

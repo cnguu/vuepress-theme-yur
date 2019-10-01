@@ -1,6 +1,8 @@
 <template>
     <a-skeleton active :loading="loading">
-        <div id="yur-not-found">
+        <div id="yur-not-found" :style="{
+            backgroundImage: `url(${backgroundImage})`,
+        }">
             <section>
                 <h1>404</h1>
                 <p>
@@ -19,11 +21,13 @@
         data() {
             return {
                 loading: true,
+                backgroundImage: require('../images/NotFound.jpg'),
             };
         },
         beforeCreate() {
         },
         created() {
+            this.initConfig();
         },
         beforeMount() {
         },
@@ -40,7 +44,14 @@
         },
         watch: {},
         computed: {},
-        methods: {},
+        methods: {
+            initConfig() {
+                const { notFound } = this.$themeConfig;
+                if (notFound) {
+                    this.backgroundImage = this.$withBase(notFound);
+                }
+            },
+        },
     }
 </script>
 
@@ -55,7 +66,6 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url(../images/NotFound.jpg);
         background-repeat: no-repeat;
         background-position: center;
         background-size: 100%;

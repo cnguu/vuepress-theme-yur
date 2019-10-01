@@ -4,8 +4,8 @@
   "short_name": "凉风有信",
   "start_url": "/index.html",
   "display": "standalone",
-  "theme_color": "#1890ff",
-  "background_color": "#1890ff",
+  "theme_color": "#3c67bd",
+  "background_color": "#3c67bd",
   "description": "凉风有信的一个技术博客 APP",
   "icons": [
     {

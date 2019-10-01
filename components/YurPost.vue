@@ -10,12 +10,14 @@
                     <div class="post-content">
                         <div class="post-header">
                             <div class="post-header-blur"
-                                 :style="{backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(' + ($page.frontmatter.banner) + ')'}"
+                                 :style="{
+                                     backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(' + ($page.frontmatter.banner) + ')',
+                                 }"
                             ></div>
                             <div class="post-header-content">
-                                <router-link :to="getCategoryLink"
+                                <router-link v-if="getCategory.length"
+                                             :to="getCategoryLink"
                                              class="category"
-                                             v-if="getCategory.length"
                                 >
                                     {{ getCategory }}
                                 </router-link>
@@ -34,19 +36,23 @@
                                         转载说明
                                     </a-button>
                                 </a-tooltip>
-                                <a-tooltip v-if="$page.frontmatter.update_date" placement="topLeft"
-                                           style="float: right">
+                                <a-tooltip v-if="$page.frontmatter.update_date"
+                                           placement="topLeft"
+                                           style="float: right"
+                                >
                                     <template slot="title">
-                                        <span>发布于：<br>{{ format($page.frontmatter.date) }}<br>最后更新：<br>{{ format($page.frontmatter.update_date) }}</span>
+                                        <span>发布于：<br>{{ parseDate($page.frontmatter.date) }}<br>最后更新：<br>{{ parseDate($page.frontmatter.update_date) }}</span>
                                     </template>
                                     <a-button type="link">
                                         <a-icon type="calendar"/>
-                                        {{ format($page.frontmatter.update_date) }}
+                                        {{ parseDate($page.frontmatter.update_date) }}
                                     </a-button>
                                 </a-tooltip>
                             </div>
                             <YurTagCloud :tag-list="$page.frontmatter.tags"/>
-                            <Vssue v-if="$themeConfig.vssue" :title="$page.path"/>
+                            <a-skeleton v-if="$themeConfig.vssue" active :loading="loading">
+                                <Vssue :title="$page.path"/>
+                            </a-skeleton>
                         </div>
                     </div>
                 </a-col>
@@ -55,38 +61,37 @@
                        :md="postCatalogCol.md"
                        :lg="postCatalogCol.lg"
                 >
-                    <div class="post-catalog" v-if="getCatalogs.length">
+                    <div v-if="getCatalogs.length" class="post-catalog">
                         <a-anchor>
                             <a-anchor-link v-for="catalog in getCatalogs"
                                            :href="'#'+catalog.slug"
                                            :title="catalog.title"
                             >
-                                <a-anchor-link v-if="catalog.children.length"
-                                               v-for="child in catalog.children"
-                                               :href="'#'+child.slug"
-                                               :title="child.title"
-                                />
+                                <template v-if="catalog.hasOwnProperty('children') && catalog.children.length">
+                                    <a-anchor-link v-for="child in catalog.children"
+                                                   :href="'#'+child.slug"
+                                                   :title="child.title"
+                                    />
+                                </template>
                             </a-anchor-link>
                         </a-anchor>
                     </div>
                 </a-col>
             </a-row>
         </div>
-        <div class="post-end">
-            <img :src="$withBase($themeConfig.postEnd) || require('../images/post-end.gif')"
-                 :alt="$site.title || '凉风有信'">
-        </div>
     </div>
 </template>
 
 <script>
     import YurTagCloud from '@theme/components/YurTagCloud';
+    import { parseDate } from '../util';
 
     export default {
         components: { YurTagCloud },
         props: {},
         data() {
             return {
+                loading: true,
                 postContentCol: {
                     xs: { span: 24 },
                     sm: { span: 24 },
@@ -99,6 +104,7 @@
                     md: { span: 6 },
                     lg: { span: 4 },
                 },
+                parseDate,
             };
         },
         beforeCreate() {
@@ -108,6 +114,7 @@
         beforeMount() {
         },
         mounted() {
+            this.loading = false;
         },
         beforeUpdate() {
         },
@@ -157,7 +164,7 @@
                 return catalog;
             },
             getCategory() {
-                let link = `/${ this.$page.relativePath.split('/').shift() }/`,
+                let link = this.getCategoryLink,
                     navs = this.$themeConfig.nav,
                     category = '未知分类';
                 if (this.$page.relativePath.split('/').shift().indexOf('.md') > -1) {
@@ -172,14 +179,10 @@
                 return category;
             },
             getCategoryLink() {
-                return `/${ this.$page.relativePath.split('/').shift() }/?page=1&pageSize=12`;
+                return `/${ this.$page.path.split('/')[1] }/?page=1&pageSize=12`;
             },
         },
-        methods: {
-            format(date) {
-                return this.$moment(date).format('YYYY-MM-DD');
-            },
-        },
+        methods: {},
     };
 </script>
 
@@ -282,16 +285,6 @@
                         width: 0;
                     }
                 }
-            }
-        }
-
-        .post-end {
-            padding: 40px 24px;
-            text-align: center;
-
-            img {
-                width: 100%;
-                max-width: 120px;
             }
         }
     }

@@ -1,15 +1,16 @@
 <template>
     <div id="yur-banner">
         <div class="banner-page">
-            <div class="img-wrapper">
-                <img :src="$withBase($themeConfig.banner) || require('../images/banner.png')"
-                     :alt="$site.title || '凉风有信'">
-            </div>
+            <a-skeleton active :loading="loading">
+                <div class="img-wrapper">
+                    <img :src="banner" :alt="title">
+                </div>
+            </a-skeleton>
             <div class="text-wrapper">
                 <div class="title-line-wrapper">
                     <div class="title-line"></div>
                 </div>
-                <h1>{{ $site.title || '凉风有信' }}</h1>
+                <h1>{{ title }}</h1>
                 <p>
                     <span class="subtitle"></span>
                 </p>
@@ -29,11 +30,14 @@
                     <span>最近更新</span>
                 </h2>
                 <a-row v-if="$posts.length">
-                    <a-col :xs="24" :md="8" v-for="post in $posts.slice(0, 3)" :key="post.path">
+                    <a-col v-for="post in $posts.slice(0, 3)"
+                           :key="post.path"
+                           :xs="24"
+                           :md="8"
+                    >
                         <router-link :to="post.path">
                             <div class="banner">
-                                <img :src="post.frontmatter.banner"
-                                     :alt="post.title">
+                                <img :src="post.frontmatter.banner" :alt="post.title">
                             </div>
                             <h3>
                                 <span>{{ post.title }}</span>
@@ -59,17 +63,23 @@
         components: { YurTagCloud },
         props: {},
         data() {
-            return {};
+            return {
+                loading: true,
+                title: '凉风有信',
+                description: '责难无以成事',
+                banner: require('../images/banner.png'),
+            };
         },
         beforeCreate() {
         },
         created() {
+            this.initConfig();
         },
         beforeMount() {
         },
         mounted() {
             init('span.subtitle', {
-                strings: [this.$themeConfig.subtitle || '责难无以成事'],
+                strings: [this.description],
                 typeSpeed: 300,
                 backSpeed: 100,
                 startDelay: 300,
@@ -80,6 +90,7 @@
                 disableBackTyping: false,
                 cursorChar: '丨',
             });
+            this.loading = false;
         },
         beforeUpdate() {
         },
@@ -91,7 +102,21 @@
         },
         watch: {},
         computed: {},
-        methods: {},
+        methods: {
+            initConfig() {
+                const { title, description } = this.$site;
+                const { banner } = this.$themeConfig;
+                if (title) {
+                    this.title = title;
+                }
+                if (description) {
+                    this.description = description;
+                }
+                if (banner) {
+                    this.banner = this.$withBase(banner);
+                }
+            },
+        },
     };
 </script>
 

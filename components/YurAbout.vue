@@ -1,24 +1,32 @@
 <template>
     <div id="yur-about">
-        <div class="widget"
-             :style="{backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(' + ($withBase($themeConfig.about.banner) || require('../images/first-day-of-spring-2016-northern-hemisphere.gif')) + ')'}"
-        >
-            <img class="avatar"
-                 :src="$themeConfig.about.avatar"
-                 :alt="$site.title || '凉风有信'"
+        <a-skeleton active :loading="loading">
+            <div class="widget"
+                 :style="{
+                backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(' + about.banner + ')',
+             }"
             >
-            <p class="name">{{ $themeConfig.about.name || '凉风有信' }}</p>
-            <p class="introduction">{{ $themeConfig.about.introduction || '责难无以成事' }}</p>
-            <div class="total">
-                <router-link to="/posts/?page=1&pageSize=12">
-                    <a-badge status="processing" :text="'博文：' + $posts.length || 0"/>
-                </router-link>
-                <a-badge status="processing" :text="'分类：' + $categories.length || 0"/>
-                <a-badge status="processing" :text="'标签：' + Object.keys($tags).length || 0"/>
+                <img class="avatar"
+                     :src="about.avatar"
+                     :alt="about.name"
+                >
+                <p class="name">{{ about.name }}</p>
+                <p class="introduction">{{ about.introduction }}</p>
+                <div class="total">
+                    <router-link to="/posts/?page=1&pageSize=12">
+                        <a-badge status="processing" :text="'博文：' + $posts.length || 0"/>
+                    </router-link>
+                    <a-badge status="processing" :text="'分类：' + $categories.length || 0"/>
+                    <a-badge status="processing" :text="'标签：' + Object.keys($tags).length || 0"/>
+                </div>
             </div>
-        </div>
-        <Content/>
-        <Vssue v-if="$themeConfig.vssue" :title="$page.path"/>
+        </a-skeleton>
+        <a-skeleton active :loading="loading">
+            <Content/>
+        </a-skeleton>
+        <a-skeleton v-if="$themeConfig.vssue" active :loading="loading">
+            <Vssue :title="$page.path"/>
+        </a-skeleton>
     </div>
 </template>
 
@@ -29,15 +37,23 @@
         data() {
             return {
                 loading: true,
+                about: {
+                    banner: require('../images/first-day-of-spring-2016-northern-hemisphere.gif'),
+                    avatar: 'https://static.xmt.cn/cc50c217cbe342ce951324583f2c6139.png',
+                    name: 'cnguu',
+                    introduction: '责难无以成事',
+                },
             };
         },
         beforeCreate() {
         },
         created() {
+            this.initConfig();
         },
         beforeMount() {
         },
         mounted() {
+            this.loading = false;
         },
         beforeUpdate() {
         },
@@ -49,7 +65,26 @@
         },
         watch: {},
         computed: {},
-        methods: {},
+        methods: {
+            initConfig() {
+                const { about } = this.$themeConfig;
+                if (about) {
+                    const { banner, avatar, name, introduction } = about;
+                    if (banner) {
+                        this.about.banner = this.$withBase(banner);
+                    }
+                    if (avatar) {
+                        this.about.avatar = this.$withBase(avatar);
+                    }
+                    if (name) {
+                        this.about.name = name;
+                    }
+                    if (introduction) {
+                        this.about.introduction = introduction;
+                    }
+                }
+            },
+        },
     };
 </script>
 

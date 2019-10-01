@@ -1,15 +1,19 @@
 <template>
     <div id="yur-timeline">
-        <a-timeline class="timeline" v-if="this.$posts.length" mode="alternate">
+        <a-timeline
+                v-if="this.$posts.length"
+                class="timeline"
+                mode="alternate"
+        >
             <a-timeline-item v-for="(post, index) in this.$posts">
                 <router-link :to="post.path" :style="{color:'inherit'}">
-                    <p v-if="index%2===0">
-                        <a-tag color="blue">{{ format(post.frontmatter.date) }}</a-tag>
+                    <p v-if="index % 2 === 0">
+                        <a-tag color="blue">{{ parseDate(post.frontmatter.date) }}</a-tag>
                         {{ post.title }}
                     </p>
                     <p v-else>
                         {{ post.title }}
-                        <a-tag color="blue" :style="{marginLeft:'8px'}">{{ format(post.frontmatter.date) }}</a-tag>
+                        <a-tag color="blue" :style="{marginLeft:'8px'}">{{ parseDate(post.frontmatter.date) }}</a-tag>
                     </p>
                 </router-link>
             </a-timeline-item>
@@ -18,11 +22,15 @@
 </template>
 
 <script>
+    import { parseDate } from '../util';
+
     export default {
         components: {},
         props: {},
         data() {
-            return {};
+            return {
+                parseDate,
+            };
         },
         beforeCreate() {
         },
@@ -42,11 +50,7 @@
         },
         watch: {},
         computed: {},
-        methods: {
-            format(date) {
-                return this.$moment(date).format('YYYY-MM-DD');
-            },
-        },
+        methods: {},
     };
 </script>
 

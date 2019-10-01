@@ -243,3 +243,7 @@ function resolveItem(item, pages, base, groupDepth = 1) {
         };
     }
 }
+
+export function parseDate(date) {
+    return this.$moment(date).format('YYYY-MM-DD');
+}

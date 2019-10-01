@@ -20,7 +20,10 @@ export default ({ Vue, options, router, siteData }) => {
     Vue.prototype.$withBase = path => {
         if (path) {
             if (path.charAt(0) === '/') {
-                return siteData.base + path.slice(1);
+                const { base } = siteData;
+                if (base) {
+                    return base + path.slice(1);
+                }
             }
         }
         return path;

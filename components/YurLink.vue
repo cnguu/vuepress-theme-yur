@@ -1,31 +1,49 @@
 <template>
     <div id="yur-link">
-        <div class="banner">
-            <a-skeleton active :loading="loading">
-                <img :src="$withBase($themeConfig.link.banner) || require('../images/summer-solstice-strawberry-moon.gif')"
-                     :alt="$site.title || '凉风有信'"
-                >
-            </a-skeleton>
-        </div>
-        <div class="content" v-if="$themeConfig.link.blog && $themeConfig.link.blog.length">
+        <a-skeleton active :loading="loading">
+            <div class="banner">
+                <img :src="link.banner" :alt="title">
+            </div>
+        </a-skeleton>
+        <div class="content">
             <a-row>
-                <a-col :xs="24" :sm="12" :md="8" :lg="6" v-for="blog in $themeConfig.link.blog">
-                    <div class="card" :style="{borderTop: '3px solid ' + blog.color}">
-                        <a :href="blog.link" class="title" target="_blank" rel="noopener noreferrer">
-                            {{ blog.title }}
-                        </a>
-                        <div class="subtitle">{{ blog.subtitle }}</div>
-                        <a :href="blog.link"
-                           class="logo"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           :style="{backgroundImage: `url(${ blog.logo })`, backgroundColor: blog.color}"
-                        ></a>
-                    </div>
+                <a-col v-for="blog in link.blog"
+                       :xs="24"
+                       :sm="12"
+                       :md="8"
+                       :lg="6"
+                >
+                    <a-skeleton active :loading="loading">
+                        <div class="card"
+                             :style="{
+                                borderTop: '3px solid ' + blog.color,
+                             }"
+                        >
+                            <a :href="blog.link"
+                               class="title"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                            >
+                                {{ blog.title }}
+                            </a>
+                            <div class="subtitle">{{ blog.subtitle }}</div>
+                            <a :href="blog.link"
+                               class="logo"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               :style="{
+                                   backgroundImage: `url(${ blog.logo })`,
+                                   backgroundColor: blog.color,
+                               }"
+                            />
+                        </div>
+                    </a-skeleton>
                 </a-col>
             </a-row>
         </div>
-        <Vssue v-if="$themeConfig.vssue" :title="$page.path"/>
+        <a-skeleton v-if="$themeConfig.vssue" active :loading="loading">
+            <Vssue :title="$page.path"/>
+        </a-skeleton>
     </div>
 </template>
 
@@ -36,11 +54,25 @@
         data() {
             return {
                 loading: true,
+                title: '凉风有信',
+                link: {
+                    banner: require('../images/summer-solstice-strawberry-moon.gif'),
+                    blog: [
+                        {
+                            title: '凉风有信',
+                            subtitle: '责难无以成事',
+                            link: 'https://gleehub.com/',
+                            logo: 'https://static.xmt.cn/cc50c217cbe342ce951324583f2c6139.png',
+                            color: '#3c67bd',
+                        },
+                    ],
+                },
             };
         },
         beforeCreate() {
         },
         created() {
+            this.initConfig();
         },
         beforeMount() {
         },
@@ -57,7 +89,24 @@
         },
         watch: {},
         computed: {},
-        methods: {},
+        methods: {
+            initConfig() {
+                const { title } = this.$site;
+                const { link } = this.$themeConfig;
+                if (title) {
+                    this.title = title;
+                }
+                if (link) {
+                    const { banner, blog } = link;
+                    if (banner) {
+                        this.link.banner = this.$withBase(banner);
+                    }
+                    if (blog.length) {
+                        this.link.blog = blog;
+                    }
+                }
+            },
+        },
     };
 </script>
 

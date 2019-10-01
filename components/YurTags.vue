@@ -7,12 +7,12 @@
                     @tabClick="tabClick"
             >
                 <a-tab-pane v-for="(posts, tag) in $tags" :tab="tag" :key="tag">
-                    <a-row :gutter="24" v-if="posts.length">
-                        <a-col :xs="{ span: 24 }"
+                    <a-row v-if="posts.length" :gutter="24">
+                        <a-col v-for="post in posts"
+                               :xs="{ span: 24 }"
                                :sm="{ span: 24 }"
                                :md="{ span: 12 }"
                                :lg="{ span: 8 }"
-                               v-for="post in posts"
                         >
                             <router-link :to="post.path">
                                 <a-card :loading="loading">
@@ -22,7 +22,7 @@
                                     />
                                     <a-card-meta :title="post.title">
                                         <template slot="description">
-                                            {{ post.frontmatter.date ? format(post.frontmatter.date) : '' }}
+                                            {{ post.frontmatter.date ? parseDate(post.frontmatter.date) : '' }}
                                         </template>
                                     </a-card-meta>
                                 </a-card>
@@ -36,6 +36,8 @@
 </template>
 
 <script>
+    import { parseDate } from '../util';
+
     export default {
         components: {},
         props: {},
@@ -43,6 +45,7 @@
             return {
                 activeKey: Object.keys(this.$tags).shift(),
                 loading: true,
+                parseDate,
             };
         },
         beforeCreate() {
@@ -77,9 +80,6 @@
                     this.$router.push('/tags/?type=' + val);
                 }
                 document.documentElement.scrollTop = document.body.scrollTop = 0;
-            },
-            format(date) {
-                return this.$moment(date).format('YYYY-MM-DD');
             },
         },
     }
