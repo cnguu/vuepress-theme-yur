@@ -1,16 +1,14 @@
 <template>
     <div id="yur-content">
-        <YurBanner v-if="isHome"/>
-        <ClientOnly v-else-if="isCategories">
-            <YurCategories :category="currentPage"/>
-        </ClientOnly>
-        <YurPosts v-else-if="isPosts"/>
-        <YurTags v-else-if="isTags"/>
-        <YurTimeline v-else-if="isTimeline"/>
-        <YurLink v-else-if="isLink"/>
-        <YurAbout v-else-if="isAbout"/>
-        <ClientOnly v-else-if="isPost">
-            <YurPost/>
+        <ClientOnly>
+            <YurBanner v-if="isHome"/>
+            <YurCategories v-else-if="isCategories" :category="currentPage"/>
+            <YurPosts v-else-if="isPosts"/>
+            <YurTags v-else-if="isTags"/>
+            <YurTimeline v-else-if="isTimeline"/>
+            <YurLink v-else-if="isLink"/>
+            <YurAbout v-else-if="isAbout"/>
+            <YurPost v-else-if="isPost"/>
         </ClientOnly>
         <a-back-top>
             <div class="ant-back-top-content">

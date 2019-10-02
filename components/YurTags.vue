@@ -36,7 +36,7 @@
 </template>
 
 <script>
-    import { parseDate } from '../util';
+    import { parseDate, getTimeOut } from '../util';
 
     export default {
         components: {},
@@ -65,7 +65,7 @@
                     value: false,
                 });
                 document.getElementsByTagName('body')[0].style.overflow = 'unset';
-            }, 3300);
+            }, getTimeOut(this.$store.state.settings.consoleTime));
         },
         beforeUpdate() {
         },

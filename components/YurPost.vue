@@ -84,7 +84,7 @@
 
 <script>
     import YurTagCloud from '@theme/components/YurTagCloud';
-    import { parseDate } from '../util';
+    import { parseDate, getTimeOut } from '../util';
 
     export default {
         components: { YurTagCloud },
@@ -122,7 +122,7 @@
                     value: false,
                 });
                 document.getElementsByTagName('body')[0].style.overflow = 'unset';
-            }, 3300);
+            }, getTimeOut(this.$store.state.settings.consoleTime));
         },
         beforeUpdate() {
         },

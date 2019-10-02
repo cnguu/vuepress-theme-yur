@@ -5,8 +5,8 @@ export const outboundRE = /^(https?:|mailto:|tel:)/;
 
 export function normalize(path) {
     return decodeURI(path)
-        .replace(hashRE, '')
-        .replace(extRE, '');
+    .replace(hashRE, '')
+    .replace(extRE, '');
 }
 
 export function getHash(path) {
@@ -246,4 +246,10 @@ function resolveItem(item, pages, base, groupDepth = 1) {
 
 export function parseDate(date) {
     return this.$moment(date).format('YYYY-MM-DD');
+}
+
+export function getTimeOut(startTime) {
+    const endTime = new Date().getTime();
+    const diffTime = endTime - startTime;
+    return Math.ceil((diffTime > 33000000 ? 0 : 33000000 - diffTime) / 10000);
 }

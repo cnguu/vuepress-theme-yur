@@ -26,6 +26,10 @@
         beforeMount() {
         },
         mounted() {
+            this.$store.dispatch('changeSetting', {
+                key: 'consoleTime',
+                value: new Date().getTime(),
+            });
         },
         beforeUpdate() {
         },

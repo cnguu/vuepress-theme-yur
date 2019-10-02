@@ -1,5 +1,6 @@
 const state = {
     curtain: true,
+    consoleTime: 0,
 };
 
 const mutations = {

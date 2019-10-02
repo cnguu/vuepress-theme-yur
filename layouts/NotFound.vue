@@ -1,8 +1,9 @@
 <template>
     <a-skeleton active :loading="loading">
-        <div id="yur-not-found" :style="{
-            backgroundImage: `url(${backgroundImage})`,
-        }">
+        <div id="yur-not-found"
+             :style="{
+                 backgroundImage: `url(${backgroundImage})`,
+             }">
             <section>
                 <h1>404</h1>
                 <p>
