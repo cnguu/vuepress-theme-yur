@@ -1,11 +1,11 @@
 <template>
     <div id="yur-banner">
         <div class="banner-page">
-            <a-skeleton active :loading="loading">
-                <div class="img-wrapper">
+            <div class="img-wrapper">
+                <a-skeleton active :loading="loading">
                     <img :src="banner" :alt="title">
-                </div>
-            </a-skeleton>
+                </a-skeleton>
+            </div>
             <div class="text-wrapper">
                 <div class="title-line-wrapper">
                     <div class="title-line"></div>
@@ -37,7 +37,9 @@
                     >
                         <router-link :to="post.path">
                             <div class="banner">
-                                <img :src="post.frontmatter.banner" :alt="post.title">
+                                <a-skeleton active :loading="loading">
+                                    <img :src="post.frontmatter.banner" :alt="post.title">
+                                </a-skeleton>
                             </div>
                             <h3>
                                 <span>{{ post.title }}</span>
@@ -91,6 +93,13 @@
                 cursorChar: '丨',
             });
             this.loading = false;
+            setTimeout(() => {
+                this.$store.dispatch('changeSetting', {
+                    key: 'curtain',
+                    value: false,
+                });
+                document.getElementsByTagName('body')[0].style.overflow = 'unset';
+            }, 3300);
         },
         beforeUpdate() {
         },

@@ -2,7 +2,9 @@
     <div id="yur-link">
         <a-skeleton active :loading="loading">
             <div class="banner">
-                <img :src="link.banner" :alt="title">
+                <a-skeleton active :loading="loading">
+                    <img :src="link.banner" :alt="title">
+                </a-skeleton>
             </div>
         </a-skeleton>
         <div class="content">
@@ -78,6 +80,13 @@
         },
         mounted() {
             this.loading = false;
+            setTimeout(() => {
+                this.$store.dispatch('changeSetting', {
+                    key: 'curtain',
+                    value: false,
+                });
+                document.getElementsByTagName('body')[0].style.overflow = 'unset';
+            }, 3300);
         },
         beforeUpdate() {
         },

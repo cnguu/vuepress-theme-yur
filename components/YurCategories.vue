@@ -25,6 +25,13 @@
         beforeMount() {
         },
         mounted() {
+            setTimeout(() => {
+                this.$store.dispatch('changeSetting', {
+                    key: 'curtain',
+                    value: false,
+                });
+                document.getElementsByTagName('body')[0].style.overflow = 'unset';
+            }, 3300);
         },
         beforeUpdate() {
         },

@@ -1,14 +1,10 @@
 <template>
     <a-locale-provider :locale="zh_CN">
         <div id="VuePress-theme-yur">
-            <template v-if="curtain">
-                <YurCurtain/>
-            </template>
-            <template v-else>
-                <YurHeader :current-page="currentPage"/>
-                <YurContent :current-page="currentPage" :current-post="currentPost"/>
-                <YurFooter/>
-            </template>
+            <YurCurtain v-show="getCurtain"/>
+            <YurHeader :current-page="currentPage"/>
+            <YurContent :current-page="currentPage" :current-post="currentPost"/>
+            <YurFooter/>
         </div>
     </a-locale-provider>
 </template>
@@ -27,7 +23,6 @@
                 zh_CN: this.$zh_CN,
                 currentPage: '/',
                 currentPost: '',
-                curtain: true,
             };
         },
         beforeCreate() {
@@ -50,9 +45,6 @@
         beforeMount() {
         },
         mounted() {
-            setTimeout(() => {
-                this.curtain = false;
-            }, 3300);
         },
         beforeUpdate() {
         },
@@ -65,7 +57,11 @@
         watch: {
             '$route': 'handleRoute',
         },
-        computed: {},
+        computed: {
+            getCurtain() {
+                return this.$store.state.settings.curtain;
+            },
+        },
         methods: {
             handleRoute() {
                 let path = this.$route.path.split('/'),

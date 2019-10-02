@@ -5,9 +5,11 @@
                 <a-col :xs="24" :sm="24" :md="8">
                     <div class="footer-center">
                         <h2>
-                            <img :src="require('../images/footer-title-icon-1.png')"
-                                 :alt="title"
-                            >
+                            <a-skeleton active :loading="loading">
+                                <img :src="require('../images/footer-title-icon-1.png')"
+                                     :alt="title"
+                                >
+                            </a-skeleton>
                             <span>推荐资源</span>
                         </h2>
                         <div v-for="item in footer[0]">
@@ -79,6 +81,7 @@
         props: {},
         data() {
             return {
+                loading: true,
                 title: '凉风有信',
                 author: 'cnguu',
                 authorLink: 'https://github.com/cnguu/',
@@ -103,6 +106,7 @@
         beforeMount() {
         },
         mounted() {
+            this.loading = false;
         },
         beforeUpdate() {
         },

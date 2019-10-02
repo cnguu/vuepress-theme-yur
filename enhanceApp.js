@@ -1,3 +1,4 @@
+import store from './store';
 import axios from 'axios';
 import Ant from 'ant-design-vue';
 import zh_CN from 'ant-design-vue/lib/locale-provider/zh_CN';
@@ -12,6 +13,7 @@ export default ({ Vue, options, router, siteData }) => {
     Vue.config.devtools = false;
     Vue.config.productionTip = false;
     Vue.use(Ant);
+    Vue.mixin({ store });
     Vue.prototype.$zh_CN = zh_CN;
     Vue.prototype.$moment = moment;
     Vue.prototype.$posts = getPosts(siteData);

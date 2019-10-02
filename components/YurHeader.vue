@@ -32,7 +32,9 @@
         <a-row>
             <a-col :xxl="4" :xl="5" :lg="5" :md="5" :sm="24" :xs="24">
                 <router-link to="/" id="yur-logo">
-                    <img :src="logo" :alt="title">
+                    <a-skeleton active :loading="loading">
+                        <img :src="logo" :alt="title">
+                    </a-skeleton>
                     <svg :width="nameplate.width" :height="nameplate.height" xmlns="http://www.w3.org/2000/svg">
                         <g>
                             <text v-for="item in nameplate.text"
@@ -85,6 +87,7 @@
         },
         data() {
             return {
+                loading: true,
                 current: ['/'],
                 visible: false,
                 userLinks: [],
@@ -188,6 +191,7 @@
         beforeMount() {
         },
         mounted() {
+            this.loading = false;
         },
         beforeUpdate() {
         },
