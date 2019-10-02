@@ -3,8 +3,8 @@
         <a-skeleton active :loading="loading">
             <div class="widget"
                  :style="{
-                backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(' + about.banner + ')',
-             }"
+                    backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(' + about.banner + ')',
+                 }"
             >
                 <img class="avatar"
                      :src="about.avatar"

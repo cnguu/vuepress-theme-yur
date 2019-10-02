@@ -17,7 +17,7 @@
                             <router-link :to="post.path">
                                 <a-card :loading="loading">
                                     <img slot="cover"
-                                         :src="post.frontmatter.banner"
+                                         :src="$withBase(post.frontmatter.banner)"
                                          :alt="post.title"
                                     />
                                     <a-card-meta :title="post.title">

@@ -15,7 +15,7 @@
                      width="150"
                      height="143"
                      :alt="item.title"
-                     :src="item.frontmatter.banner"
+                     :src="$withBase(item.frontmatter.banner)"
                 />
                 <a-list-item-meta>
                     <router-link slot="title" :to="item.path">{{ item.title }}</router-link>

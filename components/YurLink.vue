@@ -3,7 +3,7 @@
         <a-skeleton active :loading="loading">
             <div class="banner">
                 <a-skeleton active :loading="loading">
-                    <img :src="link.banner" :alt="title">
+                    <img :src="$withBase(link.banner)" :alt="title">
                 </a-skeleton>
             </div>
         </a-skeleton>

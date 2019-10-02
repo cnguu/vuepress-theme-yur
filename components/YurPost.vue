@@ -11,7 +11,7 @@
                         <div class="post-header">
                             <div class="post-header-blur"
                                  :style="{
-                                     backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(' + ($page.frontmatter.banner) + ')',
+                                     backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(' + $withBase($page.frontmatter.banner) + ')',
                                  }"
                             ></div>
                             <div class="post-header-content">
