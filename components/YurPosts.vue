@@ -11,14 +11,12 @@
                 <template slot="actions">
                     {{ item.frontmatter.date ? fromNow(item.frontmatter.date) : '' }}
                 </template>
-                <a-skeleton active :loading="loading">
-                    <img slot="extra"
-                         width="150"
-                         height="143"
-                         :alt="item.title"
-                         :src="item.frontmatter.banner"
-                    />
-                </a-skeleton>
+                <img slot="extra"
+                     width="150"
+                     height="143"
+                     :alt="item.title"
+                     :src="item.frontmatter.banner"
+                />
                 <a-list-item-meta>
                     <router-link slot="title" :to="item.path">{{ item.title }}</router-link>
                 </a-list-item-meta>
@@ -45,7 +43,6 @@
         },
         data() {
             return {
-                loading: true,
                 pagination: {
                     onChange: (page, pageSize) => {
                         this.pageChange(page, pageSize);
@@ -91,7 +88,6 @@
         beforeMount() {
         },
         mounted() {
-            this.loading = false;
             setTimeout(() => {
                 this.$store.dispatch('changeSetting', {
                     key: 'curtain',
