@@ -115,6 +115,7 @@
         },
         mounted() {
             this.loading = false;
+            this.changeImageSrc();
             setTimeout(() => {
                 this.$store.dispatch('changeSetting', {
                     key: 'curtain',
@@ -189,7 +190,20 @@
                 return `/${ this.$page.path.split('/')[1] }/?page=1&pageSize=12`;
             },
         },
-        methods: {},
+        methods: {
+            changeImageSrc() {
+                const { cdn: { github } } = this.$themeConfig;
+                const images = document.getElementsByClassName('content__default')[0].getElementsByTagName('img');
+                if (github && images.length) {
+                    for (let i = 0; i < images.length; i++) {
+                        const src = images[i].getAttribute('src');
+                        if (src.charAt(0) === '/') {
+                            images[i].src = github + src;
+                        }
+                    }
+                }
+            },
+        },
     };
 </script>
 

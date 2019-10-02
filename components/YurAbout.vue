@@ -65,6 +65,7 @@
         beforeUpdate() {
         },
         updated() {
+            this.changeImageSrc();
         },
         beforeDestroy() {
         },
@@ -88,6 +89,18 @@
                     }
                     if (introduction) {
                         this.about.introduction = introduction;
+                    }
+                }
+            },
+            changeImageSrc() {
+                const { cdn: { github } } = this.$themeConfig;
+                const images = document.getElementsByClassName('content__default')[0].getElementsByTagName('img');
+                if (github && images.length) {
+                    for (let i = 0; i < images.length; i++) {
+                        const src = images[i].getAttribute('src');
+                        if (src.charAt(0) === '/') {
+                            images[i].src = github + src;
+                        }
                     }
                 }
             },
