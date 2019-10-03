@@ -29,8 +29,8 @@
                 <h2>
                     <span>最近更新</span>
                 </h2>
-                <a-row v-if="$posts.length">
-                    <a-col v-for="post in $posts.slice(0, 3)"
+                <a-row v-if="updatedPosts.length">
+                    <a-col v-for="post in updatedPosts"
                            :key="post.path"
                            :xs="24"
                            :md="8"
@@ -71,6 +71,7 @@
                 title: '凉风有信',
                 description: '责难无以成事',
                 banner: require('../images/banner.png'),
+                updatedPosts: [],
             };
         },
         beforeCreate() {
@@ -124,6 +125,15 @@
                 }
                 if (banner) {
                     this.banner = this.$withBase(banner);
+                }
+                this.updatedPosts = this.$posts;
+                if (this.updatedPosts.length) {
+                    this.updatedPosts.sort((a, b) => {
+                        let a_update_date = a.frontmatter.hasOwnProperty('update_date') ? new Date(a.frontmatter.update_date).getTime() : 0;
+                        let b_update_date = b.frontmatter.hasOwnProperty('update_date') ? new Date(b.frontmatter.update_date).getTime() : 0;
+                        return b_update_date - a_update_date;
+                    });
+                    this.updatedPosts = this.updatedPosts.slice(0, 3);
                 }
             },
         },
