@@ -126,7 +126,7 @@
                 if (banner) {
                     this.banner = this.$withBase(banner);
                 }
-                this.updatedPosts = this.$posts;
+                this.updatedPosts = Array.from(this.$posts);
                 if (this.updatedPosts.length) {
                     this.updatedPosts.sort((a, b) => {
                         let a_update_date = a.frontmatter.hasOwnProperty('update_date') ? new Date(a.frontmatter.update_date).getTime() : 0;
