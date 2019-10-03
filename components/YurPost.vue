@@ -192,13 +192,16 @@
         },
         methods: {
             changeImageSrc() {
-                const { cdn: { github } } = this.$themeConfig;
-                const images = document.getElementsByClassName('content__default')[0].getElementsByTagName('img');
-                if (github && images.length) {
-                    for (let i = 0; i < images.length; i++) {
-                        const src = images[i].getAttribute('src');
-                        if (src.charAt(0) === '/') {
-                            images[i].src = github + src;
+                const { cdn } = this.$themeConfig;
+                if (cdn) {
+                    const { github } = cdn;
+                    const images = document.getElementsByClassName('content__default')[0].getElementsByTagName('img');
+                    if (github && images.length) {
+                        for (let i = 0; i < images.length; i++) {
+                            const src = images[i].getAttribute('src');
+                            if (src.charAt(0) === '/') {
+                                images[i].src = github + src;
+                            }
                         }
                     }
                 }

@@ -23,9 +23,13 @@ export default ({ Vue, options, router, siteData }) => {
         if (path) {
             if (path.charAt(0) === '/') {
                 const { base } = siteData;
-                const { cdn: { github } } = siteData.themeConfig;
-                if (github) {
-                    return github + path;
+                const { cdn } = siteData.themeConfig;
+                if (cdn) {
+                    const { github } = cdn;
+                    console.log(github);
+                    if (github) {
+                        return github + path;
+                    }
                 }
                 if (base) {
                     return base + path.slice(1);
