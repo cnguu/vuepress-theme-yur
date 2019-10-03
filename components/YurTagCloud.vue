@@ -1,7 +1,7 @@
 <template>
     <div id="yur-tag-cloud">
         <section v-if="tags.length">
-            <Router-link v-for="tag in tags" :to="`/tags/?type=${ tag }`">
+            <Router-link v-for="tag in tags" :to="`/tags/?type=${ tag }&page=1&pageSize=12`">
                 <a-tag>{{ tag }}</a-tag>
             </Router-link>
         </section>

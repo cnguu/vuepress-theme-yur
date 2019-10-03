@@ -22,7 +22,7 @@
                 </a-list-item-meta>
                 <div class="tag" v-if="item.frontmatter.tags">
                     <router-link v-for="tag in item.frontmatter.tags.slice(0, 1)"
-                                 :to="`/tags/?type=${ tag }`"
+                                 :to="`/tags/?type=${ tag }&page=1&pageSize=12`"
                     >
                         <a-tag>{{ tag }}</a-tag>
                     </router-link>
@@ -50,7 +50,7 @@
                         this.pageChange(page, pageSize);
                     },
                     onShowSizeChange: (current, size) => {
-                        this.pageChange(current, size);
+                        this.pageChange(1, size);
                     },
                     showTotal: (total, range) => {
                         return `总共 ${ total } 条博文`;
