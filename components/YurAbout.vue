@@ -21,17 +21,18 @@
                 </div>
             </div>
         </a-skeleton>
-        <a-skeleton active :loading="loading">
-            <Content/>
-        </a-skeleton>
-        <a-skeleton v-if="$themeConfig.vssue" active :loading="loading">
+        <Content/>
+        <a-skeleton v-if="$themeConfig.vssue && isPro()"
+                    active
+                    :loading="loading"
+        >
             <Vssue :title="$page.path"/>
         </a-skeleton>
     </div>
 </template>
 
 <script>
-    import { getTimeOut } from '../util';
+    import { isPro, getTimeOut } from '../util';
 
     export default {
         components: {},
@@ -45,17 +46,24 @@
                     name: 'cnguu',
                     introduction: '责难无以成事',
                 },
+                isPro,
             };
         },
         beforeCreate() {
         },
         created() {
             this.initConfig();
+            this.$nextTick(() => {
+                setTimeout(() => {
+                    this.changeImageSrc();
+                }, 300);
+            });
         },
         beforeMount() {
         },
         mounted() {
             this.loading = false;
+            this.changeImageSrc();
             setTimeout(() => {
                 this.$store.dispatch('changeSetting', {
                     key: 'curtain',
@@ -67,7 +75,6 @@
         beforeUpdate() {
         },
         updated() {
-            this.changeImageSrc();
         },
         beforeDestroy() {
         },

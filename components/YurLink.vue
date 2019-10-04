@@ -43,14 +43,17 @@
                 </a-col>
             </a-row>
         </div>
-        <a-skeleton v-if="$themeConfig.vssue" active :loading="loading">
+        <a-skeleton v-if="$themeConfig.vssue && isPro()"
+                    active
+                    :loading="loading"
+        >
             <Vssue :title="$page.path"/>
         </a-skeleton>
     </div>
 </template>
 
 <script>
-    import { getTimeOut } from '../util';
+    import { isPro, getTimeOut } from '../util';
 
     export default {
         components: {},
@@ -71,6 +74,7 @@
                         },
                     ],
                 },
+                isPro,
             };
         },
         beforeCreate() {

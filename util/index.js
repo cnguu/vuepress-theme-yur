@@ -244,6 +244,14 @@ function resolveItem(item, pages, base, groupDepth = 1) {
     }
 }
 
+export function isPro() {
+    return process.env.NODE_ENV === 'production' && typeof window !== 'undefined';
+}
+
+export function isBuild() {
+    return process.env.NODE_ENV === 'production' && typeof navigator === 'undefined';
+}
+
 export function parseDate(date) {
     return this.$moment(date).format('YYYY-MM-DD');
 }

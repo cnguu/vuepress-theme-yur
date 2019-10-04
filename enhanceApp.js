@@ -3,6 +3,7 @@ import axios from 'axios';
 import Ant from 'ant-design-vue';
 import zh_CN from 'ant-design-vue/lib/locale-provider/zh_CN';
 import moment from 'moment';
+import { isPro, isBuild } from './util';
 import 'moment/locale/zh-cn';
 import 'ant-design-vue/dist/antd.less';
 import './styles/index.less';
@@ -26,7 +27,6 @@ export default ({ Vue, options, router, siteData }) => {
                 const { cdn } = siteData.themeConfig;
                 if (cdn) {
                     const { github } = cdn;
-                    console.log(github);
                     if (github) {
                         return github + path;
                     }
@@ -84,14 +84,6 @@ export function baiDuPush(Vue, siteData) {
             }
         });
     }
-}
-
-export function isPro() {
-    return process.env.NODE_ENV === 'production' && typeof window !== 'undefined';
-}
-
-export function isBuild() {
-    return process.env.NODE_ENV === 'production' && typeof navigator === 'undefined';
 }
 
 export function getCategories(siteData) {

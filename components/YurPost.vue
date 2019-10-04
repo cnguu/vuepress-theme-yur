@@ -50,7 +50,10 @@
                                 </a-tooltip>
                             </div>
                             <YurTagCloud :tag-list="$page.frontmatter.tags"/>
-                            <a-skeleton v-if="$themeConfig.vssue" active :loading="loading">
+                            <a-skeleton v-if="$themeConfig.vssue && isPro()"
+                                        active
+                                        :loading="loading"
+                            >
                                 <Vssue :title="$page.path"/>
                             </a-skeleton>
                         </div>
@@ -84,7 +87,7 @@
 
 <script>
     import YurTagCloud from '@theme/components/YurTagCloud';
-    import { parseDate, getTimeOut } from '../util';
+    import { isPro, parseDate, getTimeOut } from '../util';
 
     export default {
         components: { YurTagCloud },
@@ -105,6 +108,7 @@
                     lg: { span: 4 },
                 },
                 parseDate,
+                isPro,
             };
         },
         beforeCreate() {
