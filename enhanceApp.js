@@ -25,7 +25,7 @@ export default ({ Vue, options, router, siteData }) => {
             if (path.charAt(0) === '/') {
                 const { base } = siteData;
                 const { cdn } = siteData.themeConfig;
-                if (cdn) {
+                if (cdn && !path.includes('assets')) {
                     const { github } = cdn;
                     if (github) {
                         return github + path;
