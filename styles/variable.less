@@ -332,4 +332,25 @@ a {
   }
 }
 
+.ant-input {
+  &:hover {
+    border-color: @primary-color-5;
+  }
+
+  &:focus {
+    border-color: @primary-color-5;
+    box-shadow: 0 0 0 2px fade(@primary-color, 20%);
+  }
+}
+
+.ant-input-affix-wrapper {
+  &:hover {
+    .ant-input {
+      &:not(.ant-input-disabled) {
+        border-color: @primary-color-5;
+      }
+    }
+  }
+}
+
 @import (optional) '~@us/variable.less';

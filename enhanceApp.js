@@ -40,7 +40,28 @@ export default ({ Vue, options, router, siteData }) => {
     };
     baiDuPush(Vue, siteData);
     crisp(siteData);
+    googleAdSense(siteData);
 };
+
+export function googleAdSense(siteData) {
+    const { googleAdSense } = siteData.themeConfig;
+    if (googleAdSense) {
+        const { adClient } = googleAdSense;
+        if (adClient && isPro()) {
+            (function () {
+                let newChild = document.createElement('script');
+                let adsbygoogle = window.adsbygoogle || [];
+                adsbygoogle.push({
+                    google_ad_client: adClient,
+                    enable_page_level_ads: true,
+                });
+                newChild.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+                newChild.async = 1;
+                document.getElementsByTagName('head')[0].appendChild(newChild);
+            })();
+        }
+    }
+}
 
 export function crisp(siteData) {
     const { crisp } = siteData.themeConfig;

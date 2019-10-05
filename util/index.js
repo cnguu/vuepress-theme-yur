@@ -259,5 +259,5 @@ export function parseDate(date) {
 export function getTimeOut(startTime) {
     const endTime = new Date().getTime();
     const diffTime = endTime - startTime;
-    return Math.ceil((diffTime > 33000000 ? 0 : 33000000 - diffTime) / 10000);
+    return Math.ceil((diffTime > 23000000 ? 0 : 23000000 - diffTime) / 10000);
 }

@@ -1,17 +1,20 @@
 const path = require('path');
+const SHA256 = require('crypto-js/sha256');
+const Base64 = require('crypto-js/enc-base64');
+
 module.exports = (options, ctx) => ({
     name: 'vuepress-theme-yur',
     chainWebpack(config, isServer) {
         config.module
-            .rule('less')
-            .oneOf('normal')
-            .use('less-loader')
-            .options({ javascriptEnabled: true })
-            .end()
-            .end()
-            .oneOf('modules')
-            .use('less-loader')
-            .options({ javascriptEnabled: true });
+              .rule('less')
+              .oneOf('normal')
+              .use('less-loader')
+              .options({ javascriptEnabled: true })
+              .end()
+              .end()
+              .oneOf('modules')
+              .use('less-loader')
+              .options({ javascriptEnabled: true });
     },
     alias() {
         const { themeConfig, siteConfig, sourceDir } = ctx;
@@ -126,4 +129,25 @@ module.exports = (options, ctx) => ({
             },
         },
     ],
+    extendPageData($page) {
+        const { themeConfig } = ctx;
+        const { _filePath, _computed, _content, _strippedContent, key, frontmatter, regularPath, path, } = $page;
+        let pwd = '52yur';
+        if (themeConfig) {
+            const { password } = themeConfig;
+            if (password) {
+                pwd = password;
+            }
+        }
+        if (frontmatter) {
+            const { password } = frontmatter;
+            if (password) {
+                if (typeof password !== 'boolean') {
+                    pwd = password;
+                }
+                delete frontmatter.password;
+                $page.password = Base64.stringify(SHA256(pwd));
+            }
+        }
+    }
 });
