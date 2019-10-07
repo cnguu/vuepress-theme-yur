@@ -1,6 +1,6 @@
 {
   "name": "vuepress-theme-yur",
-  "version": "1.2.6-dev.0",
+  "version": "1.2.6-dev.1",
   "description": "VuePress Theme - Yur",
   "keywords": [
     "vuepress",
@@ -41,6 +41,7 @@
     "less-loader": "^4.1.0",
     "markdown-it": "^9.1.0",
     "markdown-it-container": "^2.0.0",
+    "markdown-it-image-lazy-loading": "^1.0.2",
     "moment": "^2.24.0",
     "vuepress-plugin-container": "^2.0.2",
     "vuepress-plugin-permalink-pinyin": "^1.0.0",

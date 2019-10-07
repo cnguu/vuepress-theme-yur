@@ -28,6 +28,9 @@ module.exports = (options, ctx) => ({
             '@us': `${ sourceDir }${ sep }.vuepress${ sep }styles`,
         };
     },
+    extendMarkdown: md => {
+        md.use(require('markdown-it-image-lazy-loading'));
+    },
     plugins: [
         ['@vuepress/medium-zoom', {
             selector: '.content__default img',
@@ -42,6 +45,10 @@ module.exports = (options, ctx) => ({
         '@vuepress/register-components',
         ['@vuepress/search', {
             searchMaxSuggestions: 10,
+        }],
+        ['container', {
+            type: 'success',
+            defaultTitle: '',
         }],
         ['container', {
             type: 'tip',
@@ -149,5 +156,18 @@ module.exports = (options, ctx) => ({
                 $page.password = Base64.stringify(SHA256(pwd));
             }
         }
+        // if (_content) {
+        //     const imageReg = /!\[[\s\S]*?]\([\s\S]*?\)/g;
+        //     const srcReg = /\((.+)\)/;
+        //     const images = _content.match(imageReg);
+        //     if (images && themeConfig.hasOwnProperty('cdn') && themeConfig.cdn.hasOwnProperty('github')) {
+        //         images.forEach(image => {
+        //             const [substring, path, index, input, groups] = image.match(srcReg);
+        //             if (path && path.charAt(0) === '/') {
+        //                 $page._content = _content.replace(path, themeConfig.cdn.github + path);
+        //             }
+        //         });
+        //     }
+        // }
     }
 });

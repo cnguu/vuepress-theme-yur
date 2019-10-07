@@ -86,10 +86,6 @@
             if (this.$route.query.pageSize) {
                 this.pagination.pageSize = Number(this.$route.query.pageSize);
             }
-        },
-        beforeMount() {
-        },
-        mounted() {
             setTimeout(() => {
                 this.$store.dispatch('changeSetting', {
                     key: 'curtain',
@@ -97,6 +93,10 @@
                 });
                 document.getElementsByTagName('body')[0].style.overflow = 'unset';
             }, getTimeOut(this.$store.state.settings.consoleTime));
+        },
+        beforeMount() {
+        },
+        mounted() {
         },
         beforeUpdate() {
         },

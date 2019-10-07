@@ -57,20 +57,19 @@
                 setTimeout(() => {
                     this.changeImageSrc();
                 }, 300);
+                setTimeout(() => {
+                    this.$store.dispatch('changeSetting', {
+                        key: 'curtain',
+                        value: false,
+                    });
+                    document.getElementsByTagName('body')[0].style.overflow = 'unset';
+                }, getTimeOut(this.$store.state.settings.consoleTime));
             });
         },
         beforeMount() {
         },
         mounted() {
             this.loading = false;
-            this.changeImageSrc();
-            setTimeout(() => {
-                this.$store.dispatch('changeSetting', {
-                    key: 'curtain',
-                    value: false,
-                });
-                document.getElementsByTagName('body')[0].style.overflow = 'unset';
-            }, getTimeOut(this.$store.state.settings.consoleTime));
         },
         beforeUpdate() {
         },

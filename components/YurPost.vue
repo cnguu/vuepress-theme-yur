@@ -149,6 +149,20 @@
         },
         created() {
             this.initConfig();
+            this.$nextTick(() => {
+                if (!this.needPwd) {
+                    setTimeout(() => {
+                        this.changeImageSrc();
+                    }, 300);
+                }
+                setTimeout(() => {
+                    this.$store.dispatch('changeSetting', {
+                        key: 'curtain',
+                        value: false,
+                    });
+                    document.getElementsByTagName('body')[0].style.overflow = 'unset';
+                }, getTimeOut(this.$store.state.settings.consoleTime));
+            });
         },
         beforeMount() {
         },
@@ -160,20 +174,14 @@
                     description: '这是一篇私密的博文，如需访问，请提供正确的密码',
                     duration: 4.3,
                 });
-            } else {
-                this.changeImageSrc();
             }
-            setTimeout(() => {
-                this.$store.dispatch('changeSetting', {
-                    key: 'curtain',
-                    value: false,
-                });
-                document.getElementsByTagName('body')[0].style.overflow = 'unset';
-            }, getTimeOut(this.$store.state.settings.consoleTime));
         },
         beforeUpdate() {
         },
         updated() {
+            if (!this.needPwd) {
+                this.changeImageSrc();
+            }
         },
         beforeDestroy() {
         },
@@ -269,6 +277,9 @@
                         const pwd = Base64.stringify(SHA256(values.password));
                         if (this.$page.password === pwd) {
                             this.needPwd = false;
+                            this.$nextTick(() => {
+                                this.changeImageSrc();
+                            });
                             this.$notification.success({
                                 message: '欢迎访问',
                                 description: this.$page.title,

@@ -35,17 +35,19 @@
         beforeCreate() {
         },
         created() {
+            this.$nextTick(() => {
+                setTimeout(() => {
+                    this.$store.dispatch('changeSetting', {
+                        key: 'curtain',
+                        value: false,
+                    });
+                    document.getElementsByTagName('body')[0].style.overflow = 'unset';
+                }, getTimeOut(this.$store.state.settings.consoleTime));
+            });
         },
         beforeMount() {
         },
         mounted() {
-            setTimeout(() => {
-                this.$store.dispatch('changeSetting', {
-                    key: 'curtain',
-                    value: false,
-                });
-                document.getElementsByTagName('body')[0].style.overflow = 'unset';
-            }, getTimeOut(this.$store.state.settings.consoleTime));
         },
         beforeUpdate() {
         },

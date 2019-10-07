@@ -3,7 +3,7 @@ import axios from 'axios';
 import Ant from 'ant-design-vue';
 import zh_CN from 'ant-design-vue/lib/locale-provider/zh_CN';
 import moment from 'moment';
-import { isPro, isBuild } from './util';
+import { isPro, isBuild, withBase } from './util';
 import 'moment/locale/zh-cn';
 import 'ant-design-vue/dist/antd.less';
 import './styles/index.less';
@@ -20,48 +20,10 @@ export default ({ Vue, options, router, siteData }) => {
     Vue.prototype.$posts = getPosts(siteData);
     Vue.prototype.$tags = getTags(siteData);
     Vue.prototype.$categories = getCategories(siteData);
-    Vue.prototype.$withBase = path => {
-        if (path) {
-            if (path.charAt(0) === '/') {
-                const { base } = siteData;
-                const { cdn } = siteData.themeConfig;
-                if (cdn && !path.includes('assets')) {
-                    const { github } = cdn;
-                    if (github) {
-                        return github + path;
-                    }
-                }
-                if (base) {
-                    return base + path.slice(1);
-                }
-            }
-        }
-        return path;
-    };
+    Vue.prototype.$withBase = path => withBase(path, siteData);
     baiDuPush(Vue, siteData);
     crisp(siteData);
-    googleAdSense(siteData);
 };
-
-export function googleAdSense(siteData) {
-    const { googleAdSense } = siteData.themeConfig;
-    if (googleAdSense) {
-        const { adClient } = googleAdSense;
-        if (adClient && isPro()) {
-            (function () {
-                let newChild = document.createElement('script');
-                let adsbygoogle = window.adsbygoogle || [];
-                adsbygoogle.push({
-                    google_ad_client: adClient,
-                    enable_page_level_ads: true,
-                });
-                newChild.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
-                newChild.async = 1;
-                document.getElementsByTagName('head')[0].appendChild(newChild);
-            })();
-        }
-    }
-}
 
 export function crisp(siteData) {
     const { crisp } = siteData.themeConfig;

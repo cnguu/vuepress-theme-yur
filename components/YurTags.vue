@@ -90,18 +90,20 @@
             if (this.$route.query.pageSize) {
                 this.pagination.pageSize = Number(this.$route.query.pageSize);
             }
+            this.$nextTick(() => {
+                setTimeout(() => {
+                    this.$store.dispatch('changeSetting', {
+                        key: 'curtain',
+                        value: false,
+                    });
+                    document.getElementsByTagName('body')[0].style.overflow = 'unset';
+                }, getTimeOut(this.$store.state.settings.consoleTime));
+            });
         },
         beforeMount() {
         },
         mounted() {
             this.loading = false;
-            setTimeout(() => {
-                this.$store.dispatch('changeSetting', {
-                    key: 'curtain',
-                    value: false,
-                });
-                document.getElementsByTagName('body')[0].style.overflow = 'unset';
-            }, getTimeOut(this.$store.state.settings.consoleTime));
         },
         beforeUpdate() {
         },
