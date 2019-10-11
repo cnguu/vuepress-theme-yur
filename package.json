@@ -1,6 +1,6 @@
 {
   "name": "vuepress-theme-yur",
-  "version": "1.2.6",
+  "version": "1.2.7-dev.0",
   "description": "VuePress Theme - Yur",
   "keywords": [
     "vuepress",
@@ -26,8 +26,8 @@
     "vuepress": "^1.1.0"
   },
   "dependencies": {
-    "@vssue/api-github-v3": "^1.0.3",
-    "@vssue/vuepress-plugin-vssue": "^1.0.3",
+    "@vssue/api-github-v4": "^1.1.1",
+    "@vssue/vuepress-plugin-vssue": "^1.1.1",
     "@vuepress/markdown": "^1.1.0",
     "@vuepress/markdown-loader": "^1.1.0",
     "@vuepress/plugin-medium-zoom": "^1.1.0",
