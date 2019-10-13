@@ -79,12 +79,7 @@
                                 </a-tooltip>
                             </div>
                             <YurTagCloud :tag-list="$page.frontmatter.tags"/>
-                            <a-skeleton v-if="$themeConfig.vssue && isPro()"
-                                        active
-                                        :loading="loading"
-                            >
-                                <Vssue :title="$page.path"/>
-                            </a-skeleton>
+                            <YurComment/>
                         </div>
                     </div>
                 </a-col>
@@ -115,13 +110,14 @@
 </template>
 
 <script>
+    import YurComment from '@theme/components/YurComment';
     import YurTagCloud from '@theme/components/YurTagCloud';
     import SHA256 from 'crypto-js/sha256';
     import Base64 from 'crypto-js/enc-base64';
     import { isPro, parseDate, getTimeOut } from '../util';
 
     export default {
-        components: { YurTagCloud },
+        components: { YurComment, YurTagCloud },
         props: {},
         data() {
             return {

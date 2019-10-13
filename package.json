@@ -1,6 +1,6 @@
 {
   "name": "vuepress-theme-yur",
-  "version": "1.2.7-dev.0",
+  "version": "1.2.7-dev.1",
   "description": "VuePress Theme - Yur",
   "keywords": [
     "vuepress",
@@ -23,11 +23,9 @@
     "pic": "./pic.sh"
   },
   "peerDependencies": {
-    "vuepress": "^1.1.0"
+    "vuepress": "^1.2.0"
   },
   "dependencies": {
-    "@vssue/api-github-v4": "^1.1.1",
-    "@vssue/vuepress-plugin-vssue": "^1.1.1",
     "@vuepress/markdown": "^1.1.0",
     "@vuepress/markdown-loader": "^1.1.0",
     "@vuepress/plugin-medium-zoom": "^1.1.0",
@@ -41,10 +39,9 @@
     "less-loader": "^4.1.0",
     "markdown-it": "^9.1.0",
     "markdown-it-container": "^2.0.0",
-    "markdown-it-image-lazy-loading": "^1.0.2",
     "moment": "^2.24.0",
+    "transliteration": "^2.1.7",
     "vuepress-plugin-container": "^2.0.2",
-    "vuepress-plugin-permalink-pinyin": "^1.0.0",
     "vuex": "^3.1.1"
   }
 }

@@ -22,20 +22,16 @@
             </div>
         </a-skeleton>
         <Content/>
-        <a-skeleton v-if="$themeConfig.vssue && isPro()"
-                    active
-                    :loading="loading"
-        >
-            <Vssue :title="$page.path"/>
-        </a-skeleton>
+        <YurComment/>
     </div>
 </template>
 
 <script>
+    import YurComment from '@theme/components/YurComment';
     import { isPro, getTimeOut } from '../util';
 
     export default {
-        components: {},
+        components: { YurComment },
         props: {},
         data() {
             return {

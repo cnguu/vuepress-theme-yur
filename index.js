@@ -1,6 +1,7 @@
 const path = require('path');
 const SHA256 = require('crypto-js/sha256');
 const Base64 = require('crypto-js/enc-base64');
+const slugify = require('transliteration').slugify;
 
 module.exports = (options, ctx) => ({
     name: 'vuepress-theme-yur',
@@ -29,7 +30,6 @@ module.exports = (options, ctx) => ({
         };
     },
     extendMarkdown: md => {
-        md.use(require('markdown-it-image-lazy-loading'));
     },
     plugins: [
         ['@vuepress/medium-zoom', {
@@ -61,10 +61,6 @@ module.exports = (options, ctx) => ({
         ['container', {
             type: 'danger',
             defaultTitle: '',
-        }],
-        ['permalink-pinyin', {
-            lowercase: true,
-            separator: '-',
         }],
     ],
     additionalPages: [
@@ -139,6 +135,13 @@ module.exports = (options, ctx) => ({
     extendPageData($page) {
         const { themeConfig } = ctx;
         const { _filePath, _computed, _content, _strippedContent, key, frontmatter, regularPath, path, } = $page;
+        $page.path = decodeURIComponent(path).split('/')
+                                             .map(str => slugify(str, {
+                                                 lowercase: true,
+                                                 separator: '-',
+                                                 ignore: ['/', '.']
+                                             }))
+                                             .join('/');
         let pwd = '52yur';
         if (themeConfig) {
             const { password } = themeConfig;
