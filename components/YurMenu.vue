@@ -72,21 +72,5 @@
     };
 </script>
 
-<style lang="less">
-    @import "../styles/variable.less";
-
-    #yur-menu {
-        float: right;
-        margin: 11px auto 0;
-        height: 11px;
-        line-height: 11px;
-
-        .menu {
-            border-bottom: none;
-
-            .category {
-                margin-left: 10px;
-            }
-        }
-    }
+<style lang="less" scoped>
 </style>

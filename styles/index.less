@@ -1,40 +1,26 @@
 @import "~prismjs/themes/prism-tomorrow.css";
 @import "./variable";
-@import "./code";
 @import "./keyframe";
-@import "./vssue";
 @import "./pwa";
+@import "./code";
+@import "./vssue";
 @import "./crisp";
-
-::-webkit-scrollbar-track,
-::-webkit-scrollbar-track-piece {
-  background-color: @body-background;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 2*@border-radius-base;
-  background: linear-gradient(lighten(@primary-color, 15%) 20%, lighten(@primary-color, 10%) 80%);
-  box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, .45),inset -2px -2px 2px lighten(@primary-color, 15%);
-}
-
-::selection {
-  background: @primary-color;
-}
-
-body {
-  font-size: @font-size-base;
-  overflow: hidden;
-}
-
-ol, p, ul {
-  line-height: 1.7;
-}
-
-ol, ul {
-  padding-left: 24px;
-}
+@import "./default";
+@import "./components/notFound";
+@import "./components/layout";
+@import "./components/curtain";
+@import "./components/header";
+@import "./components/content";
+@import "./components/footer";
+@import "./components/search";
+@import "./components/menu";
+@import "./components/banner";
+@import "./components/tagCloud";
+@import "./components/categories";
+@import "./components/post";
+@import "./components/comment";
+@import "./components/posts";
+@import "./components/tags";
+@import "./components/timeline";
+@import "./components/link";
+@import "./components/about";

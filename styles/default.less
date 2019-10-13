@@ -1,0 +1,32 @@
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-piece {
+  background-color: @body-background;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 2*@border-radius-base;
+  background: linear-gradient(lighten(@primary-color, 15%) 20%, lighten(@primary-color, 10%) 80%);
+  box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, .45),inset -2px -2px 2px lighten(@primary-color, 15%);
+}
+
+::selection {
+  background: @primary-color;
+}
+
+body {
+  font-size: @font-size-base;
+  overflow: hidden;
+}
+
+ol, p, ul {
+  line-height: 1.7;
+}
+
+ol, ul {
+  padding-left: 24px;
+}

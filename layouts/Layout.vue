@@ -84,12 +84,5 @@
     };
 </script>
 
-<style lang="less">
-    @import "../styles/variable.less";
-
-    #VuePress-theme-yur {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
+<style lang="less" scoped>
 </style>

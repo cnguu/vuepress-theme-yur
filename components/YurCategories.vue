@@ -40,9 +40,5 @@
     };
 </script>
 
-<style lang="less">
-    @import "../styles/variable.less";
-
-    #yur-categories {
-    }
+<style lang="less" scoped>
 </style>

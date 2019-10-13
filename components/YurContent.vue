@@ -90,20 +90,5 @@
     };
 </script>
 
-<style lang="less">
-    @import "../styles/variable.less";
-
-    #yur-content {
-        flex: 1;
-
-        .ant-back-top {
-            right: 20px;
-            bottom: 20px;
-
-            .ant-back-top-content {
-                background-color: @primary-color;
-                box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
-            }
-        }
-    }
+<style lang="less" scoped>
 </style>

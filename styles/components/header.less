@@ -1,0 +1,56 @@
+#yur-header {
+  position: relative;
+  margin: 20px auto 0;
+  padding: 0 24px;
+  width: 100%;
+  max-width: 1200px;
+
+  .menu-icon {
+    display: none;
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  #yur-logo {
+    float: left;
+    height: 64px;
+    line-height: 64px;
+    white-space: nowrap;
+    text-decoration: none;
+    overflow: hidden;
+
+    img {
+      height: 32px;
+      margin-right: 16px;
+
+      & + svg {
+        position: relative;
+        top: 20px;
+      }
+    }
+  }
+}
+
+#yur-mobile-menu {
+  .menu {
+    min-width: 260px;
+    border-right: none;
+  }
+}
+
+@media only screen and (max-width: 767.99px) {
+  #yur-header {
+    text-align: center;
+
+    .menu-icon {
+      display: block;
+    }
+
+    #yur-logo {
+      float: initial;
+    }
+  }
+}
