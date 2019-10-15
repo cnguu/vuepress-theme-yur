@@ -12,7 +12,7 @@
                 </div>
                 <h1>{{ title }}</h1>
                 <p>
-                    <span class="subtitle"></span>
+                    <span class="subtitle">{{ subtitle }}</span>
                 </p>
                 <div class="banner-btn-group">
                     <router-link to="/posts/?page=1&pageSize=12">
@@ -70,7 +70,9 @@
                 loading: true,
                 title: '凉风有信',
                 description: '责难无以成事',
+                subtitle: '责难无以成事',
                 banner: require('../images/banner.png'),
+                ityped: null,
                 updatedPosts: [],
             };
         },
@@ -89,18 +91,12 @@
         beforeMount() {
         },
         mounted() {
-            init('span.subtitle', {
-                strings: [this.description],
-                typeSpeed: 300,
-                backSpeed: 100,
-                startDelay: 300,
-                backDelay: 300,
-                loop: true,
-                showCursor: true,
-                placeholder: false,
-                disableBackTyping: false,
-                cursorChar: '丨',
-            });
+            if (this.ityped) {
+                this.subtitle = '';
+                init('span.subtitle', Object.assign({}, {
+                    strings: [this.description],
+                }, this.ityped));
+            }
             this.loading = false;
         },
         beforeUpdate() {
@@ -116,7 +112,7 @@
         methods: {
             initConfig() {
                 const { title, description } = this.$site;
-                const { banner } = this.$themeConfig;
+                const { banner, ityped } = this.$themeConfig;
                 if (title) {
                     this.title = title;
                 }
@@ -125,6 +121,9 @@
                 }
                 if (banner) {
                     this.banner = this.$withBase(banner);
+                }
+                if (ityped) {
+                    this.ityped = ityped;
                 }
                 this.updatedPosts = Array.from(this.$posts);
                 if (this.updatedPosts.length) {

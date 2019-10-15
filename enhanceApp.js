@@ -21,6 +21,7 @@ export default ({ Vue, options, router, siteData }) => {
     Vue.prototype.$tags = getTags(siteData);
     Vue.prototype.$categories = getCategories(siteData);
     Vue.prototype.$withBase = path => withBase(path, siteData);
+    curtain(siteData);
     baiDuPush(Vue, siteData);
     customer(router, siteData);
 };
@@ -87,6 +88,16 @@ export function baiDuPush(Vue, siteData) {
             }
         }).catch(error => {
             console.log(`无权推送，错误码：${ error.response.status }\n`);
+        });
+    }
+}
+
+export function curtain(siteData) {
+    const { curtain } = siteData.themeConfig;
+    if (curtain) {
+        store.dispatch('changeSetting', {
+            key: 'curtain',
+            value: true,
         });
     }
 }

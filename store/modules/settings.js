@@ -1,5 +1,5 @@
 const state = {
-    curtain: true,
+    curtain: false,
     consoleTime: 0,
 };
 

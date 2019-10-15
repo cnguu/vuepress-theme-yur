@@ -44,13 +44,18 @@
         methods: {
             initConfig() {
                 const { title } = this.$site;
-                const { tip, textShadow } = this.$themeConfig;
+                const { curtain } = this.$themeConfig;
                 if (title) {
                     this.title = title;
                 }
-                if (tip) {
-                    this.tip = tip;
-                    this.textShadow = textShadow;
+                if (curtain) {
+                    const { tip, textShadow } = curtain;
+                    if (tip) {
+                        this.tip = tip;
+                    }
+                    if (textShadow) {
+                        this.textShadow = textShadow;
+                    }
                 }
             },
         },
