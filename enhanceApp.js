@@ -22,10 +22,10 @@ export default ({ Vue, options, router, siteData }) => {
     Vue.prototype.$categories = getCategories(siteData);
     Vue.prototype.$withBase = path => withBase(path, siteData);
     baiDuPush(Vue, siteData);
-    customer(siteData);
+    customer(router, siteData);
 };
 
-export function customer(siteData) {
+export function customer(router, siteData) {
     const { crisp, daoVoice } = siteData.themeConfig;
     if (isPro()) {
         if (crisp) {
@@ -38,22 +38,23 @@ export function customer(siteData) {
                 document.getElementsByTagName('head')[0].appendChild(newChild);
             })();
         } else if (daoVoice) {
-            (function (i, s, o, g, r, a, m) {
-                i['DaoVoiceObject'] = r;
-                i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-                a = s.createElement(o), m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                a.charset = "utf-8";
-                m.parentNode.insertBefore(a, m);
-            })(window, document, 'script', `https://widget.daovoice.io/widget/${ daoVoice }.js`, 'daovoice');
-            daovoice('init', {
-                app_id: daoVoice,
-            });
-            daovoice('update');
-
+            // (function (i, s, o, g, r, a, m) {
+            //     i['DaoVoiceObject'] = r;
+            //     i[r] = i[r] || function () {
+            //         (i[r].q = i[r].q || []).push(arguments);
+            //     };
+            //     i[r].l = 1 * new Date();
+            //     a = s.createElement(o);
+            //     m = s.getElementsByTagName(o)[0];
+            //     a.async = 1;
+            //     a.src = g;
+            //     m.parentNode.insertBefore(a, m);
+            // })(window, document, 'script', `https://widget.daovoice.io/widget/${ daoVoice }.js`, 'daovoice');
+            // daovoice('init', { app_id: daoVoice });
+            // daovoice('update');
+            // router.afterEach((to, from) => {
+            //     daovoice('update', to.fullPath);
+            // });
         }
     }
 }
@@ -80,10 +81,12 @@ export function baiDuPush(Vue, siteData) {
             },
         }).then(response => {
             if (response.data) {
-                console.log('百度主动推送成功数量：' + response.data.success);
+                console.log(`百度主动推送成功数量：${ response.data.success }\n`);
             } else {
-                console.log('百度主动推送失败');
+                console.log(`百度主动推送失败\n`);
             }
+        }).catch(error => {
+            console.log(`无权推送，错误码：${ error.response.status }\n`);
         });
     }
 }
