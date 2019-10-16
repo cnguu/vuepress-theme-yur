@@ -82,12 +82,12 @@ export function baiDuPush(Vue, siteData) {
             },
         }).then(response => {
             if (response.data) {
-                console.log(`百度主动推送成功数量：${ response.data.success }\n`);
+                console.log(`\n百度主动推送成功数量：${ response.data.success }`);
             } else {
-                console.log(`百度主动推送失败\n`);
+                console.log(`\n百度主动推送失败`);
             }
         }).catch(error => {
-            console.log(`无权推送，错误码：${ error.response.status }\n`);
+            console.log(`\n无权推送，错误码：${ error.response.status }`);
         });
     }
 }
