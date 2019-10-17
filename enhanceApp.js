@@ -81,8 +81,9 @@ export function baiDuPush(Vue, siteData) {
                 'Content-Type': 'text/plain',
             },
         }).then(response => {
-            if (response.data) {
-                console.log(`\n百度主动推送成功数量：${ response.data.success }`);
+            const { data } = response;
+            if (data) {
+                console.log(`\n百度主动推送成功：${ response.data.success }`);
             } else {
                 console.log(`\n百度主动推送失败`);
             }
