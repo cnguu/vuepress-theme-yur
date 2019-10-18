@@ -76,20 +76,29 @@ export function baiDuPush(Vue, siteData) {
             const { regularPath } = post;
             urls.push(site + regularPath);
         });
-        axios.post(`http://data.zz.baidu.com/urls?site=${ site }&token=${ baiDuActivePush }`, urls.join('\n'), {
-            headers: {
-                'Content-Type': 'text/plain',
-            },
-        }).then(response => {
-            const { data } = response;
-            if (data) {
-                console.log(`\n百度主动推送成功：${ response.data.success }`);
-            } else {
-                console.log(`\n百度主动推送失败`);
-            }
-        }).catch(error => {
-            console.log(`\n无权推送，错误码：${ error.response.status }`);
-        });
+        try {
+            axios.post(`http://data.zz.baidu.com/urls?site=${ site }&token=${ baiDuActivePush }`, urls.join('\n'), {
+                headers: {
+                    'Content-Type': 'text/plain',
+                },
+            }).then(response => {
+                const { data } = response;
+                if (data) {
+                    console.log(`\n百度主动推送成功：${ response.data.success }`);
+                } else {
+                    console.log(`\n百度主动推送失败`);
+                }
+            }).catch(error => {
+                const { response } = error;
+                if (response) {
+                    const { status } = response;
+                    if (status) {
+                        console.log(`\n无权推送，错误码：${ error.response.status }`);
+                    }
+                }
+            });
+        } catch (e) {
+        }
     }
 }
 
