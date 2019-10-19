@@ -1,7 +1,7 @@
 <template>
     <a-skeleton active :loading="loading">
         <Vssue v-if="vssue" :title="$page.path"/>
-        <Valine v-else-if="valine"/>
+        <div v-else id="yur-valine"/>
     </a-skeleton>
 </template>
 
@@ -15,7 +15,6 @@
             return {
                 loading: true,
                 vssue: false,
-                valine: false,
             };
         },
         beforeCreate() {
@@ -44,8 +43,6 @@
                 if (comment && isPro() && this.handleComment()) {
                     if (comment === 'vssue') {
                         this.vssue = true;
-                    } else if (comment === 'valine') {
-                        this.valine = true;
                     }
                 }
             },
@@ -58,7 +55,7 @@
                     }
                 }
                 return true;
-            }
+            },
         },
     }
 </script>

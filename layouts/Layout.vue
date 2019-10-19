@@ -14,6 +14,7 @@
     import YurHeader from '@theme/components/YurHeader';
     import YurContent from '@theme/components/YurContent';
     import YurFooter from '@theme/components/YurFooter';
+    import { isPro } from '../util';
 
     export default {
         components: { YurCurtain, YurHeader, YurContent, YurFooter },
@@ -23,6 +24,7 @@
                 zh_CN: this.$zh_CN,
                 currentPage: '/',
                 currentPost: '',
+                vl: false,
             };
         },
         beforeCreate() {
@@ -40,11 +42,15 @@
             }
         },
         created() {
+            this.initConfig();
             this.handleRoute();
         },
         beforeMount() {
         },
         mounted() {
+            if (this.vl) {
+                this.initValine();
+            }
         },
         beforeUpdate() {
         },
@@ -63,7 +69,15 @@
             },
         },
         methods: {
-            handleRoute() {
+            initConfig() {
+                const { comment } = this.$themeConfig;
+                if (comment && isPro() && this.handleComment()) {
+                    if (comment === 'valine' && this.$themeConfig.hasOwnProperty('valine')) {
+                        this.vl = true;
+                    }
+                }
+            },
+            handleRoute(to, from) {
                 let path = this.$route.path.split('/'),
                     pathPop = path.pop(),
                     pathPopPop = path.pop();
@@ -78,6 +92,37 @@
                     }
                 } else if (pathPopPop.length > 0) {
                     this.currentPage = pathPopPop;
+                }
+                if (to && from && to.path !== from.path) {
+                    this.initValine();
+                }
+            },
+            handleComment() {
+                const { frontmatter } = this.$page;
+                if (frontmatter) {
+                    const { comment } = frontmatter;
+                    if (comment === false) {
+                        return false;
+                    }
+                }
+                return true;
+            },
+            initValine() {
+                if (this.vl) {
+                    this.$nextTick(() => {
+                        setTimeout(() => {
+                            const Valine = require('valine');
+                            const AV = require('leancloud-storage');
+                            if (typeof window !== 'undefined') {
+                                this.window = window;
+                                window.AV = AV;
+                            }
+                            new Valine(Object.assign({}, this.$themeConfig.valine, {
+                                el: '#yur-valine',
+                                path: window.location.pathname,
+                            }));
+                        }, 300);
+                    });
                 }
             },
         },

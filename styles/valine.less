@@ -1,0 +1,112 @@
+#yur-valine {
+  margin-top: 40px;
+
+  .vwrap {
+    .vheader {
+      .vinput {
+        &:focus {
+          border-bottom-color: @error-color;
+        }
+      }
+    }
+
+    .vcontrol {
+      svg {
+        display: none;
+      }
+
+      button {
+        color: #ffffff;
+        background-color: @primary-color;
+        border-color: @primary-color;
+
+        &:hover,
+        &:focus {
+          background-color: @primary-color-5;
+          border-color: @primary-color-5;
+        }
+      }
+    }
+
+    .vmark {
+      .valert {
+        .vbtns {
+          button {
+            &:hover,
+            &:active {
+              color: @primary-color;
+              border-color: @primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .vlist {
+    .vcard {
+      .vh {
+        .vhead {
+          .vnick {
+            color: @primary-color;
+
+            &:hover {
+              color: @primary-color-5;
+            }
+
+            &:before {
+              background: none;
+            }
+          }
+
+          span {
+            display: none;
+          }
+        }
+
+        .vmeta {
+          .vat {
+            color: @error-color;
+          }
+        }
+      }
+    }
+  }
+
+  .vpage {
+
+    button {
+      color: #ffffff;
+      background-color: @primary-color;
+      border-color: @primary-color;
+
+      &:hover,
+      &:focus {
+        background-color: @primary-color-5;
+        border-color: @primary-color-5;
+      }
+    }
+  }
+
+  .info {
+    .power {
+      a {
+        &:hover {
+          color: @primary-color;
+        }
+      }
+    }
+  }
+
+  .vloading {
+    &:before {
+      border: 6px double @primary-color;
+    }
+  }
+
+  a {
+    &:before {
+      background: none;
+    }
+  }
+}
