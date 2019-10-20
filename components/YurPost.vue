@@ -55,6 +55,21 @@
                         </div>
                         <Content/>
                         <div class="end">
+                            <div v-if="reward.length" class="reward">
+                                <a-popover placement="top" trigger="click" :overlayStyle="{'width':'auto'}">
+                                    <template slot="content">
+                                        <div id="reward">
+                                            <img v-for="item in reward"
+                                                 :src="$withBase(item)"
+                                            >
+                                        </div>
+                                    </template>
+                                    <a-button shape="circle"
+                                              size="large"
+                                    >赏
+                                    </a-button>
+                                </a-popover>
+                            </div>
                             <div class="copyright">
                                 <a-tooltip placement="topRight" style="float: left">
                                     <template slot="title">
@@ -78,7 +93,7 @@
                                     </a-button>
                                 </a-tooltip>
                             </div>
-                            <YurTagCloud :tag-list="$page.frontmatter.tags"/>
+                            <YurTagCloud :tag-list="$page.frontmatter.tags" ref="tagCloud"/>
                             <YurComment/>
                         </div>
                     </div>
@@ -98,7 +113,11 @@
                         </a-tooltip>
                     </div>
                     <div v-if="getCatalogs.length" class="post-catalog">
-                        <a-anchor :offsetTop="20" :showInkInFixed="true">
+                        <a-anchor :affix="true"
+                                  :bounds="240"
+                                  :offsetTop="20"
+                                  :showInkInFixed="true"
+                        >
                             <a-anchor-link v-for="catalog in getCatalogs"
                                            :href="'#'+catalog.slug"
                                            :title="catalog.title"
@@ -131,6 +150,7 @@
         data() {
             return {
                 loading: true,
+                reward: [],
                 needPwd: true,
                 form: this.$form.createForm(this),
                 postContentCol: {
@@ -262,8 +282,12 @@
         },
         methods: {
             initConfig() {
+                const { reward } = this.$themeConfig;
                 const { password } = this.$page;
                 this.needPwd = !!password;
+                if (reward) {
+                    this.reward = reward;
+                }
             },
             changeImageSrc() {
                 const { cdn } = this.$themeConfig;
@@ -279,6 +303,8 @@
                         }
                     }
                 }
+            },
+            handleReward() {
             },
             handleSubmit(e) {
                 e.preventDefault();
