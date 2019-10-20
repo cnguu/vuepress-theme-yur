@@ -58,7 +58,7 @@
                             <div class="copyright">
                                 <a-tooltip placement="topRight" style="float: left">
                                     <template slot="title">
-                                        <span>{{ copyright }}</span>
+                                        <span>{{ getCopyright }}</span>
                                     </template>
                                     <a-button type="link">
                                         <a-icon type="copyright"/>
@@ -88,8 +88,17 @@
                        :md="postCatalogCol.md"
                        :lg="postCatalogCol.lg"
                 >
+                    <div class="post-info">
+                        <a-tooltip placement="top">
+                            <template slot="title">
+                                <span>博文字数：{{ this.$page.wordCount }}</span>
+                            </template>
+                            <a-icon type="clock-circle"/>
+                            {{ getReadingTime }}
+                        </a-tooltip>
+                    </div>
                     <div v-if="getCatalogs.length" class="post-catalog">
-                        <a-anchor>
+                        <a-anchor :offsetTop="20" :showInkInFixed="true">
                             <a-anchor-link v-for="catalog in getCatalogs"
                                            :href="'#'+catalog.slug"
                                            :title="catalog.title"
@@ -122,7 +131,7 @@
         data() {
             return {
                 loading: true,
-                needPwd: false,
+                needPwd: true,
                 form: this.$form.createForm(this),
                 postContentCol: {
                     xs: { span: 24 },
@@ -136,7 +145,6 @@
                     md: { span: 6 },
                     lg: { span: 4 },
                 },
-                copyright: '允许转载，需保留原文链接，著作权归博主所有',
                 parseDate,
                 isPro,
             };
@@ -185,6 +193,17 @@
         },
         watch: {},
         computed: {
+            getCopyright() {
+                return this.$page.copyright || '允许转载，需保留原文链接，著作权归博主所有';
+            },
+            getReadingTime() {
+                const wordCount = this.$page.wordCount;
+                if (wordCount < 600) {
+                    return `阅时小于 1 分钟`;
+                } else {
+                    return `阅时约 ${ Math.ceil(wordCount / 600) } 分钟`;
+                }
+            },
             getCatalogs() {
                 let headers = this.$page.headers,
                     catalog = [];
@@ -243,13 +262,8 @@
         },
         methods: {
             initConfig() {
-                const { copyright, password } = this.$page;
-                if (copyright) {
-                    this.copyright = copyright;
-                }
-                if (password) {
-                    this.needPwd = true;
-                }
+                const { password } = this.$page;
+                this.needPwd = !!password;
             },
             changeImageSrc() {
                 const { cdn } = this.$themeConfig;

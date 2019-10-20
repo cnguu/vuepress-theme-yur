@@ -98,9 +98,25 @@
       }
     }
 
+    .post-info {
+      color: #99a9bf;
+      font-size: 13px;
+      line-height: 24px;
+      margin-bottom: 20px;
+
+      & > span {
+        margin-left: -6px;
+        cursor: pointer;
+
+        & > i {
+          margin-right: 8px;
+        }
+      }
+    }
+
     .post-catalog {
       .ant-anchor-wrapper {
-        max-height: calc(~'100vh - 348px') !important;
+        max-height: calc(~'100vh - 368px') !important;
         -ms-overflow-style: none;
         overflow: -moz-scrollbars-none;
 
@@ -135,8 +151,11 @@
 @media (max-width: 768px) {
   #yur-post {
     .post {
+      padding-top: 20px;
+
       .post-content {
         .post-header {
+          margin-bottom: 20px;
           height: 240px;
 
           .post-header-content {

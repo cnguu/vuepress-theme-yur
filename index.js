@@ -135,6 +135,9 @@ module.exports = (options, ctx) => ({
     extendPageData($page) {
         const { themeConfig } = ctx;
         const { _filePath, _computed, _content, _strippedContent, key, frontmatter, regularPath, path, } = $page;
+        if (_content) {
+            $page.wordCount = _content.length;
+        }
         $page.path = decodeURIComponent(path).split('/')
                                              .map(str => slugify(str, {
                                                  lowercase: true,
