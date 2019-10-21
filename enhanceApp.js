@@ -1,9 +1,8 @@
 import store from './store';
-import axios from 'axios';
 import Ant from 'ant-design-vue';
 import zh_CN from 'ant-design-vue/lib/locale-provider/zh_CN';
 import moment from 'moment';
-import { isPro, isBuild, withBase } from './util';
+import { isPro, withBase } from './util';
 import 'moment/locale/zh-cn';
 import 'ant-design-vue/dist/antd.less';
 import './styles/index.less';
@@ -61,7 +60,7 @@ export function customer(router, siteData) {
 }
 
 export function baiDuPush(Vue, siteData) {
-    const { site, baiDuActivePush, baiDuAuthPush } = siteData.themeConfig;
+    const { baiDuAuthPush } = siteData.themeConfig;
     if (isPro() && baiDuAuthPush) {
         (function () {
             let newChild = document.createElement('script'),
@@ -69,36 +68,6 @@ export function baiDuPush(Vue, siteData) {
             newChild.src = 'https://zz.bdstatic.com/linksubmit/push.js';
             refChild.parentNode.insertBefore(newChild, refChild);
         })();
-    }
-    if (isBuild() && site && baiDuActivePush && Vue.prototype.$posts.length) {
-        let urls = [];
-        Vue.prototype.$posts.forEach(post => {
-            const { regularPath } = post;
-            urls.push(site + regularPath);
-        });
-        try {
-            axios.post(`http://data.zz.baidu.com/urls?site=${ site }&token=${ baiDuActivePush }`, urls.join('\n'), {
-                headers: {
-                    'Content-Type': 'text/plain',
-                },
-            }).then(response => {
-                const { data } = response;
-                if (data) {
-                    console.log(`\n百度主动推送成功：${ response.data.success }`);
-                } else {
-                    console.log(`\n百度主动推送失败`);
-                }
-            }).catch(error => {
-                const { response } = error;
-                if (response) {
-                    const { status } = response;
-                    if (status) {
-                        console.log(`\n无权推送，错误码：${ error.response.status }`);
-                    }
-                }
-            });
-        } catch (e) {
-        }
     }
 }
 
