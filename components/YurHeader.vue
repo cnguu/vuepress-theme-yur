@@ -15,13 +15,13 @@
                                 </a-menu-item>
                             </a-menu-item-group>
                         </a-sub-menu>
-                        <a-menu-item key="timeline" @click="changeVisible">
+                        <a-menu-item v-if="timeline" key="timeline" @click="changeVisible">
                             <router-link to="/timeline">时间轴</router-link>
                         </a-menu-item>
-                        <a-menu-item key="link" @click="changeVisible">
+                        <a-menu-item v-if="link" key="link" @click="changeVisible">
                             <router-link to="/link">友人帐</router-link>
                         </a-menu-item>
-                        <a-menu-item key="about" @click="changeVisible">
+                        <a-menu-item v-if="about" key="about" @click="changeVisible">
                             <router-link to="/about">关于我</router-link>
                         </a-menu-item>
                     </a-menu>
@@ -179,12 +179,14 @@
                         },
                     ],
                 },
+                timeline: false,
+                link: false,
+                about: false,
             };
         },
         beforeCreate() {
         },
         created() {
-            this.userLinks = this.getUserLinks();
             this.initConfig();
             this.handleRoute();
         },
@@ -206,29 +208,21 @@
         },
         computed: {},
         methods: {
-            getUserNav() {
-                return this.$themeLocaleConfig.nav || this.$themeConfig.nav || [];
-            },
-            getNav() {
-                const { locales } = this.$site;
-                if (locales && Object.keys(locales).length > 1) {
-                    return [...this.getUserNav()];
-                }
-                return this.getUserNav();
-            },
-            getUserLinks() {
-                return (this.getNav() || []).map(linkItem => {
-                    const { link } = linkItem;
-                    return Object.assign(resolveNavLinkItem(linkItem), {
-                        items: (linkItem.items || []).map(resolveNavLinkItem),
-                        key: link && link.charAt(0) === '/' ? link.split('/')[1] : link,
-                        link: linkItem.link + '?page=1&pageSize=12',
-                    });
-                });
-            },
             initConfig() {
                 const { title } = this.$site;
-                const { logo, nameplate } = this.$themeConfig;
+                const { nav, logo, nameplate, timeline, link, about } = this.$themeConfig;
+                if (nav) {
+                    nav.forEach(item => {
+                        const { link, key } = item;
+                        if (link && !key) {
+                            if (link.charAt(0) === '/') {
+                                item.key = link.split('/')[1];
+                                item.link = `${ link }?page=1&pageSize=12`;
+                            }
+                        }
+                    });
+                    this.userLinks = nav;
+                }
                 if (title) {
                     this.title = title;
                 }
@@ -246,6 +240,15 @@
                     if (text) {
                         this.nameplate.text = text;
                     }
+                }
+                if (timeline) {
+                    this.timeline = true;
+                }
+                if (link) {
+                    this.link = true;
+                }
+                if (about) {
+                    this.about = true;
                 }
             },
             handleRoute() {

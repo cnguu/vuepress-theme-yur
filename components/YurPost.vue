@@ -267,7 +267,7 @@
                     category = '未知分类';
                 if (this.$page.relativePath.split('/').shift().indexOf('.md') > -1) {
                     category = '';
-                } else if (navs) {
+                } else if (navs.length) {
                     for (let nav of navs) {
                         if (nav.hasOwnProperty('link') && nav.hasOwnProperty('text') && nav.link === link) {
                             category = nav.text;

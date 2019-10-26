@@ -41,11 +41,16 @@
             },
         },
         data() {
-            return {};
+            return {
+                timeline: false,
+                link: false,
+                about: false,
+            };
         },
         beforeCreate() {
         },
         created() {
+            this.initConfig();
         },
         beforeMount() {
         },
@@ -74,19 +79,35 @@
                 return this.currentPage === 'tags';
             },
             isTimeline() {
-                return this.currentPage === 'timeline';
+                return this.currentPage === 'timeline' && this.timeline;
             },
             isLink() {
-                return this.currentPage === 'link';
+                return this.currentPage === 'link' && this.link;
             },
             isAbout() {
-                return this.currentPage === 'about';
+                return this.currentPage === 'about' && this.about;
             },
             isPost() {
                 return this.$categories.includes(this.currentPage) && this.currentPost;
             },
         },
-        methods: {},
+        methods: {
+            initConfig() {
+                const { timeline, link, about } = this.$themeConfig;
+                if (timeline) {
+                    this.timeline = true;
+                }
+                if (link) {
+                    this.link = true;
+                }
+                if (about) {
+                    this.about = true;
+                }
+                if (!this.isHome && !this.isCategories && !this.isPosts && !this.isTags && !this.isTimeline && !this.isLink && !this.isAbout && !this.isPost) {
+                    this.$router.push('/404');
+                }
+            },
+        },
     };
 </script>
 

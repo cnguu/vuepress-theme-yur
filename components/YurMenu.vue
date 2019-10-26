@@ -12,13 +12,13 @@
                     </a-menu-item>
                 </a-menu-item-group>
             </a-sub-menu>
-            <a-menu-item key="timeline">
+            <a-menu-item v-if="timeline" key="timeline">
                 <router-link to="/timeline">时间轴</router-link>
             </a-menu-item>
-            <a-menu-item key="link">
+            <a-menu-item v-if="link" key="link">
                 <router-link to="/link">友人帐</router-link>
             </a-menu-item>
-            <a-menu-item key="about">
+            <a-menu-item v-if="about" key="about">
                 <router-link to="/about">关于我</router-link>
             </a-menu-item>
         </a-menu>
@@ -41,11 +41,15 @@
         data() {
             return {
                 current: ['/'],
+                timeline: false,
+                link: false,
+                about: false,
             };
         },
         beforeCreate() {
         },
         created() {
+            this.initConfig();
             this.handleRoute();
         },
         beforeMount() {
@@ -65,9 +69,21 @@
         },
         computed: {},
         methods: {
+            initConfig() {
+                const { timeline, link, about } = this.$themeConfig;
+                if (timeline) {
+                    this.timeline = true;
+                }
+                if (link) {
+                    this.link = true;
+                }
+                if (about) {
+                    this.about = true;
+                }
+            },
             handleRoute() {
                 this.current = [this.currentPage];
-            }
+            },
         },
     };
 </script>

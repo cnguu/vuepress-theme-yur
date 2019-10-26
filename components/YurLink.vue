@@ -7,6 +7,7 @@
                 </a-skeleton>
             </div>
         </a-skeleton>
+        <Content/>
         <div class="content">
             <a-row>
                 <a-col v-for="blog in link.blog"
