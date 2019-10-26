@@ -13,7 +13,7 @@
                 </a-menu-item-group>
             </a-sub-menu>
             <a-menu-item v-if="timeline" key="timeline">
-                <router-link to="/timeline">时间轴</router-link>
+                <router-link to="/timeline">时间线</router-link>
             </a-menu-item>
             <a-menu-item v-if="link" key="link">
                 <router-link to="/link">友人帐</router-link>
