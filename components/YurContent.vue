@@ -27,6 +27,7 @@
     import YurTimeline from '@theme/components/YurTimeline';
     import YurLink from '@theme/components/YurLink';
     import YurAbout from '@theme/components/YurAbout';
+    import { isBuild } from "../util";
 
     export default {
         components: { YurBanner, YurCategories, YurPost, YurPosts, YurTags, YurTimeline, YurLink, YurAbout },
@@ -103,7 +104,7 @@
                 if (about) {
                     this.about = true;
                 }
-                if (!this.isHome && !this.isCategories && !this.isPosts && !this.isTags && !this.isTimeline && !this.isLink && !this.isAbout && !this.isPost) {
+                if (!isBuild() && !this.isHome && !this.isCategories && !this.isPosts && !this.isTags && !this.isTimeline && !this.isLink && !this.isAbout && !this.isPost) {
                     this.$router.push('/404');
                 }
             },

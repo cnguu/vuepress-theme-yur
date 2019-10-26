@@ -304,8 +304,6 @@
                     }
                 }
             },
-            handleReward() {
-            },
             handleSubmit(e) {
                 e.preventDefault();
                 this.form.validateFields((err, values) => {
@@ -314,7 +312,9 @@
                         if (this.$page.password === pwd) {
                             this.needPwd = false;
                             this.$nextTick(() => {
-                                this.changeImageSrc();
+                                setTimeout(() => {
+                                    this.changeImageSrc();
+                                }, 300);
                             });
                             this.$notification.success({
                                 message: '欢迎访问',
