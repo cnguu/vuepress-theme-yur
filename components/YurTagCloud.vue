@@ -2,7 +2,7 @@
     <div id="yur-tag-cloud">
         <section v-if="tags.length">
             <Router-link v-for="tag in tags" :to="`/tags/?type=${ tag }&page=1&pageSize=12`">
-                <a-tag @mouseover="handleEnter" @mouseout="handleLeave">{{ tag }}</a-tag>
+                <a-tag @mouseover="handleOver" @mouseout="handleOut">{{ tag }}</a-tag>
             </Router-link>
             <audio v-for="n in 9" :class="`piano-${n}`" preload>
                 <source :src="require(`../media/piano/mp3/${n}.mp3`)" type="audio/mp3">
@@ -50,7 +50,7 @@
             },
         },
         methods: {
-            handleEnter() {
+            handleOver() {
                 if (!this.piano_num) {
                     this.piano_num = Math.floor(Math.random() * 9 + 1);
                     const audio = document.getElementsByClassName(`piano-${ this.piano_num }`)[0];
@@ -59,7 +59,7 @@
                     }
                 }
             },
-            handleLeave() {
+            handleOut() {
                 if (this.piano_num) {
                     const audio = document.getElementsByClassName(`piano-${ this.piano_num }`)[0];
                     if (audio) {
