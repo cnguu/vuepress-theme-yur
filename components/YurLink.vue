@@ -59,7 +59,7 @@
                 loading: true,
                 title: '凉风有信',
                 link: {
-                    banner: require('../images/summer-solstice-strawberry-moon.gif'),
+                    banner: require('../media/images/summer-solstice-strawberry-moon.gif'),
                     blog: [
                         {
                             title: '凉风有信',

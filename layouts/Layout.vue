@@ -30,13 +30,13 @@
         beforeCreate() {
             for (let post of this.$posts) {
                 if (!post.frontmatter.hasOwnProperty('banner')) {
-                    post.frontmatter.banner = require('../images/default.jpg');
+                    post.frontmatter.banner = require('../media/images/default.jpg');
                 }
             }
             for (let tag in this.$tags) {
                 for (let post of this.$tags[tag]) {
                     if (!post.frontmatter.hasOwnProperty('banner')) {
-                        post.frontmatter.banner = require('../images/default.jpg');
+                        post.frontmatter.banner = require('../media/images/default.jpg');
                     }
                 }
             }

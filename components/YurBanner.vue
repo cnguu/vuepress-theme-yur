@@ -71,7 +71,7 @@
                 title: '凉风有信',
                 description: '责难无以成事',
                 subtitle: '责难无以成事',
-                banner: require('../images/banner.png'),
+                banner: require('../media/images/banner.png'),
                 ityped: null,
                 updatedPosts: [],
             };

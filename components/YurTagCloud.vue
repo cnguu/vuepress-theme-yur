@@ -2,8 +2,12 @@
     <div id="yur-tag-cloud">
         <section v-if="tags.length">
             <Router-link v-for="tag in tags" :to="`/tags/?type=${ tag }&page=1&pageSize=12`">
-                <a-tag>{{ tag }}</a-tag>
+                <a-tag @mouseover="handleEnter" @mouseout="handleLeave">{{ tag }}</a-tag>
             </Router-link>
+            <audio v-for="n in 9" :class="`piano-${n}`" preload>
+                <source :src="require(`../media/piano/mp3/${n}.mp3`)" type="audio/mp3">
+                <source :src="require(`../media/piano/ogg/${n}.ogg`)" type="audio/ogg">
+            </audio>
         </section>
         <a-tag v-else>暂无标签</a-tag>
     </div>
@@ -19,7 +23,9 @@
             },
         },
         data() {
-            return {};
+            return {
+                piano_num: 0,
+            };
         },
         beforeCreate() {
         },
@@ -43,7 +49,27 @@
                 return this.tagList ? this.tagList : Object.keys(this.$tags);
             },
         },
-        methods: {},
+        methods: {
+            handleEnter() {
+                if (!this.piano_num) {
+                    this.piano_num = Math.floor(Math.random() * 9 + 1);
+                    const audio = document.getElementsByClassName(`piano-${ this.piano_num }`)[0];
+                    if (audio) {
+                        audio.play();
+                    }
+                }
+            },
+            handleLeave() {
+                if (this.piano_num) {
+                    const audio = document.getElementsByClassName(`piano-${ this.piano_num }`)[0];
+                    if (audio) {
+                        // audio.pause();
+                        // audio.currentTime  = 0;
+                        this.piano_num = 0;
+                    }
+                }
+            },
+        },
     }
 </script>
 

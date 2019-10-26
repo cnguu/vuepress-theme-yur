@@ -92,7 +92,7 @@
                 visible: false,
                 userLinks: [],
                 title: '凉风有信',
-                logo: require('../images/logo.png'),
+                logo: require('../media/images/logo.png'),
                 nameplate: {
                     width: '86px',
                     height: '36px',

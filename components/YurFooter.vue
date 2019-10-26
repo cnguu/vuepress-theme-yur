@@ -6,7 +6,7 @@
                     <div class="footer-center">
                         <h2>
                             <a-skeleton active :loading="loading">
-                                <img :src="require('../images/footer-title-icon-1.png')"
+                                <img :src="require('../media/images/footer-title-icon-1.png')"
                                      :alt="title"
                                 >
                             </a-skeleton>

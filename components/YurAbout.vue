@@ -37,7 +37,7 @@
             return {
                 loading: true,
                 about: {
-                    banner: require('../images/first-day-of-spring-2016-northern-hemisphere.gif'),
+                    banner: require('../media/images/first-day-of-spring-2016-northern-hemisphere.gif'),
                     avatar: 'https://static.xmt.cn/cc50c217cbe342ce951324583f2c6139.png',
                     name: 'cnguu',
                     introduction: '责难无以成事',

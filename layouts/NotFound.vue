@@ -22,7 +22,7 @@
         data() {
             return {
                 loading: true,
-                backgroundImage: require('../images/NotFound.jpg'),
+                backgroundImage: require('../media/images/NotFound.jpg'),
             };
         },
         beforeCreate() {
