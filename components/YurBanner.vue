@@ -51,7 +51,7 @@
         </div>
         <div class="page-2">
             <div class="page">
-                <YurTagCloud/>
+                <YurTagCloud :is-home="true"/>
             </div>
         </div>
     </div>
