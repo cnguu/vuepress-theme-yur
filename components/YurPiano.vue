@@ -83,13 +83,13 @@
                 }
             },
             handleMouseOver() {
-                if (!this.key) {
+                if (!this.key && !this.timer.length) {
                     this.key = this.randomKey();
                     this.handlePlay();
                 }
             },
             handleMouseOut() {
-                if (this.key) {
+                if (this.key && !this.timer.length) {
                     this.key = 0;
                 }
             },
@@ -120,6 +120,7 @@
                             clearTimeout(item);
                         }
                     });
+                    this.timer = [];
                 }
             },
         },
