@@ -35,11 +35,7 @@
         beforeDestroy() {
         },
         destroyed() {
-            this.timer.forEach(item => {
-                if (item) {
-                    clearTimeout(item);
-                }
-            });
+            this.clearTimer();
         },
         watch: {},
         computed: {},
@@ -98,19 +94,32 @@
                 }
             },
             playSheet() {
-                this.handleSheet();
-                const len = this.sheet.length;
-                let timeout = 0;
-                for (let i = 0; i < len; i++) {
-                    timeout += this.sheet[i]['millisecond'] * 50;
-                    this.timer.push(setTimeout(() => {
-                        if (i !== 0) {
-                            this.handlePause();
-                            this.setCurrentTime(0);
+                if (this.timer.length) {
+                    this.clearTimer();
+                } else {
+                    this.handleSheet();
+                    const len = this.sheet.length;
+                    let timeout = 0;
+                    for (let i = 0; i < len; i++) {
+                        timeout += this.sheet[i]['millisecond'] * 50;
+                        this.timer.push(setTimeout(() => {
+                            if (i !== 0) {
+                                this.handlePause();
+                                this.setCurrentTime(0);
+                            }
+                            this.key = this.sheet[i]['key'];
+                            this.handlePlay();
+                        }, timeout));
+                    }
+                }
+            },
+            clearTimer() {
+                if (this.timer.length) {
+                    this.timer.forEach(item => {
+                        if (item) {
+                            clearTimeout(item);
                         }
-                        this.key = this.sheet[i]['key'];
-                        this.handlePlay();
-                    }, timeout));
+                    });
                 }
             },
         },
