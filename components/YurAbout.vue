@@ -28,10 +28,10 @@
 
 <script>
     import YurComment from '@theme/components/YurComment';
-    import { isPro, getTimeOut } from '../util';
+    import {isPro, getTimeOut} from '../util';
 
     export default {
-        components: { YurComment },
+        components: {YurComment},
         props: {},
         data() {
             return {
@@ -79,9 +79,9 @@
         computed: {},
         methods: {
             initConfig() {
-                const { about } = this.$themeConfig;
+                const {about} = this.$themeConfig;
                 if (about) {
-                    const { banner, avatar, name, introduction } = about;
+                    const {banner, avatar, name, introduction} = about;
                     if (banner) {
                         this.about.banner = this.$withBase(banner);
                     }
@@ -97,9 +97,9 @@
                 }
             },
             changeImageSrc() {
-                const { cdn } = this.$themeConfig;
+                const {cdn} = this.$themeConfig;
                 if (cdn) {
-                    const { github } = cdn;
+                    const {github} = cdn;
                     const images = document.getElementsByClassName('content__default')[0].getElementsByTagName('img');
                     if (github && images.length) {
                         for (let i = 0; i < images.length; i++) {

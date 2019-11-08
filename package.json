@@ -28,7 +28,7 @@
   "dependencies": {
     "@vuepress/plugin-medium-zoom": "^1.1.0",
     "@vuepress/plugin-pwa": "^1.1.0",
-    "ant-design-vue": "^1.4.3",
+    "ant-design-vue": "^1.4.4",
     "crypto-js": "^3.1.9-1",
     "ityped": "^1.0.3",
     "leancloud-storage": "^3.15.0",

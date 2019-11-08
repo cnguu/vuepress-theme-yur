@@ -27,10 +27,10 @@
     import YurTimeline from '@theme/components/YurTimeline';
     import YurLink from '@theme/components/YurLink';
     import YurAbout from '@theme/components/YurAbout';
-    import { isBuild } from "../util";
+    import {isBuild} from "../util";
 
     export default {
-        components: { YurBanner, YurCategories, YurPost, YurPosts, YurTags, YurTimeline, YurLink, YurAbout },
+        components: {YurBanner, YurCategories, YurPost, YurPosts, YurTags, YurTimeline, YurLink, YurAbout},
         props: {
             currentPage: {
                 type: String,
@@ -94,7 +94,7 @@
         },
         methods: {
             initConfig() {
-                const { timeline, link, about } = this.$themeConfig;
+                const {timeline, link, about} = this.$themeConfig;
                 if (timeline) {
                     this.timeline = true;
                 }

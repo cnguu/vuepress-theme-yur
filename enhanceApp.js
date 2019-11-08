@@ -2,18 +2,18 @@ import store from './store';
 import Ant from 'ant-design-vue';
 import zh_CN from 'ant-design-vue/lib/locale-provider/zh_CN';
 import moment from 'moment';
-import { isPro, withBase } from './util';
+import {isPro, withBase} from './util';
 import 'moment/locale/zh-cn';
 import 'ant-design-vue/dist/antd.less';
 import './styles/index.less';
 
 moment.locale('zh-cn');
 
-export default ({ Vue, options, router, siteData }) => {
+export default ({Vue, options, router, siteData}) => {
     Vue.config.devtools = false;
     Vue.config.productionTip = false;
     Vue.use(Ant);
-    Vue.mixin({ store });
+    Vue.mixin({store});
     Vue.prototype.$zh_CN = zh_CN;
     Vue.prototype.$moment = moment;
     Vue.prototype.$posts = getPosts(siteData);
@@ -26,7 +26,7 @@ export default ({ Vue, options, router, siteData }) => {
 };
 
 export function customer(router, siteData) {
-    const { crisp, daoVoice } = siteData.themeConfig;
+    const {crisp, daoVoice} = siteData.themeConfig;
     if (isPro()) {
         if (crisp) {
             window.$crisp = [];
@@ -60,7 +60,7 @@ export function customer(router, siteData) {
 }
 
 export function baiDuPush(Vue, siteData) {
-    const { baiDuAuthPush } = siteData.themeConfig;
+    const {baiDuAuthPush} = siteData.themeConfig;
     if (isPro() && baiDuAuthPush) {
         (function () {
             let newChild = document.createElement('script'),
@@ -72,7 +72,7 @@ export function baiDuPush(Vue, siteData) {
 }
 
 export function curtain(siteData) {
-    const { curtain } = siteData.themeConfig;
+    const {curtain} = siteData.themeConfig;
     if (curtain) {
         store.dispatch('changeSetting', {
             key: 'curtain',
@@ -82,7 +82,7 @@ export function curtain(siteData) {
 }
 
 export function getCategories(siteData) {
-    const { nav } = siteData.themeConfig;
+    const {nav} = siteData.themeConfig;
     let categories = [];
     if (nav && nav.length) {
         for (let item of nav) {
@@ -99,7 +99,7 @@ export function getTags(siteData) {
         _tags = {};
     if (posts && posts.length) {
         for (let post of posts) {
-            const { tags } = post.frontmatter;
+            const {tags} = post.frontmatter;
             for (let tag of tags) {
                 if (!_tags.hasOwnProperty(tag)) {
                     _tags[tag] = [];
@@ -112,11 +112,11 @@ export function getTags(siteData) {
 }
 
 export function getPosts(siteData) {
-    const { pages } = siteData;
+    const {pages} = siteData;
     let posts = {};
     if (pages && pages.length) {
         posts = pages.filter(page => {
-            const { date } = page.frontmatter;
+            const {date} = page.frontmatter;
             return !(date === undefined);
         });
         posts.sort((a, b) => {

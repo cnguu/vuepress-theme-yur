@@ -19,7 +19,7 @@
     import YurPiano from '@theme/components/YurPiano';
 
     export default {
-        components: { YurPiano },
+        components: {YurPiano},
         props: {
             tagList: {
                 type: Array,
@@ -60,7 +60,7 @@
         },
         methods: {
             initConfig() {
-                const { piano } = this.$themeConfig;
+                const {piano} = this.$themeConfig;
                 if (piano) {
                     this.piano = true;
                 }

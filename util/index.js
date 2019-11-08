@@ -5,8 +5,8 @@ export const outboundRE = /^(https?:|mailto:|tel:)/;
 
 export function normalize(path) {
     return decodeURI(path)
-    .replace(hashRE, '')
-    .replace(extRE, '');
+        .replace(hashRE, '')
+        .replace(extRE, '');
 }
 
 export function getHash(path) {
@@ -72,7 +72,7 @@ export function resolvePage(pages, rawPath, base) {
             });
         }
     }
-    console.error(`[vuepress] No matching page found for sidebar item "${ rawPath }"`);
+    console.error(`[vuepress] No matching page found for sidebar item "${rawPath}"`);
     return {};
 }
 
@@ -122,7 +122,7 @@ function resolvePath(relative, base, append) {
  * @returns { SidebarGroup }
  */
 export function resolveSidebarItems(page, regularPath, site, localePath) {
-    const { pages, themeConfig } = site;
+    const {pages, themeConfig} = site;
 
     const localeConfig = localePath && themeConfig.locales
         ? themeConfig.locales[localePath] || themeConfig
@@ -137,7 +137,7 @@ export function resolveSidebarItems(page, regularPath, site, localePath) {
     if (!sidebarConfig) {
         return [];
     } else {
-        const { base, config } = resolveMatchingConfig(regularPath, sidebarConfig);
+        const {base, config} = resolveMatchingConfig(regularPath, sidebarConfig);
         return config
             ? config.map(item => resolveItem(item, pages, base))
             : [];
@@ -265,10 +265,10 @@ export function getTimeOut(startTime) {
 export function withBase(path, siteData) {
     if (path) {
         if (path.charAt(0) === '/') {
-            const { base } = siteData;
-            const { cdn } = siteData.themeConfig;
+            const {base} = siteData;
+            const {cdn} = siteData.themeConfig;
             if (cdn && !path.includes('assets')) {
-                const { github } = cdn;
+                const {github} = cdn;
                 if (github) {
                     return github + path;
                 }

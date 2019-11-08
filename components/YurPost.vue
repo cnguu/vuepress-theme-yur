@@ -142,10 +142,10 @@
     import YurTagCloud from '@theme/components/YurTagCloud';
     import SHA256 from 'crypto-js/sha256';
     import Base64 from 'crypto-js/enc-base64';
-    import { isPro, parseDate, getTimeOut } from '../util';
+    import {isPro, parseDate, getTimeOut} from '../util';
 
     export default {
-        components: { YurComment, YurTagCloud },
+        components: {YurComment, YurTagCloud},
         props: {},
         data() {
             return {
@@ -154,16 +154,16 @@
                 needPwd: true,
                 form: this.$form.createForm(this),
                 postContentCol: {
-                    xs: { span: 24 },
-                    sm: { span: 24 },
-                    md: { span: 18 },
-                    lg: { span: 20 },
+                    xs: {span: 24},
+                    sm: {span: 24},
+                    md: {span: 18},
+                    lg: {span: 20},
                 },
                 postCatalogCol: {
-                    xs: { span: 0 },
-                    sm: { span: 0 },
-                    md: { span: 6 },
-                    lg: { span: 4 },
+                    xs: {span: 0},
+                    sm: {span: 0},
+                    md: {span: 6},
+                    lg: {span: 4},
                 },
                 parseDate,
                 isPro,
@@ -221,7 +221,7 @@
                 if (wordCount < 600) {
                     return `阅时小于 1 分钟`;
                 } else {
-                    return `阅时约 ${ Math.ceil(wordCount / 600) } 分钟`;
+                    return `阅时约 ${Math.ceil(wordCount / 600)} 分钟`;
                 }
             },
             getCatalogs() {
@@ -277,22 +277,22 @@
                 return category;
             },
             getCategoryLink() {
-                return `/${ this.$page.path.split('/')[1] }/?page=1&pageSize=12`;
+                return `/${this.$page.path.split('/')[1]}/?page=1&pageSize=12`;
             },
         },
         methods: {
             initConfig() {
-                const { reward } = this.$themeConfig;
-                const { password } = this.$page;
+                const {reward} = this.$themeConfig;
+                const {password} = this.$page;
                 this.needPwd = !!password;
                 if (reward) {
                     this.reward = reward;
                 }
             },
             changeImageSrc() {
-                const { cdn } = this.$themeConfig;
+                const {cdn} = this.$themeConfig;
                 if (cdn) {
-                    const { github } = cdn;
+                    const {github} = cdn;
                     const images = document.getElementsByClassName('content__default')[0].getElementsByTagName('img');
                     if (github && images.length) {
                         for (let i = 0; i < images.length; i++) {

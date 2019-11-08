@@ -70,7 +70,7 @@
         computed: {},
         methods: {
             initConfig() {
-                const { timeline, link, about } = this.$themeConfig;
+                const {timeline, link, about} = this.$themeConfig;
                 if (timeline) {
                     this.timeline = true;
                 }

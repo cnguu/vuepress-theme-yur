@@ -14,10 +14,10 @@
     import YurHeader from '@theme/components/YurHeader';
     import YurContent from '@theme/components/YurContent';
     import YurFooter from '@theme/components/YurFooter';
-    import { isPro } from '../util';
+    import {isPro} from '../util';
 
     export default {
-        components: { YurCurtain, YurHeader, YurContent, YurFooter },
+        components: {YurCurtain, YurHeader, YurContent, YurFooter},
         props: {},
         data() {
             return {
@@ -70,7 +70,7 @@
         },
         methods: {
             initConfig() {
-                const { comment } = this.$themeConfig;
+                const {comment} = this.$themeConfig;
                 if (comment && isPro() && this.handleComment()) {
                     if (comment === 'valine' && this.$themeConfig.hasOwnProperty('valine')) {
                         this.vl = true;
@@ -98,9 +98,9 @@
                 }
             },
             handleComment() {
-                const { frontmatter } = this.$page;
+                const {frontmatter} = this.$page;
                 if (frontmatter) {
-                    const { comment } = frontmatter;
+                    const {comment} = frontmatter;
                     if (comment === false) {
                         return false;
                     }

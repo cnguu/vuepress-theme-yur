@@ -47,7 +47,7 @@
         computed: {},
         methods: {
             initConfig() {
-                const { notFound } = this.$themeConfig;
+                const {notFound} = this.$themeConfig;
                 if (notFound) {
                     this.backgroundImage = this.$withBase(notFound);
                 }

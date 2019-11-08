@@ -36,7 +36,7 @@
 </template>
 
 <script>
-    import { parseDate, getTimeOut } from '../util';
+    import {parseDate, getTimeOut} from '../util';
 
     export default {
         components: {},
@@ -54,7 +54,7 @@
                         this.pageChange(1, size);
                     },
                     showTotal: (total, range) => {
-                        return `总共 ${ total } 条博文`;
+                        return `总共 ${total} 条博文`;
                     },
                     current: 1,
                     pageSize: 12,
@@ -129,13 +129,13 @@
                 if (Number(this.$route.query.page) !== page || Number(this.$route.query.pageSize) !== pageSize) {
                     this.pagination.current = page;
                     this.pagination.pageSize = pageSize;
-                    this.$router.push(`/tags/?type=${ this.activeKey }&page=${ page }&pageSize=${ pageSize }`);
+                    this.$router.push(`/tags/?type=${this.activeKey}&page=${page}&pageSize=${pageSize}`);
                 }
                 document.documentElement.scrollTop = document.body.scrollTop = 0;
             },
             tabClick(val) {
                 if (this.$route.query.type !== val) {
-                    this.$router.push(`/tags/?type=${ val }&page=1&pageSize=${ this.pagination.pageSize }`);
+                    this.$router.push(`/tags/?type=${val}&page=1&pageSize=${this.pagination.pageSize}`);
                 }
                 document.documentElement.scrollTop = document.body.scrollTop = 0;
             },

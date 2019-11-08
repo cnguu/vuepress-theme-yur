@@ -22,7 +22,7 @@
 </template>
 
 <script>
-    import { parseDate, getTimeOut } from '../util';
+    import {parseDate, getTimeOut} from '../util';
 
     export default {
         components: {},

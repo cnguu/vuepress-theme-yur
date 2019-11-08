@@ -43,13 +43,13 @@
         computed: {},
         methods: {
             initConfig() {
-                const { title } = this.$site;
-                const { curtain } = this.$themeConfig;
+                const {title} = this.$site;
+                const {curtain} = this.$themeConfig;
                 if (title) {
                     this.title = title;
                 }
                 if (curtain) {
-                    const { tip, textShadow } = curtain;
+                    const {tip, textShadow} = curtain;
                     if (tip) {
                         this.tip = tip;
                     }

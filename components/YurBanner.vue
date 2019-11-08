@@ -14,12 +14,9 @@
                 <p>
                     <span class="subtitle">{{ subtitle }}</span>
                 </p>
-                <div class="banner-btn-group">
-                    <router-link to="/posts/?page=1&pageSize=12">
-                        <a-button type="primary">阅读博客</a-button>
-                    </router-link>
-                    <router-link to="/about">
-                        <a-button>了解博主</a-button>
+                <div v-if="bannerButtons.length" class="banner-btn-group">
+                    <router-link v-for="item in bannerButtons" :to="item.link">
+                        <a-button :type="item.type">{{item.text}}</a-button>
                     </router-link>
                 </div>
             </div>
@@ -58,12 +55,12 @@
 </template>
 
 <script>
-    import { init } from 'ityped';
+    import {init} from 'ityped';
     import YurTagCloud from '@theme/components/YurTagCloud';
-    import { getTimeOut } from '../util';
+    import {getTimeOut} from '../util';
 
     export default {
-        components: { YurTagCloud },
+        components: {YurTagCloud},
         props: {},
         data() {
             return {
@@ -72,6 +69,10 @@
                 description: '责难无以成事',
                 subtitle: '责难无以成事',
                 banner: require('../media/images/banner.png'),
+                bannerButtons: [
+                    {text: '阅读博文', link: '/posts/?page=1&pageSize=12', type: 'primary'},
+                    {text: '了解博主', link: '/about', type: 'default'},
+                ],
                 ityped: null,
                 updatedPosts: [],
             };
@@ -111,8 +112,8 @@
         computed: {},
         methods: {
             initConfig() {
-                const { title, description } = this.$site;
-                const { banner, ityped } = this.$themeConfig;
+                const {title, description} = this.$site;
+                const {banner, bannerButtons, ityped} = this.$themeConfig;
                 if (title) {
                     this.title = title;
                 }
@@ -121,6 +122,9 @@
                 }
                 if (banner) {
                     this.banner = this.$withBase(banner);
+                }
+                if (bannerButtons) {
+                    this.bannerButtons = bannerButtons;
                 }
                 if (ityped) {
                     this.ityped = ityped;

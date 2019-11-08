@@ -75,10 +75,10 @@
 <script>
     import YurSearch from '@theme/components/YurSearch';
     import YurMenu from '@theme/components/YurMenu';
-    import { resolveNavLinkItem } from '../util';
+    import {resolveNavLinkItem} from '../util';
 
     export default {
-        components: { YurSearch, YurMenu },
+        components: {YurSearch, YurMenu},
         props: {
             currentPage: {
                 type: String,
@@ -209,15 +209,15 @@
         computed: {},
         methods: {
             initConfig() {
-                const { title } = this.$site;
-                const { nav, logo, nameplate, timeline, link, about } = this.$themeConfig;
+                const {title} = this.$site;
+                const {nav, logo, nameplate, timeline, link, about} = this.$themeConfig;
                 if (nav) {
                     nav.forEach(item => {
-                        const { link, key } = item;
+                        const {link, key} = item;
                         if (link && !key) {
                             if (link.charAt(0) === '/') {
                                 item.key = link.split('/')[1];
-                                item.link = `${ link }?page=1&pageSize=12`;
+                                item.link = `${link}?page=1&pageSize=12`;
                             }
                         }
                     });
@@ -230,7 +230,7 @@
                     this.logo = this.$withBase(logo);
                 }
                 if (nameplate) {
-                    const { width, height, text } = nameplate;
+                    const {width, height, text} = nameplate;
                     if (width) {
                         this.nameplate.width = width;
                     }

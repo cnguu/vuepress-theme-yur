@@ -300,52 +300,87 @@
       color: #ffffff;
     }
 
-    &.success {
-      text-shadow: 0 -1px #61be33;
-      box-shadow: 0 3px 5px rgba(104, 195, 59, .5);
-      background: linear-gradient(90deg, #61be33, #8fce44);
+    &.primary,
+    &.primaryLong {
+      text-shadow: 0 -1px @primary-color;
+      box-shadow: 0 3px 12px darken(@primary-color, 1%);
+      background: linear-gradient(90deg, @primary-color, lighten(@primary-color, 15%));
+    }
+
+    &.primaryLong {
+      width: 100%;
+    }
+
+    &.success,
+    &.successLong {
+      margin-left: 12px;
+      text-shadow: 0 -1px @success-color;
+      box-shadow: 0 3px 12px darken(@success-color, 1%);
+      background: linear-gradient(90deg, @success-color, lighten(@success-color, 15%));
 
       &::before {
         content: "√";
-        text-shadow: 0 -1px #61be33;
-        background: linear-gradient(0deg, #52bb1d, #95d34b);
+        text-shadow: 0 -1px @success-color;
+        background: linear-gradient(0deg, @success-color, lighten(@success-color, 15%));
       }
     }
 
-    &.tip {
-      text-shadow: 0 -1px #20a0ff;
-      box-shadow: 0 3px 5px rgba(32, 160, 255, .5);
-      background: linear-gradient(90deg, #20a0ff, #20b8ff);
+    &.successLong {
+      width: calc(100% - 12px);
+    }
+
+    &.tip,
+    &.tipLong {
+      margin-left: 12px;
+      text-shadow: 0 -1px @tip-color;
+      box-shadow: 0 3px 12px darken(@tip-color, 1%);
+      background: linear-gradient(90deg, @tip-color, lighten(@tip-color, 15%));
 
       &::before {
         content: "i";
-        text-shadow: 0 -1px #20a0ff;
-        background: linear-gradient(0deg, #0092ff, #20b8ff);
+        text-shadow: 0 -1px @tip-color;
+        background: linear-gradient(0deg, @tip-color, lighten(@tip-color, 15%));
       }
     }
 
-    &.warning {
-      text-shadow: 0 -1px #ff953f;
-      box-shadow: 0 3px 5px rgba(255, 154, 73, .5);
-      background: linear-gradient(90deg, #ff953f, #ffb449);
+    &.tipLong {
+      width: calc(100% - 12px);
+    }
+
+    &.warning,
+    &.warningLong {
+      margin-left: 12px;
+      text-shadow: 0 -1px @warning-color;
+      box-shadow: 0 3px 12px darken(@warning-color, 1%);
+      background: linear-gradient(90deg, @warning-color, lighten(@warning-color, 15%));
 
       &::before {
         content: "!";
-        text-shadow: 0 -1px #ff953f;
-        background: linear-gradient(0deg, #ff8f35, #ffc149);
+        text-shadow: 0 -1px @warning-color;
+        background: linear-gradient(0deg, @warning-color, lighten(@warning-color, 15%));
       }
     }
 
-    &.danger {
-      text-shadow: 0 -1px #ff4949;
-      box-shadow: 0 3px 5px rgba(255, 73, 73, .5);
-      background: linear-gradient(90deg, #ff4949, #ff7849);
+    &.warningLong {
+      width: calc(100% - 12px);
+    }
+
+    &.error,
+    &.errorLong {
+      margin-left: 12px;
+      text-shadow: 0 -1px @error-color;
+      box-shadow: 0 3px 12px darken(@error-color, 1%);
+      background: linear-gradient(90deg, @error-color, lighten(@error-color, 15%));
 
       &::before {
         content: "X";
-        text-shadow: 0 -1px #ff4949;
-        background: linear-gradient(0deg, #ff3838, #ff7849);
+        text-shadow: 0 -1px @error-color;
+        background: linear-gradient(0deg, @error-color, lighten(@error-color, 15%));
       }
+    }
+
+    &.errorLong {
+      width: calc(100% - 12px);
     }
   }
 

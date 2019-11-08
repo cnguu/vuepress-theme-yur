@@ -69,7 +69,7 @@
                 if (!query) {
                     return;
                 }
-                const { pages } = this.$site;
+                const {pages} = this.$site;
                 const max = SEARCH_MAX_SUGGESTIONS;
                 const localePath = this.$localePath;
                 const matches = item => (

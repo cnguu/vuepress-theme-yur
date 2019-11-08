@@ -33,7 +33,7 @@
 </template>
 
 <script>
-    import { getTimeOut } from '../util';
+    import {getTimeOut} from '../util';
 
     export default {
         components: {},
@@ -53,7 +53,7 @@
                         this.pageChange(1, size);
                     },
                     showTotal: (total, range) => {
-                        return `总共 ${ total } 条博文`;
+                        return `总共 ${total} 条博文`;
                     },
                     current: 1,
                     pageSize: 12,
@@ -135,7 +135,7 @@
                 if (Number(this.$route.query.page) !== page || Number(this.$route.query.pageSize) !== pageSize) {
                     this.pagination.current = page;
                     this.pagination.pageSize = pageSize;
-                    this.$router.push(`/${ this.category || 'posts' }/?page=${ page }&pageSize=${ pageSize }`);
+                    this.$router.push(`/${this.category || 'posts'}/?page=${page}&pageSize=${pageSize}`);
                 }
                 document.documentElement.scrollTop = document.body.scrollTop = 0;
             },

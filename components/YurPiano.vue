@@ -41,7 +41,7 @@
         computed: {},
         methods: {
             initConfig() {
-                const { piano } = this.$themeConfig;
+                const {piano} = this.$themeConfig;
                 if (piano && typeof piano !== 'boolean') {
                     this.piano = piano;
                 }

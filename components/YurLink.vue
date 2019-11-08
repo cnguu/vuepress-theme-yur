@@ -50,10 +50,10 @@
 
 <script>
     import YurComment from '@theme/components/YurComment';
-    import { isPro, getTimeOut } from '../util';
+    import {isPro, getTimeOut} from '../util';
 
     export default {
-        components: { YurComment },
+        components: {YurComment},
         props: {},
         data() {
             return {
@@ -105,13 +105,13 @@
         computed: {},
         methods: {
             initConfig() {
-                const { title } = this.$site;
-                const { link } = this.$themeConfig;
+                const {title} = this.$site;
+                const {link} = this.$themeConfig;
                 if (title) {
                     this.title = title;
                 }
                 if (link) {
-                    const { banner, blog } = link;
+                    const {banner, blog} = link;
                     if (banner) {
                         this.link.banner = this.$withBase(banner);
                     }

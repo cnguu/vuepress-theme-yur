@@ -4,23 +4,23 @@ const Base64 = require('crypto-js/enc-base64');
 const slugify = require('transliteration').slugify;
 
 module.exports = (opts, ctx) => {
-    const { sep } = path;
-    const { themeConfig, siteConfig, sourceDir } = ctx;
-    const { timeline, link, about } = themeConfig;
+    const {sep} = path;
+    const {themeConfig, siteConfig, sourceDir} = ctx;
+    const {timeline, link, about} = themeConfig;
     siteConfig.test = 1;
     return {
         name: 'vuepress-theme-yur',
         chainWebpack(config, isServer) {
             config.module
-                  .rule('less')
-                  .oneOf('normal')
-                  .use('less-loader')
-                  .options({ javascriptEnabled: true })
-                  .end()
-                  .end()
-                  .oneOf('modules')
-                  .use('less-loader')
-                  .options({ javascriptEnabled: true });
+                .rule('less')
+                .oneOf('normal')
+                .use('less-loader')
+                .options({javascriptEnabled: true})
+                .end()
+                .end()
+                .oneOf('modules')
+                .use('less-loader')
+                .options({javascriptEnabled: true});
         },
         ready() {
             ctx.addPage({
@@ -84,7 +84,7 @@ module.exports = (opts, ctx) => {
                 '@AlgoliaSearchBox': isAlgoliaSearch
                     ? path.resolve(__dirname, 'components/AlgoliaSearchBox.vue')
                     : path.resolve(__dirname, 'noopModule.js'),
-                '@us': `${ sourceDir }${ sep }.vuepress${ sep }styles`,
+                '@us': `${sourceDir}${sep}.vuepress${sep}styles`,
             };
         },
         extendMarkdown: md => {
@@ -105,7 +105,19 @@ module.exports = (opts, ctx) => {
                 searchMaxSuggestions: 10,
             }],
             ['container', {
+                type: 'primary',
+                defaultTitle: '',
+            }],
+            ['container', {
+                type: 'primaryLong',
+                defaultTitle: '',
+            }],
+            ['container', {
                 type: 'success',
+                defaultTitle: '',
+            }],
+            ['container', {
+                type: 'successLong',
                 defaultTitle: '',
             }],
             ['container', {
@@ -113,36 +125,48 @@ module.exports = (opts, ctx) => {
                 defaultTitle: '',
             }],
             ['container', {
+                type: 'tipLong',
+                defaultTitle: '',
+            }],
+            ['container', {
                 type: 'warning',
                 defaultTitle: '',
             }],
             ['container', {
-                type: 'danger',
+                type: 'warningLong',
+                defaultTitle: '',
+            }],
+            ['container', {
+                type: 'error',
+                defaultTitle: '',
+            }],
+            ['container', {
+                type: 'errorLong',
                 defaultTitle: '',
             }],
         ],
         additionalPages: [],
         extendPageData($page) {
-            const { _filePath, _computed, _content, _strippedContent, key, frontmatter, regularPath, path, } = $page;
+            const {_filePath, _computed, _content, _strippedContent, key, frontmatter, regularPath, path,} = $page;
             if (_content) {
                 $page.wordCount = _content.length;
             }
             $page.path = decodeURIComponent(path).split('/')
-                                                 .map(str => slugify(str, {
-                                                     lowercase: true,
-                                                     separator: '-',
-                                                     ignore: ['/', '.']
-                                                 }))
-                                                 .join('/');
+                .map(str => slugify(str, {
+                    lowercase: true,
+                    separator: '-',
+                    ignore: ['/', '.']
+                }))
+                .join('/');
             let pwd = '52yur';
             if (themeConfig) {
-                const { password } = themeConfig;
+                const {password} = themeConfig;
                 if (password) {
                     pwd = password;
                 }
             }
             if (frontmatter) {
-                const { password } = frontmatter;
+                const {password} = frontmatter;
                 if (password) {
                     if (typeof password !== 'boolean') {
                         pwd = password;

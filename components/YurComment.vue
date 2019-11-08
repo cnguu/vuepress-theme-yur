@@ -6,7 +6,7 @@
 </template>
 
 <script>
-    import { isPro } from '../util';
+    import {isPro} from '../util';
 
     export default {
         components: {},
@@ -40,7 +40,7 @@
         computed: {},
         methods: {
             initConfig() {
-                const { comment } = this.$themeConfig;
+                const {comment} = this.$themeConfig;
                 if (comment && isPro() && this.handleComment()) {
                     if (comment === 'vssue') {
                         this.vssue = true;
@@ -51,9 +51,9 @@
                 }
             },
             handleComment() {
-                const { frontmatter } = this.$page;
+                const {frontmatter} = this.$page;
                 if (frontmatter) {
-                    const { comment } = frontmatter;
+                    const {comment} = frontmatter;
                     if (comment === false) {
                         return false;
                     }

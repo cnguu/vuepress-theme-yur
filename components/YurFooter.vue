@@ -120,8 +120,8 @@
         computed: {},
         methods: {
             initConfig() {
-                const { title } = this.$site;
-                const { footer, author, authorLink } = this.$themeConfig;
+                const {title} = this.$site;
+                const {footer, author, authorLink} = this.$themeConfig;
                 if (title) {
                     this.title = title;
                 }

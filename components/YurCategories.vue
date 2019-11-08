@@ -8,7 +8,7 @@
     import YurPosts from '@theme/components/YurPosts';
 
     export default {
-        components: { YurPosts },
+        components: {YurPosts},
         props: {
             category: {
                 type: String,
