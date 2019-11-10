@@ -54,7 +54,7 @@
                         this.pageChange(1, size);
                     },
                     showTotal: (total, range) => {
-                        return `总共 ${total} 条博文`;
+                        return `总共 ${total} 条文章`;
                     },
                     current: 1,
                     pageSize: 12,
@@ -74,7 +74,7 @@
                     xxl: 2,
                 },
                 locale: {
-                    emptyText: '没有找到相关博文',
+                    emptyText: '没有找到相关文章',
                 },
             };
         },

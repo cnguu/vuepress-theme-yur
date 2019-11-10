@@ -106,7 +106,7 @@
                     <div class="post-info">
                         <a-tooltip placement="top">
                             <template slot="title">
-                                <span>博文字数：{{ this.$page.wordCount }}</span>
+                                <span>文章字数：{{ this.$page.wordCount }}</span>
                             </template>
                             <a-icon type="clock-circle"/>
                             {{ getReadingTime }}
@@ -195,7 +195,7 @@
             if (this.needPwd) {
                 this.$notification.warning({
                     message: '当前内容受密码保护',
-                    description: '这是一篇私密的博文，如需访问，请提供正确的密码',
+                    description: '这是一篇私密的文章，如需访问，请提供正确的密码',
                     duration: 4.3,
                 });
             }
@@ -214,7 +214,7 @@
         watch: {},
         computed: {
             getCopyright() {
-                return this.$page.copyright || '允许转载，需保留原文链接，著作权归博主所有';
+                return this.$page.copyright || '允许转载，需保留原文链接，著作权归本人所有';
             },
             getReadingTime() {
                 const wordCount = this.$page.wordCount;

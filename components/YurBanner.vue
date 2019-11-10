@@ -70,8 +70,8 @@
                 subtitle: '责难无以成事',
                 banner: require('../media/images/banner.png'),
                 bannerButtons: [
-                    {text: '阅读博文', link: '/posts/?page=1&pageSize=12', type: 'primary'},
-                    {text: '了解博主', link: '/about', type: 'default'},
+                    {text: '阅读文章', link: '/posts/?page=1&pageSize=12', type: 'primary'},
+                    {text: '了解主人', link: '/about', type: 'default'},
                 ],
                 ityped: null,
                 updatedPosts: [],

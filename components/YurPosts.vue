@@ -53,7 +53,7 @@
                         this.pageChange(1, size);
                     },
                     showTotal: (total, range) => {
-                        return `总共 ${total} 条博文`;
+                        return `总共 ${total} 条文章`;
                     },
                     current: 1,
                     pageSize: 12,
@@ -73,7 +73,7 @@
                     xxl: 3,
                 },
                 locale: {
-                    emptyText: '这个博主真懒，一个博文也没写',
+                    emptyText: '这个主人真懒，一个文章也没写',
                 },
             };
         },

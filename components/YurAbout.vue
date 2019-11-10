@@ -14,7 +14,7 @@
                 <p class="introduction">{{ about.introduction }}</p>
                 <div class="total">
                     <router-link to="/posts/?page=1&pageSize=12">
-                        <a-badge status="processing" :text="'博文：' + $posts.length || 0"/>
+                        <a-badge status="processing" :text="'文章：' + $posts.length || 0"/>
                     </router-link>
                     <a-badge status="processing" :text="'分类：' + $categories.length || 0"/>
                     <a-badge status="processing" :text="'标签：' + Object.keys($tags).length || 0"/>

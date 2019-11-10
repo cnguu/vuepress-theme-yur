@@ -29,15 +29,15 @@ module.exports = (opts, ctx) => {
             ctx.addPage({
                 path: '/posts/',
                 frontmatter: {
-                    title: '全部博文',
+                    title: '全部文章',
                     meta: [
                         {
                             name: 'description',
-                            content: '全部博文',
+                            content: '全部文章',
                         },
                         {
                             name: 'keywords',
-                            content: '全部博文',
+                            content: '全部文章',
                         },
                     ],
                 },
