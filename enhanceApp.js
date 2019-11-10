@@ -21,7 +21,7 @@ export default ({Vue, options, router, siteData}) => {
     Vue.prototype.$categories = getCategories(siteData);
     Vue.prototype.$withBase = path => withBase(path, siteData);
     curtain(siteData);
-    baiDuAuthPush(Vue, siteData);
+    baiDuAuthPush(siteData);
     baiDuTongJi(router, siteData);
     customer(router, siteData);
 };
@@ -76,7 +76,7 @@ export function baiDuTongJi(router, siteData) {
     }
 }
 
-export function baiDuAuthPush(Vue, siteData) {
+export function baiDuAuthPush(siteData) {
     const {baiDuAuthPush} = siteData.themeConfig;
     if (isPro() && baiDuAuthPush) {
         (function () {
