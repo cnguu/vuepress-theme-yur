@@ -21,7 +21,8 @@ export default ({Vue, options, router, siteData}) => {
     Vue.prototype.$categories = getCategories(siteData);
     Vue.prototype.$withBase = path => withBase(path, siteData);
     curtain(siteData);
-    baiDuPush(Vue, siteData);
+    baiDuAuthPush(Vue, siteData);
+    baiDuTongJi(router, siteData);
     customer(router, siteData);
 };
 
@@ -59,7 +60,23 @@ export function customer(router, siteData) {
     }
 }
 
-export function baiDuPush(Vue, siteData) {
+export function baiDuTongJi(router, siteData) {
+    const {baiDuTongJi} = siteData.themeConfig;
+    if (isPro() && baiDuTongJi) {
+        window._hmt = window._hmt || [];
+        (function () {
+            let newChild = document.createElement('script'),
+                refChild = document.getElementsByTagName('script')[0];
+            newChild.src = `https://hm.baidu.com/hm.js?${baiDuTongJi}`;
+            refChild.parentNode.insertBefore(newChild, refChild);
+        })();
+        router.afterEach(to => {
+            _hmt.push(['_trackPageview', to.fullPath]);
+        });
+    }
+}
+
+export function baiDuAuthPush(Vue, siteData) {
     const {baiDuAuthPush} = siteData.themeConfig;
     if (isPro() && baiDuAuthPush) {
         (function () {

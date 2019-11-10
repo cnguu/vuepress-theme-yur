@@ -6,8 +6,7 @@ const slugify = require('transliteration').slugify;
 module.exports = (opts, ctx) => {
     const {sep} = path;
     const {themeConfig, siteConfig, sourceDir} = ctx;
-    const {timeline, link, about} = themeConfig;
-    siteConfig.test = 1;
+    const {timeline} = themeConfig;
     return {
         name: 'vuepress-theme-yur',
         chainWebpack(config, isServer) {
