@@ -2,7 +2,7 @@ import store from './store';
 import Ant from 'ant-design-vue';
 import zh_CN from 'ant-design-vue/lib/locale-provider/zh_CN';
 import moment from 'moment';
-import {isPro, withBase} from './util';
+import {isPro} from './util';
 import 'moment/locale/zh-cn';
 import 'ant-design-vue/dist/antd.less';
 import './styles/index.less';
@@ -19,7 +19,6 @@ export default ({Vue, options, router, siteData}) => {
     Vue.prototype.$posts = getPosts(siteData);
     Vue.prototype.$tags = getTags(siteData);
     Vue.prototype.$categories = getCategories(siteData);
-    Vue.prototype.$withBase = path => withBase(path, siteData);
     curtain(siteData);
     baiDuAuthPush(siteData);
     baiDuTongJi(router, siteData);

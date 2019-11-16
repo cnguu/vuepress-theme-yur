@@ -51,9 +51,6 @@
             this.initConfig();
             this.$nextTick(() => {
                 setTimeout(() => {
-                    this.changeImageSrc();
-                }, 300);
-                setTimeout(() => {
                     this.$store.dispatch('changeSetting', {
                         key: 'curtain',
                         value: false,
@@ -93,21 +90,6 @@
                     }
                     if (introduction) {
                         this.about.introduction = introduction;
-                    }
-                }
-            },
-            changeImageSrc() {
-                const {cdn} = this.$themeConfig;
-                if (cdn) {
-                    const {github} = cdn;
-                    const images = document.getElementsByClassName('content__default')[0].getElementsByTagName('img');
-                    if (github && images.length) {
-                        for (let i = 0; i < images.length; i++) {
-                            const src = images[i].getAttribute('src');
-                            if (src.charAt(0) === '/') {
-                                images[i].src = github + src;
-                            }
-                        }
                     }
                 }
             },

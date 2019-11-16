@@ -261,22 +261,3 @@ export function getTimeOut(startTime) {
     const diffTime = endTime - startTime;
     return Math.ceil((diffTime > 23000000 ? 0 : 23000000 - diffTime) / 10000);
 }
-
-export function withBase(path, siteData) {
-    if (path) {
-        if (path.charAt(0) === '/') {
-            const {base} = siteData;
-            const {cdn} = siteData.themeConfig;
-            if (cdn && !path.includes('assets')) {
-                const {github} = cdn;
-                if (github) {
-                    return github + path;
-                }
-            }
-            if (base) {
-                return base + path.slice(1);
-            }
-        }
-    }
-    return path;
-}

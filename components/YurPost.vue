@@ -174,11 +174,6 @@
         created() {
             this.initConfig();
             this.$nextTick(() => {
-                if (!this.needPwd) {
-                    setTimeout(() => {
-                        this.changeImageSrc();
-                    }, 300);
-                }
                 setTimeout(() => {
                     this.$store.dispatch('changeSetting', {
                         key: 'curtain',
@@ -203,9 +198,6 @@
         beforeUpdate() {
         },
         updated() {
-            if (!this.needPwd) {
-                this.changeImageSrc();
-            }
         },
         beforeDestroy() {
         },
@@ -289,21 +281,6 @@
                     this.reward = reward;
                 }
             },
-            changeImageSrc() {
-                const {cdn} = this.$themeConfig;
-                if (cdn) {
-                    const {github} = cdn;
-                    const images = document.getElementsByClassName('content__default')[0].getElementsByTagName('img');
-                    if (github && images.length) {
-                        for (let i = 0; i < images.length; i++) {
-                            const src = images[i].getAttribute('src');
-                            if (src.charAt(0) === '/') {
-                                images[i].src = github + src;
-                            }
-                        }
-                    }
-                }
-            },
             handleSubmit(e) {
                 e.preventDefault();
                 this.form.validateFields((err, values) => {
@@ -311,11 +288,6 @@
                         const pwd = Base64.stringify(SHA256(values.password));
                         if (this.$page.password === pwd) {
                             this.needPwd = false;
-                            this.$nextTick(() => {
-                                setTimeout(() => {
-                                    this.changeImageSrc();
-                                }, 300);
-                            });
                             this.$notification.success({
                                 message: '欢迎访问',
                                 description: this.$page.title,
