@@ -1,24 +1,24 @@
 const state = {
-    curtain: false,
-    consoleTime: 0,
-};
+  curtain: false,
+  consoleTime: 0,
+}
 
 const mutations = {
-    CHANGE_SETTING: (state, {key, value}) => {
-        if (state.hasOwnProperty(key)) {
-            state[key] = value;
-        }
-    },
-};
+  CHANGE_SETTING: (state, { key, value }) => {
+    if (Object.prototype.hasOwnProperty.call(state, key)) {
+      state[key] = value
+    }
+  },
+}
 
 const actions = {
-    changeSetting({commit}, data) {
-        commit('CHANGE_SETTING', data);
-    },
-};
+  changeSetting ({ commit }, data) {
+    commit('CHANGE_SETTING', data)
+  },
+}
 
 export default {
-    state,
-    mutations,
-    actions,
-};
+  state,
+  mutations,
+  actions,
+}

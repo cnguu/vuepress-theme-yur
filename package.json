@@ -6,11 +6,15 @@
     "vuepress",
     "theme",
     "yur",
+    "blog",
     "cnguu"
   ],
   "author": "cnguu <www@cnguu.cn>",
   "license": "MIT",
   "homepage": "https://gleehub.com/",
+  "bugs": {
+    "url": "https://github.com/cnguu/vuepress-theme-yur/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://+git@git.github.com:cnguu/vuepress-theme-yur.git"
@@ -23,6 +27,15 @@
   },
   "peerDependencies": {
     "vuepress": "^1.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.7.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-vue": "^6.0.1"
   },
   "dependencies": {
     "@vuepress/plugin-medium-zoom": "^1.1.0",

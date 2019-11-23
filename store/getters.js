@@ -1,4 +1,4 @@
 const getters = {
-    curtain: state => state.curtain,
-};
-export default getters;
+  curtain: state => state.curtain,
+}
+export default getters
