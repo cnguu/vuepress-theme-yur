@@ -16,8 +16,8 @@
 
 ## License
 
-[MIT](./LICENSE)
+[MIT](https://cdn.jsdelivr.net/gh/cnguu/vuepress-theme-yur@master/LICENSE)
 
 ## Thanks
 
-[![JetBrains](./jetbrains.svg)](https://www.jetbrains.com/?from=vuepress-theme-yur)
+[![JetBrains](https://cdn.jsdelivr.net/gh/cnguu/vuepress-theme-yur@master/jetbrains.svg)](https://www.jetbrains.com/?from=vuepress-theme-yur)

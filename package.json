@@ -19,8 +19,7 @@
   "scripts": {
     "start": "vuepress dev docs",
     "build": "vuepress build docs",
-    "deploy": "./deploy.sh",
-    "pic": "./pic.sh"
+    "deploy": "./deploy.sh"
   },
   "peerDependencies": {
     "vuepress": "^1.2.0"
