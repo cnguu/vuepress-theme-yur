@@ -4,7 +4,7 @@
       <a-tabs
         v-if="Object.keys($tags).length"
         :active-key="activeKey"
-        tab-position="right"
+        tab-position="top"
         @tabClick="tabClick"
       >
         <a-tab-pane
