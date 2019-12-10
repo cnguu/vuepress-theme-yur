@@ -64,9 +64,7 @@ export default {
   beforeMount () {
   },
   mounted () {
-    if (this.vl) {
-      this.initValine()
-    }
+    this.initValine()
   },
   beforeUpdate () {
   },
