@@ -4,7 +4,7 @@
       .vssue-comment-avatar {
         img {
           border-radius: 50% !important;
-          box-shadow: @box-shadow-base !important;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
         }
       }
 
@@ -34,10 +34,10 @@
   .vssue-pagination {
     .vssue-pagination-select {
       padding: 0 8px !important;
-      border: 1px solid @border-color-base !important;
-      border-radius: @border-radius-base !important;
+      border: 1px solid hsv(0, 0, 85%) !important;
+      border-radius: 6px !important;
       font-size: 14px !important;
-      color: @text-color !important;
+      color: #666666 !important;
       transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
       background-image: none !important;
 
@@ -76,10 +76,10 @@
     padding: 0 15px !important;
     height: 32px !important;
     line-height: 30px !important;
-    border: 1px solid @border-color-base !important;
-    border-radius: @border-radius-base !important;
+    border: 1px solid hsv(0, 0, 85%) !important;
+    border-radius: 6px !important;
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.015) !important;
-    color: @text-color !important;
+    color: #666666 !important;
     font-size: 14px !important;
     font-weight: 400 !important;
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
@@ -91,7 +91,7 @@
     }
 
     &:disabled {
-      color: @border-color-base !important;
+      color: hsv(0, 0, 85%) !important;
 
       &:hover {
         border-color: inherit !important;
@@ -112,7 +112,7 @@
     .vssue-comment-avatar {
       img {
         border-radius: 50% !important;
-        box-shadow: @box-shadow-base !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
       }
     }
   }
