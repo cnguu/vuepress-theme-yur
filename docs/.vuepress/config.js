@@ -3,8 +3,8 @@ const head = require('./config/head')
 const themeConfig = require('./config/themeConfig')
 module.exports = {
   base: '/',
-  title: 'vuepress-theme-yur',
-  description: 'Write your book by vuepress',
+  title: 'VuePress theme yur',
+  description: 'Write your life by vuepress',
   head,
   evergreen: true,
   theme: path.resolve(__dirname, '../../yur'),

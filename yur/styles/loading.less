@@ -1,3 +1,67 @@
 #loading {
-  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: @body-background;
+  animation: antFadeIn 2s ease-in;
+  overflow: hidden;
+  z-index: 999999;
+
+  .container {
+    width: 40vw;
+    height: 40vw;
+    animation: loadingContainer 3s linear infinite;
+
+    div {
+      position: absolute;
+      margin: auto;
+      width: 2vw;
+      height: 5vw;
+      border-radius: 0 10vw 0 10vw;
+      box-shadow: inset 0 0 0 0.1vw @primary-color, 0 0 1.5vw 0 @primary-color;
+
+      &:first-child {
+        top: 0;
+        right: 0;
+        bottom: 5vw;
+        left: 0;
+        transform: rotate(45deg);
+        animation: loadingBox 1s ease infinite;
+      }
+
+      &:nth-child(2) {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 5vw;
+        transform: rotate(135deg);
+        animation: loadingBox 1s 0.25s ease infinite;
+      }
+
+      &:nth-child(3) {
+        top: 5vw;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: rotate(225deg);
+        animation: loadingBox 1s 0.5s ease infinite;
+      }
+
+      &:last-child {
+        top: 0;
+        right: 5vw;
+        bottom: 0;
+        left: 0;
+        transform: rotate(315deg);
+        animation: loadingBox 1s 0.75s ease infinite;
+      }
+    }
+  }
 }

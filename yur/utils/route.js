@@ -15,7 +15,7 @@ const install = (Vue, { router }) => {
     if (typeof window === 'undefined') {
       return next()
     }
-    document.getElementById('loading').style.display = 'block'
+    document.getElementById('loading').style.display = 'flex'
     next()
   })
   router.afterEach(() => {
