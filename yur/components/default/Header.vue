@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'TheHeader',
+  name: 'Header',
   data () {
     return {}
   },

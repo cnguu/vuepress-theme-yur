@@ -1,10 +1,12 @@
 <template>
-  <div>footer</div>
+  <div id="icarus-app">
+    icarus app dev...
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'TheFooter',
+  name: 'IcarusApp',
 }
 </script>
 
