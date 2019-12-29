@@ -1,6 +1,6 @@
 module.exports = {
-  // 通用
-  home: '主页',
-  author: '作者',
-  posts: '文章列表',
+  category: '分类',
+  timeline: '时间线',
+  links: '友人帐',
+  about: '关于我',
 }

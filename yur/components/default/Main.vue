@@ -1,5 +1,7 @@
 <template>
-  <div>main</div>
+  <div id="default-main">
+    main
+  </div>
 </template>
 
 <script>

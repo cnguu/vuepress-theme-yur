@@ -1,3 +1,6 @@
+import store from '@theme/store'
+import { getCurrentPage, getCurrentPost } from '@theme/utils'
+
 const GlobalLayout = () => import('../layouts/GlobalLayout.vue')
 
 const install = (Vue, { router }) => {
@@ -15,6 +18,16 @@ const install = (Vue, { router }) => {
     if (typeof window === 'undefined') {
       return next()
     }
+    const page = getCurrentPage(to.path)
+    const post = getCurrentPost(to.path)
+    store.dispatch('changeRoute', {
+      key: 'page',
+      value: page,
+    })
+    store.dispatch('changeRoute', {
+      key: 'post',
+      value: post,
+    })
     document.getElementById('loading').style.display = 'flex'
     next()
   })

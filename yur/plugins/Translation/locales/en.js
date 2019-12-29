@@ -1,6 +1,6 @@
 module.exports = {
-  // General
-  home: 'Home',
-  author: 'Author',
-  posts: 'Posts',
+  category: 'Category',
+  timeline: 'Timeline',
+  links: 'Links',
+  about: 'About',
 }

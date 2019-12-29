@@ -9,17 +9,30 @@ export default function translation (Vue) {
   Vue.mixin({
     computed: {
       getTranslation () {
-        const langDefault = this.$store.state.settings.lang
-        const langCookie = Cookies.get('lang') || langDefault
-        const langConfig = this.$themeConfig.locales[langCookie]
+        const { locales } = this.$config
+        const lang = this.getLang()
         this.$store.dispatch('changeSetting', {
           key: 'lang',
-          value: langCookie,
+          value: lang,
         })
-        return { ...languages[langCookie], ...langConfig }
+        return { ...languages[lang], ...locales }
       },
     },
+    created () {
+      this.handleLang(this.getLang())
+    },
     methods: {
+      getLang () {
+        const { lang } = this.$themeConfig
+        return Cookies.get('lang') || lang || this.$store.state.settings.lang
+      },
+      handleLang (lang) {
+        this.$store.dispatch('changeSetting', {
+          key: 'lang',
+          value: lang,
+        })
+        Vue.prototype.$config = this.$themeConfig[lang]
+      },
       $l (key) {
         return this.getTranslation[key] || key
       },

@@ -26,13 +26,10 @@ export default {
   },
   computed: {
     locale () {
-      switch (this.$store.state.settings.lang) {
-        case 'en':
-          return enGB
-        case 'zh-CN':
-          return zhCN
-        default:
-          return enGB
+      if (this.$store.state.settings.lang === 'zh-CN') {
+        return zhCN
+      } else {
+        return enGB
       }
     },
   },

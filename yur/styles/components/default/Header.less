@@ -1,0 +1,53 @@
+#default-header {
+  padding-top: 20px;
+  height: 84px;
+  line-height: 64px;
+  background-color: #ffffff;
+
+  .container {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+
+    .menu-icon {
+      display: none;
+      position: absolute;
+      top: 25px;
+      right: 30px;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .logo {
+      height: 64px;
+      line-height: 64px;
+
+      img {
+        height: 32px;
+
+        & + svg {
+          position: relative;
+          top: 20px;
+        }
+      }
+    }
+  }
+}
+
+#menu-mobile {
+  .menu {
+    min-width: 260px;
+    border-right: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #default-header {
+    .container {
+      .menu-icon {
+        display: block;
+      }
+    }
+  }
+}

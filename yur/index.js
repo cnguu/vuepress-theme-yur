@@ -17,7 +17,6 @@ module.exports = (opts, ctx) => {
         .options({ javascriptEnabled: true })
     },
     alias () {
-      // resolve algolia
       const isAlgoliaSearch = (themeConfig.algolia || Object.keys((siteConfig.locales && themeConfig.locales) || {}).some(base => themeConfig.locales[base].algolia))
       return {
         '@AlgoliaSearchBox': isAlgoliaSearch

@@ -9,9 +9,9 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 8px;
-  background: linear-gradient(lighten(@primary-color, 15%) 20%, lighten(@primary-color, 10%) 80%);
-  box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, .45),inset -2px -2px 2px lighten(@primary-color, 15%);
+  border-radius: 6px;
+  background: linear-gradient(@primary-color-4 20%, @primary-color-5 80%);
+  box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, .45),inset -2px -2px 2px @primary-color-4;
 }
 
 ::selection {
@@ -19,8 +19,8 @@
 }
 
 body {
-  font-size: 16px;
-  overflow: hidden;
+  font-size: 14px;
+  background-color: @body-background;
 }
 
 ol, p, ul {
