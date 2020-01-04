@@ -1,6 +1,10 @@
 module.exports = {
   layout: 'default',
   lang: 'zh-CN',
+  search: {
+    type: 'default',
+    size: 10,
+  },
   en: {
     locales: {
       title: 'Stars so bright',

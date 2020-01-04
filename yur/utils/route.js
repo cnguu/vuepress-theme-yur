@@ -4,7 +4,7 @@ import { getCurrentPage, getCurrentPost } from '@theme/utils'
 const GlobalLayout = () => import('../layouts/GlobalLayout.vue')
 
 const install = (Vue, { router }) => {
-  const navs = ['/', '/posts/', '/posts/:post', '/tags/', '/tags/:tag', '/timeline/', '/links/', '/about/']
+  const navs = ['/', '/posts/', '/posts/:post', '/tags/', '/tags/:tag', '/timeline/', '/links/', '/about/', '/search/', '/search/:search']
   const routes = []
   navs.forEach(nav => {
     routes.push({

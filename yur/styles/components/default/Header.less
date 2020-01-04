@@ -32,6 +32,33 @@
         }
       }
     }
+
+    .search {
+      float: left;
+      margin: 22px auto 0;
+      padding-left: 16px;
+      height: 22px;
+      line-height: 22px;
+      border-left: 1px solid #ebedf0;
+
+      .search-icon {
+        position: relative;
+        color: #ced4d9;
+        vertical-align: text-top;
+      }
+
+      .search-input {
+        top: -4px;
+        direction: ltr;
+
+        input {
+          position: relative;
+          border: 0;
+          box-shadow: none;
+          background: inherit;
+        }
+      }
+    }
   }
 }
 
@@ -39,6 +66,71 @@
   .menu {
     min-width: 260px;
     border-right: none;
+  }
+}
+
+.search-dropdown {
+  .select-group {
+    border-bottom: 1px solid #f6f6f6;
+
+    .group-title {
+      font-size: 14px;
+    }
+
+    .select-option {
+      background-color: inherit;
+
+      a {
+        display: block;
+        color: inherit;
+        font-weight: normal;
+      }
+
+      &:hover {
+        background-color: @primary-color-1;
+
+        a {
+          color: @primary-color-5;
+        }
+      }
+    }
+
+    .select-option-tag {
+      display: inline-block;
+      margin-left: 20px;
+      padding: 0;
+      background-color: inherit;
+
+      div {
+        margin-right: 20px;
+
+        &:hover {
+          color: @primary-color;
+          border-color: @primary-color-4;
+          background-color: @primary-color-1;
+        }
+      }
+    }
+  }
+
+  .search-empty {
+    background-color: inherit;
+  }
+
+  .search-more {
+    background-color: inherit;
+    text-align: center;
+
+    a {
+      display: block;
+      font-size: 13px;
+      font-weight: normal;
+      color: rgba(0, 0, 0, 0.45);
+
+      &:hover {
+        color: @primary-color-5;
+      }
+    }
   }
 }
 

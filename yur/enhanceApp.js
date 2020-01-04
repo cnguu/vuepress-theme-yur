@@ -1,5 +1,6 @@
 import store from '@theme/store'
 import Translation from '@theme/plugins/Translation'
+import { getTags } from '@theme/utils'
 import Mixin from '@theme/utils/mixin'
 import routes from '@theme/utils/route'
 import Ant from 'ant-design-vue'
@@ -12,6 +13,8 @@ export default ({ Vue, options, router, siteData }) => {
   Vue.use(Mixin)
   Vue.use(routes, { router })
   Vue.use(Ant)
+
+  Vue.prototype.$tags || (Vue.prototype.$tags = getTags(siteData))
 }
 
 if (process.env.NODE_ENV === 'production' && typeof window !== 'undefined') {

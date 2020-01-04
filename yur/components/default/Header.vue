@@ -124,13 +124,92 @@
           :md="19"
           :sm="0"
           :xs="0"
-        />
+        >
+          <div class="search">
+            <a-icon
+              class="search-icon"
+              type="search"
+            />
+            <a-auto-complete
+              class="search-input"
+              dropdown-class-name="search-dropdown"
+              :placeholder="$l('search')"
+              :allow-clear="true"
+              option-label-prop="value"
+              :dropdown-match-select-width="false"
+              @search="handleSearch"
+            >
+              <template
+                slot="dataSource"
+              >
+                <a-select-opt-group
+                  v-for="group in searchSource"
+                  :key="group.key"
+                  class="select-group"
+                >
+                  <span
+                    slot="label"
+                    class="group-title"
+                  >
+                    {{ group.title }}
+                  </span>
+                  <template v-if="group.title === $l('tags')">
+                    <a-select-option
+                      v-for="opt in group.children"
+                      :key="opt.key"
+                      :value="searchKeyword"
+                      class="select-option-tag"
+                    >
+                      <router-link :to="opt.path">
+                        <a-tag>
+                          {{ opt.title }}
+                        </a-tag>
+                      </router-link>
+                    </a-select-option>
+                  </template>
+                  <template v-else>
+                    <a-select-option
+                      v-for="opt in group.children"
+                      :key="opt.key"
+                      :value="searchKeyword"
+                      class="select-option"
+                    >
+                      <router-link :to="opt.path">
+                        {{ opt.title }}
+                      </router-link>
+                    </a-select-option>
+                  </template>
+                </a-select-opt-group>
+                <a-select-option
+                  v-if="searchSource.length === 0"
+                  key="v-search-empty"
+                  disabled
+                  class="search-empty"
+                >
+                  <a-empty />
+                </a-select-option>
+                <a-select-option
+                  v-if="$route.path.split('/')[1] !== 'search'"
+                  key="v-search-more"
+                  :value="searchKeyword"
+                  class="search-more"
+                >
+                  <router-link :to="`search/${searchKeyword}`">
+                    {{ $l('more') }}
+                  </router-link>
+                </a-select-option>
+              </template>
+            </a-auto-complete>
+          </div>
+        </a-col>
       </a-row>
     </div>
   </header>
 </template>
 
 <script>
+import { exitItem } from '@theme/utils'
+
 export default {
   name: 'Header',
   data () {
@@ -229,6 +308,12 @@ export default {
       timeline: false,
       links: false,
       about: false,
+      searchKeyword: '',
+      searchSource: [],
+      search: {
+        type: 'default',
+        size: 10,
+      },
     }
   },
   computed: {
@@ -272,6 +357,92 @@ export default {
     },
     changeVisible () {
       this.visible = false
+    },
+    handleSearch (value) {
+      this.searchKeyword = ''
+      this.searchSource = []
+      value = value.trim().toLowerCase()
+      if (!value) {
+        return false
+      }
+      this.searchKeyword = value
+
+      const { pages } = this.$site
+      const { search } = this.$config
+      if (search) {
+        this.search = Object.assign({}, this.search, search)
+      }
+      const { size } = this.search
+      const matchTitle = item => (
+        item.title && item.title.toLowerCase().indexOf(value) > -1
+      )
+      const matchTag = item => (
+        item.toLowerCase().indexOf(value) > -1
+      )
+      const res = []
+      const posts = {
+        title: this.$l('posts'),
+        key: 'v-group-posts',
+        children: [],
+      }
+      const tags = {
+        title: this.$l('tags'),
+        key: 'v-group-tags',
+        children: [],
+      }
+      for (let i = 0; i < pages.length; i++) {
+        if (posts.children.length >= size) break
+
+        const p = pages[i]
+        if (this.isCurrentPage(p.path)) continue
+
+        if (matchTitle(p)) {
+          posts.children.push({
+            title: p.title,
+            path: p.path,
+            key: `v-${i}-${p.title}`,
+          })
+        } else if (p.headers) {
+          for (let j = 0; j < p.headers.length; j++) {
+            if (posts.children.length >= size) break
+
+            const h = p.headers[j]
+            if (matchTitle(h)) {
+              posts.children.push({
+                title: `${p.title} #${h.title}`,
+                path: `${p.path}#${h.slug}`,
+                key: `v-${j}-${p.title}#${h.title}`,
+              })
+            }
+          }
+        }
+
+        if (p.frontmatter && p.frontmatter.tags && p.frontmatter.tags.length) {
+          p.frontmatter.tags.forEach(tag => {
+            if (matchTag(tag) && !exitItem(tags.children, 'title', tag)) {
+              tags.children.push({
+                title: tag,
+                path: encodeURI(`/tags/${tag}`),
+              })
+            }
+          })
+        }
+      }
+      if (posts.children.length) {
+        res.push(posts)
+      }
+      if (tags.children.length) {
+        res.push(tags)
+      }
+      this.searchSource = res
+    },
+    isCurrentPage (path) {
+      const index = path.indexOf('#')
+      if (index === -1) {
+        return path === this.$route.path
+      } else {
+        return path.substring(0, index) === this.$route.path
+      }
     },
   },
 }

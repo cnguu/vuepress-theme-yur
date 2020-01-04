@@ -7,6 +7,15 @@ export default () => {
       return {}
     },
     methods: {
+      /**
+       * Simplified hasOwnProperty()
+       * @param obj
+       * @param key
+       * @returns {boolean}
+       */
+      hasOwn (obj, key) {
+        return Object.prototype.hasOwnProperty.call(obj, key)
+      },
       isProd () {
         return process.env.NODE_ENV === 'production' && typeof window !== 'undefined'
       },
