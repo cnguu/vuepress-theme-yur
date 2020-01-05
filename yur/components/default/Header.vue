@@ -201,6 +201,62 @@
               </template>
             </a-auto-complete>
           </div>
+          <div class="navigation">
+            <a-menu
+              v-model="currentPage"
+              mode="horizontal"
+              class="menu"
+            >
+              <a-sub-menu
+                v-if="navs.length"
+                key="category"
+              >
+                <span
+                  slot="title"
+                >
+                  {{ $l('category') }}
+                  <a-icon
+                    type="caret-down"
+                    class="category-icon"
+                  />
+                </span>
+                <a-menu-item-group>
+                  <a-menu-item
+                    v-for="nav in navs"
+                    :key="nav.key"
+                  >
+                    <router-link :to="nav.link">
+                      {{ nav.text }}
+                    </router-link>
+                  </a-menu-item>
+                </a-menu-item-group>
+              </a-sub-menu>
+              <a-menu-item
+                v-if="timeline"
+                key="timeline"
+              >
+                <router-link to="/timeline.html">
+                  {{ $l('timeline') }}
+                </router-link>
+              </a-menu-item>
+              <a-menu-item
+                v-if="links"
+                key="links"
+              >
+                <router-link to="/links.html">
+                  {{ $l('links') }}
+                </router-link>
+              </a-menu-item>
+              <a-menu-item
+                v-if="about"
+                key="about"
+              >
+                <router-link to="/about.html">
+                  {{ $l('about') }}
+                </router-link>
+              </a-menu-item>
+            </a-menu>
+          </div>
         </a-col>
       </a-row>
     </div>

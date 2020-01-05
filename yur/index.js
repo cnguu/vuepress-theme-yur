@@ -26,10 +26,6 @@ module.exports = (opts, ctx) => {
       }
     },
     plugins: [
-      '@vuepress/register-components',
-      ['@vuepress/search', {
-        searchMaxSuggestions: 10,
-      }],
       ['container', {
         type: 'primary',
         defaultTitle: '',

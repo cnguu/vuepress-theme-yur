@@ -7,6 +7,7 @@
   .container {
     position: relative;
     margin: 0 auto;
+    padding: 0 24px;
     width: 100%;
     max-width: 1200px;
 
@@ -37,14 +38,14 @@
       float: left;
       margin: 22px auto 0;
       padding-left: 16px;
-      height: 22px;
-      line-height: 22px;
+      height: 24px;
+      line-height: 24px;
       border-left: 1px solid #ebedf0;
 
       .search-icon {
         position: relative;
         color: #ced4d9;
-        vertical-align: text-top;
+        top: -3px;
       }
 
       .search-input {
@@ -56,6 +57,22 @@
           border: 0;
           box-shadow: none;
           background: inherit;
+        }
+      }
+    }
+
+    .navigation {
+      float: right;
+      margin: 11px auto 0;
+      height: 11px;
+      line-height: 11px;
+
+      .menu {
+        border-bottom: none;
+        background: inherit;
+
+        .category-icon {
+          margin-left: 10px;
         }
       }
     }
@@ -134,9 +151,11 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   #default-header {
     .container {
+      text-align: center;
+
       .menu-icon {
         display: block;
       }

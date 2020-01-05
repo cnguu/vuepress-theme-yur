@@ -2,7 +2,7 @@ const path = require('path')
 const head = require('./config/head')
 const themeConfig = require('./config/themeConfig')
 module.exports = {
-  base: '/',
+  base: '/test/',
   title: 'VuePress theme yur',
   description: 'Write your life by vuepress',
   head,
