@@ -31,7 +31,7 @@ export default function translation (Vue) {
           key: 'lang',
           value: lang,
         })
-        Vue.prototype.$config = this.$themeConfig[lang]
+        Vue.prototype.$config || (Vue.prototype.$config = this.$themeConfig[lang])
       },
       $l (key) {
         return this.getTranslation[key] || key

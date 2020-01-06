@@ -382,8 +382,8 @@ export default {
   },
   methods: {
     handleInit () {
-      const { title } = this.$site
-      const { navs, logo, nameplate, timeline, links, about } = this.$config
+      const { title, logo, timeline } = this.$site
+      const { navs, nameplate, links, about } = this.$config
       if (title) {
         this.title = title
       }

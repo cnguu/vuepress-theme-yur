@@ -7,4 +7,10 @@ module.exports = {
   posts: '文章',
   tags: '标签',
   more: '更多',
+  footerColOne: '推荐资源',
+  footerColTwo: '相关信息',
+  footerColThree: '其它',
+  madeWith: 'Made with',
+  by: 'by',
+  curtain: '页面准备中...',
 }

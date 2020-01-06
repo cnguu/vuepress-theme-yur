@@ -1,7 +1,7 @@
 <template>
-  <div id="default-main">
+  <main id="default-main">
     <Content />
-  </div>
+  </main>
 </template>
 
 <script>

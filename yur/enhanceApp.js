@@ -1,20 +1,19 @@
 import store from '@theme/store'
 import Translation from '@theme/plugins/Translation'
-import { getTags } from '@theme/utils'
+import Blog from '@theme/plugins/Blog'
 import Mixin from '@theme/utils/mixin'
 import routes from '@theme/utils/route'
-import Ant from 'ant-design-vue'
+import Ant from 'ant-design-vue/es'
 import 'ant-design-vue/dist/antd.less'
 import '@theme/styles/index.less'
 
 export default ({ Vue, options, router, siteData }) => {
   Vue.mixin({ store })
   Vue.use(Translation)
+  Vue.use(Blog)
   Vue.use(Mixin)
   Vue.use(routes, { router })
   Vue.use(Ant)
-
-  Vue.prototype.$tags || (Vue.prototype.$tags = getTags(siteData))
 }
 
 if (process.env.NODE_ENV === 'production' && typeof window !== 'undefined') {

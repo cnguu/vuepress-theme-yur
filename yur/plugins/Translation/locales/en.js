@@ -7,4 +7,10 @@ module.exports = {
   posts: 'Posts',
   tags: 'Tags',
   more: 'More',
+  footerColOne: 'Recommend',
+  footerColTwo: 'Related',
+  footerColThree: 'Other',
+  madeWith: 'Made with',
+  by: 'by',
+  curtain: 'Page in preparation ...',
 }

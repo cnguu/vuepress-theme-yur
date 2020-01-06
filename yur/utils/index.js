@@ -50,6 +50,22 @@ export function getCurrentPost (path) {
 }
 
 /**
+ * Get all category
+ * @param themeConfig
+ * @returns {[]}
+ */
+export function getCategories (themeConfig) {
+  const { navs } = themeConfig
+  const categories = []
+  if (navs && navs.length) {
+    navs.forEach(nav => {
+      categories.push(nav.link.substring(1, nav.link.length - 1))
+    })
+  }
+  return categories
+}
+
+/**
  * Get all tags with posts
  * @param siteData
  * @returns {{}}

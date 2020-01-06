@@ -68,8 +68,5 @@ module.exports = (opts, ctx) => {
       }],
       'serve',
     ],
-    enhanceAppFiles: [
-      path.resolve(__dirname, 'enhanceApp.js'),
-    ],
   }
 }
