@@ -6,6 +6,18 @@ export default () => {
     data () {
       return {}
     },
+    computed: {
+      $lang () {
+        const { lang } = this.$themeConfig
+        return lang || 'en'
+      },
+      $title () {
+        return this.$l('title')
+      },
+      $description () {
+        return this.$l('description')
+      },
+    },
     methods: {
       /**
        * Simplified hasOwnProperty()

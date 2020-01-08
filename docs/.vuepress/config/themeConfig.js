@@ -1,6 +1,6 @@
 module.exports = {
   layout: 'default',
-  lang: 'zh-CN',
+  lang: 'zh-CN', // en zh-CN
   site: 'https://gleehub.com',
   // logo: '/20171231/logo.png',
   // banner: '/20171231/YgorwbJUDpcQHV5h.png',
@@ -44,11 +44,6 @@ module.exports = {
           title: 'Yur',
           subtitle: 'VuePress Theme',
           link: 'https://github.com/cnguu/vuepress-theme-yur',
-        },
-        {
-          title: 'Yur Cli',
-          subtitle: 'Theme Tool',
-          link: 'https://github.com/ioim/vuepress-theme-yur-cli',
         },
       ],
       two: [
@@ -99,7 +94,7 @@ module.exports = {
           link: 'https://github.com/cnguu/vuepress-theme-yur',
         },
         {
-          title: 'Yur Cli',
+          title: 'Yur Tool',
           subtitle: '主题快速搭建工具',
           link: 'https://github.com/ioim/vuepress-theme-yur-cli',
         },

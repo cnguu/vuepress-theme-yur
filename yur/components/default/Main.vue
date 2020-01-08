@@ -7,6 +7,12 @@
 <script>
 export default {
   name: 'Main',
+  data () {
+    return {}
+  },
+  created () {
+    console.log(this.$config)
+  },
 }
 </script>
 
