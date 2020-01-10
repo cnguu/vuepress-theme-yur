@@ -92,14 +92,14 @@
                 <text
                   v-for="(item, index) in nameplate.text"
                   :key="index"
-                  :font-size="item.fontSize"
-                  :text-anchor="item.textAnchor"
                   :x="item.x"
                   :y="item.y"
+                  :font-size="item.fontSize"
+                  :text-anchor="item.textAnchor"
                   :text-transform="item.textTransform"
+                  :text-shadow="item.textShadow"
                   :fill="item.fill"
                   :stroke="item.stroke"
-                  :text-shadow="item.textShadow"
                   :stroke-width="item.strokeWidth"
                   :stroke-dasharray="item.strokeDasharray"
                 >
@@ -194,7 +194,7 @@
                   :value="searchKeyword"
                   class="search-more"
                 >
-                  <router-link :to="`search/${searchKeyword}`">
+                  <router-link :to="`/search/${searchKeyword}`">
                     {{ $l('more') }}
                   </router-link>
                 </a-select-option>

@@ -1,17 +1,14 @@
 <template>
-  <div class="not-found">
+  <div id="default-none">
     <h1>404 Not Found</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'NotFound',
+  name: 'None',
 }
 </script>
 
 <style lang="less" scoped>
-  .not-found {
-    text-align: center;
-  }
 </style>

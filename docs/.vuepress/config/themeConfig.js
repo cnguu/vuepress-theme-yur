@@ -39,6 +39,7 @@ module.exports = {
       {text: 'About', link: '/about.html', type: 'default'},
     ],
     footer: {
+      // icon: '/20171231/footer.png',
       one: [
         {
           title: 'Yur',
