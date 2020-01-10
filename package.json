@@ -52,9 +52,11 @@
   },
   "dependencies": {
     "ant-design-vue": "^1.4.10",
+    "crypto-js": "^3.1.9-1",
     "js-cookie": "^2.2.1",
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
+    "transliteration": "^2.1.8",
     "vuepress-plugin-serve": "^1.1.0",
     "vuex": "^3.1.2"
   },

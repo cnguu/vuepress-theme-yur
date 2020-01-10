@@ -189,7 +189,7 @@
                   <a-empty />
                 </a-select-option>
                 <a-select-option
-                  v-if="$route.path.split('/')[1] !== 'search'"
+                  v-if="$store.state.routes.page !== 'search'"
                   key="v-search-more"
                   :value="searchKeyword"
                   class="search-more"
@@ -446,6 +446,8 @@ export default {
         key: 'v-group-tags',
         children: [],
       }
+
+      let counter = 0
       for (let i = 0; i < pages.length; i++) {
         if (posts.children.length >= size) break
 
@@ -456,8 +458,9 @@ export default {
           posts.children.push({
             title: p.title,
             path: p.path,
-            key: `v-${i}-${p.title}`,
+            key: `v-${counter}`,
           })
+          counter += 1
         } else if (p.headers) {
           for (let j = 0; j < p.headers.length; j++) {
             if (posts.children.length >= size) break
@@ -467,8 +470,9 @@ export default {
               posts.children.push({
                 title: `${p.title} #${h.title}`,
                 path: `${p.path}#${h.slug}`,
-                key: `v-${j}-${p.title}#${h.title}`,
+                key: `v-${counter}`,
               })
+              counter += 1
             }
           }
         }

@@ -1,7 +1,12 @@
 const path = require('path')
+const SHA256 = require('crypto-js/sha256')
+const Base64 = require('crypto-js/enc-base64')
+const { slugify } = require('transliteration')
+
 module.exports = (opts, ctx) => {
   const { sep } = path
   const { themeConfig, siteConfig, sourceDir } = ctx
+  const { lang } = themeConfig
   return {
     name: 'vuepress-theme-yur',
     chainWebpack (config, isServer) {
@@ -68,5 +73,41 @@ module.exports = (opts, ctx) => {
       }],
       'serve',
     ],
+    extendPageData ($page) {
+      // const { _filePath, _computed, _content, _strippedContent, key, frontmatter, regularPath, path } = $page
+      const { _content, frontmatter, path } = $page
+
+      if (_content) {
+        $page.wordCount = _content.length
+      }
+
+      if (lang === 'zh-CN') {
+        $page.path = decodeURIComponent(path).split('/')
+          .map(str => slugify(str, {
+            lowercase: true,
+            separator: '-',
+            ignore: ['/', '.'],
+          }))
+          .join('/')
+      }
+
+      let pwd = '52yur'
+      if (themeConfig) {
+        const { password } = themeConfig
+        if (password) {
+          pwd = password
+        }
+      }
+      if (frontmatter) {
+        const { password } = frontmatter
+        if (password) {
+          if (typeof password !== 'boolean') {
+            pwd = password
+          }
+          delete frontmatter.password
+          $page.password = Base64.stringify(SHA256(pwd))
+        }
+      }
+    },
   }
 }
