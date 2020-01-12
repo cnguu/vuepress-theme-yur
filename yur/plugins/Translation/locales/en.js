@@ -13,4 +13,5 @@ module.exports = {
   madeWith: 'Made with',
   by: 'by',
   curtain: 'Page in preparation ...',
+  backToHomepage: 'Back To Homepage',
 }
