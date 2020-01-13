@@ -80,7 +80,7 @@
           >
             <img
               :src="logo"
-              :alt="title"
+              :alt="$l('title')"
             >
             <svg
               v-if="nameplate"
@@ -382,11 +382,8 @@ export default {
   },
   methods: {
     handleInit () {
-      const { title, logo, timeline } = this.$site
+      const { logo, timeline } = this.$themeConfig
       const { navs, nameplate, links, about } = this.$config
-      if (title) {
-        this.title = title
-      }
       if (navs) {
         navs.forEach(nav => {
           nav.key = nav.link.split('/')[1]

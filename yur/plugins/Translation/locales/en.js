@@ -1,4 +1,6 @@
 module.exports = {
+  title: 'Stars so bright',
+  description: 'Writing life with you',
   search: 'Search',
   category: 'Category',
   timeline: 'Timeline',

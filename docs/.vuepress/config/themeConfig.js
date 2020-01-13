@@ -7,6 +7,17 @@ module.exports = {
   author: 'cnguu',
   authorLink: 'https://github.com/cnguu/',
   avatar: 'https://static.xmt.cn/cc50c217cbe342ce951324583f2c6139.png',
+  // ityped: {
+  //   typeSpeed: 300,           // 正常速度
+  //   backSpeed: 100,           // 反向速度
+  //   startDelay: 300,          // 开始延迟（毫秒）
+  //   backDelay: 1300,          // 反向延迟（毫秒）
+  //   loop: true,               // 循环
+  //   showCursor: true,         // 显示指针
+  //   placeholder: false,       // 占位
+  //   disableBackTyping: false, // 禁用反向输入
+  //   cursorChar: '丨',         // 指针字符
+  // },
   reward: [
     'https://static.xmt.cn/ca717dde8ae14ea7ab3c8c74b8711414.png',
     'https://static.xmt.cn/acc7d3d02b0c4a35a3735268cbb2cce0.png',

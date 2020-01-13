@@ -1,14 +1,85 @@
 <template>
   <div id="default-home">
-    home
+    <div class="banner">
+      <div class="img-wrapper">
+        <img
+          :src="banner"
+          :alt="$l('title')"
+        >
+      </div>
+      <div class="text-wrapper">
+        <div class="title-line-wrapper">
+          <div class="title-line" />
+        </div>
+        <h1 class="title">
+          {{ $l('title') }}
+        </h1>
+        <p class="description-wrapper">
+          <span id="ityped">{{ description }}</span>
+        </p>
+        <div
+          v-if="buttons.length"
+          class="banner-btn-group"
+        >
+          <router-link
+            v-for="(item, index) in buttons"
+            :key="index"
+            :to="item.link"
+          >
+            <a-button :type="item.type">
+              {{ item.text }}
+            </a-button>
+          </router-link>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { init } from 'ityped'
+
 export default {
   name: 'Home',
   data () {
-    return {}
+    return {
+      banner: require('@theme/assets/banner.png'),
+      buttons: [
+        { text: 'Read', link: '/posts/', type: 'primary' },
+        { text: 'About', link: '/about.html', type: 'default' },
+      ],
+      description: '',
+      ityped: null,
+    }
+  },
+  created () {
+    this.handleInit()
+  },
+  mounted () {
+    this.handleITyped()
+  },
+  methods: {
+    handleInit () {
+      const { ityped } = this.$themeConfig
+      const { banner, buttons } = this.$config
+      if (banner) {
+        this.banner = this.$withBase(banner)
+      }
+      if (buttons) {
+        this.buttons = buttons
+      }
+      if (ityped) {
+        this.ityped = ityped
+      }
+    },
+    handleITyped () {
+      if (this.ityped) {
+        this.ityped.strings = [this.$l('description')]
+        init('#ityped', this.ityped)
+      } else {
+        this.description = this.$l('description')
+      }
+    },
   },
 }
 </script>

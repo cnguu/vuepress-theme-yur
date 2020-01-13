@@ -1,4 +1,6 @@
 module.exports = {
+  title: '星汉灿烂',
+  description: '书写生活与你',
   search: '搜索',
   category: '分类',
   timeline: '时间线',

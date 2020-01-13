@@ -1,0 +1,125 @@
+#default-home {
+  position: relative;
+
+  .ityped-cursor {
+    font-size: 20px;
+    opacity: 1;
+    animation: ityped 0.3s infinite;
+    animation-direction: alternate;
+  }
+
+  .banner {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 540px;
+    margin: auto;
+    padding: 0 24px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+
+    .img-wrapper {
+      width: 50%;
+      max-width: 500px;
+
+      img {
+        width: 100%;
+        max-height: 500px;
+      }
+    }
+
+    .text-wrapper {
+      padding: 0 24px 0 0;
+      flex: 1;
+      color: #0d1a26;
+
+      .title-line-wrapper {
+        width: 100%;
+        max-width: 500px;
+        height: 2px;
+        overflow: hidden;
+
+        .title-line {
+          width: 64px;
+          height: 100%;
+          background: linear-gradient(90deg, fade(@primary-color, 0) 0, @primary-color);
+          transform: translateX(-64px);
+          animation: bannerTitleLine 3s ease-in-out 0s infinite;
+        }
+      }
+
+      .title {
+        margin: 8px 0 28px;
+        font-weight: 600;
+        font-size: 48px;
+        line-height: 56px;
+        letter-spacing: 0;
+      }
+
+      .description-wrapper {
+        color: #314659;
+        font-size: 20px;
+        line-height: 40px;
+      }
+
+      .banner-btn-group {
+        a {
+          button {
+            height: 40px;
+            padding: 0 24px;
+            font-size: 16px;
+            line-height: 38px;
+            border-radius: 100px;
+          }
+
+          &:last-child {
+            margin-left: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #default-home {
+    .banner {
+      padding: 24px;
+      height: auto;
+      flex-direction: column;
+
+      .img-wrapper {
+        margin-bottom: 20px;
+      }
+
+      .text-wrapper {
+        text-align: center;
+
+        .title {
+          margin: 8px 0;
+          font-size: 30px;
+          font-weight: 500;
+        }
+
+        .description-wrapper {
+          font-size: 16px;
+          line-height: 32px;
+        }
+
+        .banner-btn-group {
+
+          a {
+            button {
+              height: 32px;
+              padding: 0 12px;
+              font-size: 14px;
+              line-height: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
