@@ -33,6 +33,41 @@
         </div>
       </div>
     </div>
+    <div class="post">
+      <div class="wrapper">
+        <h2>
+          <span>最近更新</span>
+        </h2>
+        <a-row
+          v-if="$posts.length"
+          class="row"
+        >
+          <a-col
+            v-for="{path,frontmatter,title} in $posts.slice(0, 3)"
+            :key="path"
+            :xs="24"
+            :md="8"
+          >
+            <router-link :to="path">
+              <div class="banner">
+                <img
+                  :src="frontmatter.banner"
+                  :alt="title"
+                >
+              </div>
+              <h3>
+                <span>{{ title }}</span>
+              </h3>
+            </router-link>
+          </a-col>
+        </a-row>
+      </div>
+    </div>
+    <div class="tag">
+      <div class="wrapper">
+        1
+      </div>
+    </div>
   </div>
 </template>
 

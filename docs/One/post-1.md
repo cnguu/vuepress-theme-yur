@@ -8,7 +8,9 @@ meta:
   - name: keywords
     content: One
 
-created: 2020-01-01
+created: 2020/01/01
+
+updated: 2020/01/01
 
 tags:
   - 标签一
