@@ -3,6 +3,7 @@ import { hasOwn } from '@theme/utils'
 export default function blog (Vue) {
   Vue.mixin({
     created () {
+      const { postBanner } = this.$themeConfig
       if (!this.$posts) {
         const today = new Date().toLocaleDateString()
         const { pages } = this.$site
@@ -17,7 +18,11 @@ export default function blog (Vue) {
             if (banner) {
               post.frontmatter.banner = this.$withBase(banner)
             } else {
-              post.frontmatter.banner = require(`@theme/assets/post/${Math.floor(Math.random() * 20) + 1}.svg`)
+              if (postBanner && postBanner.length) {
+                post.frontmatter.banner = this.$withBase(postBanner[Math.floor(Math.random() * postBanner.length)])
+              } else {
+                post.frontmatter.banner = require(`@theme/assets/post/${Math.floor(Math.random() * 20) + 1}.svg`)
+              }
             }
             if (created) {
               post.frontmatter.created = new Date(created).toLocaleDateString()
