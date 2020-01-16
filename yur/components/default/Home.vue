@@ -65,7 +65,20 @@
     </div>
     <div class="tag">
       <div class="wrapper">
-        1
+        <div v-if="tags.length">
+          <Router-link
+            v-for="(tag, index) in tags"
+            :key="index"
+            :to="`/tags/${ tag }`"
+          >
+            <a-tag>
+              {{ tag }}
+            </a-tag>
+          </Router-link>
+        </div>
+        <a-tag v-else>
+          {{ $l('noTags') }}
+        </a-tag>
       </div>
     </div>
   </div>
@@ -73,6 +86,7 @@
 
 <script>
 import { init } from 'ityped'
+import { shuffle } from '@theme/utils'
 
 export default {
   name: 'Home',
@@ -85,6 +99,7 @@ export default {
       ],
       description: '',
       ityped: null,
+      tags: [],
     }
   },
   created () {
@@ -95,7 +110,7 @@ export default {
   },
   methods: {
     handleInit () {
-      const { ityped } = this.$themeConfig
+      const { ityped, tagSize } = this.$themeConfig
       const { banner, buttons } = this.$config
       if (banner) {
         this.banner = this.$withBase(banner)
@@ -106,6 +121,7 @@ export default {
       if (ityped) {
         this.ityped = ityped
       }
+      this.tags = shuffle(Object.keys(this.$tags).slice(0, tagSize || 60))
     },
     handleITyped () {
       if (this.ityped) {

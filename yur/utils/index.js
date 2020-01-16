@@ -27,6 +27,21 @@ export function exitItem (arr, field, value) {
   return res
 }
 
+/**
+ * Knuth-Durstenfeld Shuffle
+ * @param arr
+ * @returns {*}
+ */
+export function shuffle (arr) {
+  let n = arr.length
+  let random
+  while (n !== 0) {
+    random = (Math.random() * n--) >>> 0;
+    [arr[n], arr[random]] = [arr[random], arr[n]]
+  }
+  return arr
+}
+
 export function getCurrentPage (path) {
   let page = '/'
   path = path.split('/')[1]

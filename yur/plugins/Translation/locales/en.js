@@ -16,4 +16,5 @@ module.exports = {
   by: 'by',
   curtain: 'Page in preparation ...',
   backToHomepage: 'Back To Homepage',
+  noTags: 'No tags',
 }

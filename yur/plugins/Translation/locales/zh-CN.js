@@ -16,4 +16,5 @@ module.exports = {
   by: 'by',
   curtain: '页面准备中...',
   backToHomepage: '回到主页',
+  noTags: '暂无标签',
 }

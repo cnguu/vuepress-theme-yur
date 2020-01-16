@@ -31,6 +31,7 @@ module.exports = {
     type: 'default',
     size: 10,
   },
+  // tagSize: 100,
   en: {
     locales: {
       title: 'Stars so bright',
@@ -117,8 +118,14 @@ module.exports = {
       ],
       two: [
         {
-          title: '本站托管于 CODING',
-          link: 'https://coding.net/',
+          title: '本站托管于 GitHub',
+          link: 'https://gleehub.com/',
+          type: 'cloud',
+          theme: 'filled',
+        },
+        {
+          title: '备用站托管于 Coding',
+          link: 'https://www.gleehub.com/',
           type: 'cloud',
           theme: 'filled',
         },
