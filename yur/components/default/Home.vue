@@ -63,33 +63,17 @@
         </a-row>
       </div>
     </div>
-    <div class="tag">
-      <div class="wrapper">
-        <div v-if="tags.length">
-          <Router-link
-            v-for="(tag, index) in tags"
-            :key="index"
-            :to="`/tags/${ tag }`"
-          >
-            <a-tag>
-              {{ tag }}
-            </a-tag>
-          </Router-link>
-        </div>
-        <a-tag v-else>
-          {{ $l('noTags') }}
-        </a-tag>
-      </div>
-    </div>
+    <TagCloud />
   </div>
 </template>
 
 <script>
+import TagCloud from '@theme/components/default/TagCloud'
 import { init } from 'ityped'
-import { shuffle } from '@theme/utils'
 
 export default {
   name: 'Home',
+  components: { TagCloud },
   data () {
     return {
       banner: require('@theme/assets/banner.png'),
@@ -99,7 +83,6 @@ export default {
       ],
       description: '',
       ityped: null,
-      tags: [],
     }
   },
   created () {
@@ -110,7 +93,7 @@ export default {
   },
   methods: {
     handleInit () {
-      const { ityped, tagSize } = this.$themeConfig
+      const { ityped } = this.$themeConfig
       const { banner, buttons } = this.$config
       if (banner) {
         this.banner = this.$withBase(banner)
@@ -121,7 +104,6 @@ export default {
       if (ityped) {
         this.ityped = ityped
       }
-      this.tags = shuffle(Object.keys(this.$tags).slice(0, tagSize || 60))
     },
     handleITyped () {
       if (this.ityped) {

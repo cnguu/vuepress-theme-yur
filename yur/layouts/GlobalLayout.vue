@@ -1,8 +1,10 @@
 <template>
   <a-locale-provider :locale="locale">
     <div id="yur-app">
-      <IcarusApp v-if="layout==='icarus'" />
-      <DefaultApp v-else />
+      <keep-alive>
+        <IcarusApp v-if="layout==='icarus'" />
+        <DefaultApp v-else />
+      </keep-alive>
     </div>
   </a-locale-provider>
 </template>
