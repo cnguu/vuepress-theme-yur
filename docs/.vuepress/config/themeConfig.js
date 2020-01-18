@@ -18,10 +18,14 @@ module.exports = {
   //   disableBackTyping: false, // 禁用反向输入
   //   cursorChar: '丨',         // 指针字符
   // },
-  // postBanner: [
-  //   '/20171231/favicon.ico',
-  //   'https://static.xmt.cn/cc50c217cbe342ce951324583f2c6139.png',
-  // ],
+  post: {
+    // cover: [
+    //   '/20171231/favicon.ico',
+    //   'https://static.xmt.cn/cc50c217cbe342ce951324583f2c6139.png',
+    // ],
+    pageSize: 12,
+    pageSizeOptions: ['12', '24', '48', '96'],
+  },
   reward: [
     'https://static.xmt.cn/ca717dde8ae14ea7ab3c8c74b8711414.png',
     'https://static.xmt.cn/acc7d3d02b0c4a35a3735268cbb2cce0.png',

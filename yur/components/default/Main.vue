@@ -1,16 +1,15 @@
 <template>
   <main id="default-main">
-    <keep-alive>
-      <Home v-if="$store.state.routes.page === '/'" />
-      <Posts v-else-if="$store.state.routes.page === 'posts'" />
-      <Categories v-else-if="$categories.includes($store.state.routes.page)" />
-      <Tags v-else-if="$store.state.routes.page === 'tags'" />
-      <Timeline v-else-if="$store.state.routes.page === 'timeline'" />
-      <Links v-else-if="$store.state.routes.page === 'links'" />
-      <About v-else-if="$store.state.routes.page === 'about'" />
-      <Search v-else-if="$store.state.routes.page === 'search'" />
-      <None v-else />
-    </keep-alive>
+    <Home v-if="$store.state.routes.page === '/'" />
+    <Posts v-else-if="$store.state.routes.page === 'posts'" />
+    <Categories v-else-if="Object.keys($categories).includes($store.state.routes.page)" />
+    <Tags v-else-if="$store.state.routes.page === 'tags'" />
+    <Timeline v-else-if="$store.state.routes.page === 'timeline'" />
+    <Links v-else-if="$store.state.routes.page === 'links'" />
+    <About v-else-if="$store.state.routes.page === 'about'" />
+    <Search v-else-if="$store.state.routes.page === 'search'" />
+    <None v-else />
+    <a-back-top class="back-top" />
   </main>
 </template>
 

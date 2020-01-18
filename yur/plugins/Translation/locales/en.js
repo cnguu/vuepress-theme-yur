@@ -14,7 +14,9 @@ module.exports = {
   footerColThree: 'Other',
   madeWith: 'Made with',
   by: 'by',
+  total: 'Total',
   curtain: 'Page in preparation ...',
   backToHomepage: 'Back To Homepage',
   noTags: 'No tags',
+  noPosts: 'This blogger is really lazy and has not written an article',
 }

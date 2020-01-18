@@ -1,9 +1,9 @@
-import { hasOwn } from '@theme/utils'
+import { hasOwn, getCurrentPage } from '@theme/utils'
 
 export default function blog (Vue) {
   Vue.mixin({
     created () {
-      const { postBanner } = this.$themeConfig
+      const { post: { cover } } = this.$themeConfig
       if (!this.$posts) {
         const today = new Date().toLocaleDateString()
         const { pages } = this.$site
@@ -14,12 +14,12 @@ export default function blog (Vue) {
             return !(wordCount === undefined)
           })
           for (const post of posts) {
-            const { frontmatter: { created, updated, banner } } = post
+            const { frontmatter: { created, updated, banner }, path } = post
             if (banner) {
               post.frontmatter.banner = this.$withBase(banner)
             } else {
-              if (postBanner && postBanner.length) {
-                post.frontmatter.banner = this.$withBase(postBanner[Math.floor(Math.random() * postBanner.length)])
+              if (cover && cover.length) {
+                post.frontmatter.banner = this.$withBase(cover[Math.floor(Math.random() * cover.length)])
               } else {
                 post.frontmatter.banner = require(`@theme/assets/post/${Math.floor(Math.random() * 20) + 1}.svg`)
               }
@@ -34,6 +34,9 @@ export default function blog (Vue) {
             } else {
               post.frontmatter.updated = today
             }
+            if (path) {
+              post.category = getCurrentPage(path)
+            }
           }
           posts.sort((a, b) => {
             return new Date(b.frontmatter.created).getTime() - new Date(a.frontmatter.created).getTime()
@@ -47,11 +50,19 @@ export default function blog (Vue) {
 
       if (!this.$categories) {
         const { navs } = this.$config
-        const categories = []
+        const categories = {}
         if (navs && navs.length) {
           navs.forEach(nav => {
-            categories.push(nav.link.substring(1, nav.link.length - 1))
+            categories[nav.link.substring(1, nav.link.length - 1)] = []
           })
+          if (this.$posts.length) {
+            this.$posts.forEach(post => {
+              const { category } = post
+              if (category) {
+                categories[category].push(post)
+              }
+            })
+          }
         }
         Vue.prototype.$categories = categories
       }

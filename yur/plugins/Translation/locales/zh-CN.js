@@ -14,7 +14,9 @@ module.exports = {
   footerColThree: '其它',
   madeWith: 'Made with',
   by: 'by',
+  total: '总共',
   curtain: '页面准备中...',
   backToHomepage: '回到主页',
   noTags: '暂无标签',
+  noPosts: '这个人真懒，一个文章也没写',
 }

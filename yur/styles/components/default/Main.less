@@ -2,8 +2,19 @@
   position: relative;
   flex: 1;
   background-color: #ffffff;
+
+  .back-top {
+    right: 20px;
+    bottom: 20px;
+
+    & > div {
+      background-color: @primary-color;
+      box-shadow: 0 3px 12px darken(@primary-color, 1%);
+    }
+  }
 }
 
 @import "./Home.less";
+@import "./Posts.less";
 @import "./TagCloud.less";
 @import "./None.less";
