@@ -96,19 +96,21 @@ export default {
   },
   watch: {
     $route (to, from) {
-      if (!to.query.page && !to.query.pageSize) {
-        this.handleInit()
-        this.pagination.current = 1
-        this.$router.replace({
-          path: `/${this.$store.state.routes.page}/`,
-          query: {
-            page: this.pagination.current,
-            pageSize: this.pagination.pageSize,
-          },
-        })
-      } else {
-        this.pagination.current = Number(to.query.page)
-        this.pagination.pageSize = Number(to.query.pageSize)
+      if (!this.$store.state.routes.post) {
+        if (!to.query.page && !to.query.pageSize) {
+          this.handleInit()
+          this.pagination.current = 1
+          this.$router.replace({
+            path: `/${this.$store.state.routes.page}/`,
+            query: {
+              page: this.pagination.current,
+              pageSize: this.pagination.pageSize,
+            },
+          })
+        } else {
+          this.pagination.current = Number(to.query.page)
+          this.pagination.pageSize = Number(to.query.pageSize)
+        }
       }
     },
   },

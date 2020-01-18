@@ -1,12 +1,14 @@
 <template>
   <div id="default-tags">
-    Tags
+    <TagCloud />
   </div>
 </template>
 
 <script>
+import TagCloud from '@theme/components/default/TagCloud'
 export default {
   name: 'Tags',
+  components: { TagCloud },
   data () {
     return {}
   },

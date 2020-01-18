@@ -38,7 +38,11 @@ export default {
   methods: {
     handleInit () {
       const { tagSize } = this.$themeConfig
-      this.tags = shuffle(Object.keys(this.$tags).slice(0, tagSize || 60))
+      if (this.$store.state.routes.page === 'tags') {
+        this.tags = shuffle(Object.keys(this.$tags))
+      } else {
+        this.tags = shuffle(Object.keys(this.$tags).slice(0, tagSize || 60))
+      }
     },
   },
 }
