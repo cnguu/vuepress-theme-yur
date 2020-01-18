@@ -1,12 +1,15 @@
 <template>
   <div id="default-categories">
-    Categories
+    <Posts />
   </div>
 </template>
 
 <script>
+import Posts from '@theme/components/default/Posts'
+
 export default {
   name: 'Categories',
+  components: { Posts },
   data () {
     return {}
   },

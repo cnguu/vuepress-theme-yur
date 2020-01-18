@@ -60,6 +60,9 @@ export default {
         onShowSizeChange: (current, size) => {
           this.pageChange(1, size)
         },
+        showTotal: (total, range) => {
+          return `Total ${total} Posts`
+        },
         current: 1,
         pageSize: 12,
         pageSizeOptions: ['12', '24', '48', '96'],
@@ -67,6 +70,9 @@ export default {
         showSizeChanger: true,
         size: 'small',
         textAlign: 'center',
+      },
+      locale: {
+        emptyText: 'This blogger is really lazy and has not written an article',
       },
       postGrid: {
         gutter: 24,
@@ -77,13 +83,12 @@ export default {
         xl: 3,
         xxl: 3,
       },
-      locale: {},
     }
   },
   computed: {
     dataSource () {
       if (Object.keys(this.$categories).includes(this.$store.state.routes.page)) {
-        return this.$posts[this.$store.state.routes.page]
+        return this.$categories[this.$store.state.routes.page]
       } else {
         return this.$posts
       }
@@ -91,13 +96,29 @@ export default {
   },
   watch: {
     $route (to, from) {
-      this.pagination.current = Number(to.query.page)
-      this.pagination.pageSize = Number(to.query.pageSize)
+      if (!to.query.page && !to.query.pageSize) {
+        this.handleInit()
+        this.pagination.current = 1
+        this.$router.replace({
+          path: `/${this.$store.state.routes.page}/`,
+          query: {
+            page: this.pagination.current,
+            pageSize: this.pagination.pageSize,
+          },
+        })
+      } else {
+        this.pagination.current = Number(to.query.page)
+        this.pagination.pageSize = Number(to.query.pageSize)
+      }
     },
   },
   created () {
     this.handleInit()
     this.handleQuery()
+    this.pagination.showTotal = (total, range) => {
+      return `${this.$l('total')} ${total} ${this.$l('posts')}`
+    }
+    this.locale.emptyText = this.$l('noPosts')
   },
   methods: {
     handleInit () {
@@ -113,12 +134,6 @@ export default {
       }
       if (!this.pagination.pageSizeOptions.includes(this.pagination.pageSize)) {
         this.pagination.pageSize = Number(this.pagination.pageSizeOptions[0])
-      }
-      this.pagination.showTotal = (total, range) => {
-        return `${this.$l('total')} ${total} ${this.$l('posts')}`
-      }
-      this.locale = {
-        emptyText: this.$l('noPosts'),
       }
     },
     handleQuery () {
