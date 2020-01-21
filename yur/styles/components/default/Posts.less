@@ -26,14 +26,13 @@
               a {
                 overflow: hidden;
                 text-overflow: ellipsis;
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
               }
             }
 
             .ant-tag {
               margin-right: 0;
+              border-color: @primary-color-2;
+              background-color: @primary-color-1;
             }
 
             .ant-list-item-action {
@@ -44,11 +43,32 @@
           }
 
           .ant-list-item-extra {
+            position: relative;
             margin-left: 10px;
+            border-radius: 8px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, .4);
+            overflow: hidden;
+            cursor: pointer;
+
+            &::before {
+              content: '';
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              top: 0;
+              left: -100%;
+              background: linear-gradient(to right, transparent, #fff, transparent);
+              transition: all 700ms;
+            }
+
+            &:hover {
+              &::before {
+                left: 100%;
+              }
+            }
 
             img {
               border-radius: 8px;
-              box-shadow: 0 8px 15px rgba(0, 0, 0, .4);
             }
           }
         }
@@ -72,8 +92,12 @@
               text-align: center;
             }
 
-            .ant-list-item-extra {
-              margin: auto;
+            .ant-list-item-extra-wrap {
+              justify-content: center;
+
+              .ant-list-item-extra {
+                margin: auto 10px;
+              }
             }
           }
         }

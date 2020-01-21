@@ -91,14 +91,10 @@ module.exports = {
       description: '书写生活与你',
     },
     navs: [
-      {
-        text: '分类一',
-        link: '/one/',
-      },
-      {
-        text: '分类二',
-        link: '/two/',
-      },
+      {text: '编程技术', link: '/program/'},
+      {text: '生活兴趣', link: '/life/'},
+      {text: '软件工具', link: '/tool/'},
+      {text: '其它', link: '/other/'},
     ],
     nameplate: {
       title: 'Yur',

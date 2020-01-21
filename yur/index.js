@@ -75,9 +75,9 @@ module.exports = (opts, ctx) => {
     ],
     extendPageData ($page) {
       // const { _filePath, _computed, _content, _strippedContent, key, frontmatter, regularPath, path } = $page
-      const { _content, frontmatter, path } = $page
+      const { _content, _strippedContent, frontmatter, path } = $page
 
-      if (_content) {
+      if (_strippedContent && _content) {
         $page.wordCount = _content.length
       }
 

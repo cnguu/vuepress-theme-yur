@@ -16,13 +16,17 @@
         <template slot="actions">
           {{ item.frontmatter.created }}
         </template>
-        <img
+        <router-link
           slot="extra"
-          width="150"
-          height="150"
-          :alt="item.title"
-          :src="item.frontmatter.banner"
+          :to="item.path"
         >
+          <img
+            width="150"
+            height="150"
+            :alt="item.title"
+            :src="item.frontmatter.banner"
+          >
+        </router-link>
         <a-list-item-meta>
           <router-link
             slot="title"
@@ -78,10 +82,10 @@ export default {
         gutter: 24,
         xs: 1,
         sm: 1,
-        md: 2,
+        md: 1,
         lg: 2,
-        xl: 3,
-        xxl: 3,
+        xl: 2,
+        xxl: 2,
       },
     }
   },
