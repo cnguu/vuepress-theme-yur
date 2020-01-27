@@ -1,4 +1,5 @@
-import { hasOwn, getCurrentPage } from '@theme/utils'
+import { hasOwn, getCurrentPage, shuffle } from '@theme/utils'
+import { yearWithMonth } from '@theme/utils/time'
 
 export default function blog (Vue) {
   Vue.mixin({
@@ -39,10 +40,13 @@ export default function blog (Vue) {
             }
           }
           posts.sort((a, b) => {
-            return new Date(b.frontmatter.created).getTime() - new Date(a.frontmatter.created).getTime()
-          })
-          posts.sort((a, b) => {
-            return new Date(b.frontmatter.updated).getTime() - new Date(a.frontmatter.updated).getTime()
+            const bTime = new Date(b.frontmatter.created).getTime()
+            const aTime = new Date(a.frontmatter.created).getTime()
+            if (bTime === aTime) {
+              return new Date(b.frontmatter.updated).getTime() - new Date(a.frontmatter.updated).getTime()
+            } else {
+              return bTime - aTime
+            }
           })
         }
         Vue.prototype.$posts = posts
@@ -83,6 +87,38 @@ export default function blog (Vue) {
           }
         }
         Vue.prototype.$tags = _tags
+      }
+
+      if (!this.$timeline) {
+        const timeline = []
+        const colors = ['pink', 'red', 'orange', 'cyan', 'purple']
+        if (this.$posts.length) {
+          let item = {}
+          let preColor = ''
+          for (const post of this.$posts) {
+            const created = yearWithMonth(post.frontmatter.created)
+            if (!hasOwn(item, 'created')) {
+              item.created = created
+            } else if (item.created !== created) {
+              timeline.push(item)
+              item = { created }
+            }
+            if (!hasOwn(item, 'color')) {
+              item.color = shuffle(colors)[0]
+              while (item.color === preColor) {
+                item.color = shuffle(colors)[0]
+              }
+              preColor = item.color
+            }
+            if (!hasOwn(item, 'posts')) {
+              item.posts = []
+            }
+            item.posts.push(post)
+          }
+          timeline.push(item)
+          timeline[0].color = 'blue'
+        }
+        Vue.prototype.$timeline = timeline
       }
     },
   })
