@@ -6,6 +6,7 @@
 
 <script>
 import TagCloud from '@theme/components/default/TagCloud'
+
 export default {
   name: 'Tags',
   components: { TagCloud },

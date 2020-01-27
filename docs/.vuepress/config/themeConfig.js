@@ -23,8 +23,8 @@ module.exports = {
     //   '/20171231/favicon.ico',
     //   'https://static.xmt.cn/cc50c217cbe342ce951324583f2c6139.png',
     // ],
-    pageSize: 12,
-    pageSizeOptions: ['12', '24', '48', '96'],
+    // pageSize: 12,
+    // pageSizeOptions: ['12', '24', '48', '96'],
   },
   reward: [
     'https://static.xmt.cn/ca717dde8ae14ea7ab3c8c74b8711414.png',

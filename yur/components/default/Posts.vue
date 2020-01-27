@@ -93,6 +93,8 @@ export default {
     dataSource () {
       if (Object.keys(this.$categories).includes(this.$store.state.routes.page)) {
         return this.$categories[this.$store.state.routes.page]
+      } else if (Object.keys(this.$tags).includes(this.$store.state.routes.post)) {
+        return this.$tags[this.$store.state.routes.post]
       } else {
         return this.$posts
       }
@@ -100,21 +102,19 @@ export default {
   },
   watch: {
     $route (to, from) {
-      if (!this.$store.state.routes.post) {
-        if (!to.query.page && !to.query.pageSize) {
-          this.handleInit()
-          this.pagination.current = 1
-          this.$router.replace({
-            path: `/${this.$store.state.routes.page}/`,
-            query: {
-              page: this.pagination.current,
-              pageSize: this.pagination.pageSize,
-            },
-          })
-        } else {
-          this.pagination.current = Number(to.query.page)
-          this.pagination.pageSize = Number(to.query.pageSize)
-        }
+      if (!to.query.page && !to.query.pageSize) {
+        this.handleInit()
+        this.pagination.current = 1
+        this.$router.replace({
+          path: this.getPath(),
+          query: {
+            page: this.pagination.current,
+            pageSize: this.pagination.pageSize,
+          },
+        })
+      } else {
+        this.pagination.current = Number(to.query.page)
+        this.pagination.pageSize = Number(to.query.pageSize)
       }
     },
   },
@@ -152,7 +152,7 @@ export default {
       }
       if (!page && !pageSize) {
         this.$router.replace({
-          path: `/${this.$store.state.routes.page}/`,
+          path: this.getPath(),
           query: {
             page: this.pagination.current,
             pageSize: this.pagination.pageSize,
@@ -165,10 +165,13 @@ export default {
         this.pagination.current = page
         this.pagination.pageSize = pageSize
         this.$router.push({
-          path: `/${this.$store.state.routes.page}/`,
+          path: this.getPath(),
           query: { page, pageSize },
         })
       }
+    },
+    getPath () {
+      return Object.keys(this.$tags).includes(this.$store.state.routes.post) ? `/${this.$store.state.routes.page}/${this.$store.state.routes.post}` : `/${this.$store.state.routes.page}/`
     },
   },
 }
