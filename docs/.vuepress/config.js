@@ -1,6 +1,7 @@
 const path = require('path')
 const head = require('./config/head')
 const themeConfig = require('./config/themeConfig')
+const plugins = require('./config/plugins')
 
 module.exports = {
   base: '/test/',
@@ -8,6 +9,7 @@ module.exports = {
   evergreen: true,
   theme: path.resolve(__dirname, '../../yur'),
   themeConfig,
+  plugins,
   host: 'localhost',
   port: 2234,
   dest: 'public',

@@ -34,6 +34,18 @@ module.exports = {
   ],
   timeline: true,
   links,
+  // discuss: 'vssue',
+  valine: {
+    appId: '',
+    appKey: '',
+    placeholder: '在这里写下你的留言丨支持 MarkDown 语法',
+    notify: false,
+    verify: true,
+    avatar: 'mp',
+    pageSize: 8,
+    recordIP: true,
+    lang: 'zh-cn',
+  },
   search: {
     type: 'default',
     size: 10,

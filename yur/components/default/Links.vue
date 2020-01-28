@@ -16,6 +16,10 @@
         :key="index"
         class="wrapper"
       >
+        <div
+          v-show="index !== 0"
+          class="hr"
+        />
         <div class="name">
           <section />
           <section>{{ item.name }}</section>
