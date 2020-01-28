@@ -382,8 +382,8 @@ export default {
   },
   methods: {
     handleInit () {
-      const { logo, timeline } = this.$themeConfig
-      const { navs, nameplate, links, about } = this.$config
+      const { logo, timeline, links } = this.$themeConfig
+      const { navs, nameplate, about } = this.$config
       if (navs) {
         navs.forEach(nav => {
           nav.key = nav.link.split('/')[1]

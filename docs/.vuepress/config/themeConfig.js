@@ -1,3 +1,5 @@
+const links = require('./links')
+
 module.exports = {
   layout: 'default',
   lang: 'zh-CN', // en zh-CN
@@ -31,6 +33,7 @@ module.exports = {
     'https://static.xmt.cn/acc7d3d02b0c4a35a3735268cbb2cce0.png',
   ],
   timeline: true,
+  links,
   search: {
     type: 'default',
     size: 10,

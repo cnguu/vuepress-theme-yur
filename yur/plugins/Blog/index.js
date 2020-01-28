@@ -11,8 +11,8 @@ export default function blog (Vue) {
         let posts = {}
         if (pages && pages.length) {
           posts = pages.filter(page => {
-            const { wordCount } = page
-            return !(wordCount === undefined)
+            const { frontmatter: { created } } = page
+            return !(created === undefined)
           })
           for (const post of posts) {
             const { frontmatter: { created, updated, banner }, path } = post
@@ -62,7 +62,7 @@ export default function blog (Vue) {
           if (this.$posts.length) {
             this.$posts.forEach(post => {
               const { category } = post
-              if (category) {
+              if (category && hasOwn(categories, category)) {
                 categories[category].push(post)
               }
             })

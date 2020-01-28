@@ -1,6 +1,7 @@
 const path = require('path')
 const head = require('./config/head')
 const themeConfig = require('./config/themeConfig')
+
 module.exports = {
   base: '/test/',
   head,

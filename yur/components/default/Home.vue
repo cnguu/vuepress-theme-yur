@@ -36,7 +36,7 @@
     <div class="post">
       <div class="wrapper">
         <h2>
-          <span>最近更新</span>
+          <span>{{ $l('newest') }}</span>
         </h2>
         <a-row
           v-if="$posts.length"

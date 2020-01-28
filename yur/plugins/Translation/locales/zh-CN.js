@@ -9,6 +9,7 @@ module.exports = {
   posts: '文章',
   tags: '标签',
   more: '更多',
+  newest: '最近更新',
   footerColOne: '推荐资源',
   footerColTwo: '相关信息',
   footerColThree: '其它',

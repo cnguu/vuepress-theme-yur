@@ -9,6 +9,7 @@ module.exports = {
   posts: 'Posts',
   tags: 'Tags',
   more: 'More',
+  newest: 'Newest',
   footerColOne: 'Recommend',
   footerColTwo: 'Related',
   footerColThree: 'Other',
