@@ -1,15 +1,6 @@
 <template>
   <div id="default-links">
-    <Content
-      v-show="loadContentLang"
-      ref="contentLang"
-      class="markdown-content"
-      :slot-key="`lang:${$store.state.settings.lang}`"
-    />
-    <Content
-      v-show="loadContent"
-      class="markdown-content"
-    />
+    <Markdown />
     <div class="content">
       <div
         v-for="(item, index) in links"
@@ -73,15 +64,14 @@
 </template>
 
 <script>
+import Markdown from '@theme/components/default/Markdown'
 import Discuss from '@theme/components/default/Discuss'
 
 export default {
   name: 'Links',
-  components: { Discuss },
+  components: { Markdown, Discuss },
   data () {
     return {
-      loadContentLang: true,
-      loadContent: false,
       links: [
         {
           name: 'Blog',
@@ -100,17 +90,6 @@ export default {
   },
   created () {
     this.handleInit()
-  },
-  mounted () {
-    this.$nextTick(() => {
-      if (this.$refs.contentLang.$el.clientHeight === 0) {
-        this.loadContentLang = false
-        this.loadContent = true
-      } else {
-        this.loadContentLang = true
-        this.loadContent = false
-      }
-    })
   },
   methods: {
     handleInit () {

@@ -12,6 +12,16 @@ meta:
 
 ::::: slot lang:zh-CN
 
+::: details 点击查看代码
+```js
+console.log('你好，VuePress！')
+```
+:::
+
+```js
+console.log('你好，VuePress！')
+```
+
 ## 留言格式
 
 ::: primaryLong
