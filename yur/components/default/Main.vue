@@ -9,7 +9,7 @@
     <Links v-else-if="$store.state.routes.page === 'links'" />
     <About v-else-if="$store.state.routes.page === 'about'" />
     <Search v-else-if="$store.state.routes.page === 'search'" />
-    <Post v-else-if="$store.state.routes.post" />
+    <Post v-else-if="Object.keys($categories).includes($store.state.routes.page) && $store.state.routes.post" />
     <None v-else />
     <a-back-top class="back-top" />
   </main>

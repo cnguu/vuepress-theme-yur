@@ -1,6 +1,5 @@
 <template>
   <div id="default-links">
-    <Markdown />
     <div class="content">
       <div
         v-for="(item, index) in links"
@@ -59,6 +58,7 @@
         </a-row>
       </div>
     </div>
+    <Markdown />
     <Discuss />
   </div>
 </template>

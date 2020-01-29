@@ -10,17 +10,7 @@ meta:
 
 ---
 
-::::: slot lang:zh-CN
-
-::: details 点击查看代码
-```js
-console.log('你好，VuePress！')
-```
-:::
-
-```js
-console.log('你好，VuePress！')
-```
+---
 
 ## 留言格式
 
@@ -33,7 +23,7 @@ console.log('你好，VuePress！')
 
 LOGO：https://static.xmt.cn/cc50c217cbe342ce951324583f2c6139.png
 
-主题色调: #3c67bd
+主题色调: #9a69ec
 :::
 
 ## 交友要求
@@ -42,32 +32,3 @@ LOGO：https://static.xmt.cn/cc50c217cbe342ce951324583f2c6139.png
 2. 内容积极乐观
 3. 符合国家相关法律法规
 4. 符合本人当时心情
-
----
-
-:::::
-
-::::: slot lang:en
-
-## Message format
-
-::: primaryLong
-Site name：凉风有信
-
-Site description：责难无以成事
-
-Site URL：https://gleehub.com/
-
-LOGO：https://static.xmt.cn/cc50c217cbe342ce951324583f2c6139.png
-
-Theme color: #3c67bd
-:::
-
-## Dating requirements
-
-1. Total posts >= 30
-2. Positive content
-3. Comply with relevant national laws and regulations
-4. In line with my mood
-
-:::::

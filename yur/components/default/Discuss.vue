@@ -6,7 +6,7 @@
     />
     <div
       v-else-if="discuss === 'valine'"
-      ref="valine"
+      id="valine"
     />
     <div v-else />
   </div>
@@ -34,7 +34,7 @@ export default {
           }
           // eslint-disable-next-line no-new
           new Valine(Object.assign({}, this.$themeConfig.valine, {
-            el: `div[${this.$refs.valine.attributes[0].name}]`,
+            el: '#valine',
             path: this.$page.path,
           }))
         })

@@ -21,6 +21,11 @@ module.exports = (opts, ctx) => {
         .use('less-loader')
         .options({ javascriptEnabled: true })
     },
+    extendMarkdown: md => {
+      md.use(require('markdown-it-sub'))
+      md.use(require('markdown-it-sup'))
+      md.use(require('markdown-it-imsize'))
+    },
     alias () {
       const isAlgoliaSearch = (themeConfig.algolia || Object.keys((siteConfig.locales && themeConfig.locales) || {}).some(base => themeConfig.locales[base].algolia))
       return {
@@ -31,6 +36,9 @@ module.exports = (opts, ctx) => {
       }
     },
     plugins: [
+      ['@vuepress/medium-zoom', {
+        selector: '.markdown-content img',
+      }],
       ['container', {
         type: 'primary',
         defaultTitle: '',

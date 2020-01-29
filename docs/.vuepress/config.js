@@ -10,6 +10,9 @@ module.exports = {
   theme: path.resolve(__dirname, '../../yur'),
   themeConfig,
   plugins,
+  markdown: {
+    lineNumbers: true,
+  },
   host: 'localhost',
   port: 2234,
   dest: 'public',

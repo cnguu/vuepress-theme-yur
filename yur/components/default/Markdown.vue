@@ -1,5 +1,8 @@
 <template>
-  <div id="default-markdown">
+  <div
+    id="default-markdown"
+    class="markdown-content"
+  >
     <Content
       v-show="load.content"
       ref="content"
@@ -22,14 +25,19 @@ export default {
   },
   mounted () {
     this.$nextTick(() => {
-      if (this.$refs.content.$el.clientHeight === 0) {
+      this.handleLoad()
+    })
+  },
+  methods: {
+    handleLoad () {
+      if (this.$refs.content.$el.clientHeight === undefined || this.$refs.content.$el.clientHeight === 0) {
         this.load.content = false
         this.load.default = true
       } else {
         this.load.content = true
         this.load.default = false
       }
-    })
+    },
   },
 }
 </script>
