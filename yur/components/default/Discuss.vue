@@ -2,7 +2,7 @@
   <div id="default-discuss">
     <Vssue
       v-if="discuss === 'vssue'"
-      :title="$page.path"
+      :title="$store.state.routes.path"
     />
     <div
       v-else-if="discuss === 'valine'"
@@ -17,26 +17,14 @@ export default {
   name: 'Discuss',
   data () {
     return {
-      discuss: '',
+      discuss: 'vssue',
     }
   },
   watch: {
     discuss () {
-      if (this.discuss === 'vssue') {
-
-      } else if (this.discuss === 'valine') {
+      if (this.discuss === 'valine') {
         this.$nextTick(() => {
-          const Valine = require('valine')
-          const AV = require('leancloud-storage')
-          if (typeof window !== 'undefined') {
-            this.window = window
-            window.AV = AV
-          }
-          // eslint-disable-next-line no-new
-          new Valine(Object.assign({}, this.$themeConfig.valine, {
-            el: '#valine',
-            path: this.$page.path,
-          }))
+          this.createValine()
         })
       }
     },
@@ -54,6 +42,19 @@ export default {
     handleSwitch () {
       const { frontmatter: { discuss } } = this.$page
       return !(discuss && discuss === false)
+    },
+    createValine () {
+      const Valine = require('valine')
+      const AV = require('leancloud-storage')
+      if (typeof window !== 'undefined') {
+        this.window = window
+        window.AV = AV
+      }
+      // eslint-disable-next-line no-new
+      new Valine(Object.assign({}, this.$themeConfig.valine, {
+        el: '#valine',
+        path: this.$store.state.routes.path,
+      }))
     },
   },
 }

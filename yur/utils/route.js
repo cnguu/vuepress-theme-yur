@@ -21,6 +21,10 @@ const install = (Vue, { router }) => {
     const page = getCurrentPage(to.path)
     const post = getCurrentPost(to.path)
     store.dispatch('changeRoute', {
+      key: 'path',
+      value: to.path,
+    })
+    store.dispatch('changeRoute', {
       key: 'page',
       value: page,
     })

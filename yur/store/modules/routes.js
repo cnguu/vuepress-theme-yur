@@ -1,4 +1,5 @@
 const state = {
+  path: '',
   page: '/',
   post: '',
 }

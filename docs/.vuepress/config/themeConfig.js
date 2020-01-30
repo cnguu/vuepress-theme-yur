@@ -9,6 +9,15 @@ module.exports = {
   author: 'cnguu',
   authorLink: 'https://github.com/cnguu/',
   avatar: 'https://static.xmt.cn/cc50c217cbe342ce951324583f2c6139.png',
+  social: {
+    github: 'https://github.com/cnguu/',
+    facebook: 'https://www.facebook.com/profile.php?id=100031941487870',
+    twitter: 'https://twitter.com/cnguu_cn',
+    dribbble: 'https://dribbble.com/cnguu',
+    weibo: 'https://weibo.com/gu642779596',
+    zhihu: 'https://www.zhihu.com/people/gleehub',
+    qq: 'tencent://message/?uin=642779596',
+  },
   // ityped: {
   //   typeSpeed: 300,           // 正常速度
   //   backSpeed: 100,           // 反向速度
@@ -34,10 +43,11 @@ module.exports = {
   ],
   timeline: true,
   links,
-  // discuss: 'vssue',
+  about: true,
+  discuss: 'valine',
   valine: {
-    appId: '',
-    appKey: '',
+    appId: '9gFBq4SdRCiabSFFN0IQai6o-9Nh9j0Va',
+    appKey: 'NzKKjaHWL8l8Ywk5rI5LIw3B',
     placeholder: '在这里写下你的留言丨支持 MarkDown 语法',
     notify: false,
     verify: true,
