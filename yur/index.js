@@ -5,7 +5,7 @@ const { slugify } = require('transliteration')
 
 module.exports = (opts, ctx) => {
   const { sep } = path
-  const { themeConfig, siteConfig, sourceDir } = ctx
+  const { themeConfig, sourceDir } = ctx
   const { lang } = themeConfig
   return {
     name: 'vuepress-theme-yur',
@@ -27,11 +27,7 @@ module.exports = (opts, ctx) => {
       md.use(require('markdown-it-imsize'))
     },
     alias () {
-      const isAlgoliaSearch = (themeConfig.algolia || Object.keys((siteConfig.locales && themeConfig.locales) || {}).some(base => themeConfig.locales[base].algolia))
       return {
-        '@AlgoliaSearchBox': isAlgoliaSearch
-          ? path.resolve(__dirname, 'components/AlgoliaSearchBox.vue')
-          : path.resolve(__dirname, 'noopModule.js'),
         '@us': `${sourceDir}${sep}.vuepress${sep}styles`,
       }
     },

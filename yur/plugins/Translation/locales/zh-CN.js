@@ -2,6 +2,7 @@ module.exports = {
   title: '星汉灿烂',
   description: '书写生活与你',
   search: '搜索',
+  algolia: 'Algolia 搜索',
   category: '分类',
   timeline: '时间线',
   links: '友人帐',
@@ -20,4 +21,5 @@ module.exports = {
   backToHomepage: '回到主页',
   noTags: '暂无标签',
   noPosts: '这个人真懒，一个文章也没写',
+  noSearch: '没有找到搜索结果',
 }

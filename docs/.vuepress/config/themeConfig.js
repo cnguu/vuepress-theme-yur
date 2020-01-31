@@ -57,8 +57,10 @@ module.exports = {
     lang: 'zh-cn',
   },
   search: {
-    type: 'default',
+    type: 'default', // default algolia
     size: 10,
+    apiKey: '<API_KEY>',
+    indexName: '<INDEX_NAME>'
   },
   // tagSize: 100,
   en: {

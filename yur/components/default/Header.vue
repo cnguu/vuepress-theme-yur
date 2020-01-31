@@ -125,7 +125,10 @@
           :sm="0"
           :xs="0"
         >
-          <div class="search">
+          <div
+            v-show="this.$store.state.routes.page !== 'search'"
+            class="search"
+          >
             <a-icon
               class="search-icon"
               type="search"
@@ -194,7 +197,12 @@
                   :value="searchKeyword"
                   class="search-more"
                 >
-                  <router-link :to="`/search/${searchKeyword}`">
+                  <router-link
+                    :to="{
+                      path: '/search.html',
+                      query: {keyword:searchKeyword}
+                    }"
+                  >
                     {{ $l('more') }}
                   </router-link>
                 </a-select-option>
@@ -382,7 +390,7 @@ export default {
   },
   methods: {
     handleInit () {
-      const { logo, timeline, links, about } = this.$themeConfig
+      const { logo, timeline, links, about, search } = this.$themeConfig
       const { navs, nameplate } = this.$config
       if (navs) {
         navs.forEach(nav => {
@@ -407,6 +415,9 @@ export default {
       if (about) {
         this.about = true
       }
+      if (search) {
+        this.search = Object.assign({}, this.search, search)
+      }
     },
     changeVisible () {
       this.visible = false
@@ -421,11 +432,6 @@ export default {
       this.searchKeyword = value
 
       const { pages } = this.$site
-      const { search } = this.$config
-      if (search) {
-        this.search = Object.assign({}, this.search, search)
-      }
-      const { size } = this.search
       const matchTitle = item => (
         item.title && item.title.toLowerCase().indexOf(value) > -1
       )
@@ -446,7 +452,7 @@ export default {
 
       let counter = 0
       for (let i = 0; i < pages.length; i++) {
-        if (posts.children.length >= size) break
+        if (posts.children.length >= this.search.size) break
 
         const p = pages[i]
         if (this.isCurrentPage(p.path)) continue
@@ -460,7 +466,7 @@ export default {
           counter += 1
         } else if (p.headers) {
           for (let j = 0; j < p.headers.length; j++) {
-            if (posts.children.length >= size) break
+            if (posts.children.length >= this.search.size) break
 
             const h = p.headers[j]
             if (matchTitle(h)) {

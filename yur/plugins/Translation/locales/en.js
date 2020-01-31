@@ -2,6 +2,7 @@ module.exports = {
   title: 'Stars so bright',
   description: 'Writing life with you',
   search: 'Search',
+  algolia: 'Algolia',
   category: 'Category',
   timeline: 'Timeline',
   links: 'Links',
@@ -20,4 +21,5 @@ module.exports = {
   backToHomepage: 'Back To Homepage',
   noTags: 'No tags',
   noPosts: 'This blogger is really lazy and has not written an article',
+  noSearch: 'No search results found',
 }
