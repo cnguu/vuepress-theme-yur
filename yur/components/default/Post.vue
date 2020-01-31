@@ -1,6 +1,6 @@
 <template>
   <div id="default-post">
-    Post
+    post
   </div>
 </template>
 
@@ -8,7 +8,20 @@
 export default {
   name: 'Post',
   data () {
-    return {}
+    return {
+      reward: [],
+    }
+  },
+  created () {
+    this.handleInit()
+  },
+  methods: {
+    handleInit () {
+      const { reward } = this.$themeConfig
+      if (reward) {
+        this.reward = reward
+      }
+    },
   },
 }
 </script>

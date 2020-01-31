@@ -9,7 +9,11 @@
     <Links v-else-if="$store.state.routes.page === 'links'" />
     <About v-else-if="$store.state.routes.page === 'about'" />
     <Search v-else-if="$store.state.routes.page === 'search'" />
-    <Post v-else-if="Object.keys($categories).includes($store.state.routes.page) && $store.state.routes.post" />
+    <Password
+      v-else-if="isPassword()"
+      @refresh="$forceUpdate()"
+    />
+    <Post v-else-if="isPost()" />
     <None v-else />
     <a-back-top class="back-top" />
   </main>
@@ -25,14 +29,24 @@ import Timeline from '@theme/components/default/Timeline'
 import Links from '@theme/components/default/Links'
 import About from '@theme/components/default/About'
 import Search from '@theme/components/default/Search'
+import Password from '@theme/components/default/Password'
 import Post from '@theme/components/default/Post'
 import None from '@theme/components/default/None'
 
 export default {
   name: 'Main',
-  components: { Home, Posts, Categories, Tags, Tag, Timeline, Links, About, Search, Post, None },
+  components: { Home, Posts, Categories, Tags, Tag, Timeline, Links, About, Search, Password, Post, None },
   data () {
     return {}
+  },
+  methods: {
+    isPassword () {
+      const { password } = this.$page
+      return this.isPost() && password
+    },
+    isPost () {
+      return Object.keys(this.$categories).includes(this.$store.state.routes.page) && this.$store.state.routes.post
+    },
   },
 }
 </script>

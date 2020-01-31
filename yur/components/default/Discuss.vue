@@ -2,7 +2,7 @@
   <div id="default-discuss">
     <Vssue
       v-if="discuss === 'vssue'"
-      :title="$store.state.routes.path"
+      :title="$page.path"
     />
     <div
       v-else-if="discuss === 'valine'"
@@ -53,7 +53,7 @@ export default {
       // eslint-disable-next-line no-new
       new Valine(Object.assign({}, this.$themeConfig.valine, {
         el: '#valine',
-        path: this.$store.state.routes.path,
+        path: this.$page.path,
       }))
     },
   },

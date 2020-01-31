@@ -7,15 +7,18 @@ export default () => {
       return {}
     },
     computed: {
-      $lang () {
-        const { lang } = this.$themeConfig
-        return lang || 'en'
-      },
-      $title () {
-        return this.$l('title')
-      },
-      $description () {
-        return this.$l('description')
+      $page () {
+        const { pages } = this.$site
+        for (let i = 0; i < pages.length; i++) {
+          const page = pages[i]
+          if (page.path.toLowerCase() === this.$store.state.routes.path.toLowerCase()) {
+            return page
+          }
+        }
+        return {
+          path: '',
+          frontmatter: {},
+        }
       },
     },
     methods: {

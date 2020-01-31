@@ -108,6 +108,7 @@ module.exports = (opts, ctx) => {
           if (typeof password !== 'boolean') {
             pwd = password
           }
+          pwd += ''
           delete frontmatter.password
           $page.password = Base64.stringify(SHA256(pwd))
         }

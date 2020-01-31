@@ -34,7 +34,7 @@ export default function translation (Vue) {
         Vue.prototype.$config || (Vue.prototype.$config = Object.prototype.hasOwnProperty.call(this.$themeConfig, lang) ? this.$themeConfig[lang] : this.$themeConfig)
       },
       $l (key) {
-        return this.getTranslation[key] || key
+        return this.getTranslation[key] || ''
       },
     },
   })
