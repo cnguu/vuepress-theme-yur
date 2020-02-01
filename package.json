@@ -17,10 +17,10 @@
   },
   "license": "MIT",
   "author": "cnguu <www@cnguu.cn>",
+  "main": "./yur/index.js",
   "files": [
     "yur/"
   ],
-  "main": "./yur/index.js",
   "scripts": {
     "build": "vuepress build docs",
     "dev": "vuepress dev docs",
@@ -51,7 +51,7 @@
     ]
   },
   "dependencies": {
-    "@vuepress/plugin-medium-zoom": "^1.2.0",
+    "@vuepress/plugin-medium-zoom": "^1.3.0",
     "ant-design-vue": "^1.4.10",
     "crypto-js": "^3.1.9-1",
     "ityped": "^1.0.3",
@@ -76,18 +76,18 @@
     "eslint": "^6.7.2",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^6.0.1",
-    "husky": "^3.1.0",
+    "husky": "^4.2.1",
     "leancloud-storage": "^4.2.0",
-    "lint-staged": "^9.5.0",
-    "sort-package-json": "^1.30.0",
+    "lint-staged": "^10.0.7",
+    "sort-package-json": "^1.39.1",
     "valine": "^1.3.10",
-    "vuepress": "^1.2.0"
+    "vuepress": "^1.3.0"
   },
   "peerDependencies": {
-    "vuepress": "^1.2.0"
+    "vuepress": "^1.3.0"
   }
 }
