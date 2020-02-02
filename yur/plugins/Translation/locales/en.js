@@ -1,4 +1,5 @@
 module.exports = {
+  404: 'Page not found',
   title: 'Stars so bright',
   description: 'Writing life with you',
   search: 'Search',

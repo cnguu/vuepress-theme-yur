@@ -1,7 +1,6 @@
 const links = require('./links')
 
 module.exports = {
-  layout: 'default',
   lang: 'zh-CN', // en zh-CN
   site: 'https://gleehub.com',
   // logo: '/20171231/logo.png',

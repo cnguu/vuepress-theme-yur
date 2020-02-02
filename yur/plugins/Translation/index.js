@@ -19,19 +19,17 @@ export default function translation (Vue) {
       },
     },
     created () {
-      this.handleLang(this.getLang())
+      const lang = this.getLang()
+      this.$store.dispatch('changeSetting', {
+        key: 'lang',
+        value: lang,
+      })
+      Vue.prototype.$config || (Vue.prototype.$config = this.$themeConfig[lang] ? this.$themeConfig[lang] : this.$themeConfig)
     },
     methods: {
       getLang () {
         const { lang } = this.$themeConfig
         return Cookies.get('lang') || lang || this.$store.state.settings.lang
-      },
-      handleLang (lang) {
-        this.$store.dispatch('changeSetting', {
-          key: 'lang',
-          value: lang,
-        })
-        Vue.prototype.$config || (Vue.prototype.$config = Object.prototype.hasOwnProperty.call(this.$themeConfig, lang) ? this.$themeConfig[lang] : this.$themeConfig)
       },
       $l (key) {
         return this.getTranslation[key] || ''

@@ -1,4 +1,5 @@
 module.exports = {
+  404: '没有找到页面',
   title: '星汉灿烂',
   description: '书写生活与你',
   search: '搜索',

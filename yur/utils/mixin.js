@@ -7,7 +7,17 @@ export default () => {
       return {}
     },
     computed: {
-      $page () {
+      $lang () { // ssr
+        const { lang } = this.$themeConfig
+        return lang || 'en'
+      },
+      $title () { // ssr
+        return this.$l('title')
+      },
+      $description () { // ssr
+        return this.$l('description')
+      },
+      $page () { // Override vuepress defaults
         const { pages } = this.$site
         for (let i = 0; i < pages.length; i++) {
           const page = pages[i]

@@ -1,4 +1,4 @@
-import { hasOwn, getCurrentPage, shuffle } from '@theme/utils'
+import { hasOwn, getCurrentPage, shuffle, getCategoryText } from '@theme/utils'
 import { yearWithMonth } from '@theme/utils/time'
 
 export default function blog (Vue) {
@@ -37,6 +37,7 @@ export default function blog (Vue) {
             }
             if (path) {
               post.category = getCurrentPage(path)
+              post.categoryText = getCategoryText(this.$config.navs, post.category)
             }
           }
           posts.sort((a, b) => {

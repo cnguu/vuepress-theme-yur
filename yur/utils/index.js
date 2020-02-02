@@ -63,3 +63,22 @@ export function getCurrentPost (path) {
   }
   return post
 }
+
+/**
+ * Get Category Name
+ * @param navs this.$themeConfig.navs
+ * @param category nav.link
+ * @returns {string}
+ */
+export function getCategoryText (navs, category) {
+  let res = ''
+  if (navs.length && category) {
+    navs.forEach(nav => {
+      const { text, link } = nav
+      if (link && link.split('/')[1] === category) {
+        res = text
+      }
+    })
+  }
+  return res
+}

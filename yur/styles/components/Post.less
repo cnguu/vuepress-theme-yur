@@ -1,0 +1,116 @@
+#post {
+  margin: auto;
+  padding: 0 24px;
+  width: 100%;
+  max-width: 1200px;
+
+  .information {
+    margin-top: 36px;
+    padding: 40px 80px;
+    width: 100%;
+    height: 350px;
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, .4);
+    border-radius: 4px;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 270px;
+      color: #ffffff;
+
+      .category {
+        position: relative;
+        text-shadow: 0 2px 2px rgba(0, 0, 0, .3);
+        opacity: .75;
+        color: #ffffff;
+        font-size: 16px;
+
+        &::after {
+          position: absolute;
+          content: "";
+          display: block;
+          left: 0;
+          bottom: -8px;
+          height: 1px;
+          width: 30px;
+          background: currentColor;
+          opacity: .3;
+        }
+      }
+
+      p {
+        margin-top: 20px;
+        font-weight: 400;
+        font-size: 28px;
+        text-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+        color: inherit;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  #post {
+    .information {
+      margin-top: 30px;
+      padding: 30px 60px;
+      height: 300px;
+
+      .content {
+        height: 240px;
+
+        p {
+          font-size: 26px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #post {
+    .information {
+      margin-top: 10px;
+      padding: 10px 20px;
+      height: 240px;
+
+      .content {
+        align-items: center;
+        height: 220px;
+        text-align: center;
+
+        .category {
+          width: fit-content;
+
+          &::after {
+            width: 100%;
+          }
+        }
+
+        p {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #post {
+    .information {
+      .content {
+        .category {
+          font-size: 14px;
+        }
+
+        p {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
