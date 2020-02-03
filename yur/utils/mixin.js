@@ -41,12 +41,6 @@ export default () => {
       hasOwn (obj, key) {
         return Object.prototype.hasOwnProperty.call(obj, key)
       },
-      isProd () {
-        return process.env.NODE_ENV === 'production' && typeof window !== 'undefined'
-      },
-      isBuild () {
-        return process.env.NODE_ENV === 'production' && typeof navigator === 'undefined'
-      },
     },
   })
 }

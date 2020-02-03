@@ -82,3 +82,11 @@ export function getCategoryText (navs, category) {
   }
   return res
 }
+
+export function isProd () {
+  return process.env.NODE_ENV === 'production' && typeof window !== 'undefined'
+}
+
+export function isBuild () {
+  return process.env.NODE_ENV === 'production' && typeof navigator === 'undefined'
+}
