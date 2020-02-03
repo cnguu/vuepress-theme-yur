@@ -45,8 +45,8 @@ module.exports = {
   about: true,
   discuss: 'valine',
   valine: {
-    appId: '9gFBq4SdRCiabSFFN0IQai6o-9Nh9j0Va',
-    appKey: 'NzKKjaHWL8l8Ywk5rI5LIw3B',
+    appId: '',
+    appKey: '',
     placeholder: '在这里写下你的留言丨支持 MarkDown 语法',
     notify: false,
     verify: true,
@@ -61,6 +61,7 @@ module.exports = {
     apiKey: '<API_KEY>',
     indexName: '<INDEX_NAME>'
   },
+  crisp: '',
   // tagSize: 100,
   en: {
     locales: {
