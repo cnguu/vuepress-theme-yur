@@ -60,8 +60,8 @@
 <script>
 const paginationDefault = {
   current: 1,
-  pageSize: 1,
-  pageSizeOptions: ['1', '2', '48', '96'],
+  pageSize: 12,
+  pageSizeOptions: ['12', '24', '48', '96'],
 }
 
 export default {
@@ -79,8 +79,8 @@ export default {
           return `Total ${total} Posts`
         },
         current: 1,
-        pageSize: 1,
-        pageSizeOptions: ['1', '2', '48', '96'],
+        pageSize: 12,
+        pageSizeOptions: ['12', '24', '48', '96'],
         showQuickJumper: true,
         showSizeChanger: true,
         size: 'small',

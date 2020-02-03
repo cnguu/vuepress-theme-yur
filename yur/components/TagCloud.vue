@@ -27,21 +27,23 @@ import { shuffle } from '@theme/utils'
 
 export default {
   name: 'TagCloud',
-  data () {
-    return {
-      tags: [],
-    }
+  props: {
+    tagList: {
+      type: Array,
+      default: undefined,
+    },
   },
-  created () {
-    this.handleInit()
-  },
-  methods: {
-    handleInit () {
-      const { tagSize } = this.$themeConfig
-      if (this.$store.state.routes.page === 'tags') {
-        this.tags = shuffle(Object.keys(this.$tags))
+  computed: {
+    tags () {
+      const { tagSize = 60 } = this.$themeConfig
+      if (this.tagList) {
+        return this.tagList
       } else {
-        this.tags = shuffle(Object.keys(this.$tags).slice(0, tagSize || 60))
+        if (this.$store.state.routes.page === 'tags') {
+          return shuffle(Object.keys(this.$tags))
+        } else {
+          return shuffle(Object.keys(this.$tags).slice(0, tagSize))
+        }
       }
     },
   },
