@@ -17,8 +17,6 @@ tags:
   - Vue
   - Phalcon
 
-password: 666
-
 ---
 
 ## 前言

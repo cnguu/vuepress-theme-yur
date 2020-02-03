@@ -32,9 +32,6 @@ module.exports = (opts, ctx) => {
       }
     },
     plugins: [
-      ['@vuepress/medium-zoom', {
-        selector: '.markdown-content img',
-      }],
       ['container', {
         type: 'primary',
         defaultTitle: '',

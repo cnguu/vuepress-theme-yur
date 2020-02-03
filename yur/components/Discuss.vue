@@ -17,7 +17,7 @@ export default {
   name: 'Discuss',
   data () {
     return {
-      discuss: 'vssue',
+      discuss: '',
     }
   },
   watch: {

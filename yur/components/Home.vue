@@ -50,10 +50,10 @@
           >
             <router-link :to="path">
               <div class="banner">
-                <img
-                  :src="frontmatter.banner"
-                  :alt="title"
-                >
+                <div
+                  class="img"
+                  :style="{backgroundImage: `url(${frontmatter.banner})`}"
+                />
               </div>
               <h3>
                 <span>{{ title }}</span>

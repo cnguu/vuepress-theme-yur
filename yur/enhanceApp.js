@@ -5,6 +5,7 @@ import Translation from '@theme/plugins/Translation'
 import Blog from '@theme/plugins/Blog'
 import customer from '@theme/plugins/PartyC/customer'
 import baiDu from '@theme/plugins/PartyC/baiDu'
+import curtain from '@theme/plugins/PartyC/curtain'
 import Ant from 'ant-design-vue/es'
 import 'ant-design-vue/dist/antd.less'
 import '@theme/styles/index.less'
@@ -15,10 +16,10 @@ export default ({ Vue, options, router, siteData }) => {
   Vue.use(Mixin)
   Vue.use(Translation)
   Vue.use(Blog)
-  Vue.use(Ant)
-
   customer(router, siteData)
   baiDu(router, siteData)
+  curtain(store, siteData)
+  Vue.use(Ant)
 }
 
 if (process.env.NODE_ENV === 'production' && typeof window !== 'undefined') {

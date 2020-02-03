@@ -41,7 +41,7 @@
               </a-menu-item>
               <a-menu-item
                 v-if="links"
-                key="link"
+                key="links"
                 @click="changeVisible"
               >
                 <router-link to="/links.html">

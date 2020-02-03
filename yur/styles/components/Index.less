@@ -1,4 +1,8 @@
 #yur {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
   #main {
     position: relative;
     min-height: calc(~'100vh - 84px');
@@ -18,6 +22,7 @@
   }
 }
 
+@import "./Curtain.less";
 @import "./Header.less";
 @import "./Home.less";
 @import "./Posts.less";

@@ -1,6 +1,7 @@
 <template>
   <a-locale-provider :locale="locale">
     <div id="yur">
+      <Curtain v-show="$store.state.settings.curtain" />
       <Header />
       <div id="main">
         <transition
@@ -17,6 +18,7 @@
 </template>
 
 <script>
+import Curtain from '@theme/components/Curtain'
 import Header from '@theme/components/Header'
 import Home from '@theme/components/Home'
 import Posts from '@theme/components/Posts'
@@ -37,7 +39,7 @@ import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN'
 
 export default {
   name: 'Yur',
-  components: { Header, Home, Posts, Tags, Tag, Search, Timeline, Links, About, Categories, Post, Password, Footer, Back, Page404 },
+  components: { Curtain, Header, Home, Posts, Tags, Tag, Search, Timeline, Links, About, Categories, Post, Password, Footer, Back, Page404 },
   computed: {
     locale () {
       if (this.$store.state.settings.lang === 'zh-CN') {
@@ -75,6 +77,23 @@ export default {
         }
       }
       return 'Page404'
+    },
+  },
+  mounted () {
+    this.$nextTick(() => {
+      setTimeout(() => {
+        this.$store.dispatch('changeSetting', {
+          key: 'curtain',
+          value: false,
+        })
+      }, this.getTimeOut())
+    })
+  },
+  methods: {
+    getTimeOut () {
+      const endTime = new Date().getTime()
+      const diffTime = endTime - this.$store.state.settings.consoleTime
+      return Math.ceil((diffTime > 23000000 ? 0 : 23000000 - diffTime) / 10000)
     },
   },
 }

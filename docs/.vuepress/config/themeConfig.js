@@ -1,5 +1,6 @@
 const links = require('./links')
 
+// 图片放大: '.markdown-content img',
 module.exports = {
   lang: 'zh-CN', // en zh-CN
   site: 'https://gleehub.com',
@@ -43,18 +44,18 @@ module.exports = {
   timeline: true,
   links,
   about: true,
-  discuss: 'valine',
-  valine: {
-    appId: '',
-    appKey: '',
-    placeholder: '在这里写下你的留言丨支持 MarkDown 语法',
-    notify: false,
-    verify: true,
-    avatar: 'mp',
-    pageSize: 8,
-    recordIP: true,
-    lang: 'zh-cn',
-  },
+  // discuss: 'valine',
+  // valine: {
+  //   appId: '',
+  //   appKey: '',
+  //   placeholder: '在这里写下你的留言丨支持 MarkDown 语法',
+  //   notify: false,
+  //   verify: true,
+  //   avatar: 'mp',
+  //   pageSize: 8,
+  //   recordIP: true,
+  //   lang: 'zh-cn',
+  // },
   search: {
     type: 'default',
     size: 10,
@@ -65,6 +66,10 @@ module.exports = {
   //   tongJi: '',
   //   autoPush: true,
   // },
+  curtain: {
+    tip: '页面准备中...',
+    textShadow: '#e91e63',
+  },
   en: {
     locales: {
       title: 'Stars so bright',
@@ -112,7 +117,7 @@ module.exports = {
           theme: 'outlined',
         },
       ],
-    }
+    },
   },
   'zh-CN': {
     locales: {
@@ -179,6 +184,6 @@ module.exports = {
           theme: 'outlined',
         },
       ],
-    }
+    },
   },
 }
