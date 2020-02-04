@@ -140,6 +140,7 @@
               :allow-clear="true"
               option-label-prop="value"
               :dropdown-match-select-width="false"
+              :default-active-first-option="false"
               @search="handleSearch"
             >
               <template
@@ -186,8 +187,8 @@
                 <a-select-option
                   v-if="searchSource.length === 0"
                   key="v-search-empty"
-                  disabled
                   class="search-empty"
+                  disabled
                 >
                   <a-empty />
                 </a-select-option>
