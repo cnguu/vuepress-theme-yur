@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     handleLoad () {
-      if (this.$refs.content.$el.clientHeight === undefined || this.$refs.content.$el.clientHeight === 0) {
+      if (this.$refs.content && this.$refs.content.$el && (this.$refs.content.$el.clientHeight === undefined || this.$refs.content.$el.clientHeight === 0)) {
         this.load.content = false
         this.load.default = true
       } else {

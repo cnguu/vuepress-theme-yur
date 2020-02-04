@@ -66,10 +66,10 @@ module.exports = {
   //   tongJi: '',
   //   autoPush: true,
   // },
-  curtain: {
-    tip: '页面准备中...',
-    textShadow: '#e91e63',
-  },
+  // curtain: {
+  //   tip: '页面准备中...',
+  //   textShadow: '#e91e63',
+  // },
   en: {
     locales: {
       title: 'Stars so bright',

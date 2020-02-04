@@ -279,7 +279,6 @@ export default {
   data () {
     return {
       visible: false,
-      navs: [],
       title: 'VuePress Theme Yur',
       logo: require('@theme/assets/logo64.png'),
       nameplate: {
@@ -384,6 +383,15 @@ export default {
     currentPage () {
       return [this.$store.state.routes.page]
     },
+    navs () {
+      const { navs = [] } = this.$config
+      if (navs.length) {
+        navs.forEach(nav => {
+          nav.key = nav.link.split('/')[1]
+        })
+      }
+      return navs
+    },
   },
   created () {
     this.handleInit()
@@ -391,13 +399,7 @@ export default {
   methods: {
     handleInit () {
       const { logo, timeline, links, about, search } = this.$themeConfig
-      const { navs, nameplate } = this.$config
-      if (navs) {
-        navs.forEach(nav => {
-          nav.key = nav.link.split('/')[1]
-        })
-        this.navs = navs
-      }
+      const { nameplate } = this.$config
       if (logo) {
         this.logo = this.$withBase(logo)
       }

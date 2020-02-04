@@ -70,9 +70,7 @@ export default {
   },
   mounted () {
     this.$nextTick(() => {
-      setTimeout(() => {
-        this.handleLoad()
-      }, 300)
+      this.handleLoad()
     })
   },
   methods: {
@@ -92,13 +90,15 @@ export default {
       }
     },
     handleLoad () {
-      if (this.$refs.markdown.$el.clientHeight === undefined || this.$refs.markdown.$el.clientHeight === 0) {
-        this.$refs.readmeWrapper.style.display = 'none'
-      } else {
-        this.$refs.readmeWrapper.style.display = 'block'
+      if (this.$refs.readmeWrapper) {
+        if (this.$refs.markdown && this.$refs.markdown.$el && (this.$refs.markdown.$el.clientHeight === undefined || this.$refs.markdown.$el.clientHeight === 0)) {
+          this.$refs.readmeWrapper.style.display = 'none'
+        } else {
+          this.$refs.readmeWrapper.style.display = 'block'
+        }
+        this.$refs.readmeWrapper.style.visibility = 'visible'
+        this.readme = false
       }
-      this.$refs.readmeWrapper.style.visibility = 'visible'
-      this.readme = false
     },
     handleReadme () {
       this.$refs.author.style.display = 'block'
