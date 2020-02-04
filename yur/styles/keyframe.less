@@ -1,22 +1,3 @@
-@keyframes loadingContainer {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes loadingBox {
-  0% {
-  }
-  50% {
-    box-shadow: inset 0 0 0 0.1vw #17E1E6, 0 0 1.5vw 0 #17E1E6;
-  }
-  100% {
-  }
-}
-
 @keyframes ityped {
   100% {
     opacity: 0;
@@ -50,5 +31,18 @@
     opacity: 1;
     box-shadow: 0 1px 30px lighten(@primary-color, 20%);
     background-color: @primary-color;
+  }
+}
+
+@keyframes curtain {
+  to {
+    text-shadow: 0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 30px #fff,
+    0 0 40px @primary-color,
+    0 0 70px @primary-color,
+    0 0 80px @primary-color,
+    0 0 100px @primary-color,
+    0 0 150px @primary-color;
   }
 }

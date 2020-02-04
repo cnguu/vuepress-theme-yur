@@ -72,7 +72,6 @@ module.exports = (opts, ctx) => {
         type: 'errorLong',
         defaultTitle: '',
       }],
-      'serve',
     ],
     extendPageData ($page) {
       // const { _filePath, _computed, _content, _strippedContent, key, frontmatter, regularPath, path } = $page

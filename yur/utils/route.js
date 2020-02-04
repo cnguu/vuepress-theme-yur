@@ -22,14 +22,11 @@ const install = (Vue, { router }) => {
       value: post,
     })
 
-    document.getElementById('loading').style.display = 'flex'
-
     next()
   })
 
   router.afterEach(() => {
     if (typeof window === 'undefined') return
-    document.getElementById('loading').style.display = 'none'
   })
 }
 
