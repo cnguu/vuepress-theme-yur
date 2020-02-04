@@ -2,7 +2,7 @@ import { isProd } from '@theme/utils'
 
 export default function baiDu (router, siteData) {
   const { baiDu } = siteData.themeConfig
-  if (isProd && baiDu) {
+  if (isProd() && baiDu) {
     const { tongJi, authPush } = baiDu
     if (tongJi) { // 百度统计
       window._hmt = window._hmt || [];
