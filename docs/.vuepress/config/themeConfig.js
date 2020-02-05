@@ -1,6 +1,5 @@
 const links = require('./links')
 
-// 图片放大: '.markdown-content img',
 module.exports = {
   lang: 'zh-CN', // en zh-CN
   site: 'https://gleehub.com',

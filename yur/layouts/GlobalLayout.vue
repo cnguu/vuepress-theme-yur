@@ -8,7 +8,9 @@
           name="fade-transform"
           mode="out-in"
         >
-          <component :is="layout" />
+          <ClientOnly>
+            <component :is="layout" />
+          </ClientOnly>
         </transition>
       </div>
       <Footer />
