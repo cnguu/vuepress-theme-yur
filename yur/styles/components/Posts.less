@@ -51,6 +51,15 @@
             overflow: hidden;
             cursor: pointer;
 
+            .banner {
+              width: 150px;
+              height: 150px;
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-position: center center;
+              border-radius: 8px;
+            }
+
             &::before {
               content: '';
               position: absolute;
@@ -67,10 +76,6 @@
                 left: 100%;
               }
             }
-
-            img {
-              border-radius: 8px;
-            }
           }
         }
       }
@@ -85,6 +90,7 @@
 @media screen and (max-width: 480px) {
   #posts {
     .post-list {
+      padding-top: 20px;
       .ant-row {
         & > div {
           .ant-list-item {

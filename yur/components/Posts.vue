@@ -20,12 +20,10 @@
           slot="extra"
           :to="item.path"
         >
-          <img
-            width="150"
-            height="150"
-            :alt="item.title"
-            :src="item.frontmatter.banner"
-          >
+          <div
+            class="banner"
+            :style="{backgroundImage: `url(${item.frontmatter.banner})`}"
+          />
         </router-link>
         <a-list-item-meta>
           <router-link
