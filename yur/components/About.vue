@@ -70,7 +70,9 @@ export default {
   },
   mounted () {
     this.$nextTick(() => {
-      this.handleLoad()
+      setTimeout(() => {
+        this.handleLoad()
+      }, 300)
     })
   },
   methods: {

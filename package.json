@@ -1,6 +1,6 @@
 {
   "name": "vuepress-theme-yur",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "VuePress Theme - Yur",
   "keywords": [
     "theme",
@@ -25,30 +25,7 @@
     "build": "vuepress build docs",
     "dev": "vuepress dev docs",
     "lint": "eslint --ext .js,.vue yur docs",
-    "publish": "git push origin master:master --tags",
-    "serve": "vuepress serve docs",
-    "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1 && git add CHANGELOG.md"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "lint-staged": {
-    "*.{js,vue}": [
-      "eslint --fix",
-      "git add"
-    ],
-    "package.json": [
-      "sort-package-json",
-      "git add"
-    ]
+    "serve": "vuepress serve docs"
   },
   "dependencies": {
     "ant-design-vue": "^1.4.10",
@@ -68,12 +45,9 @@
     "vuex": "^3.1.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.2.0",
-    "@commitlint/config-conventional": "^8.2.0",
     "@vssue/api-github-v3": "^1.4.0",
     "@vssue/vuepress-plugin-vssue": "^1.4.2",
     "babel-eslint": "^10.0.3",
-    "conventional-changelog-cli": "^2.0.28",
     "eslint": "^6.7.2",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
@@ -81,9 +55,6 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "eslint-plugin-vue": "^6.0.1",
-    "husky": "^4.2.1",
-    "lint-staged": "^10.0.7",
-    "sort-package-json": "^1.39.1",
     "vuepress-plugin-serve": "^2.0.0"
   }
 }
