@@ -41,13 +41,7 @@ export default function blog (Vue) {
             }
           }
           posts.sort((a, b) => {
-            const bTime = new Date(b.frontmatter.created).getTime()
-            const aTime = new Date(a.frontmatter.created).getTime()
-            if (bTime === aTime) {
-              return new Date(b.frontmatter.updated).getTime() - new Date(a.frontmatter.updated).getTime()
-            } else {
-              return bTime - aTime
-            }
+            return new Date(b.frontmatter.updated).getTime() - new Date(a.frontmatter.updated).getTime()
           })
         }
         Vue.prototype.$posts = posts
