@@ -141,6 +141,9 @@
               option-label-prop="value"
               :dropdown-match-select-width="false"
               :default-active-first-option="false"
+              :open="searchOpen"
+              @focus="searchOpen=true"
+              @blur="searchOpen=false"
               @search="handleSearch"
             >
               <template
@@ -197,14 +200,12 @@
                   :value="searchKeyword"
                   class="search-more"
                 >
-                  <router-link
-                    :to="{
-                      path: '/search.html',
-                      query: {keyword:searchKeyword}
-                    }"
+                  <div
+                    class="text"
+                    @click="handleMore"
                   >
                     {{ $l('more') }}
-                  </router-link>
+                  </div>
                 </a-select-option>
               </template>
             </a-auto-complete>
@@ -373,6 +374,7 @@ export default {
       timeline: false,
       links: false,
       about: false,
+      searchOpen: false,
       searchKeyword: '',
       searchSource: [],
       search: {
@@ -418,6 +420,13 @@ export default {
     },
     changeVisible () {
       this.visible = false
+    },
+    handleMore () {
+      this.searchOpen = false
+      this.$router.push({
+        path: '/search.html',
+        query: { keyword: this.searchKeyword },
+      })
     },
     handleSearch (value) {
       this.searchKeyword = ''
