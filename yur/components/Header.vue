@@ -14,13 +14,13 @@
               class="menu"
             >
               <a-sub-menu
-                v-if="navs.length"
+                v-if="this.$navs.length"
                 key="category"
               >
                 <span slot="title">{{ $l('category') }}</span>
                 <a-menu-item-group>
                   <a-menu-item
-                    v-for="nav in navs"
+                    v-for="nav in this.$navs"
                     :key="nav.key"
                     @click="changeVisible"
                   >
@@ -217,7 +217,7 @@
               class="menu"
             >
               <a-sub-menu
-                v-if="navs.length"
+                v-if="this.$navs.length"
                 key="category"
               >
                 <span
@@ -231,7 +231,7 @@
                 </span>
                 <a-menu-item-group>
                   <a-menu-item
-                    v-for="nav in navs"
+                    v-for="nav in this.$navs"
                     :key="nav.key"
                   >
                     <router-link :to="nav.link">
@@ -280,8 +280,6 @@ export default {
   data () {
     return {
       visible: false,
-      navs: [],
-      currentPage: ['/'],
       title: 'VuePress Theme Yur',
       logo: require('@theme/assets/logo64.png'),
       nameplate: {
@@ -383,19 +381,18 @@ export default {
       },
     }
   },
+  computed: {
+    currentPage () {
+      return [this.$store.state.routes.page]
+    },
+  },
   created () {
     this.handleInit()
   },
   methods: {
     handleInit () {
       const { logo, timeline, links, about, search } = this.$themeConfig
-      const { nameplate, navs = [] } = this.$config
-      if (navs.length) {
-        navs.forEach(nav => {
-          nav.key = nav.link.split('/')[1]
-        })
-        this.navs = navs
-      }
+      const { nameplate } = this.$config
       if (logo) {
         this.logo = this.$withBase(logo)
       }
@@ -416,7 +413,6 @@ export default {
       if (search) {
         this.search = Object.assign({}, this.search, search)
       }
-      this.currentPage = [this.$store.state.routes.page]
     },
     changeVisible () {
       this.visible = false

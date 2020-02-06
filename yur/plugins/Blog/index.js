@@ -53,7 +53,10 @@ export default function blog (Vue) {
         if (navs && navs.length) {
           navs.forEach(nav => {
             categories[nav.link.substring(1, nav.link.length - 1)] = []
+            nav.key = nav.link.split('/')[1]
           })
+          Vue.prototype.$navs = navs
+
           if (this.$posts.length) {
             this.$posts.forEach(post => {
               const { category } = post
@@ -88,9 +91,14 @@ export default function blog (Vue) {
         const timeline = []
         const colors = ['pink', 'red', 'orange', 'cyan', 'purple']
         if (this.$posts.length) {
+          const posts = JSON.parse(JSON.stringify(this.$posts))
+          posts.sort((a, b) => {
+            return new Date(b.frontmatter.created).getTime() - new Date(a.frontmatter.created).getTime()
+          })
+
           let item = {}
           let preColor = ''
-          for (const post of this.$posts) {
+          for (const post of posts) {
             const created = yearWithMonth(post.frontmatter.created)
             if (!hasOwn(item, 'created')) {
               item.created = created
