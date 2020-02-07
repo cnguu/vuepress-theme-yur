@@ -9,6 +9,7 @@ export default function blog (Vue) {
         const today = new Date().toLocaleDateString()
         const { pages } = this.$site
         let posts = {}
+        let postsByUpdated = {}
         if (pages && pages.length) {
           posts = pages.filter(page => {
             const { frontmatter: { created } } = page
@@ -40,10 +41,15 @@ export default function blog (Vue) {
               post.categoryText = getCategoryText(this.$config.navs, post.category)
             }
           }
-          posts.sort((a, b) => {
+          postsByUpdated = JSON.parse(JSON.stringify(posts))
+          postsByUpdated.sort((a, b) => {
             return new Date(b.frontmatter.updated).getTime() - new Date(a.frontmatter.updated).getTime()
           })
+          posts.sort((a, b) => {
+            return new Date(b.frontmatter.created).getTime() - new Date(a.frontmatter.created).getTime()
+          })
         }
+        Vue.prototype.$postsByUpdated = postsByUpdated
         Vue.prototype.$posts = posts
       }
 
@@ -91,14 +97,9 @@ export default function blog (Vue) {
         const timeline = []
         const colors = ['pink', 'red', 'orange', 'cyan', 'purple']
         if (this.$posts.length) {
-          const posts = JSON.parse(JSON.stringify(this.$posts))
-          posts.sort((a, b) => {
-            return new Date(b.frontmatter.created).getTime() - new Date(a.frontmatter.created).getTime()
-          })
-
           let item = {}
           let preColor = ''
-          for (const post of posts) {
+          for (const post of this.$posts) {
             const created = yearWithMonth(post.frontmatter.created)
             if (!hasOwn(item, 'created')) {
               item.created = created

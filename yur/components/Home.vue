@@ -39,11 +39,11 @@
           <span>{{ $l('newest') }}</span>
         </h2>
         <a-row
-          v-if="$posts.length"
+          v-if="$postsByUpdated.length"
           class="row"
         >
           <a-col
-            v-for="{path,frontmatter,title} in $posts.slice(0, 3)"
+            v-for="{path,frontmatter,title} in $postsByUpdated.slice(0, 3)"
             :key="path"
             :xs="24"
             :md="8"
