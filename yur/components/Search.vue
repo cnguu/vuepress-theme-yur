@@ -84,8 +84,6 @@
 </template>
 
 <script>
-import { exitItem } from '@theme/utils'
-
 export default {
   name: 'Search',
   data () {
@@ -197,7 +195,7 @@ export default {
 
           if (p.frontmatter && p.frontmatter.tags && p.frontmatter.tags.length) {
             p.frontmatter.tags.forEach(tag => {
-              if (matchTag(tag) && !exitItem(tags, 'title', tag)) {
+              if (matchTag(tag) && !tags.find(item => item.title === tag)) {
                 tags.push({
                   title: tag,
                   path: encodeURI(`/tags/${tag}`),

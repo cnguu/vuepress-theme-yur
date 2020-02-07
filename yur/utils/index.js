@@ -9,25 +9,6 @@ export function hasOwn (obj, key) {
 }
 
 /**
- * Determine if an element exists in a two-dimensional array
- * @param arr
- * @param field
- * @param value
- * @returns {boolean}
- */
-export function exitItem (arr, field, value) {
-  let res = false
-  if (arr.length) {
-    arr.forEach(item => {
-      if (item[field] === value) {
-        res = true
-      }
-    })
-  }
-  return res
-}
-
-/**
  * Knuth-Durstenfeld Shuffle
  * @param arr
  * @returns {*}
