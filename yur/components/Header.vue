@@ -485,7 +485,7 @@ export default {
             if (matchTag(tag) && !tags.children.find(item => item.title === tag)) {
               tags.children.push({
                 title: tag,
-                path: encodeURI(`/tags/${tag}`),
+                path: `/tags/${tag}`,
               })
             }
           })

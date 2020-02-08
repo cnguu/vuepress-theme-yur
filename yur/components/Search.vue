@@ -198,7 +198,7 @@ export default {
               if (matchTag(tag) && !tags.find(item => item.title === tag)) {
                 tags.push({
                   title: tag,
-                  path: encodeURI(`/tags/${tag}`),
+                  path: `/tags/${tag}`,
                 })
               }
             })
