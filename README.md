@@ -8,11 +8,9 @@
 
 :heart: Yur theme for [VuePress](https://vuepress.vuejs.org)
 
-:revolving_hearts: [Live Demo](https://gleehub.com)
+:revolving_hearts: [Live Demo](https://www.gleehub.com)
 
-:book: [Docs](https://gleehub.com/other/vuepress-theme-yur-shi-yong-jiao-cheng.html)
-
-:construction: [Change log](https://gleehub.com/other/yur-zhu-ti-geng-xin-ri-zhi.html)
+:book: [Docs](https://imwiki.cn/)
 
 ## License
 
