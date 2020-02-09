@@ -8,6 +8,13 @@
       >
         <template slot="content">
           <div id="menu-mobile">
+            <div
+              v-show="$store.state.routes.page !== 'search'"
+              class="search"
+              @click="handleMore"
+            >
+              <a-icon type="search" />
+            </div>
             <a-menu
               v-model="currentPage"
               mode="inline"
@@ -416,6 +423,7 @@ export default {
       this.visible = false
     },
     handleMore () {
+      this.visible = false
       this.searchOpen = false
       this.$router.push({
         path: '/search.html',
