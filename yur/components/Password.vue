@@ -38,7 +38,7 @@ export default {
     this.$notification.info({
       message: this.$l('pwdInfoMsg'),
       description: this.$l('pwdInfoDesc'),
-      duration: 4.3,
+      duration: 2.3,
     })
   },
   methods: {
@@ -49,7 +49,7 @@ export default {
           this.$notification.success({
             message: this.$l('pwdOkMsg'),
             description: this.$page.title,
-            duration: 4.3,
+            duration: 1.3,
           })
           this.$page.password = false
           this.$router.push('/back.html')
@@ -57,14 +57,14 @@ export default {
           this.$notification.error({
             message: this.$l('pwdErrMsg'),
             description: this.$l('pwdErrDesc'),
-            duration: 4.3,
+            duration: 2.3,
           })
         }
       } else {
         this.$notification.warning({
           message: this.$l('pwdWarnMsg'),
           description: this.$l('pwdWarnDesc'),
-          duration: 4.3,
+          duration: 2.3,
         })
       }
     },
