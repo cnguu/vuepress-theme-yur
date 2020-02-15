@@ -6,7 +6,7 @@ const { slugify } = require('transliteration')
 module.exports = (opts, ctx) => {
   const { sep } = path
   const { themeConfig, sourceDir } = ctx
-  const { lang } = themeConfig
+  const { baiDu } = themeConfig
   return {
     name: 'vuepress-theme-yur',
     chainWebpack (config, isServer) {
@@ -81,14 +81,17 @@ module.exports = (opts, ctx) => {
         $page.wordCount = _content.length
       }
 
-      if (lang === 'zh-CN') {
-        $page.path = decodeURIComponent(path).split('/')
-          .map(str => slugify(str, {
-            lowercase: true,
-            separator: '-',
-            ignore: ['/', '.'],
-          }))
-          .join('/')
+      if (baiDu) {
+        const { pinYin } = baiDu
+        if (pinYin) {
+          $page.path = decodeURIComponent(path).split('/')
+            .map(str => slugify(str, {
+              lowercase: true,
+              separator: '-',
+              ignore: ['/', '.'],
+            }))
+            .join('/')
+        }
       }
 
       let pwd = '52yur'
