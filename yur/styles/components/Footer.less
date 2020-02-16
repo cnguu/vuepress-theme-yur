@@ -105,6 +105,34 @@
   }
 }
 
+body.dark {
+  #footer {
+    .container {
+      background-color: @dark-bg-color;
+
+      a {
+        color: @dark-text-color-7;
+      }
+
+      .footer-wrap {
+        .footer-center {
+          & > h2 {
+            span {
+              color: @dark-text-color;
+            }
+          }
+        }
+      }
+
+      .bottom-bar {
+        a {
+          color: @dark-text-color;
+        }
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 767px) {
   #footer {
     .container {

@@ -33,7 +33,6 @@
     .text-wrapper {
       padding: 0 24px 0 0;
       flex: 1;
-      color: #0d1a26;
 
       .title-line-wrapper {
         width: 100%;
@@ -66,6 +65,8 @@
 
       .banner-btn-group {
         a {
+          margin-left: 16px;
+
           button {
             height: 40px;
             padding: 0 24px;
@@ -74,8 +75,8 @@
             border-radius: 100px;
           }
 
-          &:last-child {
-            margin-left: 16px;
+          &:first-child {
+            margin-left: 0;
           }
         }
       }
@@ -130,6 +131,52 @@
             color: #ffffff;
             font-weight: 400;
             font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+body.dark {
+  #home {
+    & > .banner {
+      .img-wrapper {
+        img {
+          filter: brightness(50%);
+        }
+      }
+
+      .text-wrapper {
+        .title {
+          color: @dark-text-color;
+        }
+
+        .description-wrapper {
+          color: @dark-text-color-7;
+        }
+      }
+    }
+
+    .post {
+      background: linear-gradient(to top, @dark-text-color-10 0%, @dark-bg-color 100%);
+
+      .wrapper {
+        h2 {
+          color: @dark-text-color;
+        }
+
+        .row {
+          & > div {
+            .banner {
+              .img {
+                filter: brightness(50%);
+              }
+            }
+
+            h3 {
+              color: @dark-text-color;
+            }
           }
         }
       }

@@ -201,7 +201,7 @@ export default {
   },
   methods: {
     handleInit () {
-      const { reward } = this.$themeConfig
+      const { reward } = this.$config
       if (reward) {
         this.reward = reward
       }

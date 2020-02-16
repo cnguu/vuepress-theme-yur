@@ -15,6 +15,7 @@
       </div>
       <Footer />
       <a-back-top class="back-top" />
+      <Dark v-show="dark" />
     </div>
   </a-locale-provider>
 </template>
@@ -34,6 +35,7 @@ import Categories from '@theme/components/Categories'
 import Post from '@theme/components/Post'
 import Password from '@theme/components/Password'
 import Footer from '@theme/components/Footer'
+import Dark from '@theme/components/Dark'
 import Back from '@theme/components/Back'
 import Page404 from '@theme/components/404'
 import enGB from 'ant-design-vue/lib/locale-provider/en_GB'
@@ -41,7 +43,12 @@ import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN'
 
 export default {
   name: 'Yur',
-  components: { Curtain, Header, Home, Posts, Tags, Tag, Search, Timeline, Links, About, Categories, Post, Password, Footer, Back, Page404 },
+  components: { Curtain, Header, Home, Posts, Tags, Tag, Search, Timeline, Links, About, Categories, Post, Password, Footer, Dark, Back, Page404 },
+  data () {
+    return {
+      dark: false,
+    }
+  },
   computed: {
     locale () {
       if (this.$store.state.settings.lang === 'zh-CN') {
@@ -81,6 +88,9 @@ export default {
       return 'Page404'
     },
   },
+  created () {
+    this.handleInit()
+  },
   mounted () {
     this.$nextTick(() => {
       setTimeout(() => {
@@ -92,6 +102,12 @@ export default {
     })
   },
   methods: {
+    handleInit () {
+      const { dark } = this.$config
+      if (dark) {
+        this.dark = true
+      }
+    },
     getTimeOut () {
       const endTime = new Date().getTime()
       const diffTime = endTime - this.$store.state.settings.consoleTime

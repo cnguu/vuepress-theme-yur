@@ -8,3 +8,23 @@
     padding-top: 10px;
   }
 }
+
+body.dark {
+  #timeline {
+    .wrapper {
+      .ant-timeline-item {
+        &-head {
+          background-color: @dark-bg-color;
+        }
+
+        &-tail {
+          border-left-color: @dark-text-color-9;
+        }
+
+        &-content {
+          color: @dark-text-color;
+        }
+      }
+    }
+  }
+}

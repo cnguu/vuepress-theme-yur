@@ -156,6 +156,109 @@
   }
 }
 
+body.dark {
+  #header {
+    background-color: @dark-bg-color;
+
+    .container {
+      .search {
+        border-left-color: @dark-text-color-10;
+
+        .search-icon {
+          color: @dark-text-color-9;
+        }
+
+        .search-input {
+          .ant-select-selection {
+            background-color: @dark-bg-color;
+
+            &__placeholder {
+              color: @dark-text-color-9;
+            }
+
+            &__clear {
+              color: @dark-text-color-9;
+              background-color: inherit;
+            }
+          }
+
+          .ant-select-search {
+            &__field {
+              color: @dark-text-color;
+            }
+          }
+        }
+      }
+
+      .navigation {
+        .menu {
+          color: @dark-text-color;
+
+          .ant-menu-item-selected {
+            a {
+              color: @primary-color;
+            }
+          }
+
+          a {
+            color: @dark-text-color;
+
+            &:hover {
+              color: @primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #menu-mobile {
+    color: @dark-text-color;
+    background-color: @dark-text-color-10;
+
+    .menu {
+      color: @dark-text-color;
+      background-color: @dark-text-color-10;
+    }
+  }
+
+  .search-dropdown {
+    .select-group {
+      border-bottom-color: @dark-text-color-9;
+
+      .group-title {
+        color: @dark-text-color-8;
+      }
+
+      .select-option {
+        color: @dark-text-color;
+
+        &:hover {
+          background-color: @dark-text-color-10;
+        }
+      }
+
+      .select-option-tag {
+        .ant-tag {
+          color: @dark-text-color;
+          background-color: @dark-text-color-10;
+          border-color: @dark-text-color-9;
+        }
+      }
+    }
+
+    .search-more {
+      .text {
+        color: @dark-text-color;
+
+        &:hover {
+          color: @primary-color-5;
+        }
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 767px) {
   #header {
     .container {

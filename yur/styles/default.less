@@ -1,6 +1,6 @@
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-track-piece {
-  background-color: @body-background;
+  background-color: #ffffff;
 }
 
 ::-webkit-scrollbar {
@@ -20,7 +20,7 @@
 
 body {
   font-size: 14px;
-  background-color: @body-background;
+  background-color: #ffffff;
 }
 
 ol, p, ul {
@@ -367,6 +367,201 @@ a {
   a {
     &:hover {
       color: @primary-color;
+    }
+  }
+}
+
+.ant-radio-checked {
+  .ant-radio-inner {
+    border-color: @primary-color;
+
+    &::after {
+      background-color: @primary-color;
+    }
+  }
+}
+
+.ant-radio-inner {
+  &::after {
+    background-color: @primary-color;
+  }
+}
+
+.ant-radio {
+  &:hover {
+    .ant-radio-inner {
+      border-color: @primary-color;
+    }
+  }
+}
+
+.ant-radio-input:focus + .ant-radio-inner {
+  border-color: @primary-color;
+  box-shadow: 0 0 0 3px @primary-color-1;
+}
+
+body.dark {
+  color: @dark-text-color;
+  background-color: @dark-bg-color;
+
+  .ant-select-dropdown {
+    background-color: @dark-bg-color;
+
+    &-menu-item {
+      color: @dark-text-color;
+
+      &-disabled {
+        color: @dark-text-color;
+      }
+
+      &-selected {
+        background-color: @dark-text-color-10;
+      }
+
+      &:hover {
+        background-color: @dark-text-color-10;
+      }
+    }
+  }
+
+  .ant-menu-submenu {
+    &-popup {
+      background-color: @dark-bg-color;
+    }
+
+    .ant-menu-item {
+      &-selected {
+        background-color: @dark-text-color-10;
+      }
+
+      &:active {
+        background-color: @dark-text-color-10;
+      }
+    }
+
+    & > .ant-menu {
+      background-color: @dark-bg-color;
+
+      a {
+        color: @dark-text-color;
+
+        &:hover {
+          color: @primary-color;
+        }
+      }
+    }
+  }
+
+  .ant-popover {
+    &-content {
+      & > .ant-popover-arrow {
+        border-top-color: @dark-text-color-10;
+        border-right-color: @dark-text-color-10;
+      }
+    }
+
+    &-inner {
+      background-color: @dark-text-color-10;
+
+      &-content {
+        a {
+          color: @dark-text-color;
+
+          &:hover {
+            color: @primary-color;
+          }
+        }
+      }
+    }
+
+    .ant-menu-item {
+      &-selected {
+        background-color: @dark-text-color-9;
+      }
+
+      &:active {
+        background-color: @dark-text-color-9;
+      }
+    }
+
+    .ant-menu-submenu {
+      &-title {
+        &:active {
+          background-color: @dark-text-color-9;
+        }
+      }
+
+      & > .ant-menu {
+        background-color: @dark-text-color-10;
+      }
+    }
+  }
+
+  .ant-select {
+    color: @dark-text-color;
+
+    &-selection {
+      border-color: @dark-text-color;
+      background-color: @dark-bg-color;
+    }
+
+    &-arrow {
+      color: @dark-text-color;
+    }
+  }
+
+  .ant-pagination-options-quick-jumper {
+    input {
+      color: @dark-text-color;
+      background-color: @dark-bg-color;
+      border-color: @dark-text-color;
+    }
+  }
+
+  .ant-empty-description {
+    color: @dark-text-color-8;
+  }
+
+  .ant-drawer {
+    &-content {
+      background-color: @dark-bg-color;
+    }
+
+    &-header {
+      background-color: @dark-bg-color;
+      border-bottom-color: @dark-text-color-9;
+    }
+
+    &-title {
+      color: @dark-text-color;
+    }
+
+    &-body {
+      .ant-anchor-wrapper {
+        background-color: @dark-bg-color;
+
+        .ant-anchor {
+          .ant-anchor-ink {
+            &::before {
+              background-color: @dark-text-color-10;
+            }
+          }
+
+          .ant-anchor-link {
+            &-title {
+              color: @dark-text-color-7;
+
+              &-active {
+                color: @primary-color;
+              }
+
+              &:hover {
+                color: @primary-color;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

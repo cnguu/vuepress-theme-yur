@@ -49,6 +49,48 @@
   }
 }
 
+body.dark {
+  #search {
+    .search {
+      .ant-input {
+        color: @dark-text-color;
+        background-color: @dark-bg-color;
+        border-color: @dark-text-color-10;
+      }
+
+      .ant-input-suffix {
+        i {
+          color: @dark-text-color-9;
+        }
+      }
+
+      .ant-input-group-addon {
+        background-color: @dark-bg-color;
+      }
+    }
+
+    .wrapper {
+      .ant-tabs-bar {
+        color: @dark-text-color;
+        border-bottom-color: @dark-text-color-9;
+      }
+
+      .list-item {
+        border-bottom-color: @dark-text-color-10;
+
+        a {
+          color: @dark-text-color-7;
+        }
+      }
+
+      .tag {
+        background-color: @dark-text-color-10;
+        color: @dark-text-color-7;
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 767px) {
   #search {
     .search {

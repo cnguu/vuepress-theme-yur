@@ -140,6 +140,41 @@
   }
 }
 
+body.dark {
+  #links {
+    .content {
+      .wrapper {
+        .hr {
+          background-color: @dark-text-color-10;
+        }
+
+        .name {
+          section {
+            color: @dark-text-color;
+          }
+        }
+
+        .col {
+          .card {
+            box-shadow: none;
+            background: linear-gradient(@dark-bg-color, @dark-text-color-10, @dark-bg-color);
+
+            .title {
+              color: @dark-text-color;
+              text-shadow: 0 1px @dark-bg-color;
+            }
+
+            .subtitle {
+              color: @dark-text-color-8;
+              text-shadow: 0 1px @dark-bg-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @keyframes ball-1 {
   from {
     transform: translate(0, 0)

@@ -127,7 +127,7 @@
     }
   }
 
-  & > .v {
+  #valine {
     .vwrap {
       .vheader {
         .vinput {
@@ -234,6 +234,91 @@
     a {
       &:before {
         background: none;
+      }
+    }
+  }
+}
+
+body.dark {
+  #discuss {
+    & > .vssue {
+      color: @dark-text-color;
+
+      .vssue-button {
+        color: @dark-text-color !important;
+        border-color: @dark-text-color !important;
+      }
+
+      .vssue-header {
+        border-bottom-color: @dark-text-color-10;
+      }
+
+      .vssue-body {
+        .vssue-new-comment {
+          border-bottom-color: @dark-text-color-10;
+
+          .vssue-new-comment-input {
+            border-color: @dark-text-color-10;
+
+            &:focus {
+              border-color: @dark-text-color-9 !important;
+              box-shadow: 0 0 1px 1px @dark-text-color-9 !important;
+            }
+          }
+        }
+      }
+    }
+
+    #valine {
+      * {
+        color: @dark-text-color;
+      }
+
+      .vwrap {
+        border-color: @dark-text-color-10;
+
+        .vheader {
+          .vinput {
+            border-bottom-color: @dark-text-color-10;
+          }
+        }
+
+        .vmark {
+          .valert {
+            .vcode {
+              background-color: @dark-bg-color;
+            }
+          }
+        }
+      }
+
+      .vbtn {
+        background: @dark-bg-color;
+      }
+
+      .vlist {
+        .vcard {
+          .vh {
+            border-bottom-color: @dark-text-color-10;
+          }
+
+          .vquote {
+            border-left-color: @dark-text-color-10;
+          }
+
+          .vcontent {
+            &.expand {
+              &:before {
+                background: linear-gradient(180deg, hsla(0, 0%, 100%, 0), @dark-text-color-10);
+              }
+
+              &:after {
+                color: @dark-text-color-8;
+                background: @dark-text-color-10;
+              }
+            }
+          }
+        }
       }
     }
   }

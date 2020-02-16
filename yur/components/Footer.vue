@@ -124,7 +124,7 @@ export default {
   },
   methods: {
     handleInit () {
-      const { author, authorLink } = this.$themeConfig
+      const { author, authorLink } = this.$config
       const { footer } = this.$config
       if (author) {
         this.author = author

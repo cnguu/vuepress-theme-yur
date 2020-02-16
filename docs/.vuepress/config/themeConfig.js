@@ -43,7 +43,7 @@ module.exports = {
   timeline: true,
   links,
   about: true,
-  // discuss: 'valine',
+  // discuss: 'vssue',
   // valine: {
   //   appId: '',
   //   appKey: '',
@@ -64,11 +64,13 @@ module.exports = {
   // baiDu: {
   //   tongJi: '',
   //   autoPush: true,
+  //   pinYin: true,
   // },
   // curtain: {
   //   tip: '页面准备中...',
   //   textShadow: '#e91e63',
   // },
+  dark: true,
   en: {
     locales: {
       title: 'Stars so bright',

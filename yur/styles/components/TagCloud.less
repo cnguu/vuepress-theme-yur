@@ -34,6 +34,19 @@
   }
 }
 
+body.dark {
+  #tag-cloud {
+    background-color: @dark-text-color-10;
+
+    .wrapper {
+      .tag {
+        box-shadow: 0 13px 15px @dark-text-color-9;
+        background-color: @dark-bg-color;
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 767px) {
   #tag-cloud {
     .wrapper {

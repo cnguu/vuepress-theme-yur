@@ -4,7 +4,7 @@ import { yearWithMonth } from '@theme/utils/time'
 export default function blog (Vue) {
   Vue.mixin({
     created () {
-      const { post: { cover } } = this.$themeConfig
+      const { post: { cover } } = this.$config
       if (!this.$posts) {
         const today = new Date().toLocaleDateString()
         const { pages } = this.$site

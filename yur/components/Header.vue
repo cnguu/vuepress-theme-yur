@@ -396,7 +396,7 @@ export default {
   },
   methods: {
     handleInit () {
-      const { logo, timeline, links, about, search } = this.$themeConfig
+      const { logo, timeline, links, about, search } = this.$config
       const { nameplate } = this.$config
       if (logo) {
         this.logo = this.$withBase(logo)

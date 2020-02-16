@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     handleInit () {
-      const { discuss } = this.$themeConfig
+      const { discuss } = this.$config
       if (discuss && this.handleSwitch()) {
         this.discuss = discuss
       }
@@ -51,7 +51,7 @@ export default {
         window.AV = AV
       }
       // eslint-disable-next-line no-new
-      new Valine(Object.assign({}, this.$themeConfig.valine, {
+      new Valine(Object.assign({}, this.$config.valine, {
         el: '#valine',
         path: this.$page.path,
       }))

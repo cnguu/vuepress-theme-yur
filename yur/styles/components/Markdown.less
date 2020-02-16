@@ -541,6 +541,102 @@
    */
 }
 
+body.dark {
+  #markdown {
+    color: @dark-text-color;
+
+    h2, h3, h4, h5, h6 {
+      &::before {
+        background: linear-gradient(lighten(@primary-color, 10%) 30%, @primary-color 70%);
+        box-shadow: 0 3px 3px @dark-bg-color;
+      }
+    }
+
+    blockquote {
+      background-color: @dark-text-color-10;
+      border-left-color: @dark-text-color-9;
+    }
+
+    code {
+      color: @dark-text-color;
+      background-color: @dark-text-color-10;
+      border-color: @dark-text-color-9;
+    }
+
+    div[class*="language-"] {
+      background-color: @dark-text-color-10;
+
+      .highlight-lines {
+        .highlighted {
+          background-color: @dark-text-color-9;
+        }
+      }
+
+      pre,
+      pre[class*="language-"] {
+        code {
+          color: @dark-text-color;
+        }
+      }
+
+      &.line-numbers-mode {
+        &::after {
+          background-color: @dark-text-color-10;
+          border-right-color: @dark-text-color-9;
+        }
+      }
+    }
+
+    hr {
+      background-color: @dark-text-color-10;
+    }
+
+    table {
+      thead {
+        tr {
+          th {
+            color: @dark-text-color;
+            background-color: @dark-text-color-10;
+            border-bottom-color: @dark-text-color-8;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          td {
+            border-bottom-color: @dark-text-color-9;
+          }
+
+          &:hover {
+            background-color: @dark-text-color-10;
+          }
+        }
+      }
+    }
+
+    .custom-block {
+      color: @dark-text-color-5;
+
+      a {
+        color: @dark-text-color-5;
+        text-shadow: 0 1px 2px @dark-text-color;
+
+        svg {
+          &.icon.outbound {
+            color: @dark-text-color-5;
+          }
+        }
+      }
+
+      &::before {
+        box-shadow: 0 0 0 2.5px @dark-bg-color;
+        color: @dark-bg-color;
+      }
+    }
+  }
+}
+
 @media (max-width: 767px) {
   #markdown {
     .table-of-contents {

@@ -1,5 +1,3 @@
-import Cookies from 'js-cookie'
-
 export default function translation (Vue) {
   const languages = {
     en: require('./locales/en.js'),
@@ -24,12 +22,12 @@ export default function translation (Vue) {
         key: 'lang',
         value: lang,
       })
-      Vue.prototype.$config || (Vue.prototype.$config = this.$themeConfig[lang] ? this.$themeConfig[lang] : this.$themeConfig)
+      Vue.prototype.$config || (Vue.prototype.$config = this.$themeConfig[lang] ? Object.assign({}, this.$themeConfig, this.$themeConfig[lang]) : this.$themeConfig)
     },
     methods: {
       getLang () {
         const { lang } = this.$themeConfig
-        return Cookies.get('lang') || lang || this.$store.state.settings.lang
+        return lang || this.$store.state.settings.lang
       },
       $l (key) {
         return this.getTranslation[key] || ''
