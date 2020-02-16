@@ -247,6 +247,12 @@
                   </a-menu-item>
                 </a-menu-item-group>
               </a-sub-menu>
+            </a-menu>
+            <a-menu
+              v-model="currentPage"
+              mode="horizontal"
+              class="menu"
+            >
               <a-menu-item
                 v-if="timeline"
                 key="timeline"
