@@ -32,7 +32,7 @@
         </div>
       </div>
       <Bubbles
-        v-if="Object.keys(bubbles).length"
+        v-if="isBubbles"
         :options="bubbles"
       />
     </div>
@@ -154,6 +154,7 @@ export default {
         visible: false,
       },
       reward: [],
+      isBubbles: false,
       bubbles: {},
     }
   },
@@ -214,7 +215,10 @@ export default {
       if (post) {
         const { bubbles } = post
         if (bubbles) {
-          this.bubbles = bubbles
+          this.isBubbles = true
+          if (typeof bubbles === 'object') {
+            this.bubbles = bubbles
+          }
         }
       }
     },

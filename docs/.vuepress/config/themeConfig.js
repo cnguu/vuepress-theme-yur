@@ -29,12 +29,7 @@ module.exports = {
   //   cursorChar: '丨',         // 指针字符
   // },
   post: {
-    bubbles: {
-      color: 'random',
-      radius: 15,
-      density: 0.3, // 数值越大，气泡越密集（建议 <=1）
-      clearOffset: 0.2, // 气泡消失距离[0-1] 数值越大，消失越晚
-    },
+    bubbles: true,
     // cover: [
     //   '/20171231/favicon.ico',
     //   'https://static.xmt.cn/cc50c217cbe342ce951324583f2c6139.png',
