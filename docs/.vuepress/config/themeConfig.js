@@ -29,6 +29,12 @@ module.exports = {
   //   cursorChar: '丨',         // 指针字符
   // },
   post: {
+    bubbles: {
+      color: 'random',
+      radius: 15,
+      density: 0.3, // 数值越大，气泡越密集（建议 <=1）
+      clearOffset: 0.2, // 气泡消失距离[0-1] 数值越大，消失越晚
+    },
     // cover: [
     //   '/20171231/favicon.ico',
     //   'https://static.xmt.cn/cc50c217cbe342ce951324583f2c6139.png',
@@ -87,11 +93,19 @@ module.exports = {
       },
     ],
     nameplate: {
-      title: 'Yur'
+      title: 'Yur',
     },
     buttons: [
-      {text: 'Read', link: '/posts/', type: 'primary'},
-      {text: 'About', link: '/about.html', type: 'default'},
+      {
+        text: 'Read',
+        link: '/posts/',
+        type: 'primary',
+      },
+      {
+        text: 'About',
+        link: '/about.html',
+        type: 'default',
+      },
     ],
     footer: {
       // icon: '/20171231/footer.png',
@@ -126,17 +140,37 @@ module.exports = {
       description: '书写生活与你',
     },
     navs: [
-      {text: '编程技术', link: '/program/'},
-      {text: '生活兴趣', link: '/life/'},
-      {text: '软件工具', link: '/tool/'},
-      {text: '其它', link: '/other/'},
+      {
+        text: '编程技术',
+        link: '/program/',
+      },
+      {
+        text: '生活兴趣',
+        link: '/life/',
+      },
+      {
+        text: '软件工具',
+        link: '/tool/',
+      },
+      {
+        text: '其它',
+        link: '/other/',
+      },
     ],
     nameplate: {
       title: 'Yur',
     },
     buttons: [
-      {text: '阅读列表', link: '/posts/', type: 'primary'},
-      {text: '了解作者', link: '/about.html', type: 'default'},
+      {
+        text: '阅读列表',
+        link: '/posts/',
+        type: 'primary',
+      },
+      {
+        text: '了解作者',
+        link: '/about.html',
+        type: 'default',
+      },
     ],
     footer: {
       one: [

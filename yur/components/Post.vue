@@ -31,6 +31,10 @@
           </a-tooltip>
         </div>
       </div>
+      <Bubbles
+        v-if="Object.keys(bubbles).length"
+        :options="bubbles"
+      />
     </div>
     <div class="wrapper">
       <Markdown />
@@ -139,16 +143,18 @@
 import Markdown from '@theme/components/Markdown'
 import Discuss from '@theme/components/Discuss'
 import TagCloud from '@theme/components/TagCloud'
+import Bubbles from '@theme/components/Bubbles'
 
 export default {
   name: 'Post',
-  components: { Markdown, Discuss, TagCloud },
+  components: { Markdown, Discuss, TagCloud, Bubbles },
   data () {
     return {
       catalog: {
         visible: false,
       },
       reward: [],
+      bubbles: {},
     }
   },
   computed: {
@@ -201,9 +207,15 @@ export default {
   },
   methods: {
     handleInit () {
-      const { reward } = this.$config
+      const { reward, post } = this.$config
       if (reward) {
         this.reward = reward
+      }
+      if (post) {
+        const { bubbles } = post
+        if (bubbles) {
+          this.bubbles = bubbles
+        }
       }
     },
   },
