@@ -18,26 +18,26 @@ export default {
       mode: 'light',
     }
   },
-  created () {
-    this.handleInit()
-  },
   mounted () {
-    if (this.mode === 'dark') {
-      this.$nextTick(() => {
+    this.$nextTick(() => {
+      const mode = localStorage.getItem('mode') || this.$store.state.settings.mode
+      if (mode === 'dark') {
         document.getElementsByTagName('body')[0].className = 'dark'
-      })
-    }
+      } else {
+        document.getElementsByTagName('body')[0].className = ''
+      }
+      localStorage.setItem('mode', mode)
+      this.mode = mode
+    })
   },
   methods: {
-    handleInit () {
-      this.mode = this.$store.state.settings.mode
-    },
     changeMode (mode) {
       if (mode === 'dark') {
         document.getElementsByTagName('body')[0].className = 'dark'
       } else {
         document.getElementsByTagName('body')[0].className = ''
       }
+      localStorage.setItem('mode', mode)
       this.mode = mode
       this.$store.dispatch('changeSetting', {
         key: 'mode',

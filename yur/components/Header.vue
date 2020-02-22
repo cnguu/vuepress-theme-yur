@@ -254,7 +254,7 @@
               class="menu"
             >
               <a-menu-item
-                v-if="timeline"
+                v-show="timeline"
                 key="timeline"
               >
                 <router-link to="/timeline.html">
@@ -262,7 +262,7 @@
                 </router-link>
               </a-menu-item>
               <a-menu-item
-                v-if="links"
+                v-show="links"
                 key="links"
               >
                 <router-link to="/links.html">
@@ -270,7 +270,7 @@
                 </router-link>
               </a-menu-item>
               <a-menu-item
-                v-if="about"
+                v-show="about"
                 key="about"
               >
                 <router-link to="/about.html">
