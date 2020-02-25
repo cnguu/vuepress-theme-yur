@@ -72,6 +72,7 @@ module.exports = {
   //   textShadow: '#e91e63',
   // },
   dark: true,
+  cdn: 'https://cdn.jsdelivr.net/gh/cnguu/cnguu.github.io@master/',
   en: {
     locales: {
       title: 'Stars so bright',

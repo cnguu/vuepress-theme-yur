@@ -6,7 +6,7 @@ const { slugify } = require('transliteration')
 module.exports = (opts, ctx) => {
   const { sep } = path
   const { themeConfig, sourceDir } = ctx
-  const { baiDu } = themeConfig
+  const { baiDu, cdn } = themeConfig
   return {
     name: 'vuepress-theme-yur',
     chainWebpack (config, isServer) {
@@ -20,6 +20,11 @@ module.exports = (opts, ctx) => {
         .oneOf('modules')
         .use('less-loader')
         .options({ javascriptEnabled: true })
+
+      if (cdn && isServer) {
+        config.output
+          .publicPath(cdn)
+      }
     },
     extendMarkdown: md => {
       md.use(require('markdown-it-sub'))
