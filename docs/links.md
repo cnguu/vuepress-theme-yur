@@ -19,7 +19,7 @@ meta:
 
 站点描述：责难无以成事
 
-站点网址：https://gleehub.com/
+站点网址：https://blog.cnguu.cn/
 
 LOGO：https://static.xmt.cn/cc50c217cbe342ce951324583f2c6139.png
 

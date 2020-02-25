@@ -146,10 +146,9 @@ export default {
     onSearch (value) {
       if (value) {
         value = value.trim().toLowerCase()
-        if (value === this.keyword) {
+        if (value === this.$route.query.keyword) {
           return false
         }
-        this.keyword = value
         this.$router.push({
           query: {
             tab: this.tab,

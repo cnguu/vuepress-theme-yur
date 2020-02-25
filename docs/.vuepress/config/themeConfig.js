@@ -2,7 +2,6 @@ const links = require('./links')
 
 module.exports = {
   lang: 'zh-CN', // en zh-CN
-  site: 'https://gleehub.com',
   // logo: '/20171231/logo.png',
   // banner: '/20171231/YgorwbJUDpcQHV5h.png',
   author: 'cnguu',
@@ -184,13 +183,7 @@ module.exports = {
       two: [
         {
           title: '本站托管于 GitHub',
-          link: 'https://gleehub.com/',
-          type: 'cloud',
-          theme: 'filled',
-        },
-        {
-          title: '备用站托管于 Coding',
-          link: 'https://www.gleehub.com/',
+          link: 'https://blog.cnguu.cn/',
           type: 'cloud',
           theme: 'filled',
         },

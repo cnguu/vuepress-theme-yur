@@ -79,7 +79,7 @@ export default {
             {
               title: '凉风有信',
               subtitle: '责难无以成事',
-              link: 'https://gleehub.com/',
+              link: 'https://blog.cnguu.cn/',
               logo: 'https://static.xmt.cn/cc50c217cbe342ce951324583f2c6139.png',
               color: '#9a69ec',
             },
