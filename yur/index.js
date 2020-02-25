@@ -21,7 +21,7 @@ module.exports = (opts, ctx) => {
         .use('less-loader')
         .options({ javascriptEnabled: true })
 
-      if (cdn && isServer) {
+      if (cdn && process.env.NODE_ENV === 'production') {
         config.output
           .publicPath(cdn)
       }
