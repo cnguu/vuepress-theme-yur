@@ -7,27 +7,15 @@ export default function translation (Vue) {
   Vue.mixin({
     computed: {
       getTranslation () {
-        const { locales } = this.$config
+        const { locales } = this.$themeConfig
         const lang = this.getLang()
-        this.$store.dispatch('changeSetting', {
-          key: 'lang',
-          value: lang,
-        })
         return { ...languages[lang], ...locales }
       },
-    },
-    created () {
-      const lang = this.getLang()
-      this.$store.dispatch('changeSetting', {
-        key: 'lang',
-        value: lang,
-      })
-      Vue.prototype.$config || (Vue.prototype.$config = this.$themeConfig[lang] ? Object.assign({}, this.$themeConfig, this.$themeConfig[lang]) : this.$themeConfig)
     },
     methods: {
       getLang () {
         const { lang } = this.$themeConfig
-        return lang || this.$store.state.settings.lang
+        return lang || 'en'
       },
       $l (key) {
         return this.getTranslation[key] || ''

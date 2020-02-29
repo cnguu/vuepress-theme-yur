@@ -16,6 +16,85 @@ module.exports = {
     zhihu: 'https://www.zhihu.com/people/gleehub',
     qq: 'tencent://message/?uin=642779596',
   },
+  locales: {
+    title: '星汉灿烂',
+    description: '书写生活与你',
+  },
+  navs: [
+    {
+      text: '编程技术',
+      link: '/program/',
+    },
+    {
+      text: '生活兴趣',
+      link: '/life/',
+    },
+    {
+      text: '软件工具',
+      link: '/tool/',
+    },
+    {
+      text: '其它',
+      link: '/other/',
+    },
+  ],
+  nameplate: {
+    title: 'Yur',
+  },
+  buttons: [
+    {
+      text: '阅读列表',
+      link: '/posts/',
+      type: 'primary',
+    },
+    {
+      text: '了解作者',
+      link: '/about.html',
+      type: 'default',
+    },
+  ],
+  footer: {
+    one: [
+      {
+        title: 'Yur',
+        subtitle: 'VuePress 主题',
+        link: 'https://github.com/cnguu/vuepress-theme-yur',
+      },
+      {
+        title: 'Yur Tool',
+        subtitle: '主题快速搭建工具',
+        link: 'https://github.com/ioim/vuepress-theme-yur-cli',
+      },
+    ],
+    two: [
+      {
+        title: '本站托管于 GitHub',
+        link: 'https://blog.cnguu.cn/',
+        type: 'cloud',
+        theme: 'filled',
+      },
+      {
+        title: '粤 ICP 备 17075980 号 - 4',
+        link: 'http://beian.miit.gov.cn',
+        type: 'flag',
+        theme: 'filled',
+      },
+    ],
+    three: [
+      {
+        title: '吐个槽',
+        link: 'https://support.qq.com/product/106316',
+        type: 'message',
+        theme: 'outlined',
+      },
+      {
+        title: '社区交流扣群：686025154',
+        link: '//shang.qq.com/wpa/qunwpa?idkey=c6afb0610ede557ae6920fc4cb31d652fde73d703203b261c6d2366544371776',
+        type: 'qq',
+        theme: 'outlined',
+      },
+    ],
+  },
   // ityped: {
   //   typeSpeed: 300,           // 正常速度
   //   backSpeed: 100,           // 反向速度
@@ -72,142 +151,4 @@ module.exports = {
   // },
   dark: true,
   // cdn: 'https://cdn.jsdelivr.net/gh/cnguu/cnguu.github.io@master/',
-  en: {
-    locales: {
-      title: 'Stars so bright',
-      description: 'Writing life with you',
-    },
-    navs: [
-      {
-        text: 'One',
-        link: '/one/',
-      },
-      {
-        text: 'Two',
-        link: '/two/',
-      },
-    ],
-    nameplate: {
-      title: 'Yur',
-    },
-    buttons: [
-      {
-        text: 'Read',
-        link: '/posts/',
-        type: 'primary',
-      },
-      {
-        text: 'About',
-        link: '/about.html',
-        type: 'default',
-      },
-    ],
-    footer: {
-      // icon: '/20171231/footer.png',
-      one: [
-        {
-          title: 'Yur',
-          subtitle: 'VuePress Theme',
-          link: 'https://github.com/cnguu/vuepress-theme-yur',
-        },
-      ],
-      two: [
-        {
-          title: 'Hosted On GitHub',
-          link: 'https://github.com/',
-          type: 'cloud',
-          theme: 'filled',
-        },
-      ],
-      three: [
-        {
-          title: 'Gitter',
-          link: 'https://gitter.im/vuepress-theme/yur?utm_source=share-link&utm_medium=link&utm_campaign=share-link',
-          type: 'message',
-          theme: 'outlined',
-        },
-      ],
-    },
-  },
-  'zh-CN': {
-    locales: {
-      title: '星汉灿烂',
-      description: '书写生活与你',
-    },
-    navs: [
-      {
-        text: '编程技术',
-        link: '/program/',
-      },
-      {
-        text: '生活兴趣',
-        link: '/life/',
-      },
-      {
-        text: '软件工具',
-        link: '/tool/',
-      },
-      {
-        text: '其它',
-        link: '/other/',
-      },
-    ],
-    nameplate: {
-      title: 'Yur',
-    },
-    buttons: [
-      {
-        text: '阅读列表',
-        link: '/posts/',
-        type: 'primary',
-      },
-      {
-        text: '了解作者',
-        link: '/about.html',
-        type: 'default',
-      },
-    ],
-    footer: {
-      one: [
-        {
-          title: 'Yur',
-          subtitle: 'VuePress 主题',
-          link: 'https://github.com/cnguu/vuepress-theme-yur',
-        },
-        {
-          title: 'Yur Tool',
-          subtitle: '主题快速搭建工具',
-          link: 'https://github.com/ioim/vuepress-theme-yur-cli',
-        },
-      ],
-      two: [
-        {
-          title: '本站托管于 GitHub',
-          link: 'https://blog.cnguu.cn/',
-          type: 'cloud',
-          theme: 'filled',
-        },
-        {
-          title: '粤 ICP 备 17075980 号 - 4',
-          link: 'http://beian.miit.gov.cn',
-          type: 'flag',
-          theme: 'filled',
-        },
-      ],
-      three: [
-        {
-          title: '吐个槽',
-          link: 'https://support.qq.com/product/106316',
-          type: 'message',
-          theme: 'outlined',
-        },
-        {
-          title: '社区交流扣群：686025154',
-          link: '//shang.qq.com/wpa/qunwpa?idkey=c6afb0610ede557ae6920fc4cb31d652fde73d703203b261c6d2366544371776',
-          type: 'qq',
-          theme: 'outlined',
-        },
-      ],
-    },
-  },
 }

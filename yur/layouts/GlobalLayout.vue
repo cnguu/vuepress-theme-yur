@@ -51,7 +51,7 @@ export default {
   },
   computed: {
     locale () {
-      if (this.$store.state.settings.lang === 'zh-CN') {
+      if (this.getLang() === 'zh-CN') {
         return zhCN
       } else {
         return enGB
@@ -103,7 +103,7 @@ export default {
   },
   methods: {
     handleInit () {
-      const { dark } = this.$config
+      const { dark } = this.$themeConfig
       if (dark) {
         this.dark = true
       }

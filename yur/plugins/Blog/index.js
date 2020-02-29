@@ -4,7 +4,7 @@ import { yearWithMonth } from '@theme/utils/time'
 export default function blog (Vue) {
   Vue.mixin({
     created () {
-      const { post: { cover } } = this.$config
+      const { post: { cover } } = this.$themeConfig
       if (!this.$posts) {
         const today = new Date().toLocaleDateString()
         const { pages } = this.$site
@@ -38,7 +38,7 @@ export default function blog (Vue) {
             }
             if (path) {
               post.category = getCurrentPage(path)
-              post.categoryText = getCategoryText(this.$config.navs, post.category)
+              post.categoryText = getCategoryText(this.$themeConfig.navs, post.category)
             }
           }
           postsByUpdated = JSON.parse(JSON.stringify(posts))
@@ -54,7 +54,7 @@ export default function blog (Vue) {
       }
 
       if (!this.$categories) {
-        const { navs } = this.$config
+        const { navs } = this.$themeConfig
         const categories = {}
         if (navs && navs.length) {
           navs.forEach(nav => {

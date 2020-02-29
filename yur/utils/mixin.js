@@ -8,7 +8,7 @@ export default () => {
     },
     computed: {
       $lang () { // ssr
-        const { lang } = this.$config
+        const { lang } = this.$themeConfig
         return lang || 'en'
       },
       $title () { // ssr

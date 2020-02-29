@@ -402,8 +402,7 @@ export default {
   },
   methods: {
     handleInit () {
-      const { logo, timeline, links, about, search } = this.$config
-      const { nameplate } = this.$config
+      const { logo, timeline, links, about, search, nameplate } = this.$themeConfig
       if (logo) {
         this.logo = this.$withBase(logo)
       }

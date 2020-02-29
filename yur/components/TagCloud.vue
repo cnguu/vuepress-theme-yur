@@ -35,7 +35,7 @@ export default {
   },
   computed: {
     tags () {
-      const { tagSize = 60 } = this.$config
+      const { tagSize = 60 } = this.$themeConfig
       if (this.tagList) {
         return this.tagList
       } else {

@@ -148,7 +148,7 @@ export default {
       }
       this.locale.emptyText = this.$l('noPosts')
 
-      const { post } = this.$config
+      const { post } = this.$themeConfig
       if (post) {
         const { pageSize, pageSizeOptions } = post
         if (pageSize) {

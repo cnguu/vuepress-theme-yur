@@ -77,7 +77,7 @@ export default {
   },
   methods: {
     handleInit () {
-      const { avatar, author, authorLink, social } = this.$config
+      const { avatar, author, authorLink, social } = this.$themeConfig
       if (avatar) {
         this.avatar = this.$withBase(avatar)
       }

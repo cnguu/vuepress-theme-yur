@@ -121,7 +121,7 @@ export default {
   },
   methods: {
     handleInit () {
-      const { search } = this.$config
+      const { search } = this.$themeConfig
       if (search) {
         this.search = Object.assign({}, this.search, search)
       }

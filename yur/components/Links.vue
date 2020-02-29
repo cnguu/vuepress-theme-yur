@@ -93,7 +93,7 @@ export default {
   },
   methods: {
     handleInit () {
-      const { links } = this.$config
+      const { links } = this.$themeConfig
       if (links && links.length) {
         this.links = links
       }

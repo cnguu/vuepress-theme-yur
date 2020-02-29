@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     initConfig () {
-      const { curtain } = this.$config
+      const { curtain } = this.$themeConfig
       if (curtain) {
         const { tip, textShadow } = curtain
         if (tip) {

@@ -19,7 +19,7 @@
         </div>
         <div class="fringe">
           <a-tooltip
-            v-if="this.$store.state.settings.lang === 'zh-CN'"
+            v-if="getLang() === 'zh-CN'"
             placement="top"
             class="word-count"
           >
@@ -208,7 +208,7 @@ export default {
   },
   methods: {
     handleInit () {
-      const { reward, post } = this.$config
+      const { reward, post } = this.$themeConfig
       if (reward) {
         this.reward = reward
       }

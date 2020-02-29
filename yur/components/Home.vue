@@ -93,8 +93,7 @@ export default {
   },
   methods: {
     handleInit () {
-      const { ityped } = this.$config
-      const { banner, buttons } = this.$config
+      const { ityped, banner, buttons } = this.$themeConfig
       if (banner) {
         this.banner = this.$withBase(banner)
       }
