@@ -27,6 +27,7 @@ const install = (Vue, { router }) => {
 
   router.afterEach(() => {
     if (typeof window === 'undefined') return
+    window.scrollTo(0, 0)
   })
 }
 
