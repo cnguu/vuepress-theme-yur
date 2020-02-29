@@ -19,16 +19,16 @@ export default {
     }
   },
   mounted () {
-    this.$nextTick(() => {
-      const mode = localStorage.getItem('mode') || this.$store.state.settings.mode
+    if (document) {
+      const mode = localStorage.getItem('mode') || 'light'
       if (mode === 'dark') {
         document.getElementsByTagName('body')[0].className = 'dark'
       } else {
         document.getElementsByTagName('body')[0].className = ''
       }
-      localStorage.setItem('mode', mode)
       this.mode = mode
-    })
+      localStorage.setItem('mode', mode)
+    }
   },
   methods: {
     changeMode (mode) {
@@ -37,12 +37,8 @@ export default {
       } else {
         document.getElementsByTagName('body')[0].className = ''
       }
-      localStorage.setItem('mode', mode)
       this.mode = mode
-      this.$store.dispatch('changeSetting', {
-        key: 'mode',
-        value: mode,
-      })
+      localStorage.setItem('mode', mode)
     },
   },
 }

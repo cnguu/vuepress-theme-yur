@@ -39,7 +39,7 @@ export default {
       if (this.tagList) {
         return this.tagList
       } else {
-        if (this.$store.state.routes.page === 'tags') {
+        if (this.$routePage === 'tags') {
           return shuffle(Object.keys(this.$tags))
         } else {
           return shuffle(Object.keys(this.$tags).slice(0, tagSize))

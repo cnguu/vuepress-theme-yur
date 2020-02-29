@@ -38,7 +38,7 @@
           class="tag"
         >
           <div
-            v-if="$store.state.routes.page === 'tags'"
+            v-if="$routePage === 'tags'"
             style="height: 22px"
           />
           <router-link
@@ -100,10 +100,10 @@ export default {
   },
   computed: {
     dataSource () {
-      if (Object.keys(this.$categories).includes(this.$store.state.routes.page)) {
-        return this.$categories[this.$store.state.routes.page]
-      } else if (Object.keys(this.$tags).includes(this.$store.state.routes.post)) {
-        return this.$tags[this.$store.state.routes.post]
+      if (Object.keys(this.$categories).includes(this.$routePage)) {
+        return this.$categories[this.$routePage]
+      } else if (Object.keys(this.$tags).includes(this.$routePost)) {
+        return this.$tags[this.$routePost]
       } else {
         return this.$posts
       }

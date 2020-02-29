@@ -1,7 +1,7 @@
 <template>
   <a-locale-provider :locale="locale">
     <div id="yur">
-      <Curtain v-show="$store.state.settings.curtain" />
+      <Curtain v-show="curtain" />
       <Header />
       <div id="main">
         <transition
@@ -46,12 +46,13 @@ export default {
   components: { Curtain, Header, Home, Posts, Tags, Tag, Search, Timeline, Links, About, Categories, Post, Password, Footer, Dark, Back, Page404 },
   data () {
     return {
+      curtain: false,
       dark: false,
     }
   },
   computed: {
     locale () {
-      if (this.getLang() === 'zh-CN') {
+      if (this.$lang === 'zh-CN') {
         return zhCN
       } else {
         return enGB
@@ -59,23 +60,22 @@ export default {
     },
     layout () {
       const { password } = this.$page
-      const { page, post } = this.$store.state.routes
       const categories = Object.keys(this.$categories)
       const tags = Object.keys(this.$tags)
-      if (page === '/') {
+      if (this.$routePage === '/') {
         return 'Home'
-      } else if (page === 'posts' && !post) {
+      } else if (this.$routePage === 'posts' && !this.$routePost) {
         return 'Posts'
-      } else if (page === 'tags') {
-        if (!post) {
+      } else if (this.$routePage === 'tags') {
+        if (!this.$routePost) {
           return 'Tags'
-        } else if (tags.includes(post)) {
+        } else if (tags.includes(this.$routePost)) {
           return 'Tag'
         }
-      } else if (['search', 'timeline', 'links', 'about', 'back'].includes(page)) {
-        return `${page.charAt(0).toUpperCase()}${page.slice(1)}`
-      } else if (categories.includes(page)) {
-        if (post) {
+      } else if (['search', 'timeline', 'links', 'about', 'back'].includes(this.$routePage)) {
+        return `${this.$routePage.charAt(0).toUpperCase()}${this.$routePage.slice(1)}`
+      } else if (categories.includes(this.$routePage)) {
+        if (this.$routePost) {
           if (password) {
             return 'Password'
           } else {
@@ -92,26 +92,17 @@ export default {
     this.handleInit()
   },
   mounted () {
-    this.$nextTick(() => {
-      setTimeout(() => {
-        this.$store.dispatch('changeSetting', {
-          key: 'curtain',
-          value: false,
-        })
-      }, this.getTimeOut())
-    })
+    this.curtain = false
   },
   methods: {
     handleInit () {
-      const { dark } = this.$themeConfig
+      const { dark, curtain } = this.$themeConfig
+      if (curtain) {
+        this.curtain = true
+      }
       if (dark) {
         this.dark = true
       }
-    },
-    getTimeOut () {
-      const endTime = new Date().getTime()
-      const diffTime = endTime - this.$store.state.settings.consoleTime
-      return Math.ceil((diffTime > 23000000 ? 0 : 23000000 - diffTime) / 10000)
     },
   },
 }

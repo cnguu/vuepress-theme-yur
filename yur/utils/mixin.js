@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import { getCurrentPage, getCurrentPost } from '@theme/utils'
 
 export default () => {
   Vue.mixin({
@@ -17,11 +18,20 @@ export default () => {
       $description () { // ssr
         return this.$l('description')
       },
+      $routePath () {
+        return this.$route.path
+      },
+      $routePage () {
+        return getCurrentPage(this.$route.path)
+      },
+      $routePost () {
+        return getCurrentPost(this.$route.path)
+      },
       $page () { // Override vuepress defaults
         const { pages } = this.$site
         for (let i = 0; i < pages.length; i++) {
           const page = pages[i]
-          if (page.path.toLowerCase() === this.$store.state.routes.path.toLowerCase()) {
+          if (page.path.toLowerCase() === this.$routePath.toLowerCase()) {
             return page
           }
         }

@@ -9,7 +9,7 @@
         <template slot="content">
           <div id="menu-mobile">
             <div
-              v-show="$store.state.routes.page !== 'search'"
+              v-show="$routePage !== 'search'"
               class="search"
               @click="handleMore"
             >
@@ -21,24 +21,33 @@
               class="menu"
             >
               <a-sub-menu
-                v-if="this.$navs.length"
+                v-if="$navs.length"
                 key="category"
               >
                 <span slot="title">{{ $l('category') }}</span>
                 <a-menu-item-group>
                   <a-menu-item
-                    v-for="nav in this.$navs"
+                    v-for="nav in $navs"
                     :key="nav.key"
                     @click="changeVisible"
                   >
-                    <router-link :to="nav.link">
+                    <a
+                      v-if="$route.path === nav.link"
+                      href="javascript:;"
+                    >
+                      {{ nav.text }}
+                    </a>
+                    <router-link
+                      v-else
+                      :to="nav.link"
+                    >
                       {{ nav.text }}
                     </router-link>
                   </a-menu-item>
                 </a-menu-item-group>
               </a-sub-menu>
               <a-menu-item
-                v-if="timeline"
+                v-show="timeline"
                 key="timeline"
                 @click="changeVisible"
               >
@@ -47,7 +56,7 @@
                 </router-link>
               </a-menu-item>
               <a-menu-item
-                v-if="links"
+                v-show="links"
                 key="links"
                 @click="changeVisible"
               >
@@ -56,7 +65,7 @@
                 </router-link>
               </a-menu-item>
               <a-menu-item
-                v-if="about"
+                v-show="about"
                 key="about"
                 @click="changeVisible"
               >
@@ -133,7 +142,7 @@
           :xs="0"
         >
           <div
-            v-show="$store.state.routes.page !== 'search'"
+            v-show="$routePage !== 'search'"
             class="search"
           >
             <a-icon
@@ -224,7 +233,7 @@
               class="menu"
             >
               <a-sub-menu
-                v-if="this.$navs.length"
+                v-if="$navs.length"
                 key="category"
               >
                 <span
@@ -238,10 +247,19 @@
                 </span>
                 <a-menu-item-group>
                   <a-menu-item
-                    v-for="nav in this.$navs"
+                    v-for="nav in $navs"
                     :key="nav.key"
                   >
-                    <router-link :to="nav.link">
+                    <a
+                      v-if="$route.path === nav.link"
+                      href="javascript:;"
+                    >
+                      {{ nav.text }}
+                    </a>
+                    <router-link
+                      v-else
+                      :to="nav.link"
+                    >
                       {{ nav.text }}
                     </router-link>
                   </a-menu-item>
@@ -394,7 +412,7 @@ export default {
   },
   computed: {
     currentPage () {
-      return [this.$store.state.routes.page]
+      return [this.$routePage]
     },
   },
   created () {

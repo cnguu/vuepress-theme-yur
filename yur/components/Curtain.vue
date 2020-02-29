@@ -25,12 +25,6 @@ export default {
   created () {
     this.initConfig()
   },
-  mounted () {
-    this.$store.dispatch('changeSetting', {
-      key: 'consoleTime',
-      value: new Date().getTime(),
-    })
-  },
   methods: {
     initConfig () {
       const { curtain } = this.$themeConfig

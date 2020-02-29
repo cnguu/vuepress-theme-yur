@@ -8,7 +8,7 @@
           </Router-link>
         </a-breadcrumb-item>
         <a-breadcrumb-item>
-          <span>{{ $store.state.routes.post }}</span>
+          <span>{{ $routePost }}</span>
         </a-breadcrumb-item>
       </a-breadcrumb>
     </div>

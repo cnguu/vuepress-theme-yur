@@ -19,7 +19,7 @@
         </div>
         <div class="fringe">
           <a-tooltip
-            v-if="getLang() === 'zh-CN'"
+            v-if="$lang === 'zh-CN'"
             placement="top"
             class="word-count"
           >
