@@ -25,7 +25,6 @@ export default {
           securityLevel: 'strict',
           startOnLoad: true,
           arrowMarkerAbsolute: false,
-
           flowchart: {
             htmlLabels: true,
             curve: 'linear',

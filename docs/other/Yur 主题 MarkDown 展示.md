@@ -233,6 +233,7 @@ pie title Pets adopted by volunteers
 ```
 
 > [KaTeX](https://github.com/KaTeX/KaTeX)
+>
 > [Mermaid](https://github.com/knsv/mermaid)
 
 ---
