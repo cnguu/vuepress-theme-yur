@@ -101,6 +101,15 @@ console.log('Yur');
 ## 引用
 
 > 这是引用 >
+>> 引用嵌套
+>>> 禁止套娃
+
+## 强调
+
+- **加粗**
+- *斜体*
+- ***斜体加粗***
+- ~~删除线~~
 
 ## 小图标
 
@@ -109,5 +118,33 @@ console.log('Yur');
 <Icon name="man" color="#39c5bb" />
 
 <Icon name="woman" size="2em" />
+
+## 数学公式
+
+$\sqrt{3x-1}+(1+x)^2$
+
+$$ f(x) = \int _{-\infty}^\infty \hat f(\xi)\, e^{2 \pi i \xi x} \, d\xi$$
+
+$$
+\begin{array}{c}
+\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
+= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
+\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
+\nabla \cdot \vec{\mathbf{B}} & = 0
+\end{array}
+$$
+
+$$
+\partial_t W + m_x[\partial_x(Uw) + \partial_y(Vw)] + \partial_\eta(\Omega w) - m^{-1}_y g [(\alpha / \alpha_d)\partial_\eta p - \mu_d] = F_W
+\tag{2.20}
+$$
+
+$$ \partial_t \Theta_m + m_x m_y[\partial_x(U\Theta_m) + \partial_y(V\Theta_m)] + m_y\partial_\eta(\Omega\Theta_m) = F_{\Theta_m} \tag{2.21} $$
+
+$$ \partial_t\mu_d + m_x m_y[Ux + Vy] + m_y\partial_\eta(\Omega) = 0 \tag{2.22} $$
+
+$$ \partial_t\phi + \mu^{-1}_d [m_x m_y(U\partial_x\phi + V \partial_y\phi) + m_y\Omega\partial_\eta\phi-m_ygW] = 0 \tag{2.23} $$
+
+$$ \partial_t Q_m + m_x m_y[\partial_x(Uq_m) + \partial_y(Vq_m)] + m_y\partial_\eta(\Omega q_m) = F_{Q_m} \tag{2.24} $$
 
 ---
