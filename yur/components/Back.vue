@@ -1,6 +1,7 @@
 <template>
   <div id="back" />
 </template>
+
 <script>
 export default {
   name: 'Back',

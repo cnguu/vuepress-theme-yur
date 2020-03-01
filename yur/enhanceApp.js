@@ -5,6 +5,7 @@ import Blog from '@theme/plugins/Blog'
 import customer from '@theme/plugins/PartyC/customer'
 import baiDu from '@theme/plugins/PartyC/baiDu'
 import Ant from 'ant-design-vue/es'
+import Mermaid from '@theme/components/Mermaid'
 import 'ant-design-vue/dist/antd.less'
 import '@theme/styles/index.less'
 
@@ -16,6 +17,7 @@ export default ({ Vue, options, router, siteData }) => {
   customer(router, siteData)
   baiDu(router, siteData)
   Vue.use(Ant)
+  Vue.component('mermaid', Mermaid)
 }
 
 if (process.env.NODE_ENV === 'production' && typeof window !== 'undefined') {

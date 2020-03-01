@@ -1,5 +1,3 @@
-'use strict'
-
 const katex = require('katex')
 
 const isValidDelimiter = (state, pos) => {
@@ -28,7 +26,9 @@ const mathInline = (state, silent) => {
 
   let res = isValidDelimiter(state, state.pos)
   if (!res.canOpen) {
-    if (!silent) { state.pending += '$' }
+    if (!silent) {
+      state.pending += '$'
+    }
     state.pos += 1
     return true
   }
