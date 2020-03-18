@@ -408,11 +408,12 @@ export default {
         type: 'default',
         size: 10,
       },
+      currentPage: ['/'],
     }
   },
-  computed: {
-    currentPage () {
-      return [this.$routePage]
+  watch: {
+    $route (to, from) {
+      this.currentPage = [this.$routePage]
     },
   },
   created () {

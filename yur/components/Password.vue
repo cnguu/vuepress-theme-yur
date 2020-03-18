@@ -34,7 +34,7 @@ export default {
       pwd: '',
     }
   },
-  created () {
+  mounted () {
     this.$notification.info({
       message: this.$l('pwdInfoMsg'),
       description: this.$l('pwdInfoDesc'),

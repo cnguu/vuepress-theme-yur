@@ -59,9 +59,6 @@ export default {
       }
     },
     layout () {
-      const { password } = this.$page
-      const categories = Object.keys(this.$categories)
-      const tags = Object.keys(this.$tags)
       if (this.$routePage === '/') {
         return 'Home'
       } else if (this.$routePage === 'posts' && !this.$routePost) {
@@ -69,14 +66,14 @@ export default {
       } else if (this.$routePage === 'tags') {
         if (!this.$routePost) {
           return 'Tags'
-        } else if (tags.includes(this.$routePost)) {
+        } else if (Object.keys(this.$tags).includes(this.$routePost)) {
           return 'Tag'
         }
       } else if (['search', 'timeline', 'links', 'about', 'back'].includes(this.$routePage)) {
         return `${this.$routePage.charAt(0).toUpperCase()}${this.$routePage.slice(1)}`
-      } else if (categories.includes(this.$routePage)) {
+      } else if (Object.keys(this.$categories).includes(this.$routePage)) {
         if (this.$routePost) {
-          if (password) {
+          if (this.$page && this.$page.password) {
             return 'Password'
           } else {
             return 'Post'

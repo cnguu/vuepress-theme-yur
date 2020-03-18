@@ -9,6 +9,9 @@ module.exports = (opts, ctx) => {
   const { baiDu, cdn } = themeConfig
   return {
     name: 'vuepress-theme-yur',
+    enhanceAppFiles: [
+      path.resolve(__dirname, 'enhanceApp.js'),
+    ],
     chainWebpack (config, isServer) {
       config.module
         .rule('less')

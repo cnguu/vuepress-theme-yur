@@ -19,16 +19,14 @@ export default {
     }
   },
   mounted () {
-    if (document) {
-      const mode = localStorage.getItem('mode') || 'light'
-      if (mode === 'dark') {
-        document.getElementsByTagName('body')[0].className = 'dark'
-      } else {
-        document.getElementsByTagName('body')[0].className = ''
-      }
-      this.mode = mode
-      localStorage.setItem('mode', mode)
+    const mode = localStorage.getItem('mode') || 'light'
+    if (mode === 'dark') {
+      document.getElementsByTagName('body')[0].className = 'dark'
+    } else {
+      document.getElementsByTagName('body')[0].className = ''
     }
+    this.mode = mode
+    localStorage.setItem('mode', mode)
   },
   methods: {
     changeMode (mode) {
