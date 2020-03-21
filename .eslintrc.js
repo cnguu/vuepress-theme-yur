@@ -1,34 +1,22 @@
 module.exports = {
-  env: {
-    browser: true,
-    es6: true,
-  },
-  extends: [
-    'standard',
-    'plugin:vue/recommended',
-  ],
-  globals: {
-    Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly',
-  },
+  root: true,
   parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: 'module',
-    parser: 'babel-eslint',
+    parser: "babel-eslint",
+    sourceType: "module"
   },
-  plugins: [
-    'vue',
-  ],
+  env: {
+    browser: true
+  },
+  extends: ["prettier", "plugin:vue/essential"],
+  plugins: ["vue"],
+  globals: {
+    ga: true,
+    __statics: true,
+    process: true,
+    chrome: true
+  },
   rules: {
-    'dot-notation': [
-      'error',
-      {
-        'allowPattern': '^$',
-      },
-    ],
-    'comma-dangle': [
-      'error',
-      'always-multiline',
-    ],
-  },
-}
+    "prefer-promise-reject-errors": "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
+  }
+};

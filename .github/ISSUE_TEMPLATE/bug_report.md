@@ -30,8 +30,8 @@ A clear and concise description of what you expected to happen.
 
 ## Environment (please complete the following information):
 
- - Theme Version: [e.g. v1.0.0]
- - Vuepress Version: [e.g. v1.2.0]
+ - Theme Version: [e.g. v3.0.0]
+ - Vuepress Version: [e.g. v1.4.0]
  - OS: [e.g. Windows 10, iOS, Android]
  - Browser: [e.g. chrome 74]
 

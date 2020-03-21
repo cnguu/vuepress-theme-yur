@@ -1,22 +1,14 @@
-const path = require('path')
-const head = require('./config/head')
-const themeConfig = require('./config/themeConfig')
-const plugins = require('./config/plugins')
+const path = require("path");
 
 module.exports = {
-  base: '/test/',
-  head,
+  base: "/base/",
   evergreen: true,
-  theme: path.resolve(__dirname, '../../yur'),
-  themeConfig,
-  plugins,
+  theme: path.resolve(__dirname, "../../yur"),
   markdown: {
-    lineNumbers: true,
+    lineNumbers: true
   },
-  host: 'localhost',
+  host: "localhost",
   port: 2234,
-  dest: 'public',
-  extraWatchFiles: [
-    '/docs/.vuepress/config.js',
-  ],
-}
+  dest: "public",
+  extraWatchFiles: ["/docs/.vuepress/config.js"]
+};
