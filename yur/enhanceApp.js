@@ -1,8 +1,10 @@
+import Mixin from "@theme/utils/mixin";
 import Translation from "@theme/plugins/Translation";
 import Ant from "ant-design-vue";
 import "@theme/styles/index.less";
 
 export default ({ Vue, options, router, siteData }) => {
+  Vue.use(Mixin);
   Vue.use(Translation);
   Vue.use(Ant);
 };

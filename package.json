@@ -29,6 +29,9 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
+    "@vue/babel-preset-jsx": "^1.1.2",
+    "@vuepress/plugin-blog": "^1.9.2",
     "ant-design-vue": "^1.4.12",
     "core-js": "^2.6.11",
     "crypto-js": "^4.0.0",
@@ -44,6 +47,7 @@
     "eslint-config-prettier": "^4.0.0",
     "eslint-loader": "^3.0.3",
     "eslint-plugin-vue": "^6.1.2",
+    "resize-observer-polyfill": "^1.5.1",
     "vuepress-plugin-serve": "^2.0.1"
   },
   "engines": {

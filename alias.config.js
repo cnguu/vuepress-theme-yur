@@ -10,8 +10,8 @@ const resolve = dir => require("path").join(__dirname, dir);
 module.exports = {
   resolve: {
     alias: {
-      "@theme": resolve("yur"),
-      "@us": resolve("docs")
+      "@theme": resolve("./yur"),
+      "@us": resolve("./docs")
     }
   }
 };

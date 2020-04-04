@@ -6,7 +6,42 @@ const { slugify } = require("transliteration");
 module.exports = (opts, ctx) => {
   const { sep } = path;
   const { themeConfig, sourceDir } = ctx;
-  const { pinYin, cdn } = themeConfig;
+  const { pinYin, cdn, hostname, pageSize = 12 } = themeConfig;
+
+  const blog = {
+    directories: [
+      {
+        id: "posts",
+        dirname: "posts",
+        path: "/"
+      }
+    ],
+    frontmatters: [
+      {
+        id: "tags",
+        keys: ["tags"],
+        path: "/tags/",
+        layout: "Tags"
+      },
+      {
+        id: "categories",
+        keys: ["categories"],
+        path: "/categories/",
+        layout: "Categories"
+      }
+    ],
+    globalPagination: {
+      lengthPerPage: pageSize
+    }
+  };
+  if (hostname) {
+    blog.push({
+      sitemap: {
+        hostname
+      }
+    });
+  }
+
   return {
     name: "vuepress-theme-yur",
     enhanceAppFiles: [path.resolve(__dirname, "enhanceApp.js")],
@@ -22,6 +57,19 @@ module.exports = (opts, ctx) => {
         .use("less-loader")
         .options({ javascriptEnabled: true });
 
+      config.module
+        .rule("js")
+        .test(/\.js$/)
+        .exclude.add(/node_modules/)
+        .end()
+        .use("babel-loader")
+        .loader("babel-loader")
+        .options({
+          babelrc: false,
+          configFile: false,
+          presets: [require.resolve("@vue/babel-preset-jsx")]
+        });
+
       if (cdn && process.env.NODE_ENV === "production") {
         config.output.publicPath(cdn);
       }
@@ -31,78 +79,7 @@ module.exports = (opts, ctx) => {
         "@us": `${sourceDir}${sep}.vuepress${sep}styles`
       };
     },
-    plugins: [
-      [
-        "container",
-        {
-          type: "primary",
-          defaultTitle: ""
-        }
-      ],
-      [
-        "container",
-        {
-          type: "primaryLong",
-          defaultTitle: ""
-        }
-      ],
-      [
-        "container",
-        {
-          type: "success",
-          defaultTitle: ""
-        }
-      ],
-      [
-        "container",
-        {
-          type: "successLong",
-          defaultTitle: ""
-        }
-      ],
-      [
-        "container",
-        {
-          type: "tip",
-          defaultTitle: ""
-        }
-      ],
-      [
-        "container",
-        {
-          type: "tipLong",
-          defaultTitle: ""
-        }
-      ],
-      [
-        "container",
-        {
-          type: "warning",
-          defaultTitle: ""
-        }
-      ],
-      [
-        "container",
-        {
-          type: "warningLong",
-          defaultTitle: ""
-        }
-      ],
-      [
-        "container",
-        {
-          type: "error",
-          defaultTitle: ""
-        }
-      ],
-      [
-        "container",
-        {
-          type: "errorLong",
-          defaultTitle: ""
-        }
-      ]
-    ],
+    plugins: [["@vuepress/blog", blog]],
     extendPageData($page) {
       // const { _filePath, _computed, _content, _strippedContent, key, frontmatter, regularPath, path } = $page
       const { _content, _strippedContent, frontmatter, path } = $page;

@@ -20,5 +20,3 @@ export default {
   name: "Page404"
 };
 </script>
-
-<style lang="less" scoped></style>
