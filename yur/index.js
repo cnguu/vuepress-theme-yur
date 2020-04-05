@@ -28,6 +28,13 @@ module.exports = (opts, ctx) => {
         keys: ["categories"],
         path: "/categories/",
         layout: "Categories"
+      },
+      {
+        id: "page404",
+        keys: ["page404"],
+        path: "/404.html",
+        layout: "Page404",
+        scopeLayout: "Page404"
       }
     ],
     globalPagination: {
