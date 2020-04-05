@@ -1,10 +1,12 @@
 const path = require("path");
+const themeConfig = require("./config/themeConfig");
 const plugins = require("./config/plugins");
 
 module.exports = {
   base: "/base/",
   evergreen: true,
   theme: path.resolve(__dirname, "../../yur"),
+  themeConfig,
   plugins,
   markdown: {
     lineNumbers: true

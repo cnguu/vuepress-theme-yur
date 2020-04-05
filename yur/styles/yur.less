@@ -1,5 +1,34 @@
 #yur {
   #header {
+    width: 100%;
+    height: 64px;
+
+    .header-container {
+      margin: 0 auto;
+      padding: 6px;
+      width: 100%;
+      max-width: 1440px;
+      height: 100%;
+      line-height: 52px;
+
+      &-logo {
+        width: fit-content;
+        height: 100%;
+
+        img {
+          width: 100%;
+          max-width: 36px;
+
+          & + svg {
+            margin-left: 6px;
+          }
+        }
+
+        svg {
+          vertical-align: middle;
+        }
+      }
+    }
   }
 
   #main {
