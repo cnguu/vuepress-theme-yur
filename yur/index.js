@@ -6,7 +6,15 @@ const { slugify } = require("transliteration");
 module.exports = (opts, ctx) => {
   const { sep } = path;
   const { themeConfig, sourceDir } = ctx;
-  const { pinYin, cdn, hostname, pageSize = 12 } = themeConfig;
+  const {
+    archives,
+    links,
+    about,
+    pinYin,
+    cdn,
+    hostname,
+    pageSize = 12
+  } = themeConfig;
 
   const blog = {
     directories: [
@@ -41,6 +49,33 @@ module.exports = (opts, ctx) => {
       lengthPerPage: pageSize
     }
   };
+  if (archives) {
+    blog.frontmatters.push({
+      id: "archives",
+      keys: ["archives"],
+      path: "/archives.html",
+      layout: "Archives",
+      scopeLayout: "Archives"
+    });
+  }
+  if (links) {
+    blog.frontmatters.push({
+      id: "links",
+      keys: ["links"],
+      path: "/links.html",
+      layout: "Links",
+      scopeLayout: "Links"
+    });
+  }
+  if (about) {
+    blog.frontmatters.push({
+      id: "about",
+      keys: ["about"],
+      path: "/about.html",
+      layout: "About",
+      scopeLayout: "About"
+    });
+  }
   if (hostname) {
     blog.push({
       sitemap: {

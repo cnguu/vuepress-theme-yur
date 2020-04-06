@@ -25,8 +25,7 @@
     "build": "vuepress build docs",
     "dev": "vuepress dev docs",
     "lint": "eslint --ext .js,.vue yur",
-    "serve": "vuepress serve docs",
-    "test": "echo \"No test specified\" && exit 0"
+    "serve": "vuepress serve docs"
   },
   "dependencies": {
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",

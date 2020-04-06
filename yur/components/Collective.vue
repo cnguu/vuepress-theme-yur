@@ -1,5 +1,5 @@
 <template>
-  <a-locale-provider :locale="locale">
+  <a-config-provider :locale="locale">
     <Scrollbar>
       <div id="yur">
         <header id="header">
@@ -42,6 +42,40 @@
                 </svg>
               </router-link>
             </div>
+            <a-menu
+              class="header-container-menu"
+              :defaultSelectedKeys="menu"
+              mode="horizontal"
+            >
+              <a-menu-item
+                class="header-container-menu-item"
+                v-if="archives"
+                key="archives"
+              >
+                <router-link to="/archives.html">
+                  {{ $l("archives") }}
+                </router-link>
+              </a-menu-item>
+              <a-menu-item
+                class="header-container-menu-item"
+                v-if="links"
+                key="links"
+              >
+                <router-link to="/links.html">
+                  {{ $l("links") }}
+                </router-link>
+              </a-menu-item>
+              <a-menu-item
+                class="header-container-menu-item"
+                v-if="about"
+                key="about"
+              >
+                <router-link to="/about.html">
+                  {{ $l("about") }}
+                </router-link>
+              </a-menu-item>
+            </a-menu>
+            <div class="header-container-menu-mobile">todo</div>
           </div>
         </header>
         <main id="main">
@@ -50,11 +84,13 @@
           </transition>
         </main>
         <footer id="footer">
-          <div>footer</div>
+          <div>
+            footer
+          </div>
         </footer>
       </div>
     </Scrollbar>
-  </a-locale-provider>
+  </a-config-provider>
 </template>
 
 <script>
@@ -64,9 +100,9 @@ import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
 export default {
   name: "Collective",
   props: {
-    component: {
-      type: String,
-      default: "Home"
+    menu: {
+      type: Array,
+      default: () => ["/"]
     }
   },
   data() {
@@ -158,7 +194,10 @@ export default {
             }
           }
         ]
-      }
+      },
+      archives: false,
+      links: false,
+      about: false
     };
   },
   computed: {
@@ -170,7 +209,9 @@ export default {
       }
     },
     layout() {
-      return () => import(`@theme/components/${this.component}`);
+      const { layout } = this.$frontmatter;
+      return () =>
+        import(`@theme/components/${layout === "Layout" ? "Home" : layout}`);
     }
   },
   created() {
@@ -178,7 +219,7 @@ export default {
   },
   methods: {
     handleInit() {
-      const { logo, nameplate } = this.$themeConfig;
+      const { logo, nameplate, archives, links, about } = this.$themeConfig;
       if (logo) {
         this.logo = this.$withBase(logo);
       }
@@ -186,6 +227,15 @@ export default {
         this.nameplate = Object.assign({}, this.nameplate, nameplate);
       } else {
         this.nameplate = null;
+      }
+      if (archives) {
+        this.archives = true;
+      }
+      if (links) {
+        this.links = true;
+      }
+      if (about) {
+        this.about = true;
       }
     }
   }
