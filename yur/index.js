@@ -38,6 +38,13 @@ module.exports = (opts, ctx) => {
         layout: "Categories"
       },
       {
+        id: "search",
+        keys: ["search"],
+        path: "/search.html",
+        layout: "Search",
+        scopeLayout: "Search"
+      },
+      {
         id: "page404",
         keys: ["page404"],
         path: "/404.html",

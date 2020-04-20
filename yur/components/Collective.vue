@@ -75,7 +75,48 @@
                 </router-link>
               </a-menu-item>
             </a-menu>
-            <div class="header-container-menu-mobile">todo</div>
+            <div class="header-container-menu-mobile" ref="menu-mobile">
+              <a-popover
+                v-model="visible"
+                trigger="click"
+                placement="leftTop"
+                :getPopupContainer="() => $refs['menu-mobile']"
+                overlayClassName="header-container-menu-mobile-popover"
+              >
+                <template slot="content">
+                  <a-menu :defaultSelectedKeys="menu" mode="inline">
+                    <a-menu-item
+                      v-if="archives"
+                      key="archives"
+                      @click="changeVisible"
+                    >
+                      <router-link to="/archives.html">
+                        {{ $l("archives") }}
+                      </router-link>
+                    </a-menu-item>
+                    <a-menu-item
+                      v-if="links"
+                      key="links"
+                      @click="changeVisible"
+                    >
+                      <router-link to="/links.html">
+                        {{ $l("links") }}
+                      </router-link>
+                    </a-menu-item>
+                    <a-menu-item
+                      v-if="about"
+                      key="about"
+                      @click="changeVisible"
+                    >
+                      <router-link to="/about.html">
+                        {{ $l("about") }}
+                      </router-link>
+                    </a-menu-item>
+                  </a-menu>
+                </template>
+                <a-icon type="align-right" />
+              </a-popover>
+            </div>
           </div>
         </header>
         <main id="main">
@@ -197,7 +238,8 @@ export default {
       },
       archives: false,
       links: false,
-      about: false
+      about: false,
+      visible: false
     };
   },
   computed: {
@@ -237,6 +279,9 @@ export default {
       if (about) {
         this.about = true;
       }
+    },
+    changeVisible() {
+      this.visible = false;
     }
   }
 };

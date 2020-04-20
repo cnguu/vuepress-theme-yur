@@ -43,14 +43,11 @@
           border-bottom: none;
           vertical-align: middle;
           border-radius: @border-radius-base;
-          transition: box-shadow 0.3s @ease-out;
+          transition: box-shadow 0.3s @ease-in-out;
 
           &:hover {
             border-bottom: none;
-
-            &:not(.ant-menu-item-selected) {
-              box-shadow: @box-shadow-yur;
-            }
+            box-shadow: @box-shadow-yur;
           }
 
           &.ant-menu-item-selected {
@@ -60,6 +57,39 @@
 
         &-mobile {
           display: none;
+
+          &-popover {
+            .ant-popover-arrow {
+              display: none;
+            }
+
+            .ant-popover-inner {
+              box-shadow: @box-shadow-yur;
+
+              .ant-menu-inline {
+                border-right: none;
+                text-align: center;
+
+                .ant-menu-item {
+                  width: 100%;
+                  padding: 0 24px;
+
+                  &:active {
+                    background-color: transparent;
+                  }
+
+                  &-selected {
+                    background-color: transparent;
+                    box-shadow: @box-shadow-yur;
+
+                    &::after {
+                      border-right: none;
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
