@@ -60,11 +60,6 @@ module.exports = {
         subtitle: 'VuePress 主题',
         link: 'https://github.com/cnguu/vuepress-theme-yur',
       },
-      {
-        title: 'Yur Tool',
-        subtitle: '主题快速搭建工具',
-        link: 'https://github.com/ioim/vuepress-theme-yur-cli',
-      },
     ],
     two: [
       {

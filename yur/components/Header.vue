@@ -442,6 +442,7 @@ export default {
       if (search) {
         this.search = Object.assign({}, this.search, search)
       }
+      this.currentPage = [this.$routePage]
     },
     changeVisible () {
       this.visible = false
