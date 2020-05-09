@@ -1,11 +1,9 @@
 <template>
-  <div>
-    archives
-  </div>
+  <div>search</div>
 </template>
 
 <script>
 export default {
-  name: "Archives"
+  name: "Search"
 };
 </script>

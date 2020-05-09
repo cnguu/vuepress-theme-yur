@@ -49,15 +49,6 @@
             >
               <a-menu-item
                 class="header-container-menu-item"
-                v-if="archives"
-                key="archives"
-              >
-                <router-link to="/archives.html">
-                  {{ $l("archives") }}
-                </router-link>
-              </a-menu-item>
-              <a-menu-item
-                class="header-container-menu-item"
                 v-if="links"
                 key="links"
               >
@@ -85,15 +76,6 @@
               >
                 <template slot="content">
                   <a-menu :defaultSelectedKeys="menu" mode="inline">
-                    <a-menu-item
-                      v-if="archives"
-                      key="archives"
-                      @click="changeVisible"
-                    >
-                      <router-link to="/archives.html">
-                        {{ $l("archives") }}
-                      </router-link>
-                    </a-menu-item>
                     <a-menu-item
                       v-if="links"
                       key="links"
@@ -236,7 +218,6 @@ export default {
           }
         ]
       },
-      archives: false,
       links: false,
       about: false,
       visible: false
@@ -261,7 +242,7 @@ export default {
   },
   methods: {
     handleInit() {
-      const { logo, nameplate, archives, links, about } = this.$themeConfig;
+      const { logo, nameplate, links, about } = this.$themeConfig;
       if (logo) {
         this.logo = this.$withBase(logo);
       }
@@ -269,9 +250,6 @@ export default {
         this.nameplate = Object.assign({}, this.nameplate, nameplate);
       } else {
         this.nameplate = null;
-      }
-      if (archives) {
-        this.archives = true;
       }
       if (links) {
         this.links = true;

@@ -6,7 +6,6 @@ module.exports = {
     width: "36px",
     height: "26px"
   },
-  archives: true,
   links: true,
   about: true
 };

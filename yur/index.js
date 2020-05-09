@@ -7,7 +7,6 @@ module.exports = (opts, ctx) => {
   const { sep } = path;
   const { themeConfig, sourceDir } = ctx;
   const {
-    archives,
     links,
     about,
     pinYin,
@@ -44,27 +43,11 @@ module.exports = (opts, ctx) => {
         layout: "Search",
         scopeLayout: "Search"
       },
-      {
-        id: "page404",
-        keys: ["page404"],
-        path: "/404.html",
-        layout: "Page404",
-        scopeLayout: "Page404"
-      }
     ],
     globalPagination: {
       lengthPerPage: pageSize
     }
   };
-  if (archives) {
-    blog.frontmatters.push({
-      id: "archives",
-      keys: ["archives"],
-      path: "/archives.html",
-      layout: "Archives",
-      scopeLayout: "Archives"
-    });
-  }
   if (links) {
     blog.frontmatters.push({
       id: "links",
