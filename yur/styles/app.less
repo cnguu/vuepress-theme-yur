@@ -3,3 +3,22 @@
   height: 100%;
   @import "./yur.less";
 }
+
+.header-container-menu-sub {
+  box-shadow: @box-shadow-yur;
+
+  .ant-menu {
+    &-vertical {
+      &.ant-menu-sub {
+        min-width: auto;
+        text-align: center;
+      }
+    }
+
+    &:not(.ant-menu-horizontal) {
+      .ant-menu-item-selected {
+        background: transparent;
+      }
+    }
+  }
+}

@@ -16,3 +16,20 @@ export function toObject(arr) {
   }
   return res;
 }
+
+export function hasOwn(obj, key) {
+  return Object.prototype.hasOwnProperty.call(obj, key);
+}
+
+export function getCategoryText(menuCategories, category) {
+  let res = "";
+  if (menuCategories.length && category) {
+    menuCategories.forEach(menuCategory => {
+      const { text, link } = menuCategory;
+      if (link === category) {
+        res = text;
+      }
+    });
+  }
+  return res;
+}

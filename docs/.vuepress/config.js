@@ -4,7 +4,7 @@ const plugins = require("./config/plugins");
 
 module.exports = {
   base: "/base/",
-  evergreen: true,
+  evergreen: false,
   theme: path.resolve(__dirname, "../../yur"),
   themeConfig,
   plugins,

@@ -47,6 +47,36 @@
               :defaultSelectedKeys="menu"
               mode="horizontal"
             >
+              <a-sub-menu
+                v-if="menuCategories.length"
+                class="header-container-menu-item"
+                key="categories"
+                popupClassName="header-container-menu-sub"
+              >
+                <span slot="title">
+                  <span>
+                    {{ $l("categories") }}
+                    <a-icon
+                      type="caret-down"
+                      class="header-container-menu-sub-icon"
+                    />
+                  </span>
+                </span>
+                <a-menu-item
+                  v-for="menuCategory in _menuCategories"
+                  :key="menuCategory.link"
+                >
+                  <a
+                    v-if="$route.path === `/${menuCategory.link}/`"
+                    href="javascript:;"
+                  >
+                    {{ menuCategory.text }}
+                  </a>
+                  <router-link v-else :to="`/${menuCategory.link}/`">
+                    {{ menuCategory.text }}
+                  </router-link>
+                </a-menu-item>
+              </a-sub-menu>
               <a-menu-item
                 class="header-container-menu-item"
                 v-if="links"
@@ -218,6 +248,8 @@ export default {
           }
         ]
       },
+      menuCategories: [],
+      menuOthers: [],
       links: false,
       about: false,
       visible: false
@@ -242,7 +274,14 @@ export default {
   },
   methods: {
     handleInit() {
-      const { logo, nameplate, links, about } = this.$themeConfig;
+      const {
+        logo,
+        nameplate,
+        links,
+        about,
+        menuCategories,
+        menuOthers
+      } = this.$themeConfig;
       if (logo) {
         this.logo = this.$withBase(logo);
       }
@@ -256,6 +295,12 @@ export default {
       }
       if (about) {
         this.about = true;
+      }
+      if (menuCategories) {
+        this.menuCategories = menuCategories;
+      }
+      if (menuOthers) {
+        this.menuOthers = menuOthers;
       }
     },
     changeVisible() {

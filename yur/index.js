@@ -12,14 +12,15 @@ module.exports = (opts, ctx) => {
     pinYin,
     cdn,
     hostname,
-    pageSize = 12
+    pageSize = 12,
+    menuCategories
   } = themeConfig;
 
   const blog = {
     directories: [
       {
-        id: "posts",
-        dirname: "posts",
+        id: "home",
+        dirname: "/",
         path: "/"
       }
     ],
@@ -31,23 +32,31 @@ module.exports = (opts, ctx) => {
         layout: "Tags"
       },
       {
-        id: "categories",
-        keys: ["categories"],
-        path: "/categories/",
-        layout: "Categories"
-      },
-      {
         id: "search",
         keys: ["search"],
         path: "/search.html",
         layout: "Search",
         scopeLayout: "Search"
-      },
+      }
     ],
     globalPagination: {
       lengthPerPage: pageSize
     }
   };
+  if (menuCategories && menuCategories.length) {
+    menuCategories.forEach(menuCategory => {
+      const { link } = menuCategory;
+      if (link) {
+        blog.directories.push({
+          id: link,
+          dirname: link,
+          path: `/${link}/`,
+          layout: 'Categories',
+          itemPermalink: "/:regular",
+        });
+      }
+    });
+  }
   if (links) {
     blog.frontmatters.push({
       id: "links",
@@ -67,11 +76,9 @@ module.exports = (opts, ctx) => {
     });
   }
   if (hostname) {
-    blog.push({
-      sitemap: {
-        hostname
-      }
-    });
+    blog.sitemap = {
+      hostname
+    };
   }
 
   return {

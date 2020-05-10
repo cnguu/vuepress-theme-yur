@@ -3,5 +3,6 @@ module.exports = {
   description: "Writing life with you",
   backToHome: "Back To Home",
   links: "Links",
-  about: "About"
+  about: "About",
+  categories: "Categories"
 };
