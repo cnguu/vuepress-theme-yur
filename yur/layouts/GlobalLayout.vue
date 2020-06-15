@@ -44,7 +44,7 @@
             </div>
             <a-menu
               class="header-container-menu"
-              :defaultSelectedKeys="menu"
+              :selectedKeys="menu"
               mode="horizontal"
             >
               <a-sub-menu
@@ -105,7 +105,7 @@
                 overlayClassName="header-container-menu-mobile-popover"
               >
                 <template slot="content">
-                  <a-menu :defaultSelectedKeys="menu" mode="inline">
+                  <a-menu :selectedKeys="menu" mode="inline">
                     <a-menu-item
                       v-if="links"
                       key="links"
@@ -174,13 +174,7 @@ import enGB from "ant-design-vue/lib/locale-provider/en_GB";
 import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
 
 export default {
-  name: "Collective",
-  props: {
-    menu: {
-      type: Array,
-      default: () => ["/"]
-    }
-  },
+  name: "Yur",
   data() {
     return {
       logo: "",
@@ -287,9 +281,26 @@ export default {
       }
     },
     layout() {
+      const { path } = this.$page;
       const { layout } = this.$frontmatter;
-      return () =>
-        import(`@theme/components/${layout === "Layout" ? "Home" : layout}`);
+      if (path && path === "/") {
+        return () => import("@theme/components/Home");
+      }
+      if (!layout || !path || layout === "FrontmatterPagination") {
+        return "NotFound";
+      }
+      return () => import(`@theme/components/${layout}`);
+    },
+    menu() {
+      let menu = "/";
+      const { path } = this.$page;
+      const { layout } = this.$frontmatter;
+      if (layout && layout === "Categories") {
+        menu = path.split("/")[1];
+      } else if (path.length > 1) {
+        menu = layout.toLocaleLowerCase();
+      }
+      return [menu];
     }
   },
   created() {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    tags
+    <Content />
   </div>
 </template>
 

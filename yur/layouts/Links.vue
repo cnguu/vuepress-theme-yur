@@ -1,12 +1,15 @@
 <template>
-  <collective :menu="['links']" />
+  <links />
 </template>
 
 <script>
-import Collective from "@theme/components/Collective";
+import Links from "@theme/components/Links";
 
 export default {
   name: "Links",
-  components: { Collective }
+  components: { Links },
+  created() {
+    console.log(1);
+  }
 };
 </script>

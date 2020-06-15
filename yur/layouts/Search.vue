@@ -1,9 +1,12 @@
 <template>
-  <div>search</div>
+  <search />
 </template>
 
 <script>
+import Search from "@theme/components/Search";
+
 export default {
-  name: "Search"
+  name: "Search",
+  components: { Search }
 };
 </script>

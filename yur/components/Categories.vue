@@ -5,7 +5,5 @@
 </template>
 
 <script>
-export default {
-  name: "Categories"
-};
+export default {};
 </script>

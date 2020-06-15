@@ -1,12 +1,12 @@
 <template>
-  <collective :menu="['about']" />
+  <about />
 </template>
 
 <script>
-import Collective from "@theme/components/Collective";
+import About from "@theme/components/About";
 
 export default {
   name: "About",
-  components: { Collective }
+  components: { About }
 };
 </script>

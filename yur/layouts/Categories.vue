@@ -1,12 +1,12 @@
 <template>
-  <collective :menu="[this.$route.path.split('/')[1]]" />
+  <categories />
 </template>
 
 <script>
-import Collective from "@theme/components/Collective";
+import Categories from "@theme/components/Categories";
 
 export default {
   name: "Categories",
-  components: { Collective }
+  components: { Categories }
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    tags
+    search
   </div>
 </template>
 

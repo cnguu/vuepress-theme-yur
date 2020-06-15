@@ -17,13 +17,7 @@ module.exports = (opts, ctx) => {
   } = themeConfig;
 
   const blog = {
-    directories: [
-      {
-        id: "home",
-        dirname: "/",
-        path: "/"
-      }
-    ],
+    directories: [],
     frontmatters: [
       {
         id: "tags",
@@ -51,8 +45,8 @@ module.exports = (opts, ctx) => {
           id: link,
           dirname: link,
           path: `/${link}/`,
-          layout: 'Categories',
-          itemPermalink: "/:regular",
+          layout: "Categories",
+          itemPermalink: "/:regular"
         });
       }
     });
@@ -109,7 +103,7 @@ module.exports = (opts, ctx) => {
           presets: [require.resolve("@vue/babel-preset-jsx")]
         });
 
-      if (cdn && process.env.NODE_ENV === "production") {
+      if (cdn.length && process.env.NODE_ENV === "production") {
         config.output.publicPath(cdn);
       }
     },

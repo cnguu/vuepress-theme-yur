@@ -1,9 +1,12 @@
 <template>
-  <content />
+  <post />
 </template>
 
 <script>
+import Post from "@theme/components/Post";
+
 export default {
-  name: "Post"
+  name: "Post",
+  components: { Post }
 };
 </script>

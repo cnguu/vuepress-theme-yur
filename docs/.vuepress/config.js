@@ -14,5 +14,5 @@ module.exports = {
   host: "localhost",
   port: 2234,
   dest: "public",
-  extraWatchFiles: ["/docs/.vuepress/config.js"]
+  extraWatchFiles: ["./config/plugins.js", "./config/themeConfig.js"]
 };

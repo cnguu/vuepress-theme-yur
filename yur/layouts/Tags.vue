@@ -1,12 +1,12 @@
 <template>
-  <collective component="Tags" />
+  <tags />
 </template>
 
 <script>
-import Collective from "@theme/components/Collective";
+import Tags from "@theme/components/Tags";
 
 export default {
   name: "Tags",
-  components: { Collective }
+  components: { Tags }
 };
 </script>
