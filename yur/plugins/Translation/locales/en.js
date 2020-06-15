@@ -4,5 +4,6 @@ module.exports = {
   backToHome: "Back To Home",
   links: "Links",
   about: "About",
-  categories: "Categories"
+  categories: "Categories",
+  read: "Read"
 };

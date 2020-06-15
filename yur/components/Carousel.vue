@@ -2,7 +2,7 @@
   <div id="carousel">
     <a-carousel
       class="carousel-container"
-      :autoplay="true"
+      :autoplay="false"
       :autoplaySpeed="3300"
       effect="fade"
     >
@@ -15,9 +15,11 @@
         }"
       >
         <div class="content">
-          <router-link :to="carousel.path">
-            {{ carousel.title }}
-          </router-link>
+          <h2>{{ carousel.title }}</h2>
+          <a-button @click="$router.push(carousel.path)" ghost>
+            {{ $l("read") }}
+            <a-icon type="arrow-right" />
+          </a-button>
         </div>
       </div>
     </a-carousel>
