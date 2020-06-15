@@ -1,5 +1,5 @@
 <template>
-  <Collective :menu="['links']" />
+  <collective :menu="['links']" />
 </template>
 
 <script>

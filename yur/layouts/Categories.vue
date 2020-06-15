@@ -1,5 +1,5 @@
 <template>
-  <Collective :menu="[this.$route.path.split('/')[1]]" />
+  <collective :menu="[this.$route.path.split('/')[1]]" />
 </template>
 
 <script>

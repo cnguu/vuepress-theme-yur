@@ -1,16 +1,16 @@
 <template>
-  <div>
-    <router-link to="/tags/">tags</router-link>
-    <a-button type="primary">Primary</a-button>
-    <a-button>Default</a-button>
-    <a-button type="dashed">Dashed</a-button>
-    <a-button type="danger">Danger</a-button>
-    <a-button type="link">Link</a-button>
+  <div id="home">
+    <carousel />
   </div>
 </template>
 
 <script>
+import Carousel from "./Carousel";
 export default {
-  name: "Home"
+  name: "Home",
+  components: { Carousel },
+  created() {
+    console.log(this._postsByUpdated);
+  }
 };
 </script>

@@ -14,22 +14,14 @@ module.exports = {
       link: "program"
     },
     {
-      text: "生活兴趣",
-      link: "life"
-    },
-    {
-      text: "软件工具",
-      link: "tool"
-    },
-    {
       text: "其它",
       link: "other"
     }
   ],
-  menuOthers: [],
-  postCover: [],
+  // postCover: [],
   pinYin: false,
   cdn: true,
   pageSize: 12,
+  carousel: 3,
   hostname: "https://blog.cnguu.cn"
 };

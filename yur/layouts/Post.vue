@@ -1,5 +1,5 @@
 <template>
-  <Content />
+  <content />
 </template>
 
 <script>

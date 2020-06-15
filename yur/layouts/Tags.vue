@@ -1,5 +1,5 @@
 <template>
-  <Collective component="Tags" />
+  <collective component="Tags" />
 </template>
 
 <script>

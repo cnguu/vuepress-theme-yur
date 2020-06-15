@@ -101,6 +101,45 @@
   }
 
   #main {
+    #home {
+      #carousel {
+        margin-top: 30px;
+        padding: 0 30px;
+
+        .carousel-container {
+          margin: 0 auto;
+          padding: @border-radius-base;
+          width: 100%;
+          max-width: 1440px;
+          background: @component-background;
+          box-shadow: @box-shadow-yur;
+          border-radius: @border-radius-base;
+
+          .carousel-item {
+            height: 350px;
+            background-position: 50%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: @border-radius-base;
+            text-align: center;
+
+            .content {
+              width: 100%;
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+
+              a {
+                font-size: 28px;
+                font-weight: 400;
+                color: @white;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   #footer {
@@ -132,6 +171,24 @@
     }
 
     #main {
+      #home {
+        #carousel {
+          margin-top: 15px;
+          padding: 0 15px;
+
+          .carousel-container {
+            .carousel-item {
+              height: 240px;
+
+              .content {
+                a {
+                  font-size: 18px;
+                }
+              }
+            }
+          }
+        }
+      }
     }
 
     #footer {

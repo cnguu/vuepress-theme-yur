@@ -1,6 +1,6 @@
 <template>
   <a-config-provider :locale="locale">
-    <Scrollbar>
+    <scrollbar>
       <div id="yur">
         <header id="header">
           <div class="header-container">
@@ -142,7 +142,7 @@
           </div>
         </footer>
       </div>
-    </Scrollbar>
+    </scrollbar>
   </a-config-provider>
 </template>
 
@@ -249,7 +249,6 @@ export default {
         ]
       },
       menuCategories: [],
-      menuOthers: [],
       links: false,
       about: false,
       visible: false
@@ -279,8 +278,7 @@ export default {
         nameplate,
         links,
         about,
-        menuCategories,
-        menuOthers
+        menuCategories
       } = this.$themeConfig;
       if (logo) {
         this.logo = this.$withBase(logo);
@@ -298,9 +296,6 @@ export default {
       }
       if (menuCategories) {
         this.menuCategories = menuCategories;
-      }
-      if (menuOthers) {
-        this.menuOthers = menuOthers;
       }
     },
     changeVisible() {

@@ -1,5 +1,5 @@
 <template>
-  <Collective />
+  <collective />
 </template>
 
 <script>
