@@ -1,4 +1,12 @@
-import { ConfigProvider, Button, Menu, Popover, Icon, Carousel } from "ant-design-vue";
+import {
+  ConfigProvider,
+  Button,
+  Menu,
+  Popover,
+  Icon,
+  Carousel,
+  Tooltip
+} from "ant-design-vue";
 
 export default {
   install: Vue => {
@@ -8,5 +16,6 @@ export default {
     Vue.use(Popover);
     Vue.use(Icon);
     Vue.use(Carousel);
+    Vue.use(Tooltip);
   }
 };

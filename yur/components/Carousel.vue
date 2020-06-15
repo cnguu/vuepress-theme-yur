@@ -2,7 +2,7 @@
   <div id="carousel">
     <a-carousel
       class="carousel-container"
-      :autoplay="false"
+      :autoplay="true"
       :autoplaySpeed="3300"
       effect="fade"
     >

@@ -137,8 +137,31 @@
           </transition>
         </main>
         <footer id="footer">
-          <div>
-            footer
+          <div class="footer-container">
+            <div class="content">
+              <a-tooltip>
+                <template slot="title">
+                  Designed&nbsp;by
+                  <a
+                    href="https://github.com/cnguu/vuepress-theme-yur"
+                    target="_blank"
+                  >
+                    cnguu
+                  </a>
+                </template>
+                &copy;&nbsp;2019-{{ new Date().getFullYear() }}&nbsp;
+                {{ $l("title") }}
+              </a-tooltip>
+            </div>
+            <template v-if="beiAn">
+              <a
+                class="bei-an"
+                href="http://beian.miit.gov.cn/"
+                target="_blank"
+              >
+                {{ beiAn }}
+              </a>
+            </template>
           </div>
         </footer>
       </div>
@@ -251,7 +274,8 @@ export default {
       menuCategories: [],
       links: false,
       about: false,
-      visible: false
+      visible: false,
+      beiAn: ""
     };
   },
   computed: {
@@ -278,7 +302,8 @@ export default {
         nameplate,
         links,
         about,
-        menuCategories
+        menuCategories,
+        beiAn
       } = this.$themeConfig;
       if (logo) {
         this.logo = this.$withBase(logo);
@@ -296,6 +321,9 @@ export default {
       }
       if (menuCategories) {
         this.menuCategories = menuCategories;
+      }
+      if (beiAn) {
+        this.beiAn = beiAn;
       }
     },
     changeVisible() {

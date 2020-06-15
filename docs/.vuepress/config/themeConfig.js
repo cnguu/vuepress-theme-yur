@@ -23,5 +23,6 @@ module.exports = {
   cdn: true,
   pageSize: 12,
   carousel: 3,
+  beiAn: "粤 ICP 备 17075980 号 - 4",
   hostname: "https://blog.cnguu.cn"
 };
