@@ -108,7 +108,8 @@
       #carousel {
         padding: 0 30px;
 
-        .carousel-container {
+        & > div {
+          position: relative;
           margin: 0 auto;
           padding: @border-radius-base;
           width: 100%;
@@ -117,43 +118,60 @@
           box-shadow: @box-shadow-yur;
           border-radius: @border-radius-base;
 
-          .carousel-item {
-            height: 350px;
-            background-position: 50%;
-            background-size: cover;
-            background-repeat: no-repeat;
-            border-radius: @border-radius-base;
-            text-align: center;
+          .carousel-container {
+            .carousel-item {
+              height: 350px;
+              background-position: 50%;
+              background-size: cover;
+              background-repeat: no-repeat;
+              border-radius: @border-radius-base;
+              text-align: center;
 
-            .content {
-              padding: 0 60px;
-              width: 100%;
-              height: 100%;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
+              .content {
+                padding: 0 60px;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
 
-              h2 {
-                margin-bottom: 30px;
-                width: 70%;
-                font-size: 28px;
-                font-weight: 400;
-                color: @white;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                align-self: flex-start;
-                text-align: left;
-              }
+                h2 {
+                  margin-bottom: 30px;
+                  width: 70%;
+                  font-size: 28px;
+                  font-weight: 400;
+                  color: @white;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                  overflow: hidden;
+                  align-self: flex-start;
+                  text-align: left;
+                }
 
-              button {
-                align-self: flex-start;
+                button {
+                  align-self: flex-start;
 
-                &:hover {
-                  color: @component-background;
-                  border-color: @component-background;
+                  &:hover {
+                    color: @component-background;
+                    border-color: @component-background;
+                  }
                 }
               }
+            }
+          }
+
+          .notice {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            padding: 2px 5px;
+            background: @component-background;
+            box-shadow: @box-shadow-yur-inset;
+            border-radius: 50%;
+            text-align: center;
+
+            &-bell {
+              animation: bell 3s .7s ease-in-out infinite;
             }
           }
         }

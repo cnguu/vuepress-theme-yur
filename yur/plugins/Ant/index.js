@@ -5,7 +5,8 @@ import {
   Popover,
   Icon,
   Carousel,
-  Tooltip
+  Tooltip,
+  Modal
 } from "ant-design-vue";
 
 export default {
@@ -17,5 +18,6 @@ export default {
     Vue.use(Icon);
     Vue.use(Carousel);
     Vue.use(Tooltip);
+    Vue.use(Modal);
   }
 };

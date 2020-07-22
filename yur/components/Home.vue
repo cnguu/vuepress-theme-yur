@@ -1,7 +1,6 @@
 <template>
   <div id="home">
     <carousel />
-    <Content />
   </div>
 </template>
 
@@ -10,8 +9,15 @@ import Carousel from "./Carousel";
 
 export default {
   components: { Carousel },
+  data() {
+    return {};
+  },
   created() {
+    this.handleInit();
     console.log(this._postsByUpdated);
+  },
+  methods: {
+    handleInit() {}
   }
 };
 </script>
