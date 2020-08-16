@@ -5,5 +5,7 @@ module.exports = {
   links: "友人帐",
   about: "关于我",
   categories: "分类",
-  read: "阅读"
+  read: "阅读",
+  posts: "文章",
+  tags: "标签"
 };

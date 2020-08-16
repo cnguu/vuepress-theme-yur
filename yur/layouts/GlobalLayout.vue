@@ -139,8 +139,8 @@
         <footer id="footer">
           <div class="footer-container">
             <div class="content">
-              <a-tooltip>
-                <template slot="title">
+              <a-popover>
+                <template slot="content">
                   Designed&nbsp;by
                   <a
                     href="https://github.com/cnguu/vuepress-theme-yur"
@@ -151,7 +151,7 @@
                 </template>
                 &copy;&nbsp;2019-{{ new Date().getFullYear() }}&nbsp;
                 {{ $l("title") }}
-              </a-tooltip>
+              </a-popover>
             </div>
             <template v-if="beiAn">
               <a

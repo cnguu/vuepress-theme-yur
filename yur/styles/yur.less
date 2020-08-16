@@ -102,77 +102,55 @@
 
   #main {
     padding: 30px 0;
-    min-height: calc(~'100vh - 64px');
+    min-height: calc(~"100vh - 64px");
 
     #home {
-      #carousel {
-        padding: 0 30px;
+      #search {
+        margin: 0 auto;
+        padding: 30px;
+        width: 100%;
+        max-width: 1440px;
+        text-align: center;
 
-        & > div {
-          position: relative;
-          margin: 0 auto;
+        img {
           padding: @border-radius-base;
-          width: 100%;
-          max-width: 1440px;
-          background: @component-background;
-          box-shadow: @box-shadow-yur;
+          max-width: 40%;
           border-radius: @border-radius-base;
+          box-shadow: @box-shadow-yur;
+        }
 
-          .carousel-container {
-            .carousel-item {
-              height: 350px;
-              background-position: 50%;
-              background-size: cover;
-              background-repeat: no-repeat;
-              border-radius: @border-radius-base;
-              text-align: center;
+        .search {
+          margin-top: 30px;
 
-              .content {
-                padding: 0 60px;
-                width: 100%;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
+          .ant-input-group-addon {
+            border: none;
+          }
 
-                h2 {
-                  margin-bottom: 30px;
-                  width: 70%;
-                  font-size: 28px;
-                  font-weight: 400;
-                  color: @white;
-                  white-space: nowrap;
-                  text-overflow: ellipsis;
-                  overflow: hidden;
-                  align-self: flex-start;
-                  text-align: left;
-                }
+          &-input {
+            padding: @border-radius-base;
+            max-width: 60%;
+            box-shadow: @box-shadow-yur;
 
-                button {
-                  align-self: flex-start;
+            input {
+              border: none;
 
-                  &:hover {
-                    color: @component-background;
-                    border-color: @component-background;
-                  }
-                }
+              &:focus {
+                box-shadow: none;
               }
             }
           }
+        }
+      }
 
-          .notice {
-            position: absolute;
-            top: 14px;
-            right: 14px;
-            padding: 2px 5px;
-            background: @component-background;
-            box-shadow: @box-shadow-yur-inset;
-            border-radius: 50%;
-            text-align: center;
+      .home-container {
+        padding: 30px 30px 0 30px;
 
-            &-bell {
-              animation: bell 3s .7s ease-in-out infinite;
-            }
+        &-category {
+          margin: 0 auto;
+          width: 100%;
+          max-width: 1440px;
+
+          &-list {
           }
         }
       }
@@ -227,28 +205,18 @@
       padding: 15px 0;
 
       #home {
-        #carousel {
-          padding: 0 15px;
+        #search {
+          padding: 15px;
 
-          .carousel-container {
-            .carousel-item {
-              height: 240px;
+          img {
+            max-width: 80%;
+          }
 
-              .content {
-                padding: 0 30px;
-                text-align: center;
+          .search {
+            margin-top: 15px;
 
-                h2 {
-                  width: 100%;
-                  font-size: 18px;
-                  text-align: center;
-                  white-space: normal;
-                }
-
-                button {
-                  align-self: center;
-                }
-              }
+            &-input {
+              max-width: 100%;
             }
           }
         }

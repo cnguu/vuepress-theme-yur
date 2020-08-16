@@ -24,13 +24,6 @@ module.exports = (opts, ctx) => {
         keys: ["tags"],
         path: "/tags/",
         layout: "Tags"
-      },
-      {
-        id: "search",
-        keys: ["search"],
-        path: "/search.html",
-        layout: "Search",
-        scopeLayout: "Search"
       }
     ],
     globalPagination: {

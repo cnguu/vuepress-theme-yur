@@ -4,9 +4,10 @@ import {
   Menu,
   Popover,
   Icon,
-  Carousel,
-  Tooltip,
-  Modal
+  Empty,
+  Card,
+  Input,
+  Select
 } from "ant-design-vue";
 
 export default {
@@ -16,8 +17,9 @@ export default {
     Vue.use(Menu);
     Vue.use(Popover);
     Vue.use(Icon);
-    Vue.use(Carousel);
-    Vue.use(Tooltip);
-    Vue.use(Modal);
+    Vue.use(Empty);
+    Vue.use(Card);
+    Vue.use(Input);
+    Vue.use(Select);
   }
 };

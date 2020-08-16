@@ -5,5 +5,7 @@ module.exports = {
   links: "Links",
   about: "About",
   categories: "Categories",
-  read: "Read"
+  read: "Read",
+  posts: "Posts",
+  tags: "Tags"
 };
