@@ -4,18 +4,13 @@
     <div class="search">
       <a-input-search
         class="search-input"
+        :loading="loading"
+        :disabled="disabled"
         enter-button
         allow-clear
         @search="onSearch"
       >
-        <a-select slot="addonBefore" default-value="posts">
-          <a-select-option value="posts">
-            {{ $l("posts") }}&nbsp;&nbsp;
-          </a-select-option>
-          <a-select-option value="tags">
-            {{ $l("tags") }}&nbsp;&nbsp;
-          </a-select-option>
-        </a-select>
+        <a-icon slot="addonBefore" type="fire" />
       </a-input-search>
     </div>
   </div>
@@ -26,7 +21,10 @@ export default {
   data() {
     return {
       banner:
-        "https://cdn.jsdelivr.net/gh/cnguu/pic@master/20171231/banners/6f6ca5b0cb3bc43e5895911cc40a343d.jpg"
+        "https://cdn.jsdelivr.net/gh/cnguu/pic@master/20171231/banners/6f6ca5b0cb3bc43e5895911cc40a343d.jpg",
+      loading: false,
+      disabled: false,
+      posts: []
     };
   },
   created() {
@@ -40,7 +38,20 @@ export default {
       }
     },
     onSearch(value) {
-      console.log(value);
+      this.loading = true;
+      this.disabled = true;
+
+      if (value) {
+        value = value.trim().toLowerCase();
+        console.log(value);
+        console.log(this._postsByUpdated);
+      } else {
+        this.posts = [];
+      }
+
+      this.$emit("change", this.posts);
+      this.loading = false;
+      this.disabled = false;
     }
   }
 };

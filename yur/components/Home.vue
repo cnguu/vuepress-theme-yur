@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <search />
+    <search @change="changeSearch" />
     <div class="home-container">
       <template v-if="_menuCategories && _menuCategories.length">
         <div class="home-container-category">
@@ -37,7 +37,10 @@ export default {
     console.log(this._postsByUpdated);
   },
   methods: {
-    handleInit() {}
+    handleInit() {},
+    changeSearch(posts) {
+      console.log(posts);
+    }
   }
 };
 </script>
