@@ -7,5 +7,6 @@ module.exports = {
   categories: "Categories",
   read: "Read",
   posts: "Posts",
-  tags: "Tags"
+  tags: "Tags",
+  total: "Total"
 };

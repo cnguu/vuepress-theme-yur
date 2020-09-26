@@ -2,18 +2,22 @@
   <div id="search">
     <a-row :gutter="[30, 30]">
       <a-col
-        :xs="{ span: 24, offset: 0 }"
+        :xs="{ span: 22, offset: 1 }"
         :sm="{ span: 18, offset: 3 }"
-        :md="{ span: 12, offset: 6 }"
+        :md="{ span: 18, offset: 3 }"
         :lg="{ span: 12, offset: 6 }"
+        :xl="{ span: 12, offset: 6 }"
+        :xxl="{ span: 14, offset: 5 }"
       >
         <img :src="banner" :alt="$l('title')" />
       </a-col>
       <a-col
         :xs="{ span: 24, offset: 0 }"
         :sm="{ span: 20, offset: 2 }"
-        :md="{ span: 14, offset: 5 }"
+        :md="{ span: 20, offset: 2 }"
         :lg="{ span: 14, offset: 5 }"
+        :xl="{ span: 14, offset: 5 }"
+        :xxl="{ span: 16, offset: 4 }"
       >
         <div class="search">
           <a-input-search

@@ -9,7 +9,8 @@ import {
   Input,
   Select,
   Row,
-  Col
+  Col,
+  Pagination
 } from "ant-design-vue";
 
 export default {
@@ -25,5 +26,6 @@ export default {
     Vue.use(Select);
     Vue.use(Row);
     Vue.use(Col);
+    Vue.use(Pagination);
   }
 };

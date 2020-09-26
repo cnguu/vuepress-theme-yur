@@ -7,5 +7,6 @@ module.exports = {
   categories: "分类",
   read: "阅读",
   posts: "文章",
-  tags: "标签"
+  tags: "标签",
+  total: "总共"
 };
