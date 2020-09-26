@@ -25,9 +25,10 @@
       </a-col>
       <a-col :span="24" :style="{ textAlign: 'center' }">
         <pagination
-          :current.sync="current"
+          :current="current"
           :page-size="pageSize"
           :total="sPosts.length"
+          @change="onChangePagination"
         />
       </a-col>
     </template>
@@ -49,7 +50,7 @@ export default {
     }
   },
   data() {
-    const pageSize = 24;
+    const pageSize = 2;
     return {
       sPosts: this.posts,
       current: 1,
@@ -62,12 +63,14 @@ export default {
       this.sPosts = nv;
 
       this.current = 1;
-    },
-    current() {
-      this.dataSource = this.splitPosts();
+      this.onChangePagination(this.current);
     }
   },
   methods: {
+    onChangePagination(page) {
+      this.current = page;
+      this.dataSource = this.splitPosts();
+    },
     splitPosts() {
       let posts = [...this.sPosts];
       if (posts.length > (this.current - 1) * this.pageSize) {

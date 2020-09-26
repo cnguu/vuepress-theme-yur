@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     onChange(page) {
-      this.$emit("update:current", page);
+      this.$emit("change", page);
     }
   }
 };
