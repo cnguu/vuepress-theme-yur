@@ -17,10 +17,22 @@ export function toObject(arr) {
   return res;
 }
 
+/**
+ * hasOwnProperty() Simplified version
+ * @param obj
+ * @param key
+ * @returns {boolean}
+ */
 export function hasOwn(obj, key) {
   return Object.prototype.hasOwnProperty.call(obj, key);
 }
 
+/**
+ * Get category name
+ * @param menuCategories
+ * @param category
+ * @returns {string}
+ */
 export function getCategoryText(menuCategories, category) {
   let res = "";
   if (menuCategories.length && category) {
@@ -32,4 +44,15 @@ export function getCategoryText(menuCategories, category) {
     });
   }
   return res;
+}
+
+/**
+ * Judge IE browser
+ * @returns {boolean}
+ */
+export function isIE() {
+  const bw = window.navigator.userAgent;
+  const compare = s => bw.indexOf(s) >= 0;
+  const ie11 = (() => "ActiveXObject" in window)();
+  return compare("MSIE") || ie11;
 }

@@ -28,4 +28,19 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  transition: all 0.3s @ease-in-out;
+
+  &:hover {
+    transform: scale(1.3);
+  }
+}
+
+.yur-card {
+  padding: @border-radius-base;
+  box-shadow: @box-shadow-yur;
+  border-radius: @border-radius-base;
+
+  .ant-card-cover {
+    overflow: hidden;
+  }
 }
