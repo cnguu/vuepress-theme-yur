@@ -7,7 +7,9 @@ import {
   Empty,
   Card,
   Input,
-  Select
+  Select,
+  Row,
+  Col
 } from "ant-design-vue";
 
 export default {
@@ -21,5 +23,7 @@ export default {
     Vue.use(Card);
     Vue.use(Input);
     Vue.use(Select);
+    Vue.use(Row);
+    Vue.use(Col);
   }
 };

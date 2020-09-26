@@ -1,18 +1,32 @@
 <template>
   <div id="home">
-    <search @change="changeSearch" />
+    <search @change="onChangeSearch" />
     <div class="home-container">
       <template v-if="_menuCategories && _menuCategories.length">
         <div class="home-container-category">
           <div class="home-container-category-lists">
-            <a-card :bordered="false" style="width: 300px">
-              <img
-                slot="cover"
-                :alt="$l('title')"
-                src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-              />
-              <a-card-meta title="Card title" />
-            </a-card>
+            <a-row :gutter="[30, 30]">
+              <template v-for="post in posts">
+                <a-col
+                  :key="post.key"
+                  :xs="{ span: 24 }"
+                  :sm="{ span: 12 }"
+                  :md="{ span: 12 }"
+                  :lg="{ span: 8 }"
+                >
+                  <a-card :bordered="false">
+                    <div
+                      slot="cover"
+                      class="background-image"
+                      :style="{
+                        backgroundImage: `url(${post.frontmatter.banner})`
+                      }"
+                    />
+                    <a-card-meta :title="post.title" />
+                  </a-card>
+                </a-col>
+              </template>
+            </a-row>
           </div>
         </div>
       </template>
@@ -29,7 +43,9 @@ import Search from "@theme/components/Search";
 export default {
   components: { Search },
   data() {
-    return {};
+    return {
+      posts: []
+    };
   },
   created() {
     this.handleInit();
@@ -37,9 +53,11 @@ export default {
     console.log(this._postsByUpdated);
   },
   methods: {
-    handleInit() {},
-    changeSearch(posts) {
-      console.log(posts);
+    handleInit() {
+      this.posts = this._postsByUpdated;
+    },
+    onChangeSearch(posts) {
+      this.posts = posts;
     }
   }
 };

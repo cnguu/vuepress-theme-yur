@@ -114,21 +114,18 @@
 
         img {
           padding: @border-radius-base;
-          max-width: 40%;
+          width: 100%;
           border-radius: @border-radius-base;
           box-shadow: @box-shadow-yur;
         }
 
         .search {
-          margin-top: 30px;
-
           .ant-input-group-addon {
             border: none;
           }
 
           &-input {
             padding: @border-radius-base;
-            max-width: 60%;
             box-shadow: @box-shadow-yur;
 
             input {
@@ -151,14 +148,17 @@
       }
 
       .home-container {
-        padding: 30px 30px 0 30px;
+        padding: 30px 15px 0 15px;
 
         &-category {
           margin: 0 auto;
           width: 100%;
           max-width: 1440px;
 
-          &-list {
+          &-lists {
+            .background-image {
+              height: 160px;
+            }
           }
         }
       }
@@ -215,18 +215,6 @@
       #home {
         #search {
           padding: 15px;
-
-          img {
-            max-width: 80%;
-          }
-
-          .search {
-            margin-top: 15px;
-
-            &-input {
-              max-width: 100%;
-            }
-          }
         }
       }
     }

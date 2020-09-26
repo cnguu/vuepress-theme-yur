@@ -1,18 +1,34 @@
 <template>
   <div id="search">
-    <img :src="banner" :alt="$l('title')" />
-    <div class="search">
-      <a-input-search
-        class="search-input"
-        :loading="loading"
-        :disabled="disabled"
-        enter-button
-        allow-clear
-        @search="onSearch"
+    <a-row :gutter="[30, 30]">
+      <a-col
+        :xs="{ span: 24, offset: 0 }"
+        :sm="{ span: 18, offset: 3 }"
+        :md="{ span: 12, offset: 6 }"
+        :lg="{ span: 12, offset: 6 }"
       >
-        <a-icon slot="addonBefore" type="fire" />
-      </a-input-search>
-    </div>
+        <img :src="banner" :alt="$l('title')" />
+      </a-col>
+      <a-col
+        :xs="{ span: 24, offset: 0 }"
+        :sm="{ span: 20, offset: 2 }"
+        :md="{ span: 14, offset: 5 }"
+        :lg="{ span: 14, offset: 5 }"
+      >
+        <div class="search">
+          <a-input-search
+            class="search-input"
+            :loading="loading"
+            :disabled="disabled"
+            enter-button
+            allow-clear
+            @search="onSearch"
+          >
+            <a-icon slot="addonBefore" type="fire" />
+          </a-input-search>
+        </div>
+      </a-col>
+    </a-row>
   </div>
 </template>
 
