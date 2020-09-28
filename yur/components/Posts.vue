@@ -23,7 +23,7 @@
           <a-card-meta :title="post.title" />
         </a-card>
       </a-col>
-      <a-col :span="24" :style="{ textAlign: 'center' }">
+      <a-col class="yur-pagination" :span="24">
         <pagination
           :current="current"
           :page-size="pageSize"
@@ -50,7 +50,7 @@ export default {
     }
   },
   data() {
-    const pageSize = 2;
+    const pageSize = 24;
     return {
       sPosts: this.posts,
       current: 1,
