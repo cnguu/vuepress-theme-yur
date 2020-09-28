@@ -165,41 +165,28 @@
       max-width: 1440px;
     }
 
-    .yur-pagination {
-      text-align: center;
+    #post {
+      margin: 0 auto;
+      padding: 15px;
+      width: 100%;
+      max-width: 1440px;
 
-      .ant-pagination {
-        &-item {
-          padding-top: 1px;
-          padding-left: 1px;
-          border: none;
-          box-shadow: @box-shadow-yur-inset;
+      .post {
+        &-banner {
+          position: relative;
+          padding: @border-radius-base;
+          box-shadow: @box-shadow-yur;
 
-          &-active,
-          &:focus,
-          &:hover {
-            padding-left: 0;
-            padding-right: 2px;
-            box-shadow: @box-shadow-yur;
+          .background-image {
+            transform: none;
           }
 
-          &-link {
-            border: none;
-
-            &:focus,
-            &:hover {
-              padding-right: 2px;
-              box-shadow: @box-shadow-yur;
-            }
-          }
-        }
-
-        &-options {
-          &-quick-jumper {
-            input {
-              border: none;
-              box-shadow: @box-shadow-yur-inset;
-            }
+          &-content {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
           }
         }
       }

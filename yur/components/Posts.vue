@@ -11,17 +11,19 @@
         :xl="{ span: 6 }"
         :xxl="{ span: 6 }"
       >
-        <a-card class="yur-card" :bordered="false" size="small">
-          <div
-            slot="cover"
-            class="background-image"
-            :style="{
-              height: '140px',
-              backgroundImage: `url(${post.frontmatter.banner})`
-            }"
-          />
-          <a-card-meta :title="post.title" />
-        </a-card>
+        <router-link :to="post.path">
+          <a-card class="yur-card" :bordered="false" size="small">
+            <div
+              slot="cover"
+              class="background-image"
+              :style="{
+                height: '140px',
+                backgroundImage: `url(${post.frontmatter.banner})`
+              }"
+            />
+            <a-card-meta :title="post.title" />
+          </a-card>
+        </router-link>
       </a-col>
       <a-col class="yur-pagination" :span="24">
         <pagination

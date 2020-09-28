@@ -67,7 +67,10 @@
                   :key="menuCategory.link"
                 >
                   <a
-                    v-if="$route.path === `/${menuCategory.link}/`"
+                    v-if="
+                      $route.path === `/${menuCategory.link}/` ||
+                        $page.pid === menuCategory.link
+                    "
                     href="javascript:;"
                   >
                     {{ menuCategory.text }}
@@ -293,10 +296,14 @@ export default {
     },
     menu() {
       let menu = "/";
-      const { path } = this.$page;
+      const { path, pid } = this.$page;
       const { layout } = this.$frontmatter;
-      if (layout && layout === "Categories") {
-        menu = path.split("/")[1];
+      if (layout) {
+        if (layout === "Categories") {
+          menu = path.split("/")[1];
+        } else if (layout === "Post") {
+          menu = pid;
+        }
       } else if (path.length > 1) {
         menu = layout.toLocaleLowerCase();
       }

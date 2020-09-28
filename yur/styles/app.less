@@ -44,3 +44,43 @@
     overflow: hidden;
   }
 }
+
+.yur-pagination {
+  text-align: center;
+
+  .ant-pagination {
+    &-item {
+      padding-top: 1px;
+      padding-left: 1px;
+      border: none;
+      box-shadow: @box-shadow-yur-inset;
+
+      &-active,
+      &:focus,
+      &:hover {
+        padding-left: 0;
+        padding-right: 2px;
+        box-shadow: @box-shadow-yur;
+      }
+
+      &-link {
+        border: none;
+
+        &:focus,
+        &:hover {
+          padding-right: 2px;
+          box-shadow: @box-shadow-yur;
+        }
+      }
+    }
+
+    &-options {
+      &-quick-jumper {
+        input {
+          border: none;
+          box-shadow: @box-shadow-yur-inset;
+        }
+      }
+    }
+  }
+}

@@ -55,6 +55,6 @@
     "yarn": ">= 1.21.1"
   },
   "browserslist": [
-    "last 1 version, not dead, ie >= 11"
+    "last 1 version, not dead, > 0.5%"
   ]
 }
