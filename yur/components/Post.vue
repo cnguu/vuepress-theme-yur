@@ -8,9 +8,17 @@
           backgroundImage: `url(${$frontmatter.banner})`
         }"
       />
-      <div class="post-banner-content">todo</div>
     </div>
-    <Content />
+    <div class="post-content">
+      <div class="post-content-header">
+        <h1>
+          {{ $frontmatter.title }}
+        </h1>
+      </div>
+      <div id="markdown">
+        <Content />
+      </div>
+    </div>
   </div>
 </template>
 

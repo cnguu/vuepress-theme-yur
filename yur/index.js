@@ -105,7 +105,79 @@ module.exports = (opts, ctx) => {
         "@us": `${sourceDir}${sep}.vuepress${sep}styles`
       };
     },
-    plugins: [["@vuepress/blog", blog]],
+    plugins: [
+      ["@vuepress/blog", blog],
+      [
+        "container",
+        {
+          type: "primary",
+          defaultTitle: ""
+        }
+      ],
+      [
+        "container",
+        {
+          type: "primaryLong",
+          defaultTitle: ""
+        }
+      ],
+      [
+        "container",
+        {
+          type: "success",
+          defaultTitle: ""
+        }
+      ],
+      [
+        "container",
+        {
+          type: "successLong",
+          defaultTitle: ""
+        }
+      ],
+      [
+        "container",
+        {
+          type: "tip",
+          defaultTitle: ""
+        }
+      ],
+      [
+        "container",
+        {
+          type: "tipLong",
+          defaultTitle: ""
+        }
+      ],
+      [
+        "container",
+        {
+          type: "warning",
+          defaultTitle: ""
+        }
+      ],
+      [
+        "container",
+        {
+          type: "warningLong",
+          defaultTitle: ""
+        }
+      ],
+      [
+        "container",
+        {
+          type: "error",
+          defaultTitle: ""
+        }
+      ],
+      [
+        "container",
+        {
+          type: "errorLong",
+          defaultTitle: ""
+        }
+      ]
+    ],
     extendPageData($page) {
       // const { _filePath, _computed, _content, _strippedContent, key, frontmatter, regularPath, path } = $page
       const { _content, _strippedContent, frontmatter, path } = $page;

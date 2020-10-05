@@ -113,10 +113,8 @@
         text-align: center;
 
         img {
-          padding: @border-radius-base;
           width: 100%;
-          border-radius: @border-radius-base;
-          box-shadow: @box-shadow-yur;
+          .img-block;
         }
 
         .search {
@@ -173,20 +171,24 @@
 
       .post {
         &-banner {
-          position: relative;
           padding: @border-radius-base;
           box-shadow: @box-shadow-yur;
 
           .background-image {
             transform: none;
           }
+        }
 
-          &-content {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
+        &-content {
+          padding-top: @padding-lg;
+
+          &-header {
+            text-align: center;
+
+            & > h1 {
+              text-shadow: @box-shadow-yur;
+              .text-ellipsis();
+            }
           }
         }
       }
