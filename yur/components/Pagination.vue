@@ -35,13 +35,23 @@ export default {
   watch: {
     current(nv) {
       this.sCurrent = nv;
+      this.$page.current = nv;
     },
     total(nv) {
       this.sTotal = nv;
     }
   },
+  created() {
+    this.handleCurrent();
+  },
   methods: {
+    handleCurrent() {
+      if (this.$page.current > 1) {
+        this.onChange(this.$page.current);
+      }
+    },
     onChange(page) {
+      page = Number(page);
       this.$emit("change", page);
     }
   }

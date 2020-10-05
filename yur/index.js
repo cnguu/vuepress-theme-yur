@@ -6,15 +6,7 @@ const { slugify } = require("transliteration");
 module.exports = (opts, ctx) => {
   const { sep } = path;
   const { themeConfig, sourceDir } = ctx;
-  const {
-    links,
-    about,
-    pinYin,
-    cdn,
-    hostname,
-    pageSize = 12,
-    menuCategories
-  } = themeConfig;
+  const { links, about, pinYin, cdn, hostname, menuCategories } = themeConfig;
 
   const blog = {
     directories: [],
@@ -25,10 +17,7 @@ module.exports = (opts, ctx) => {
         path: "/tags/",
         layout: "Tags"
       }
-    ],
-    globalPagination: {
-      lengthPerPage: pageSize
-    }
+    ]
   };
   if (menuCategories && menuCategories.length) {
     menuCategories.forEach(menuCategory => {
