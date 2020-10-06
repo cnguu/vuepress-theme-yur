@@ -29,12 +29,11 @@ export default {
   },
   created() {
     this.handleInit();
+    console.log(this.$page);
+    console.log(this.$frontmatter);
   },
   methods: {
-    handleInit() {
-      console.log(this.$page);
-      console.log(this.$frontmatter);
-    }
+    handleInit() {}
   }
 };
 </script>
