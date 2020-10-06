@@ -9,10 +9,14 @@
     width: fit-content;
     max-width: 100%;
     text-shadow: @box-shadow-yur;
-    transition: .25s;
+    transition: all .25s;
 
     a {
-      display: none;
+      position: absolute;
+      top: 0;
+      left: -18px;
+      opacity: 0;
+      transition: all .25s;
     }
 
     &::before {
@@ -26,13 +30,16 @@
       background: linear-gradient(lighten(@primary-color, 20%) 30%, @primary-color 70%);
       box-shadow: @box-shadow-yur;
       border-radius: @border-radius-base;
-      transition: .25s;
+      transition: all .25s;
       z-index: 1;
     }
 
     &:hover {
-      cursor: pointer;
       color: @primary-color;
+
+      a {
+        opacity: 1;
+      }
 
       &::before {
         width: 100%;
