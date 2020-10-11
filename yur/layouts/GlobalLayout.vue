@@ -303,6 +303,8 @@ export default {
           menu = path.split("/")[1];
         } else if (layout === "Post") {
           menu = pid;
+        } else if (["Links", "About"].includes(layout)) {
+          menu = layout.toLocaleLowerCase();
         }
       } else if (path.length > 1) {
         menu = layout.toLocaleLowerCase();

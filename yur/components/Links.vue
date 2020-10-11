@@ -1,6 +1,6 @@
 <template>
   <div>
-    links
+    <Content />
   </div>
 </template>
 
