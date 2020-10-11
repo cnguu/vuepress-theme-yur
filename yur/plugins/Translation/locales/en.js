@@ -8,5 +8,10 @@ module.exports = {
   read: "Read",
   posts: "Posts",
   tags: "Tags",
-  total: "Total"
+  total: "Total",
+  copyright: "Copyright",
+  copyrightStatement:
+    "Reprinting is allowed, the original link must be retained, the copyright belongs to me",
+  created: "Created: ",
+  updated: "Updated: "
 };

@@ -21,7 +21,10 @@ module.exports = {
   // postCover: [],
   pinYin: false,
   cdn: true,
-  pageSize: 12,
   beiAn: "粤 ICP 备 17075980 号 - 4",
-  hostname: "https://blog.cnguu.cn"
+  hostname: "https://blog.cnguu.cn",
+  reward: [
+    "https://static.xmt.cn/ca717dde8ae14ea7ab3c8c74b8711414.png",
+    "https://static.xmt.cn/acc7d3d02b0c4a35a3735268cbb2cce0.png"
+  ]
 };

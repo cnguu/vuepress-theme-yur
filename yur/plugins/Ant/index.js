@@ -10,7 +10,8 @@ import {
   Select,
   Row,
   Col,
-  Pagination
+  Pagination,
+  Tag
 } from "ant-design-vue";
 
 export default {
@@ -27,5 +28,6 @@ export default {
     Vue.use(Row);
     Vue.use(Col);
     Vue.use(Pagination);
+    Vue.use(Tag);
   }
 };
