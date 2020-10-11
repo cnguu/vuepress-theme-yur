@@ -79,6 +79,47 @@
         </a-tag>
       </div>
     </div>
+
+    <div v-if="getCatalogs.length > 0" class="post-catalog">
+      <a-button
+        shape="circle"
+        icon="ordered-list"
+        size="large"
+        @click="catalog.visible = true"
+      />
+      <a-drawer
+        placement="right"
+        :title="$page.title"
+        :closable="false"
+        :visible="catalog.visible"
+        wrapClassName="yur-post-drawer"
+        @close="catalog.visible = false"
+      >
+        <a-anchor
+          :affix="false"
+          :bounds="200"
+          :wrapper-style="{ maxHeight: 'auto' }"
+        >
+          <a-anchor-link
+            v-for="(catalog, index) in getCatalogs"
+            :key="index"
+            :href="`#${catalog.slug}`"
+            :title="catalog.title"
+          >
+            <template
+              v-if="hasOwn(catalog, 'children') && catalog.children.length"
+            >
+              <a-anchor-link
+                v-for="(child, index) in catalog.children"
+                :key="index"
+                :href="`#${child.slug}`"
+                :title="child.title"
+              />
+            </template>
+          </a-anchor-link>
+        </a-anchor>
+      </a-drawer>
+    </div>
   </div>
 </template>
 
@@ -86,10 +127,45 @@
 export default {
   data() {
     return {
+      catalog: {
+        visible: false
+      },
       reward: []
     };
   },
   computed: {
+    getCatalogs() {
+      const headers = this.$page.headers;
+      const catalog = [];
+      if (headers && headers.length > 0) {
+        headers.forEach(header => {
+          if (header.level === 2) {
+            catalog.push(header);
+          } else {
+            const catalogsLen = catalog.length;
+            if (catalogsLen > 0) {
+              if (!this.hasOwn(catalog[catalogsLen - 1], "children")) {
+                catalog[catalogsLen - 1].children = [];
+              }
+              if (catalog[catalogsLen - 1].children.length > 0) {
+                let canPush = true;
+                catalog[catalogsLen - 1].children.forEach(e => {
+                  if (e.slug === header.slug) {
+                    canPush = false;
+                  }
+                });
+                if (canPush) {
+                  catalog[catalogsLen - 1].children.push(header);
+                }
+              } else {
+                catalog[catalogsLen - 1].children.push(header);
+              }
+            }
+          }
+        });
+      }
+      return catalog;
+    },
     getCopyright() {
       return this.$page.copyright || this.$l("copyrightStatement");
     }
@@ -105,27 +181,3 @@ export default {
   }
 };
 </script>
-
-<style lang="less">
-#reward {
-  img {
-    width: 300px;
-    height: 300px;
-  }
-}
-
-@media (max-width: 992px) {
-  #reward {
-    img {
-      width: 200px;
-      height: 200px;
-    }
-  }
-}
-
-@media (max-width: 767px) {
-  #reward {
-    width: min-content;
-  }
-}
-</style>

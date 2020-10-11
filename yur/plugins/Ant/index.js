@@ -11,7 +11,9 @@ import {
   Row,
   Col,
   Pagination,
-  Tag
+  Tag,
+  Drawer,
+  Anchor
 } from "ant-design-vue";
 
 export default {
@@ -29,5 +31,7 @@ export default {
     Vue.use(Col);
     Vue.use(Pagination);
     Vue.use(Tag);
+    Vue.use(Drawer);
+    Vue.use(Anchor);
   }
 };
