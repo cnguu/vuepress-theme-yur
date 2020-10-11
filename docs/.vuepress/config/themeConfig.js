@@ -19,7 +19,6 @@ module.exports = {
     }
   ],
   // postCover: [],
-  pinYin: false,
   cdn: true,
   beiAn: "粤 ICP 备 17075980 号 - 4",
   hostname: "https://blog.cnguu.cn",

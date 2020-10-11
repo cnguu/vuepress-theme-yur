@@ -1,12 +1,9 @@
 const path = require("path");
-const SHA256 = require("crypto-js/sha256");
-const Base64 = require("crypto-js/enc-base64");
-const { slugify } = require("transliteration");
 
 module.exports = (opts, ctx) => {
   const { sep } = path;
   const { themeConfig, sourceDir } = ctx;
-  const { links, about, pinYin, cdn, hostname, menuCategories } = themeConfig;
+  const { links, about, cdn, hostname, menuCategories } = themeConfig;
 
   const blog = {
     directories: [],
@@ -85,7 +82,7 @@ module.exports = (opts, ctx) => {
           presets: [require.resolve("@vue/babel-preset-jsx")]
         });
 
-      if (cdn.length && process.env.NODE_ENV === "production") {
+      if (typeof cdn === "string" && process.env.NODE_ENV === "production") {
         config.output.publicPath(cdn);
       }
     },
@@ -166,46 +163,6 @@ module.exports = (opts, ctx) => {
           defaultTitle: ""
         }
       ]
-    ],
-    extendPageData($page) {
-      // const { _filePath, _computed, _content, _strippedContent, key, frontmatter, regularPath, path } = $page
-      const { _content, _strippedContent, frontmatter, path } = $page;
-
-      if (_strippedContent && _content) {
-        $page.wordCount = _content.length;
-      }
-
-      if (pinYin) {
-        $page.path = decodeURIComponent(path)
-          .split("/")
-          .map(str =>
-            slugify(str, {
-              lowercase: true,
-              separator: "-",
-              ignore: ["/", "."]
-            })
-          )
-          .join("/");
-      }
-
-      let pwd = "52yur";
-      if (themeConfig) {
-        const { password } = themeConfig;
-        if (password) {
-          pwd = password;
-        }
-      }
-      if (frontmatter) {
-        const { password } = frontmatter;
-        if (password) {
-          if (typeof password !== "boolean") {
-            pwd = password;
-          }
-          pwd += "";
-          delete frontmatter.password;
-          $page.password = Base64.stringify(SHA256(pwd));
-        }
-      }
-    }
+    ]
   };
 };
