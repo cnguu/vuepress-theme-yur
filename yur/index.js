@@ -8,16 +8,17 @@ module.exports = (opts, ctx) => {
   const blog = {
     directories: [],
     frontmatters: [
-      {
-        id: "tags",
-        keys: ["tags"],
-        path: "/tags/",
-        layout: "Tags"
-      }
+      // {
+      //   id: "tags",
+      //   keys: ["tags"],
+      //   path: "/tags/",
+      //   layout: "Tags",
+      //   scopeLayout: "Tag"
+      // }
     ]
   };
   if (menuCategories && menuCategories.length) {
-    menuCategories.forEach(menuCategory => {
+    menuCategories.map(menuCategory => {
       const { link } = menuCategory;
       if (link) {
         blog.directories.push({

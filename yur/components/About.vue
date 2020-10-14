@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <Content />
+  <div id="about">
+    <div id="markdown">
+      <Content />
+    </div>
   </div>
 </template>
 
