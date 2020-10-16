@@ -1,6 +1,6 @@
 <template>
   <a-config-provider :locale="locale">
-    <scrollbar>
+    <scrollbar ref="scrollbar">
       <div id="yur">
         <header id="header">
           <div class="header-container">

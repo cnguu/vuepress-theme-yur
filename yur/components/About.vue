@@ -7,5 +7,9 @@
 </template>
 
 <script>
-export default {};
+import mixinHash from "@theme/utils/mixinHash";
+
+export default {
+  mixins: [mixinHash]
+};
 </script>

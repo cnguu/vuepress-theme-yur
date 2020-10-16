@@ -32,7 +32,10 @@
 </template>
 
 <script>
+import mixinHash from "@theme/utils/mixinHash";
+
 export default {
+  mixins: [mixinHash],
   data() {
     return {
       links: []
