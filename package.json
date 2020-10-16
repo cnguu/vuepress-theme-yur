@@ -28,31 +28,24 @@
     "serve": "vuepress serve docs"
   },
   "dependencies": {
-    "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
-    "@vue/babel-preset-jsx": "^1.1.2",
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.2.1",
+    "@vue/babel-preset-jsx": "^1.2.0",
     "@vuepress/plugin-blog": "^1.9.2",
     "ant-design-vue": "^1.6.5",
     "core-js": "^2.6.11",
     "less": "^3.12.2",
     "less-loader": "^5.0.0",
+    "vue-router": "3.4.5",
     "vuepress": "^1.7.1",
     "vuepress-plugin-container": "^2.1.5"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
-    "eslint-config-prettier": "^4.0.0",
-    "eslint-loader": "^3.0.3",
-    "eslint-plugin-vue": "^6.1.2",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-loader": "^3.0.4",
+    "eslint-plugin-vue": "^6.2.2",
     "resize-observer-polyfill": "^1.5.1",
     "vuepress-plugin-serve": "^2.0.4"
-  },
-  "engines": {
-    "node": ">= 10.18.1",
-    "npm": ">= 6.13.4",
-    "yarn": ">= 1.21.1"
-  },
-  "browserslist": [
-    "last 1 version, not dead, > 0.5%"
-  ]
+  }
 }
