@@ -251,7 +251,37 @@
       max-width: 1440px;
 
       .links {
-        margin-top: @padding-lg;
+        margin-top: @padding-lg * 2;
+
+        &-card {
+          border-radius: @border-radius-base;
+          box-shadow: @box-shadow-yur;
+
+          &-cover {
+            position: relative;
+            padding-bottom: 100%;
+            width: 100%;
+            height: 0;
+            overflow: hidden;
+
+            & > img {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              border-radius: @border-radius-base @border-radius-base 0 0;
+              transition: all 0.3s @ease-in-out;
+
+              &:hover {
+                transform: scale(1.3);
+              }
+            }
+          }
+
+          &-title,
+          &-description {
+            .text-ellipsis();
+          }
+        }
       }
     }
 

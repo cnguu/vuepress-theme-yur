@@ -3,25 +3,49 @@
     <div id="markdown">
       <Content />
     </div>
-    <a-row class="links" :gutter="[30, 30]">
-      <a-col
-        :xs="{ span: 24 }"
-        :sm="{ span: 12 }"
-        :md="{ span: 12 }"
-        :lg="{ span: 8 }"
-        :xl="{ span: 6 }"
-        :xxl="{ span: 6 }"
-      >
-        //todo
-      </a-col>
-    </a-row>
+    <div class="links">
+      <a-row :gutter="[30, 30]">
+        <a-col
+          v-for="(link, index) in links"
+          :key="index"
+          :xs="{ span: 12 }"
+          :sm="{ span: 8 }"
+          :md="{ span: 8 }"
+          :lg="{ span: 6 }"
+          :xl="{ span: 4 }"
+          :xxl="{ span: 4 }"
+        >
+          <a-card class="links-card" size="small">
+            <div class="links-card-cover" slot="cover">
+              <img :src="link.logo" :alt="link.link" />
+            </div>
+            <a-card-meta class="links-card-title" :title="link.title">
+              <div slot="description" class="links-card-description">
+                {{ link.subtitle }}
+              </div>
+            </a-card-meta>
+          </a-card>
+        </a-col>
+      </a-row>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      links: []
+    };
+  },
   created() {
-    console.log(this.$page);
+    this.handleInit();
+  },
+  methods: {
+    handleInit() {
+      const { links = [] } = this.$themeConfig;
+      this.links = links;
+    }
   }
 };
 </script>
