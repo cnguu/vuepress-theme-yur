@@ -286,7 +286,7 @@ export default {
     layout() {
       const { path } = this.$page;
       const { layout } = this.$frontmatter;
-      if (path && path === "/") {
+      if ((path && path === "/") || layout === "Layout") {
         return () => import("@theme/components/Home");
       }
       if (!layout || !path || layout === "FrontmatterPagination") {

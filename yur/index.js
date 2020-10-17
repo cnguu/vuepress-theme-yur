@@ -55,8 +55,6 @@ module.exports = (opts, ctx) => {
       config.module
         .rule("js")
         .test(/\.js$/)
-        .exclude.add(/node_modules/)
-        .end()
         .use("babel-loader")
         .loader("babel-loader")
         .options({
