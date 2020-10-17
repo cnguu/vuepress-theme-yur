@@ -5,27 +5,32 @@
     </div>
     <div class="links">
       <a-row :gutter="[30, 30]">
-        <a-col
+        <a
           v-for="(link, index) in links"
           :key="index"
-          :xs="{ span: 12 }"
-          :sm="{ span: 8 }"
-          :md="{ span: 8 }"
-          :lg="{ span: 6 }"
-          :xl="{ span: 4 }"
-          :xxl="{ span: 4 }"
+          :href="link.link"
+          target="_blank"
         >
-          <a-card class="links-card" size="small">
-            <div class="links-card-cover" slot="cover">
-              <img :src="link.logo" :alt="link.link" />
-            </div>
-            <a-card-meta class="links-card-title" :title="link.title">
-              <div slot="description" class="links-card-description">
-                {{ link.subtitle }}
+          <a-col
+            :xs="{ span: 12 }"
+            :sm="{ span: 8 }"
+            :md="{ span: 8 }"
+            :lg="{ span: 6 }"
+            :xl="{ span: 4 }"
+            :xxl="{ span: 4 }"
+          >
+            <a-card class="links-card" size="small">
+              <div class="links-card-cover" slot="cover">
+                <img :src="link.logo" :alt="link.link" />
               </div>
-            </a-card-meta>
-          </a-card>
-        </a-col>
+              <a-card-meta class="links-card-title" :title="link.title">
+                <div slot="description" class="links-card-description">
+                  {{ link.subtitle }}
+                </div>
+              </a-card-meta>
+            </a-card>
+          </a-col>
+        </a>
       </a-row>
     </div>
   </div>
