@@ -109,6 +109,30 @@
               >
                 <template slot="content">
                   <a-menu :selectedKeys="menu" mode="inline">
+                    <a-sub-menu
+                      v-if="menuCategories.length"
+                      key="categories"
+                      :title="$l('categories')"
+                    >
+                      <a-menu-item
+                        v-for="menuCategory in _menuCategories"
+                        :key="menuCategory.link"
+                        @click="changeVisible"
+                      >
+                        <a
+                          v-if="
+                            $route.path === `/${menuCategory.link}/` ||
+                              $page.pid === menuCategory.link
+                          "
+                          href="javascript:;"
+                        >
+                          {{ menuCategory.text }}
+                        </a>
+                        <router-link v-else :to="`/${menuCategory.link}/`">
+                          {{ menuCategory.text }}
+                        </router-link>
+                      </a-menu-item>
+                    </a-sub-menu>
                     <a-menu-item
                       v-if="links"
                       key="links"
