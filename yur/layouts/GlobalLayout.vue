@@ -299,13 +299,6 @@ export default {
       beiAn: ""
     };
   },
-  watch: {
-    $route(to, from) {
-      if ((!to.hash || !from.hash) && this.$refs.scrollbar) {
-        this.$refs.scrollbar.wrap.scrollTop = 0;
-      }
-    }
-  },
   computed: {
     locale() {
       if (this.$lang === "zh-CN") {

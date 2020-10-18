@@ -110,6 +110,8 @@ export default {
     },
 
     update() {
+      this.wrap.scrollTop = 0; // page jump back to top
+
       let heightPercentage, widthPercentage;
       const wrap = this.wrap;
       if (!wrap) return;
