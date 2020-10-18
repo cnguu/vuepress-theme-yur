@@ -3,15 +3,6 @@
   overflow: hidden;
   position: relative;
 
-  &:hover,
-  &:active,
-  &:focus {
-    & > .yur-scrollbar__bar {
-      opacity: 1;
-      transition: opacity 300ms ease-in-out;
-    }
-  }
-
   &__wrap {
     overflow: scroll;
     overflow-x: hidden;
@@ -34,7 +25,7 @@
     height: 0;
     cursor: pointer;
     border-radius: inherit;
-    background-color: @primary-2;
+    background-color: @primary-color;
     transition: 300ms background-color;
 
     &:hover {
@@ -48,8 +39,6 @@
     bottom: 2px;
     z-index: 1;
     border-radius: 4px;
-    opacity: 0;
-    transition: opacity 300ms ease-in-out;
 
     &.is {
       &-vertical {
