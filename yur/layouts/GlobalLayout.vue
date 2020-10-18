@@ -302,7 +302,7 @@ export default {
   watch: {
     $route(to, from) {
       if ((!to.hash || !from.hash) && this.$refs.scrollbar) {
-        this.$refs.scrollbar.wrap.scrollTo(0, 0);
+        this.$refs.scrollbar.wrap.scrollTop = 0;
       }
     }
   },
