@@ -170,7 +170,7 @@ export default {
       return catalog;
     },
     getCopyright() {
-      return this.$page.copyright || this.$l("copyrightStatement");
+      return this.$frontmatter.copyright || this.$l("copyrightStatement");
     }
   },
   created() {
