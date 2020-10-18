@@ -144,6 +144,14 @@ module.exports = (opts, ctx) => {
           defaultTitle: ""
         }
       ]
-    ]
+    ],
+    extendPageData($page) {
+      // const { _filePath, _computed, _content, _strippedContent, key, frontmatter, regularPath, path } = $page
+      const { _content, _strippedContent } = $page;
+
+      if (_strippedContent && _content) {
+        $page.wordCount = _content.length;
+      }
+    }
   };
 };

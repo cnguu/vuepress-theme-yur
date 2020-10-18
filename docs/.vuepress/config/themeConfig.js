@@ -31,6 +31,5 @@ module.exports = {
   baiDu: {
     // tongJi: "",
     autoPush: true
-  },
-  pinYin: true
+  }
 };
