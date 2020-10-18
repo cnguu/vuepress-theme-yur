@@ -27,5 +27,10 @@ module.exports = {
     "https://static.xmt.cn/ca717dde8ae14ea7ab3c8c74b8711414.png",
     "https://static.xmt.cn/acc7d3d02b0c4a35a3735268cbb2cce0.png"
   ],
-  links
+  links,
+  baiDu: {
+    // tongJi: "",
+    autoPush: true
+  },
+  pinYin: true
 };

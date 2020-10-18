@@ -1,6 +1,8 @@
 import Mixin from "@theme/utils/mixin";
 import Translation from "@theme/plugins/Translation";
 import Blog from "@theme/plugins/Blog";
+import BaiDu from "@theme/plugins/PartyC/baiDu";
+import Customer from "@theme/plugins/PartyC/customer";
 import Ant from "@theme/plugins/Ant";
 import "@theme/styles/index.less";
 
@@ -8,6 +10,8 @@ export default ({ Vue, options, router, siteData }) => {
   Vue.use(Mixin);
   Vue.use(Translation);
   Vue.use(Blog);
+  BaiDu(router, siteData);
+  Customer(router, siteData);
   Vue.use(Ant);
 };
 
