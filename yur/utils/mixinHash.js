@@ -11,7 +11,7 @@ export default {
         const id = decodeURI(hash.substr(1));
         const dom = document.getElementById(id);
         if (dom) {
-          this.$parent.$refs.wrap.scrollTo(0, dom.offsetTop);
+          this.$parent.$refs.wrap.scrollTop = dom.offsetTop;
         }
       }
     }
