@@ -275,6 +275,13 @@ export default {
       beiAn: ""
     };
   },
+  watch: {
+    $route(to, from) {
+      if ((!to.hash || !from.hash) && this.$refs.scrollbar) {
+        this.$refs.scrollbar.wrap.scrollTo(0, 0);
+      }
+    }
+  },
   computed: {
     locale() {
       if (this.$lang === "zh-CN") {
