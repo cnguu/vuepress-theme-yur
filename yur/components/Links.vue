@@ -14,8 +14,8 @@
           <a-col
             :xs="{ span: 12 }"
             :sm="{ span: 8 }"
-            :md="{ span: 8 }"
-            :lg="{ span: 6 }"
+            :md="{ span: 6 }"
+            :lg="{ span: 4 }"
             :xl="{ span: 4 }"
             :xxl="{ span: 4 }"
           >
