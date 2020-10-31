@@ -7,11 +7,11 @@ export default {
   methods: {
     backToHash() {
       const { hash } = this.$route;
-      if (hash && this.$parent.$refs.wrap) {
+      if (hash) {
         const id = decodeURI(hash.substr(1));
         const dom = document.getElementById(id);
         if (dom) {
-          this.$parent.$refs.wrap.scrollTop = dom.offsetTop;
+          document.documentElement.scrollTop = dom.offsetTop;
         }
       }
     }

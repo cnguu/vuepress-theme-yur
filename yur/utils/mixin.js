@@ -1,9 +1,7 @@
 import Vue from "vue";
-import Scrollbar from "@theme/components/Scrollbar";
 
 export default () => {
   Vue.mixin({
-    components: { Scrollbar },
     computed: {
       $lang() {
         // ssr

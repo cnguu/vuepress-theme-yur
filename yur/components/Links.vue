@@ -13,11 +13,11 @@
         >
           <a-col
             :xs="{ span: 12 }"
-            :sm="{ span: 8 }"
+            :sm="{ span: 6 }"
             :md="{ span: 6 }"
             :lg="{ span: 4 }"
-            :xl="{ span: 4 }"
-            :xxl="{ span: 4 }"
+            :xl="{ span: 3 }"
+            :xxl="{ span: 3 }"
           >
             <a-card class="links-card" size="small">
               <div class="links-card-cover" slot="cover">
