@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     handleInit() {
-      const { banner } = this.$page;
+      const { banner } = this.$frontmatter;
       if (banner) {
         this.banner = banner;
       }

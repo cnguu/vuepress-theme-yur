@@ -308,6 +308,8 @@ export default {
       }
     },
     layout() {
+      this.handleScrollbar();
+
       const { path } = this.$page;
       const { layout } = this.$frontmatter;
       if ((path && path === "/") || layout === "Layout") {
@@ -368,6 +370,11 @@ export default {
       }
       if (beiAn) {
         this.beiAn = beiAn;
+      }
+    },
+    handleScrollbar() {
+      if (this.$refs.scrollbar) {
+        this.$refs.scrollbar.wrap.scrollTop = 0
       }
     },
     changeVisible() {
