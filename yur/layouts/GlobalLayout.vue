@@ -338,7 +338,7 @@ export default {
         hostname
       } = this.$themeConfig;
 
-      if (isProd() && window.location.host !== hostname) {
+      if (isProd() && window.location.host.indexOf(hostname) !== 0) {
         window.location.href = hostname;
       }
 
