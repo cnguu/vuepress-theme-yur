@@ -338,9 +338,12 @@ export default {
         hostname
       } = this.$themeConfig;
 
-      if (isProd() && window.location.href.indexOf(hostname) !== 0) {
-        window.location.href = hostname;
-      }
+      // if (isProd() && window.location.href.indexOf(hostname) !== 0) {
+      //   window.location.href = hostname;
+      // }
+      console.log(window.location.href);
+      console.log(hostname);
+      console.log(window.location.href.indexOf(hostname));
 
       if (logo) {
         this.logo = this.$withBase(logo);
