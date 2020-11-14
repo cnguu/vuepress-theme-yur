@@ -326,6 +326,12 @@ export default {
   created() {
     this.handleInit();
   },
+  mounted() {
+    const { hostname } = this.$themeConfig;
+    if (isProd() && window.location.href.indexOf(hostname) !== 0) {
+      window.location.href = hostname;
+    }
+  },
   methods: {
     handleInit() {
       const {
@@ -334,16 +340,8 @@ export default {
         links,
         about,
         menuCategories,
-        beiAn,
-        hostname
+        beiAn
       } = this.$themeConfig;
-
-      // if (isProd() && window.location.href.indexOf(hostname) !== 0) {
-      //   window.location.href = hostname;
-      // }
-      console.log(window.location.href);
-      console.log(hostname);
-      console.log(window.location.href.indexOf(hostname));
 
       if (logo) {
         this.logo = this.$withBase(logo);
