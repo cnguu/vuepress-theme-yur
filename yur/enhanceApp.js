@@ -16,14 +16,8 @@ export default ({ Vue, options, router, siteData }) => {
 };
 
 if (process.env.NODE_ENV === "production" && typeof window !== "undefined") {
-  const update_time = new Date();
   console.log(
     "\n%c(づ￣ ³￣)づヾ Author：cnguu%c VuePress Theme - Yur \n",
-    "color: #fadfa3; background: #030307; padding:5px;",
-    "background: #fadfa3; padding:5px 0;"
-  );
-  console.log(
-    `\n%cUpdate time%c ${update_time} \n`,
     "color: #fadfa3; background: #030307; padding:5px;",
     "background: #fadfa3; padding:5px 0;"
   );

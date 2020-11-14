@@ -185,6 +185,7 @@
 <script>
 import enGB from "ant-design-vue/lib/locale-provider/en_GB";
 import zhCN from "ant-design-vue/lib/locale-provider/zh_CN";
+import { isProd } from "@theme/utils";
 
 export default {
   name: "Yur",
@@ -333,8 +334,14 @@ export default {
         links,
         about,
         menuCategories,
-        beiAn
+        beiAn,
+        hostname
       } = this.$themeConfig;
+
+      if (isProd() && window.location.host !== hostname) {
+        window.location.href = hostname;
+      }
+
       if (logo) {
         this.logo = this.$withBase(logo);
       }
