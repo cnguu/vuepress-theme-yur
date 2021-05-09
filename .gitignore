@@ -1,6 +1,5 @@
 .DS_Store
 node_modules
-/public
 
 # local env files
 .env.local
@@ -21,3 +20,14 @@ yarn-error.log*
 *.sw?
 
 *.lock
+
+# VuePress files
+docs/.vuepress/.temp/
+docs/.vuepress/.cache/
+docs/.vuepress/dist/
+
+# Dist files
+lib/
+
+# Typescript build info
+*.tsbuildinfo

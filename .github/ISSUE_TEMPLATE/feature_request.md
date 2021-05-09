@@ -6,18 +6,10 @@ labels: ''
 assignees: ''
 ---
 
-## What problem does the feature solve?
+## Description
 
-A clear and concise description of what the problem is, and why we need this feature.
+<!-- Is your feature request related to a problem? Please describe. This should be a clear and concise description of what the problem is. -->
 
-## Proposed solution
+## Proposed Solution
 
-Describe what you want to happen, and the solution you'd like.
-
-## Alternative solutions
-
-Any alternative solutions or features you've considered.
-
-## Additional context
-
-Add any other context or screenshots about the feature request here.
+<!-- Describe the solution you'd like. This should be a clear and concise description of what you want to happen -->

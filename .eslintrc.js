@@ -1,21 +1,41 @@
 module.exports = {
   root: true,
-  env: {
-    node: true,
-    browser: true,
+  extends: 'vuepress',
+  globals: {
+    __VERSION__: 'readonly',
+    __DEV__: 'readonly',
+    __SSR__: 'readonly',
+    __VUE_HMR_RUNTIME__: 'writable',
   },
-  parserOptions: {
-    parser: "babel-eslint",
-    ecmaVersion: 2019,
-    sourceType: "module",
-    ecmaFeatures: {
-      jsx: true,
+  overrides: [
+    {
+      files: ['*.ts', '*.vue'],
+      extends: 'vuepress-typescript',
+      parserOptions: {
+        project: ['tsconfig.json'],
+      },
+      rules: {
+        '@typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
+      },
     },
-  },
-  extends: ["plugin:prettier/recommended"],
-  rules: {
-    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
-    "prettier/prettier": "error",
-  },
-};
+    {
+      files: ['clientAppEnhance.ts'],
+      rules: {
+        'vue/match-component-file-name': 'off',
+      },
+    },
+    {
+      files: ['**/__tests__/**/*.ts'],
+      env: {
+        jest: true,
+      },
+      rules: {
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        'vue/one-component-per-file': 'off',
+      },
+    },
+  ],
+}

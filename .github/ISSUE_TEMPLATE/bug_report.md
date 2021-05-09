@@ -6,35 +6,35 @@ labels: ''
 assignees: ''
 ---
 
+<!-- Please fill in relevant information as much as possible. That would be helpful to locate the problem and save us each other's time -->
+
+<!-- If some fields are irrelevant or you are not sure, remove it or mark it as "not related" / not sure" -->
+
+<!-- If you don't follow the template and not providing valid information, we'll close your issue without further reply -->
+
 ## Describe the bug
 
-A clear and concise description of what the bug is.
+<!-- A clear and concise description of what the bug is. -->
 
 ## Steps To Reproduce
 
-If possbile, please create a reproduce repository so we can reproduce the bug quickly.
+<!-- Steps to reproduce the behavior -->
 
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
-
-## Screenshots
-
-If applicable, add screenshots to help explain your problem.
+- Reproduction link / repo:
 
 ## Expected behavior
 
-A clear and concise description of what you expected to happen.
+<!-- A clear and concise description of what you expected to happen. -->
 
-## Environment (please complete the following information):
+## Screenshots
 
- - Theme Version: [e.g. v4.0.0]
- - Vuepress Version: [e.g. v2.0.0]
- - OS: [e.g. Windows 10, iOS, Android]
- - Browser: [e.g. chrome 74]
+<!-- If applicable, add screenshots to help explain your problem. -->
 
-## Additional context
+## Environment info
 
-Add any other context about the problem here.
+- Browser:
+- Output of `vuepress info`:
+
+```bash
+# Paste output of `vuepress info` here
+```
