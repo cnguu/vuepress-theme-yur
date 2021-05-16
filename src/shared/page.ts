@@ -1,4 +1,5 @@
 import type { GitPluginPageData } from '@vuepress/plugin-git'
+
 import type { NavLink, SidebarConfig } from './nav'
 
 export interface DefaultThemePageData extends GitPluginPageData {
