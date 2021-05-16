@@ -41,16 +41,17 @@
   },
   "prettier": "prettier-config-vuepress",
   "dependencies": {
-    "@vuepress/cli": "2.0.0-beta.13",
+    "@vuepress/cli": "2.0.0-beta.14",
     "@vuepress/client": "2.0.0-beta.12",
-    "@vuepress/core": "2.0.0-beta.12",
-    "@vuepress/plugin-theme-data": "2.0.0-beta.12",
+    "@vuepress/core": "2.0.0-beta.14",
+    "@vuepress/plugin-git": "^2.0.0-beta.14",
+    "@vuepress/plugin-theme-data": "2.0.0-beta.14",
     "@vuepress/shared": "2.0.0-beta.7",
     "@vuepress/utils": "2.0.0-beta.11",
     "less": "^4.1.1",
     "less-loader": "^8.1.1",
     "vue": "^3.0.11",
-    "vue-router": "^4.0.6"
+    "vue-router": "^4.0.8"
   },
   "devDependencies": {
     "anywhere": "^1.5.0",
@@ -60,7 +61,7 @@
     "eslint-config-vuepress-typescript": "^2.2.1",
     "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1",
+    "prettier": "^2.3.0",
     "prettier-config-vuepress": "^1.2.0",
     "rimraf": "^3.0.2",
     "sort-package-json": "^1.49.0",
