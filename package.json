@@ -23,7 +23,9 @@
   ],
   "scripts": {
     "build": "vuepress build docs",
-    "dev": "vuepress dev docs"
+    "dev": "vuepress dev docs",
+    "preinstall": "npx only-allow pnpm",
+    "lint-staged": "lint-staged -c ./.husky/lintstagedrc.js"
   },
   "dependencies": {
     "@vue/shared": "^3.2.31",
