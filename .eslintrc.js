@@ -1,22 +1,61 @@
 module.exports = {
   root: true,
-  parserOptions: {
-    parser: "babel-eslint",
-    sourceType: "module"
-  },
   env: {
-    browser: true
+    browser: true,
+    node: true,
+    es6: true,
   },
-  extends: ["prettier", "plugin:vue/essential"],
-  plugins: ["vue"],
-  globals: {
-    ga: true,
-    __statics: true,
-    process: true,
-    chrome: true
+  parser: 'vue-eslint-parser',
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
+    jsxPragma: 'React',
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
+  plugins: ['prettier', 'import'],
+  extends: ['eslint:recommended', 'prettier'],
   rules: {
-    "prefer-promise-reject-errors": "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
-  }
+    'prettier/prettier': 'error',
+    'linebreak-style': ['error', 'unix'],
+    'no-unused-vars': 'warn',
+
+    // vue
+    'vue/multi-word-component-names': 'off',
+    'vue/require-default-prop': 'off',
+    'vue/one-component-per-file': 'off',
+
+    // import
+    'import/first': 'error',
+    'import/no-duplicates': 'error',
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type'],
+        pathGroups: [
+          {
+            pattern: 'vue',
+            group: 'external',
+            position: 'before',
+          },
+          {
+            pattern: '@vue/**',
+            group: 'external',
+            position: 'before',
+          },
+          {
+            pattern: '@/**',
+            group: 'internal',
+          },
+        ],
+        pathGroupsExcludedImportTypes: ['type'],
+      },
+    ],
+  },
+  globals: {
+    defineProps: true,
+    defineEmits: true,
+    defineExpose: true,
+  },
 };

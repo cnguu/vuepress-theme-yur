@@ -1,21 +1,16 @@
 # VuePress Theme - Yur
 
-![](https://img.shields.io/npm/dt/vuepress-theme-yur.svg)
-![](https://img.shields.io/static/v1.svg?label=VuePress&message=1.7.1&color=informational)
-![](https://img.shields.io/static/v1.svg?label=License&message=MIT&color=critical)
+[![release](https://badgen.net/github/release/cnguu/vuepress-theme-yur)](https://www.npmjs.com/package/vuepress)
+[![license](https://badgen.net/github/license/cnguu/vuepress-theme-yur)](https://github.com/cnguu/vuepress-theme-yur/blob/main/LICENSE)
 
 ## Introduction
 
-:heart: Yur theme for [VuePress](https://vuepress.vuejs.org)
+:heart: Yur theme for [VuePress](https://v2.vuepress.vuejs.org/)
 
 :revolving_hearts: [Live Demo](https://blog.cnguu.cn/)
 
 :book: [Docs](https://wiki.cnguu.cn/)
 
-## License
-
-[MIT](https://cdn.jsdelivr.net/gh/cnguu/vuepress-theme-yur@master/LICENSE)
-
 ## Thanks
 
-[![JetBrains](https://cdn.jsdelivr.net/gh/cnguu/vuepress-theme-yur@master/jetbrains.svg)](https://www.jetbrains.com/?from=vuepress-theme-yur)
+[![JetBrains](https://cdn.jsdelivr.net/gh/cnguu/vuepress-theme-yur@main/jetbrains.svg)](https://www.jetbrains.com/?from=vuepress-theme-yur)
