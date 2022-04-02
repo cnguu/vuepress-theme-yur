@@ -2,6 +2,7 @@
   import { pageData, usePageFrontmatter } from '@vuepress/client';
 
   import Wallpaper from '@/yur/components/Wallpaper.vue';
+  import Sidebar from '@/yur/components/Sidebar.vue';
 
   const pageFrontMatter = usePageFrontmatter();
 
@@ -11,16 +12,14 @@
 <template>
   <Wallpaper />
 
-  <div class="sidebar">导航</div>
+  <Sidebar />
+
   <div class="container">
     <slot name="view" />
   </div>
 </template>
 
 <style lang="less">
-  .sidebar {
-  }
-
   .container {
   }
 </style>

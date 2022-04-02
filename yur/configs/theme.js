@@ -1,4 +1,5 @@
 import WallpaperJpg from '@/yur/assets/img/wallpaper.jpg';
+import Logo64Png from '@/yur/assets/img/logo64.png';
 import WallpaperWebm from '@/yur/assets/video/wallpaper.webm';
 
 /**
@@ -29,6 +30,7 @@ export const config = () => {
     },
     // 侧边栏
     sidebar: {
+      logo: Logo64Png,
       // 宽度
       width: '50px',
     },
