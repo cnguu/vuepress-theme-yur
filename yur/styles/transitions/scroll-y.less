@@ -1,0 +1,23 @@
+.scroll-y {
+  &-enter-active,
+  &-leave-active {
+    transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+  }
+
+  &-move {
+    transition: transform 0.6s;
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+
+  &-enter {
+    transform: translateY(-16px);
+  }
+
+  &-leave-to {
+    transform: translateY(16px);
+  }
+}

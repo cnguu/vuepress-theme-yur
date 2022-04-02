@@ -10,7 +10,9 @@ module.exports = {
   head: [['link', { rel: 'icon', href: '/logo64.png' }]],
   locales: {},
   theme: resolve('../../yur/index.js'),
-  themeConfig: {},
+  themeConfig: {
+    a: 1,
+  },
   bundler: '@vuepress/bundler-webpack',
   bundlerConfig: {},
   dest: resolve('../dist'),
