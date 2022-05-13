@@ -55,7 +55,7 @@
     "serve": "^13.0.2",
     "sort-package-json": "^1.55.0",
     "tailwindcss": "^3.0.23",
-    "vue-eslint-parser": "^8.3.0",
+    "vue-eslint-parser": "^9.0.1",
     "webpack": "^5.71.0"
   },
   "engines": {
