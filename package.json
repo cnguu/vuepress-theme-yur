@@ -33,7 +33,7 @@
     "vuepress": "^2.0.0-beta.37"
   },
   "devDependencies": {
-    "@pnpm/find-workspace-packages": "^5.0.0",
+    "@pnpm/find-workspace-packages": "^6.0.2",
     "@pnpm/logger": "^5.0.0",
     "@pnpm/types": "^8.0.0",
     "@vuepress/bundler-webpack": "^2.0.0-beta.37",
