@@ -35,7 +35,7 @@
   "devDependencies": {
     "@pnpm/find-workspace-packages": "^6.0.4",
     "@pnpm/logger": "^5.0.0",
-    "@pnpm/types": "^8.0.0",
+    "@pnpm/types": "^9.0.0",
     "@vuepress/bundler-webpack": "^2.0.0-beta.37",
     "@vuepress/client": "^2.0.0-beta.37",
     "@vuepress/core": "^2.0.0-beta.37",
