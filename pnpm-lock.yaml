@@ -56,7 +56,7 @@ devDependencies:
     version: 2.25.4(eslint@8.12.0)
   eslint-plugin-prettier:
     specifier: ^4.0.0
-    version: 4.0.0(eslint-config-prettier@8.5.0)(eslint@8.12.0)(prettier@2.6.1)
+    version: 4.2.1(eslint-config-prettier@8.5.0)(eslint@8.12.0)(prettier@2.6.1)
   eslint-plugin-vue:
     specifier: ^9.0.1
     version: 9.1.0(eslint@8.12.0)
@@ -2632,9 +2632,9 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-prettier@4.0.0(eslint-config-prettier@8.5.0)(eslint@8.12.0)(prettier@2.6.1):
-    resolution: {integrity: sha512-98MqmCJ7vJodoQK359bqQWaxOE0CS8paAz/GgjaZLyex4TTk3g9HugoO89EqWCrFiOqn9EVvcoo7gZzONCWVwQ==}
-    engines: {node: '>=6.0.0'}
+  /eslint-plugin-prettier@4.2.1(eslint-config-prettier@8.5.0)(eslint@8.12.0)(prettier@2.6.1):
+    resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
+    engines: {node: '>=12.0.0'}
     peerDependencies:
       eslint: '>=7.28.0'
       eslint-config-prettier: '*'
