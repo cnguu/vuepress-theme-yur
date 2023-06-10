@@ -89,7 +89,7 @@ devDependencies:
     version: 3.0.23(autoprefixer@10.4.4)(postcss@8.4.12)
   vue-eslint-parser:
     specifier: ^9.0.1
-    version: 9.0.2(eslint@8.12.0)
+    version: 9.3.0(eslint@8.12.0)
   webpack:
     specifier: ^5.71.0
     version: 5.71.0
@@ -1968,7 +1968,7 @@ packages:
       postcss-modules-scope: 3.0.0(postcss@8.4.12)
       postcss-modules-values: 4.0.0(postcss@8.4.12)
       postcss-value-parser: 4.2.0
-      semver: 7.3.7
+      semver: 7.5.1
       webpack: 5.71.0
     dev: true
 
@@ -2661,7 +2661,7 @@ packages:
       nth-check: 2.0.1
       postcss-selector-parser: 6.0.10
       semver: 7.3.7
-      vue-eslint-parser: 9.0.2(eslint@8.12.0)
+      vue-eslint-parser: 9.3.0(eslint@8.12.0)
       xml-name-validator: 4.0.0
     transitivePeerDependencies:
       - supports-color
@@ -4514,7 +4514,7 @@ packages:
       cosmiconfig: 7.0.1
       klona: 2.0.5
       postcss: 8.4.12
-      semver: 7.3.7
+      semver: 7.5.1
       webpack: 5.71.0
     dev: true
 
@@ -5663,8 +5663,8 @@ packages:
       vue: 3.2.31
     dev: false
 
-  /vue-eslint-parser@9.0.2(eslint@8.12.0):
-    resolution: {integrity: sha512-uCPQwTGjOtAYrwnU+76pYxalhjsh7iFBsHwBqDHiOPTxtICDaraO4Szw54WFTNZTAEsgHHzqFOu1mmnBOBRzDA==}
+  /vue-eslint-parser@9.3.0(eslint@8.12.0):
+    resolution: {integrity: sha512-48IxT9d0+wArT1+3wNIy0tascRoywqSUe2E1YalIC1L8jsUGe5aJQItWfRok7DVFGz3UYvzEI7n5wiTXsCMAcQ==}
     engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: '>=6.0.0'
@@ -5676,7 +5676,7 @@ packages:
       espree: 9.3.1
       esquery: 1.4.0
       lodash: 4.17.21
-      semver: 7.3.7
+      semver: 7.5.1
     transitivePeerDependencies:
       - supports-color
     dev: true
