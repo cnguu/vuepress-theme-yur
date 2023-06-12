@@ -44,7 +44,7 @@ devDependencies:
     version: 2.0.0-beta.37
   autoprefixer:
     specifier: ^10.4.4
-    version: 10.4.4(postcss@8.4.12)
+    version: 10.4.14(postcss@8.4.12)
   eslint:
     specifier: ^8.12.0
     version: 8.12.0
@@ -86,7 +86,7 @@ devDependencies:
     version: 2.4.1
   tailwindcss:
     specifier: ^3.0.23
-    version: 3.0.23(autoprefixer@10.4.4)(postcss@8.4.12)
+    version: 3.0.23(autoprefixer@10.4.14)(postcss@8.4.12)
   vue-eslint-parser:
     specifier: ^9.0.1
     version: 9.3.0(eslint@8.12.0)
@@ -881,7 +881,7 @@ packages:
       '@vuepress/core': 2.0.0-beta.37
       '@vuepress/shared': 2.0.0-beta.37
       '@vuepress/utils': 2.0.0-beta.37
-      autoprefixer: 10.4.4(postcss@8.4.12)
+      autoprefixer: 10.4.14(postcss@8.4.12)
       connect-history-api-fallback: 1.6.0
       postcss: 8.4.12
       postcss-csso: 6.0.0(postcss@8.4.12)
@@ -907,7 +907,7 @@ packages:
       '@vuepress/core': 2.0.0-beta.37
       '@vuepress/shared': 2.0.0-beta.37
       '@vuepress/utils': 2.0.0-beta.37
-      autoprefixer: 10.4.4(postcss@8.4.12)
+      autoprefixer: 10.4.14(postcss@8.4.12)
       chokidar: 3.5.3
       copy-webpack-plugin: 10.2.4(webpack@5.71.0)
       css-loader: 6.7.1(webpack@5.71.0)
@@ -1546,15 +1546,15 @@ packages:
       lodash: 4.17.21
     dev: true
 
-  /autoprefixer@10.4.4(postcss@8.4.12):
-    resolution: {integrity: sha512-Tm8JxsB286VweiZ5F0anmbyGiNI3v3wGv3mz9W+cxEDYB/6jbnj6GM9H9mK3wIL8ftgl+C07Lcwb8PG5PCCPzA==}
+  /autoprefixer@10.4.14(postcss@8.4.12):
+    resolution: {integrity: sha512-FQzyfOsTlwVzjHxKEqRIAdJx9niO6VCBCoEwax/VLSoQF29ggECcPuBqUMZ+u8jCZOPSy8b8/8KnuFbp0SaFZQ==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
     peerDependencies:
       postcss: ^8.1.0
     dependencies:
-      browserslist: 4.20.2
-      caniuse-lite: 1.0.30001323
+      browserslist: 4.21.7
+      caniuse-lite: 1.0.30001502
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -1680,11 +1680,21 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001323
-      electron-to-chromium: 1.4.103
+      caniuse-lite: 1.0.30001502
+      electron-to-chromium: 1.4.428
       escalade: 3.1.1
-      node-releases: 2.0.2
+      node-releases: 2.0.12
       picocolors: 1.0.0
+
+  /browserslist@4.21.7:
+    resolution: {integrity: sha512-BauCXrQ7I2ftSqd2mvKHGo85XR0u7Ru3C/Hxsy/0TkfCtjrmAbPdzLGasmoiBxplpDXlPvdjX9u7srIMfgasNA==}
+    engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
+    hasBin: true
+    dependencies:
+      caniuse-lite: 1.0.30001502
+      electron-to-chromium: 1.4.428
+      node-releases: 2.0.12
+      update-browserslist-db: 1.0.11(browserslist@4.21.7)
 
   /buffer-from@1.1.2:
     resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
@@ -1769,8 +1779,8 @@ packages:
       path-temp: 2.0.0
     dev: true
 
-  /caniuse-lite@1.0.30001323:
-    resolution: {integrity: sha512-e4BF2RlCVELKx8+RmklSEIVub1TWrmdhvA5kEUueummz1XyySW0DVk+3x9HyhU9MuWTa2BhqLgEuEmUwASAdCA==}
+  /caniuse-lite@1.0.30001502:
+    resolution: {integrity: sha512-AZ+9tFXw1sS0o0jcpJQIXvFTOB/xGiQ4OQ2t98QX3NDn2EZTSRBC801gxrsGgViuq2ak/NLkNgSNEPtCr5lfKg==}
 
   /chalk-template@0.4.0:
     resolution: {integrity: sha512-/ghrgmhfY8RaSdeo43hNXxpoHAtxdbskUHjPpfqUWGttFgycUhYPGx3YZBCnUCvOa7Doivn1IZec3DEGFoMgLg==}
@@ -2349,8 +2359,8 @@ packages:
     resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
     dev: true
 
-  /electron-to-chromium@1.4.103:
-    resolution: {integrity: sha512-c/uKWR1Z/W30Wy/sx3dkZoj4BijbXX85QKWu9jJfjho3LBAXNEGAEW3oWiGb+dotA6C6BzCTxL2/aLes7jlUeg==}
+  /electron-to-chromium@1.4.428:
+    resolution: {integrity: sha512-L7uUknyY286of0AYC8CKfgWstD0Smk2DvHDi9F0GWQhSH90Bzi7iDrmCbZKz75tYJxeGSAc7TYeKpmbjMDoh1w==}
 
   /emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -4249,15 +4259,15 @@ packages:
     engines: {node: '>= 6.13.0'}
     dev: true
 
-  /node-releases@2.0.2:
-    resolution: {integrity: sha512-XxYDdcQ6eKqp/YjI+tb2C5WM2LgjnZrfYg4vgQt49EK268b6gYCHsBLrK2qvJo4FmCtqmKezb0WZFK4fkrZNsg==}
+  /node-releases@2.0.12:
+    resolution: {integrity: sha512-QzsYKWhXTWx8h1kIvqfnC++o0pEmpRQA/aenALsL2F4pqNVr7YzcdMlDij5WBnwftRbJCNJL/O7zdKaxKPHqgQ==}
 
   /normalize-path@3.0.0:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
 
   /normalize-range@0.1.2:
-    resolution: {integrity: sha1-LRDAa9/TEuqXd2laTShDlFa3WUI=}
+    resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==}
     engines: {node: '>=0.10.0'}
 
   /normalize-registry-url@2.0.0:
@@ -5504,7 +5514,7 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  /tailwindcss@3.0.23(autoprefixer@10.4.4)(postcss@8.4.12):
+  /tailwindcss@3.0.23(autoprefixer@10.4.14)(postcss@8.4.12):
     resolution: {integrity: sha512-+OZOV9ubyQ6oI2BXEhzw4HrqvgcARY38xv3zKcjnWtMIZstEsXdI9xftd1iB7+RbOnj2HOEzkA0OyB5BaSxPQA==}
     engines: {node: '>=12.13.0'}
     hasBin: true
@@ -5513,7 +5523,7 @@ packages:
       postcss: ^8.0.9
     dependencies:
       arg: 5.0.1
-      autoprefixer: 10.4.4(postcss@8.4.12)
+      autoprefixer: 10.4.14(postcss@8.4.12)
       chalk: 4.1.2
       chokidar: 3.5.3
       color-name: 1.1.4
@@ -5693,6 +5703,16 @@ packages:
   /upath@2.0.1:
     resolution: {integrity: sha512-1uEe95xksV1O0CYKXo8vQvN1JEbtJp7lb7C5U9HMsIp6IVwntkH/oNUzyVNQSd4S1sYk2FpSSW44FqMc8qee5w==}
     engines: {node: '>=4'}
+
+  /update-browserslist-db@1.0.11(browserslist@4.21.7):
+    resolution: {integrity: sha512-dCwEFf0/oT85M1fHBg4F0jtLwJrutGoHSQXCh7u4o2t1drG+c0a9Flnqww6XUKSfQMPpJBRjU8d4RXB09qtvaA==}
+    hasBin: true
+    peerDependencies:
+      browserslist: '>= 4.21.0'
+    dependencies:
+      browserslist: 4.21.7
+      escalade: 3.1.1
+      picocolors: 1.0.0
 
   /update-check@1.5.4:
     resolution: {integrity: sha512-5YHsflzHP4t1G+8WGPlvKbJEbAJGCgw+Em+dGR1KmBUbr1J36SJBqlHLjR7oob7sco5hWHGQVcr9B2poIVDDTQ==}
